@@ -1,7 +1,9 @@
 package bootpay.co.kr.samplepayment.model;
 
-public class Item {
-    private Item() { /* ignore */ }
+public final class Item {
+    private Item() {
+        this(null, 0, null, 0); /* not allow */
+    }
 
     public Item(String name, int quantity, String primaryKey, double price) {
         this.name = name;
@@ -10,8 +12,24 @@ public class Item {
         this.price = price;
     }
 
-    String name = "";
-    int quantity = 0;
-    String primaryKey = "";
-    double price = 0.0;
+    private final String name;
+    private final int quantity;
+    private final String primaryKey;
+    private final double price;
+
+    public final String getName() {
+        return name;
+    }
+
+    public final int getQuantity() {
+        return quantity;
+    }
+
+    public final String getPrimaryKey() {
+        return primaryKey;
+    }
+
+    public final double getPrice() {
+        return price;
+    }
 }

@@ -1,7 +1,6 @@
 package bootpay.co.kr.samplepayment;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -17,7 +16,6 @@ import android.os.Message;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
@@ -28,8 +26,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Locale;
 
+import bootpay.co.kr.samplepayment.model.Item;
 import bootpay.co.kr.samplepayment.model.Request;
 
 public class BootpayWebView extends WebView {
@@ -98,15 +98,8 @@ public class BootpayWebView extends WebView {
                         name() +
                         pg() +
                         method() +
-                        "items: [ " +
-                        "{ " +
-                        "item_name: 'test item', " +
-                        "qty: 1, " +
-                        "unique: '123', " +
-                        "price: 1000 " +
-                        "} " +
-                        "], " +
-                        "test_mode: 'true', " +
+                        items() +
+                        test_mode() +
                         "order_id: (new Date()).getTime(), " +
                         "params: {test: '테스트', var1: '가짜 데이터1'}, " +
                         "feedback_url: \"https://dev-api.bootpay.co.kr/callback\" " +
@@ -189,7 +182,7 @@ public class BootpayWebView extends WebView {
     }
 
     private void request(String query) {
-        load("BootPay.request({ " + query + " });");
+        load(String.format(Locale.getDefault(), "BootPay.request({ %s });", query));
     }
 
     private String price() {
@@ -216,6 +209,27 @@ public class BootpayWebView extends WebView {
         return String.format(Locale.getDefault(), "test_mode: '%s', ", request.isTest_mode());
     }
 
+    private String items() {
+        StringBuilder builder = new StringBuilder().append("items: [ ");
+        Locale locale = Locale.getDefault();
+        List<Item> items = request.getItems();
+        int size = items.size();
+        if (size > 0) for (int i = 0; i < size; i++) {
+            Item item = items.get(i);
+            if (item != null) {
+                builder.append("{ ");
+                builder.append(String.format(locale, "item_name: '%s', ", item.getName()));
+                builder.append(String.format(locale, "qty: %d, ", item.getQuantity()));
+                builder.append(String.format(locale, "unique: '%s', ", item.getPrimaryKey()));
+                builder.append(String.format(locale, "price: %f, ", item.getPrice()));
+                if (i != size - 1) builder.append("}, ");
+                else builder.append("} ");
+            }
+        }
+        builder.append("], ");
+        return builder.toString();
+    }
+
 
     void setData(Request request) {
         this.request = request;
@@ -235,7 +249,7 @@ public class BootpayWebView extends WebView {
     }
 
     private void load(String script) {
-        loadUrl(String.format(Locale.getDefault(), "javascript:(function(){%s})()", script));
+        loadUrl(String.format(Locale.getDefault(), "javascript:(function(){ %s })()", script));
     }
 
     @SuppressLint("setJavaScriptEnabled")
@@ -293,7 +307,7 @@ public class BootpayWebView extends WebView {
     }
 
     private void onErrorHandled(String data) {
-        if (listener != null) listener.onError(data);
+        if (listener != null) listener.onError(new Exception(data));
     }
 
     private void onCancelHandled(String data) {

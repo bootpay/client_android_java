@@ -2,17 +2,14 @@ package bootpay.co.kr.samplepayment;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import java.lang.ref.WeakReference;
-import java.util.function.Consumer;
 
 import bootpay.co.kr.samplepayment.model.Item;
 import bootpay.co.kr.samplepayment.model.Request;
@@ -63,14 +60,15 @@ public class PaymentDialog extends DialogFragment {
     public static class Builder {
         private WeakReference<FragmentManager> fragmentManager;
         private Request result;
-        private Consumer<Exception> error;
-        private Consumer<String> cancel;
-        private Consumer<String> confirm;
-        private Consumer<String> done;
         private EventListener listener;
+        private ErrorListener error;
+        private DoneListener done;
+        private CancelListener cancel;
+        private ConfirmListener confirm;
+
 
         private Builder() {
-
+            // not allow
         }
 
         public Builder(FragmentManager fm) {
@@ -118,28 +116,28 @@ public class PaymentDialog extends DialogFragment {
             return this;
         }
 
-        Builder setResponseListener(EventListener listener) {
+        Builder setEventListener(EventListener listener) {
             this.listener = listener;
             return this;
         }
 
-        Builder onCancel(Consumer<String> c) {
-            cancel = c;
+        Builder onCancel(CancelListener listener) {
+            cancel = listener;
             return this;
         }
 
-        Builder onConfirm(Consumer<String> c) {
-            confirm = c;
+        Builder onConfirm(ConfirmListener listener) {
+            confirm = listener;
             return this;
         }
 
-        Builder onDone(Consumer<String> c) {
-            done = c;
+        Builder onDone(DoneListener listener) {
+            done = listener;
             return this;
         }
 
-        Builder onError(Consumer<Exception> e) {
-            error = e;
+        Builder onError(ErrorListener listener) {
+            error = listener;
             return this;
         }
 
@@ -158,23 +156,23 @@ public class PaymentDialog extends DialogFragment {
                     .setData(result)
                     .setOnResponseListener(listener == null ? new EventListener() {
                         @Override
-                        public void onError(String message) {
-                            error(message);
+                        public void onError(Exception e) {
+                            error(e.getMessage());
                         }
 
                         @Override
                         public void onCancel(String message) {
-                            if (cancel != null) cancel.accept(message);
+                            if (cancel != null) cancel.onCancel(message);
                         }
 
                         @Override
                         public void onConfirmed(String message) {
-                            if (confirm != null) confirm.accept(message);
+                            if (confirm != null) confirm.onConfirmed(message);
                         }
 
                         @Override
                         public void onDone(String message) {
-                            if (done != null) done.accept(message);
+                            if (done != null) done.onDone(message);
                         }
                     } : listener)
                     .show(fragmentManager.get(), "dialog");
@@ -184,9 +182,10 @@ public class PaymentDialog extends DialogFragment {
             try {
                 throw new Exception(message);
             } catch (Exception e) {
-                if (error != null) error.accept(e);
-                else throw new RuntimeException(e.getMessage());
+                if (error != null) error.onError(e);
+                else throw new RuntimeException(message);
             }
+            /* always */
             return true;
         }
 

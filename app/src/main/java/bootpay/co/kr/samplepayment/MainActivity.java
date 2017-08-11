@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
                                 .setMethod("card")
                                 .setName("맥북프로임다")
                                 .setPrice(1000)
+                                .addItem("마우스", 1, "123", 100)
+                                .addItem("키보드", 1, "13k", 200)
                                 .onConfirm(s -> Log.d("confirm", s == null ? "null" : s))
                                 .onDone(s -> Log.d("done", s == null ? "null" : s))
                                 .onCancel(s -> Log.d("cancel", s == null ? "null" : s))
