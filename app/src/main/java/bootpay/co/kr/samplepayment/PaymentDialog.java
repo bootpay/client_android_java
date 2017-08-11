@@ -22,9 +22,9 @@ import bootpay.co.kr.samplepayment.model.Request;
 
 public class PaymentDialog extends DialogFragment {
 
-    BootpayWebView bootpay;
-    EventListener listener;
-    Request result;
+    private BootpayWebView bootpay;
+    private EventListener listener;
+    private Request result;
 
     @Deprecated
     public PaymentDialog() {
@@ -54,8 +54,9 @@ public class PaymentDialog extends DialogFragment {
 
     void afterViewInit() {
         if (bootpay != null) {
-            bootpay.setData(result);
-            bootpay.setOnResponseListener(listener);
+            bootpay.setData(result)
+                    .setDialog(getDialog())
+                    .setOnResponseListener(listener);
         }
     }
 
@@ -189,8 +190,8 @@ public class PaymentDialog extends DialogFragment {
             if (listener == null && error == null || cancel == null || confirm == null || done == null)
                 error("Must to be required to handle events.");
 
-            new PaymentDialog()
-                    .setData(result)
+            final PaymentDialog dialog = new PaymentDialog();
+            dialog.setData(result)
                     .setOnResponseListener(listener == null ? new EventListener() {
                         @Override
                         public void onError(String message) {

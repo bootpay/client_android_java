@@ -77,6 +77,8 @@ public final class BootpayWebView extends WebView {
 
     private EventListener listener;
 
+    private Dialog dialog;
+
     public BootpayWebView(Context context) {
         this(context, null);
     }
@@ -91,45 +93,49 @@ public final class BootpayWebView extends WebView {
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-
-        setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                setDevice();
-                load(
-                        request(
-                                price(),
-                                application_id(),
-                                name(),
-                                pg(),
-                                method(),
-                                items(),
-                                test_mode(),
-                                order_id()
-                        ),
-                        error(),
-                        cancel(),
-                        confirm(),
-                        done() + ";"
-                );
-            }
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                Intent intent = parse(url);
-                if (isIntentOf(url)) {
-                    if (isExistInfo(intent) || isExistPackage(intent)) start(intent);
-                    else startMarket(intent);
-                } else if (isMarketOf(url)) start(intent);
-                return true;
-            }
-        });
-
         if (isNetworkConnected()) {
             setting(context);
             loadUrl(BOOTPAY);
+
+            setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    setDevice();
+                    load(
+                            request(
+                                    price(),
+                                    application_id(),
+                                    name(),
+                                    pg(),
+                                    method(),
+                                    items(),
+                                    test_mode(),
+                                    order_id()
+                            ),
+                            error(),
+                            cancel(),
+                            confirm(),
+                            done() + ";"
+                    );
+                }
+
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    Intent intent = parse(url);
+                    if (isIntentOf(url)) {
+                        if (isExistInfo(intent) || isExistPackage(intent)) start(intent);
+                        else startMarket(intent);
+                    } else if (isMarketOf(url)) start(intent);
+                    return true;
+                }
+            });
         } else networkErrorDialog(context).show();
+    }
+
+    public BootpayWebView setDialog(Dialog dialog) {
+        this.dialog = dialog;
+        return this;
     }
 
     boolean back(Dialog dialog) {
@@ -258,8 +264,9 @@ public final class BootpayWebView extends WebView {
         return String.format(locale, "order_id:'%s'", request.getOrderId());
     }
 
-    void setData(Request request) {
+    public BootpayWebView setData(Request request) {
         this.request = request;
+        return this;
     }
 
     private AlertDialog networkErrorDialog(Context context) {
@@ -343,10 +350,12 @@ public final class BootpayWebView extends WebView {
 
     private void onErrorHandled(String data) {
         if (listener != null) listener.onError(data);
+        if (dialog != null) dialog.dismiss();
     }
 
     private void onCancelHandled(String data) {
         if (listener != null) listener.onCancel(data);
+        if (dialog != null) dialog.dismiss();
     }
 
     private void onConfirmeHandled(String data) {
@@ -355,6 +364,7 @@ public final class BootpayWebView extends WebView {
 
     private void onDoneHandled(String data) {
         if (listener != null) listener.onDone(data);
+        if (dialog != null) dialog.dismiss();
     }
 
     private class Client extends WebChromeClient {

@@ -401,8 +401,8 @@ f:prebuilt/android/support/v7/appcompat/R$drawable.dex
 f:prebuilt/android/support/v7/appcompat/R$color.dex
 f:prebuilt/android/support/v7/appcompat/R$styleable.dex
 f:prebuilt/android/support/v7/appcompat/R$id.dex
-f:prebuilt/android/support/v7/appcompat/R$integer.dex
 f:prebuilt/android/support/v7/appcompat/R$attr.dex
+f:prebuilt/android/support/v7/appcompat/R$integer.dex
 f:prebuilt/android/support/v7/appcompat/R$style.dex
 f:prebuilt/android/support/v7/appcompat/R$string.dex
 f:prebuilt/android/support/v7/appcompat/R$dimen.dex
@@ -2027,8 +2027,8 @@ f:jayce/android/support/v7/appcompat/R$string.jayce
 f:jayce/android/support/v7/appcompat/R.jayce
 f:jayce/android/support/v7/appcompat/R$anim.jayce
 f:jayce/android/support/v7/appcompat/R$integer.jayce
-f:jayce/android/support/v7/appcompat/R$bool.jayce
 f:jayce/android/support/v7/appcompat/R$drawable.jayce
+f:jayce/android/support/v7/appcompat/R$bool.jayce
 f:jayce/android/support/v7/appcompat/R$attr.jayce
 f:jayce/android/support/v7/appcompat/R$id.jayce
 f:jayce/android/support/v7/appcompat/R$style.jayce
