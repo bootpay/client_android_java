@@ -3,6 +3,7 @@ package bootpay.co.kr.samplepayment;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.annotation.AnyThread;
 import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -27,6 +28,7 @@ public class PaymentDialog extends DialogFragment {
 
     @Deprecated
     public PaymentDialog() {
+        // not allow
     }
 
     @Override
@@ -62,6 +64,7 @@ public class PaymentDialog extends DialogFragment {
         return this;
     }
 
+    @AnyThread
     public static class Builder {
         private WeakReference<FragmentManager> fragmentManager;
         private Request result;
@@ -101,7 +104,7 @@ public class PaymentDialog extends DialogFragment {
             return this;
         }
 
-        Builder addItem(@NonNull String name, @IntRange(from = 1) int quantity, String primaryKey, @FloatRange(from = 0.0) double price) {
+        Builder addItem(@NonNull String name, @IntRange(from = 1) int quantity, String primaryKey, @IntRange(from = 0) int price) {
             result.addItem(new Item(name, quantity, primaryKey, price));
             return this;
         }
@@ -161,13 +164,28 @@ public class PaymentDialog extends DialogFragment {
             return this;
         }
 
+        /**
+         * Must have value:
+         *
+         * @see Request#application_id
+         * @see Request#pg
+         * @see Request#price
+         * @see Request#order_id
+         */
         public void show() {
 
             if (isNullOrEmpty(result.getApplication_id()))
                 error("Application id is not configured.");
-            if (isNullOrEmpty(result.getPg())) error("PG is not configured.");
-            if (isNullOrEmpty(result.getPrice())) error("Price is not configured.");
-            if (isNullOrEmpty(result.getOrderId())) error("Order id is not configured.");
+
+            if (isNullOrEmpty(result.getPg()))
+                error("PG is not configured.");
+
+            if (isNullOrEmpty(result.getPrice()))
+                error("Price is not configured.");
+
+            if (isNullOrEmpty(result.getOrderId()))
+                error("Order id is not configured.");
+
             if (listener == null && error == null || cancel == null || confirm == null || done == null)
                 error("Must to be required to handle events.");
 
@@ -205,8 +223,8 @@ public class PaymentDialog extends DialogFragment {
             return (value == null) || (value.length() <= 0);
         }
 
-        private boolean isNullOrEmpty(double value) {
-            return value <= 0.0;
+        private boolean isNullOrEmpty(int value) {
+            return value <= 0;
         }
     }
 

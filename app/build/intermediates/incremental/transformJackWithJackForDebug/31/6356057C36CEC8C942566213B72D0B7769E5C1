@@ -1,5 +1,5 @@
 #Library properties
-#Fri Aug 11 19:12:19 KST 2017
+#Fri Aug 11 21:47:35 KST 2017
 lib.version.major=3
 jayce.version.minor=4
 config.jack.optimization.expression-simplifier=true
@@ -46,7 +46,7 @@ config.jack.obfuscation.mixedcaseclassname=false
 config.jack.assert.policy=runtime
 config.jack.library.prebuilt.use=true
 config.jack.annotation.parameter.source-retention=true
-config.jack.android.min-api-level=24
+config.jack.android.min-api-level=17
 config.jack.preprocessor=false
 config.jack.annotation.parameter.runtime-retention=true
 config.jack.annotation.class-retention=true
@@ -70,8 +70,8 @@ config.jack.dex.optimizebranches=true
 config.jack.dex.debug.vars=true
 config.jack.annotation-processor.manual=false
 config.jack.dex.forcejumbo=true
-config.jack.optimization.inner-class.accessors=false
 config.jack.annotation.parameter.class-retention=true
+config.jack.optimization.inner-class.accessors=false
 config.jack.obfuscation.flattenpackage=false
 jayce.version.major=4
 config.jack.shrob.obfuscate=false

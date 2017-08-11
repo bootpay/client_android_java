@@ -1603,8 +1603,8 @@ f:prebuilt/bootpay/co/kr/samplepayment/-$Lambda$cN_952LEJ019dm3H2B4OsPP98GY.dex
 f:prebuilt/bootpay/co/kr/samplepayment/R$styleable.dex
 f:prebuilt/bootpay/co/kr/samplepayment/PaymentDialog.dex
 f:prebuilt/bootpay/co/kr/samplepayment/-$Lambda$9n4pViE2PdNIDo9lkDhHWaOVDrA$3.dex
-f:prebuilt/bootpay/co/kr/samplepayment/EventListener.dex
 f:prebuilt/bootpay/co/kr/samplepayment/-$Lambda$NNHv5RnkWPoQa_pEgBx8iU6t-S0$2.dex
+f:prebuilt/bootpay/co/kr/samplepayment/EventListener.dex
 f:prebuilt/bootpay/co/kr/samplepayment/IScriptFuction.dex
 f:prebuilt/bootpay/co/kr/samplepayment/R$attr.dex
 f:prebuilt/bootpay/co/kr/samplepayment/R$string.dex
@@ -1613,8 +1613,8 @@ f:prebuilt/bootpay/co/kr/samplepayment/ApplicationId.dex
 f:prebuilt/bootpay/co/kr/samplepayment/R$dimen.dex
 f:prebuilt/bootpay/co/kr/samplepayment/-$Lambda$9n4pViE2PdNIDo9lkDhHWaOVDrA.dex
 f:prebuilt/bootpay/co/kr/samplepayment/DoneListener.dex
-f:prebuilt/bootpay/co/kr/samplepayment/R$mipmap.dex
 f:prebuilt/bootpay/co/kr/samplepayment/R$bool.dex
+f:prebuilt/bootpay/co/kr/samplepayment/R$mipmap.dex
 f:prebuilt/bootpay/co/kr/samplepayment/-$Lambda$cN_952LEJ019dm3H2B4OsPP98GY$4.dex
 f:prebuilt/bootpay/co/kr/samplepayment/R$layout.dex
 f:prebuilt/bootpay/co/kr/samplepayment/BootpayWebView$2.dex
@@ -2027,8 +2027,8 @@ f:jayce/android/support/v7/appcompat/R$string.jayce
 f:jayce/android/support/v7/appcompat/R.jayce
 f:jayce/android/support/v7/appcompat/R$anim.jayce
 f:jayce/android/support/v7/appcompat/R$integer.jayce
-f:jayce/android/support/v7/appcompat/R$drawable.jayce
 f:jayce/android/support/v7/appcompat/R$bool.jayce
+f:jayce/android/support/v7/appcompat/R$drawable.jayce
 f:jayce/android/support/v7/appcompat/R$attr.jayce
 f:jayce/android/support/v7/appcompat/R$id.jayce
 f:jayce/android/support/v7/appcompat/R$style.jayce

@@ -266,7 +266,7 @@ public final class BootpayWebView extends WebView {
         if (networkErrorDialog == null) networkErrorDialog = new AlertDialog.Builder(context)
                 .setMessage("인터넷 연결이 끊어져 있습니다. 인터넷 연결 상태를 확인해주세요.")
                 .setPositiveButton("설정", (d, i) -> context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS)))
-                .setNegativeButton("확인", (d, i) -> { /* Ignore */ })
+                .setNegativeButton("확인", (d, i) -> d.dismiss())
                 .create();
         return networkErrorDialog;
     }
@@ -342,7 +342,7 @@ public final class BootpayWebView extends WebView {
     }
 
     private void onErrorHandled(String data) {
-        if (listener != null) listener.onError(new Exception(data));
+        if (listener != null) listener.onError(data);
     }
 
     private void onCancelHandled(String data) {
@@ -386,11 +386,12 @@ public final class BootpayWebView extends WebView {
 
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-            new AlertDialog.Builder(view.getContext())
+            AlertDialog dialog = new AlertDialog.Builder(view.getContext())
                     .setMessage(message)
                     .setCancelable(true)
-                    .create()
-                    .show();
+                    .create();
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
             result.confirm();
             return true;
         }

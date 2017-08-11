@@ -1,11 +1,15 @@
 package bootpay.co.kr.samplepayment.model;
 
+import android.support.annotation.FloatRange;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+
 public final class Item {
     private Item() {
-        this(null, 0, null, 0); /* not allow */
+        this("", 0, "", 0); /* not allow */
     }
 
-    public Item(String name, int quantity, String primaryKey, double price) {
+    public Item(@NonNull String name, @IntRange(from = 0) int quantity, @NonNull String primaryKey, @FloatRange(from = 0) double price) {
         this.name = name;
         this.quantity = quantity;
         this.primaryKey = primaryKey;
