@@ -1,15 +1,18 @@
 package bootpay.co.kr.samplepayment.model;
 
+import android.support.annotation.NonNull;
+
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
 public final class Request {
-    private boolean test_mode = false;
-    private double price = 0.0;
+    private boolean test_mode = true;
+    private int price = 0;
     private String application_id = "";
     private String name = "";
     private String pg = "";
+    private String order_id = "";
     private List<Item> items = new LinkedList<>();
     private String method = "";
     private String unit = "";
@@ -23,11 +26,11 @@ public final class Request {
         this.test_mode = test_mode;
     }
 
-    public final double getPrice() {
+    public final int getPrice() {
         return price;
     }
 
-    public final void setPrice(double price) {
+    public final void setPrice(int price) {
         this.price = price;
     }
 
@@ -35,7 +38,7 @@ public final class Request {
         return application_id;
     }
 
-    public final void setApplication_id(String application_id) {
+    public final void setApplication_id(@NonNull String application_id) {
         this.application_id = application_id;
     }
 
@@ -43,7 +46,7 @@ public final class Request {
         return name;
     }
 
-    public final void setName(String name) {
+    public final void setName(@NonNull String name) {
         this.name = name;
     }
 
@@ -51,8 +54,16 @@ public final class Request {
         return pg;
     }
 
-    public final void setPg(String pg) {
+    public final void setPg(@NonNull String pg) {
         this.pg = pg;
+    }
+
+    public final String getOrderId() {
+        return order_id;
+    }
+
+    public final void setOrder_id(@NonNull String order_id) {
+        this.order_id = order_id;
     }
 
     public final List<Item> getItems() {
@@ -67,7 +78,7 @@ public final class Request {
         this.items.addAll(items);
     }
 
-    public final void setItems(List<Item> items) {
+    public final void setItems(@NonNull List<Item> items) {
         this.items = items;
     }
 
@@ -75,7 +86,7 @@ public final class Request {
         return method;
     }
 
-    public final void setMethod(String method) {
+    public final void setMethod(@NonNull String method) {
         this.method = method;
     }
 
@@ -83,7 +94,7 @@ public final class Request {
         return unit;
     }
 
-    public final void setUnit(String unit) {
+    public final void setUnit(@NonNull String unit) {
         this.unit = unit;
     }
 
@@ -91,7 +102,7 @@ public final class Request {
         return feedback_url;
     }
 
-    public final void setFeedback_url(String feedback_url) {
+    public final void setFeedback_url(@NonNull String feedback_url) {
         this.feedback_url = feedback_url;
     }
 

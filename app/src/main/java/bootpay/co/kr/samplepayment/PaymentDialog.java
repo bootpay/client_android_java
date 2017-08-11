@@ -3,6 +3,9 @@ package bootpay.co.kr.samplepayment;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.annotation.FloatRange;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -10,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.ref.WeakReference;
+import java.util.Collection;
+import java.util.List;
 
 import bootpay.co.kr.samplepayment.model.Item;
 import bootpay.co.kr.samplepayment.model.Request;
@@ -76,27 +81,27 @@ public class PaymentDialog extends DialogFragment {
             fragmentManager = new WeakReference<>(fm);
         }
 
-        Builder setApplicationId(String id) {
+        Builder setApplicationId(@NonNull String id) {
             result.setApplication_id(id);
             return this;
         }
 
-        Builder setPrice(double price) {
+        Builder setPrice(@IntRange(from = 0) int price) {
             result.setPrice(price);
             return this;
         }
 
-        Builder setPG(String pg) {
+        Builder setPG(@NonNull String pg) {
             result.setPg(pg);
             return this;
         }
 
-        Builder setName(String name) {
+        Builder setName(@NonNull String name) {
             result.setName(name);
             return this;
         }
 
-        Builder addItem(String name, int quantity, String primaryKey, double price) {
+        Builder addItem(@NonNull String name, @IntRange(from = 1) int quantity, String primaryKey, @FloatRange(from = 0.0) double price) {
             result.addItem(new Item(name, quantity, primaryKey, price));
             return this;
         }
@@ -106,7 +111,22 @@ public class PaymentDialog extends DialogFragment {
             return this;
         }
 
-        Builder setMethod(String method) {
+        Builder addItems(Collection<Item> items) {
+            if (items != null) items.forEach(this::addItem);
+            return this;
+        }
+
+        Builder setItems(@NonNull List<Item> items) {
+            result.setItems(items);
+            return this;
+        }
+
+        Builder setOrderId(@NonNull String orderId) {
+            result.setOrder_id(orderId);
+            return this;
+        }
+
+        Builder setMethod(@NonNull String method) {
             result.setMethod(method);
             return this;
         }
