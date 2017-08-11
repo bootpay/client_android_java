@@ -195,19 +195,19 @@ public final class BootpayWebView extends WebView {
     }
 
     private String error() {
-        return "\n.error(function(data){Android.error(JSON.stringify(data));})";
+        return ".error(function(data){Android.error(JSON.stringify(data));})";
     }
 
     private String confirm() {
-        return "\n.confirm(function(data){Android.confirm(JSON.stringify(data));this.transactionConfirm(data);})";
+        return ".confirm(function(data){Android.confirm(JSON.stringify(data));this.transactionConfirm(data);})";
     }
 
     private String cancel() {
-        return "\n.cancel(function(data){Android.cancel(JSON.stringify(data));})";
+        return ".cancel(function(data){Android.cancel(JSON.stringify(data));})";
     }
 
     private String done() {
-        return "\n.done(function(data){Android.done(JSON.stringify(data));})";
+        return ".done(function(data){Android.done(JSON.stringify(data));})";
     }
 
     private String price() {

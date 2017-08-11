@@ -2,7 +2,7 @@ package bootpay.co.kr.samplepayment;
 
 public interface EventListener extends CancelListener, ConfirmListener, ErrorListener, DoneListener {
     @Override
-    void onError(Exception e);
+    void onError(String message);
 
     @Override
     void onCancel(String message);

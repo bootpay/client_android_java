@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                                 .onConfirm(s -> Log.d("confirm", s == null ? "null" : s))
                                 .onDone(s -> Log.d("done", s == null ? "null" : s))
                                 .onCancel(s -> Log.d("cancel", s == null ? "null" : s))
-                                .onError(Throwable::printStackTrace)
+                                .onError(s -> Log.d("error", s == null ? "null" : s))
                                 .show()
         );
     }

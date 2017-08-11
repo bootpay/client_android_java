@@ -164,20 +164,19 @@ public class PaymentDialog extends DialogFragment {
         public void show() {
 
             if (isNullOrEmpty(result.getApplication_id()))
-                if (error("Application id is not configured.")) return;
-
-            if (isNullOrEmpty(result.getPg()))
-                if (error("PG is not configured.")) return;
-
-            if (isNullOrEmpty(result.getPrice()))
-                if (error("Price is not configured.")) return;
+                error("Application id is not configured.");
+            if (isNullOrEmpty(result.getPg())) error("PG is not configured.");
+            if (isNullOrEmpty(result.getPrice())) error("Price is not configured.");
+            if (isNullOrEmpty(result.getOrderId())) error("Order id is not configured.");
+            if (listener == null && error == null || cancel == null || confirm == null || done == null)
+                error("Must to be required to handle events.");
 
             new PaymentDialog()
                     .setData(result)
                     .setOnResponseListener(listener == null ? new EventListener() {
                         @Override
-                        public void onError(Exception e) {
-                            error(e.getMessage());
+                        public void onError(String message) {
+                            if (error != null) error.onError(message);
                         }
 
                         @Override
@@ -199,14 +198,7 @@ public class PaymentDialog extends DialogFragment {
         }
 
         private boolean error(String message) {
-            try {
-                throw new Exception(message);
-            } catch (Exception e) {
-                if (error != null) error.onError(e);
-                else throw new RuntimeException(message);
-            }
-            /* always */
-            return true;
+            throw new RuntimeException(message);
         }
 
         private boolean isNullOrEmpty(String value) {
