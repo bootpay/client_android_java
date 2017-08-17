@@ -33,7 +33,7 @@ import java.util.StringJoiner;
 import bootpay.co.kr.samplepayment.model.Item;
 import bootpay.co.kr.samplepayment.model.Request;
 
-public final class BootpayWebView extends WebView {
+final class BootpayWebView extends WebView {
 
     private static final String BOOTPAY = "https://dev-app.bootpay.co.kr";
 
@@ -205,7 +205,7 @@ public final class BootpayWebView extends WebView {
     }
 
     private String confirm() {
-        return ".confirm(function(data){Android.confirm(JSON.stringify(data));this.transactionConfirm(data);})";
+        return ".confirm(function(data){Android.confirm(JSON.stringify(data));})";
     }
 
     private String cancel() {
@@ -238,6 +238,14 @@ public final class BootpayWebView extends WebView {
 
     private String test_mode() {
         return String.format(locale, "test_mode:%s", request.isTest_mode());
+    }
+
+    private String params() {
+        return String.format(locale, "params: %s", request.getParams());
+    }
+
+    public void transactionConfirm() {
+        load("Bootpay.confirm(function(data){this.transactionConfirm(data);})");
     }
 
     private String items() {

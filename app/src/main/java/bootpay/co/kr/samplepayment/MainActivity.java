@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 //        first.setMethod("card");
 
         findViewById(R.id.main_button).setOnClickListener(view ->
-                        new PaymentDialog.Builder(getFragmentManager())
+                BootpayDialog.init(getFragmentManager())
 //                                .setModel(first)
                                 .setApplicationId("593f8febe13f332431a8ddae")
                                 .setPG("danal")
@@ -39,5 +39,10 @@ public class MainActivity extends AppCompatActivity {
                                 .onError(s -> Log.d("error", s == null ? "null" : s))
                                 .show()
         );
+    }
+
+    private void someCheckValidation() {
+        // check transaction after
+        BootpayDialog.confirm();
     }
 }

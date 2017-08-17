@@ -1,10 +1,11 @@
 package bootpay.co.kr.samplepayment;
 
+import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.AnyThread;
-import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.json.JSONObject;
+
 import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.List;
@@ -20,12 +23,16 @@ import java.util.List;
 import bootpay.co.kr.samplepayment.model.Item;
 import bootpay.co.kr.samplepayment.model.Request;
 
-public class PaymentDialog extends DialogFragment {
+public final class PaymentDialog extends DialogFragment {
 
     private BootpayWebView bootpay;
     private EventListener listener;
     private Request result;
 
+    /**
+     * @see Builder
+     * @deprecated
+     */
     @Deprecated
     public PaymentDialog() {
         // not allow
@@ -43,16 +50,16 @@ public class PaymentDialog extends DialogFragment {
         View view = inflater.inflate(R.layout.activity_payment, container);
         bootpay = view.findViewById(R.id.bootpay_web);
         afterViewInit();
-        getDialog().setOnKeyListener((d, i, event) -> event.getAction() == KeyEvent.KEYCODE_BACK && bootpay != null && bootpay.back(getDialog()));
+        getDialog().setOnKeyListener((d, i, event) -> bootpay != null && event.getAction() == KeyEvent.KEYCODE_BACK && bootpay.back(getDialog()));
         return view;
     }
 
-    PaymentDialog setOnResponseListener(EventListener listener) {
+    private PaymentDialog setOnResponseListener(EventListener listener) {
         this.listener = listener;
         return this;
     }
 
-    void afterViewInit() {
+    private void afterViewInit() {
         if (bootpay != null) {
             bootpay.setData(result)
                     .setDialog(getDialog())
@@ -60,13 +67,20 @@ public class PaymentDialog extends DialogFragment {
         }
     }
 
-    PaymentDialog setData(Request request) {
+    private PaymentDialog setData(Request request) {
         this.result = request;
         return this;
     }
 
+    private void tranactionConfirm() {
+        bootpay.transactionConfirm();
+    }
+
+    /**
+     * Ironically, it can be opened even have no errors in Any Thread.
+     */
     @AnyThread
-    public static class Builder {
+    public static final class Builder {
         private WeakReference<FragmentManager> fragmentManager;
         private Request result;
         private EventListener listener;
@@ -74,53 +88,54 @@ public class PaymentDialog extends DialogFragment {
         private DoneListener done;
         private CancelListener cancel;
         private ConfirmListener confirm;
-
+        private AlertDialog networkErrorDialog;
+        private PaymentDialog dialog;
 
         private Builder() {
             // not allow
         }
 
-        public Builder(FragmentManager fm) {
+        public Builder(@NonNull FragmentManager fm) {
             result = new Request();
             fragmentManager = new WeakReference<>(fm);
         }
 
-        Builder setApplicationId(@NonNull String id) {
+        public Builder setApplicationId(@NonNull String id) {
             result.setApplication_id(id);
             return this;
         }
 
-        Builder setPrice(@IntRange(from = 0) int price) {
+        public Builder setPrice(@IntRange(from = 0) int price) {
             result.setPrice(price);
             return this;
         }
 
-        Builder setPG(@NonNull String pg) {
+        public Builder setPG(@NonNull String pg) {
             result.setPg(pg);
             return this;
         }
 
-        Builder setName(@NonNull String name) {
+        public Builder setName(@NonNull String name) {
             result.setName(name);
             return this;
         }
 
-        Builder addItem(@NonNull String name, @IntRange(from = 1) int quantity, String primaryKey, @IntRange(from = 0) int price) {
+        public Builder addItem(@NonNull String name, @IntRange(from = 1) int quantity, String primaryKey, @IntRange(from = 0) int price) {
             result.addItem(new Item(name, quantity, primaryKey, price));
             return this;
         }
 
-        Builder addItem(Item item) {
+        public Builder addItem(Item item) {
             result.addItem(item);
             return this;
         }
 
-        Builder addItems(Collection<Item> items) {
+        public Builder addItems(Collection<Item> items) {
             if (items != null) items.forEach(this::addItem);
             return this;
         }
 
-        Builder setItems(@NonNull List<Item> items) {
+        public Builder setItems(@NonNull List<Item> items) {
             result.setItems(items);
             return this;
         }
@@ -135,32 +150,47 @@ public class PaymentDialog extends DialogFragment {
             return this;
         }
 
-        Builder setModel(Request request) {
+        Builder setModel(@NonNull Request request) {
             result = request;
             return this;
         }
 
-        Builder setEventListener(EventListener listener) {
+        Builder setEventListener(@Nullable EventListener listener) {
             this.listener = listener;
             return this;
         }
 
-        Builder onCancel(CancelListener listener) {
+        Builder setParams(Object params) {
+            result.setParams(params);
+            return this;
+        }
+
+        Builder setParams(String params) {
+            result.setParams(params);
+            return this;
+        }
+
+        Builder setParams(JSONObject params) {
+            result.setParams(params);
+            return this;
+        }
+
+        Builder onCancel(@NonNull CancelListener listener) {
             cancel = listener;
             return this;
         }
 
-        Builder onConfirm(ConfirmListener listener) {
+        Builder onConfirm(@NonNull ConfirmListener listener) {
             confirm = listener;
             return this;
         }
 
-        Builder onDone(DoneListener listener) {
+        Builder onDone(@NonNull DoneListener listener) {
             done = listener;
             return this;
         }
 
-        Builder onError(ErrorListener listener) {
+        Builder onError(@NonNull ErrorListener listener) {
             error = listener;
             return this;
         }
@@ -168,8 +198,8 @@ public class PaymentDialog extends DialogFragment {
         /**
          * Must have value:
          *
-         * @see Request#application_id
-         * @see Request#pg
+         * @see Request#application_id { @link https://alf001.bomgil.in/project/app }
+         * @see Request#pg { @value "bootpay", "payapp", "danal", "kcp", "inicis" }
          * @see Request#price
          * @see Request#order_id
          */
@@ -190,8 +220,8 @@ public class PaymentDialog extends DialogFragment {
             if (listener == null && error == null || cancel == null || confirm == null || done == null)
                 error("Must to be required to handle events.");
 
-            final PaymentDialog dialog = new PaymentDialog();
-            dialog.setData(result)
+            dialog = new PaymentDialog()
+                    .setData(result)
                     .setOnResponseListener(listener == null ? new EventListener() {
                         @Override
                         public void onError(String message) {
@@ -212,8 +242,23 @@ public class PaymentDialog extends DialogFragment {
                         public void onDone(String message) {
                             if (done != null) done.onDone(message);
                         }
-                    } : listener)
-                    .show(fragmentManager.get(), "dialog");
+                    } : listener);
+            dialog.onCancel(new DialogInterface() {
+                @Override
+                public void cancel() {
+                    dialog = null;
+                }
+
+                @Override
+                public void dismiss() {
+                    dialog = null;
+                }
+            });
+            dialog.show(fragmentManager.get(), "dialog");
+        }
+
+        public void transactionConfirm() {
+            if (dialog != null) dialog.tranactionConfirm();
         }
 
         private boolean error(String message) {

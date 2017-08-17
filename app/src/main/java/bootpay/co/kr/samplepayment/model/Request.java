@@ -2,6 +2,12 @@ package bootpay.co.kr.samplepayment.model;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +23,7 @@ public final class Request {
     private String method = "";
     private String unit = "";
     private String feedback_url = "";
+    private String params = "";
 
     public final boolean isTest_mode() {
         return test_mode;
@@ -106,5 +113,28 @@ public final class Request {
         this.feedback_url = feedback_url;
     }
 
+    public final String getParams() {
+        return params;
+    }
+
+    public final JSONObject getParamsOfJson() throws JSONException {
+        return new JSONObject(params);
+    }
+
+    public final <T> T getParamsOfObject(Class<T> cls) throws JsonSyntaxException {
+        return new Gson().fromJson(params, cls);
+    }
+
+    public final void setParams(String json) {
+        this.params = json;
+    }
+
+    public final void setParams(JSONObject json) {
+        this.params = json.toString();
+    }
+
+    public final void setParams(Object object) {
+        this.params = new Gson().toJson(object);
+    }
 
 }
