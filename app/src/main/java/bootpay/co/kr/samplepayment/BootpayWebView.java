@@ -111,6 +111,7 @@ final class BootpayWebView extends WebView {
                                     method(),
                                     items(),
                                     test_mode(),
+                                    params(),
                                     order_id()
                             ),
                             error(),
@@ -241,7 +242,7 @@ final class BootpayWebView extends WebView {
     }
 
     private String params() {
-        return String.format(locale, "params: %s", request.getParams());
+        return String.format(locale, "params:JSON.parse('%s')", request.getParams());
     }
 
     public void transactionConfirm() {

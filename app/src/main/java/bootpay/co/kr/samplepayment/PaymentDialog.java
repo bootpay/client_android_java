@@ -50,6 +50,7 @@ public final class PaymentDialog extends DialogFragment {
         View view = inflater.inflate(R.layout.activity_payment, container);
         bootpay = view.findViewById(R.id.bootpay_web);
         afterViewInit();
+        setCancelable(false);
         getDialog().setOnKeyListener((d, i, event) -> bootpay != null && event.getAction() == KeyEvent.KEYCODE_BACK && bootpay.back(getDialog()));
         return view;
     }
@@ -217,7 +218,7 @@ public final class PaymentDialog extends DialogFragment {
             if (isNullOrEmpty(result.getOrderId()))
                 error("Order id is not configured.");
 
-            if (listener == null && error == null || cancel == null || confirm == null || done == null)
+            if (listener == null && (error == null || cancel == null || confirm == null || done == null))
                 error("Must to be required to handle events.");
 
             dialog = new PaymentDialog()
