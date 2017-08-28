@@ -7,7 +7,7 @@
         android:targetSdkVersion="26" />
 
     <instrumentation
-        android:name="android.support.test.runner.AndroidJUnitRunner"
+        android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
         android:label="Tests for smartwork.co.kr.bootpay.test"
@@ -17,7 +17,7 @@
 
     <meta-data
         android:name="android.support.VERSION"
-        android:value="26.0.0-alpha1" />
+        android:value="25.3.1" />
 
     <application
         android:allowBackup="true"

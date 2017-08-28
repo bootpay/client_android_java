@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 
 
 import smartwork.co.kr.bootpay.BootpayDialog;
-import smartwork.co.kr.bootpay.model.Test;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 //        first.setPrice(2939);
 //        first.setName("블링블리일");
 //        first.setMethod("card");
-        new Gson().toJson(new Object());
 
         findViewById(R.id.main_button).setOnClickListener(view ->
                         BootpayDialog.init(getFragmentManager())
@@ -36,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
                                 .addItem("마우스", 1, "123", 100)
                                 .addItem("키보드", 1, "122", 200)
                                 .setParams(new Test("test", 100, 10000))
-                                .onConfirm(s -> Log.d("confirm", s == null ? "null" : s))
+                                .onConfirm(s -> {
+                                    Log.d("confirm", s == null ? "null" : s);
+                                    return false;
+                                })
                                 .onDone(s -> Log.d("done", s == null ? "null" : s))
                                 .onCancel(s -> Log.d("cancel", s == null ? "null" : s))
                                 .onError(s -> Log.d("error", s == null ? "null" : s))

@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import org.json.JSONObject;
 
@@ -45,11 +46,10 @@ public final class PaymentDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_payment, container);
-        bootpay = view.findViewById(R.id.bootpay_web);
+        bootpay = new BootpayWebView(inflater.getContext());
         afterViewInit();
         setCancelable(false);
-        return view;
+        return bootpay;
     }
 
     private PaymentDialog setOnResponseListener(EventListener listener) {
@@ -128,7 +128,7 @@ public final class PaymentDialog extends DialogFragment {
         }
 
         public Builder addItems(Collection<Item> items) {
-            if (items != null) items.forEach(this::addItem);
+            if (items != null) for (Item i : items) addItem(i);
             return this;
         }
 
@@ -231,8 +231,8 @@ public final class PaymentDialog extends DialogFragment {
                         }
 
                         @Override
-                        public void onConfirmed(String message) {
-                            if (confirm != null) confirm.onConfirmed(message);
+                        public boolean onConfirmed(String message) {
+                            return confirm != null && confirm.onConfirmed(message);
                         }
 
                         @Override

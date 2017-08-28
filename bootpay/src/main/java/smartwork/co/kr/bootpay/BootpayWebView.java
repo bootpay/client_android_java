@@ -4,12 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -29,25 +29,17 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.List;
 import java.util.Locale;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import smartwork.co.kr.bootpay.model.Item;
 import smartwork.co.kr.bootpay.model.Request;
 
 final class BootpayWebView extends WebView {
 
-    private static final String TAG = BootpayWebView.class.getSimpleName();
 
     private static final String BOOTPAY = "https://dev-inapp.bootpay.co.kr/development.html";
-
-    private static final String HTML = "";
 
     private ConnectivityManager connManager;
 
@@ -79,7 +71,6 @@ final class BootpayWebView extends WebView {
                     break;
                 case CONFIRM:
                     onConfirmeHandled(data);
-                    transactionConfirm(data);
                     break;
                 case DONE:
                     onDoneHandled(data);
@@ -130,7 +121,7 @@ final class BootpayWebView extends WebView {
                             error(),
                             cancel(),
                             confirm(),
-                            done() + ";"
+                            done()
                     );
                 }
 
@@ -141,9 +132,7 @@ final class BootpayWebView extends WebView {
                         if (isExistInfo(intent) || isExistPackage(intent)) return start(intent);
                         else return startMarket(intent);
                     } else if (isMarketOf(url)) return start(intent);
-                    else if (url.contains("vguardend"))
-                        return true;
-                    else return false;
+                    else return url.contains("vguardend");
                 }
 
                 @Override
@@ -164,14 +153,8 @@ final class BootpayWebView extends WebView {
     }
 
     boolean back() {
-        Log.d("bootpay", "back");
-        if (canGoBack()) {
-            Log.d("Back", "Can go back");
-            goBack();
-        } else {
-            dialog.dismiss();
-            Log.d("Back", "Can't go back");
-        }
+        if (canGoBack()) goBack();
+        else dialog.dismiss();
         return true;
     }
 
@@ -233,7 +216,7 @@ final class BootpayWebView extends WebView {
     }
 
     private String confirm() {
-        return ".confirm(function(data){console.log(data); Android.confirm(JSON.stringify(data));})";
+        return ".confirm(function(data){Android.confirm(JSON.stringify(data));})";
     }
 
     private String cancel() {
@@ -305,12 +288,20 @@ final class BootpayWebView extends WebView {
         return this;
     }
 
-    private AlertDialog networkErrorDialog(Context context) {
+    private AlertDialog networkErrorDialog(final Context context) {
         if (networkErrorDialog == null) networkErrorDialog = new AlertDialog.Builder(context)
                 .setMessage("인터넷 연결이 끊어져 있습니다. 인터넷 연결 상태를 확인해주세요.")
-                .setPositiveButton("설정", (d, i) -> context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS)))
-                .setNegativeButton("확인", (d, i) -> d.dismiss())
-                .create();
+                .setPositiveButton("설정", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    }
+                }).setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).create();
         return networkErrorDialog;
     }
 
@@ -319,13 +310,13 @@ final class BootpayWebView extends WebView {
     }
 
     private void load(String script) {
-        Log.d("load", script);
         loadUrl(String.format(locale, "javascript:(function(){%s})()", script));
     }
 
     private void load(String... script) {
         StringBuilder builder = new StringBuilder();
         for (String s : script) builder.append(s);
+        builder.append(";");
         String request = builder.toString();
         Log.d("request", request);
         load(request);
@@ -406,11 +397,11 @@ final class BootpayWebView extends WebView {
 
     private void onCancelHandled(String data) {
         if (listener != null) listener.onCancel(data);
-        if (dialog != null) dialog.dismiss();
+//        if (dialog != null) dialog.dismiss();
     }
 
     private void onConfirmeHandled(String data) {
-        if (listener != null) listener.onConfirmed(data);
+        if (listener != null && listener.onConfirmed(data)) transactionConfirm(data);
     }
 
     private void onDoneHandled(String data) {
@@ -469,50 +460,6 @@ final class BootpayWebView extends WebView {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             return intent;
-        }
-    }
-
-    private class LogTask extends AsyncTask<Void, Void, Integer> {
-
-        @Override
-        protected Integer doInBackground(Void... voids) {
-            return postLog();
-        }
-
-        private int postLog() {
-            try {
-                HttpsURLConnection conn = (HttpsURLConnection) new URL("https://checkout.teledit.com/creditcard/mobile/van/log").openConnection();
-                conn.setDoOutput(true);
-                conn.setRequestMethod("POST");
-                OutputStreamWriter output = new OutputStreamWriter(conn.getOutputStream());
-                output.flush();
-                output.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return 0;
-        }
-    }
-
-    private class ConfirmTask extends AsyncTask<Void, Void, Integer> {
-
-        @Override
-        protected Integer doInBackground(Void... voids) {
-            return postConfirm();
-        }
-
-        private int postConfirm() {
-            try {
-                HttpsURLConnection conn = (HttpsURLConnection) new URL("https://checkout.teledit.com/creditcard/mobile/paycallback").openConnection();
-                conn.setDoOutput(true);
-                conn.setRequestMethod("POST");
-                OutputStreamWriter output = new OutputStreamWriter(conn.getOutputStream());
-                output.flush();
-                output.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return 0;
         }
     }
 }
