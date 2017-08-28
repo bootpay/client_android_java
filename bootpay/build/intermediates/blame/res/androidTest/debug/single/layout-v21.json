@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/61fedaad6df89c881b92a543969a3f5c280caf61/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_action.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/61fedaad6df89c881b92a543969a3f5c280caf61/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/61fedaad6df89c881b92a543969a3f5c280caf61/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/androidTest/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/61fedaad6df89c881b92a543969a3f5c280caf61/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]
