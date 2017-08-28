@@ -231,8 +231,8 @@ public final class PaymentDialog extends DialogFragment {
                         }
 
                         @Override
-                        public boolean onConfirmed(String message) {
-                            return confirm != null && confirm.onConfirmed(message);
+                        public void onConfirmed(String message) {
+                            if (confirm != null) confirm.onConfirmed(message);
                         }
 
                         @Override

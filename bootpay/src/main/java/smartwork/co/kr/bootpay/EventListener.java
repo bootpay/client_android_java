@@ -8,7 +8,7 @@ public interface EventListener extends CancelListener, ConfirmListener, ErrorLis
     void onCancel(String message);
 
     @Override
-    boolean onConfirmed(String message);
+    void onConfirmed(String message);
 
     @Override
     void onDone(String message);

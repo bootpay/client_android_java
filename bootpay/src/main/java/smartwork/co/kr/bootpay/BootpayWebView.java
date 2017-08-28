@@ -71,6 +71,7 @@ final class BootpayWebView extends WebView {
                     break;
                 case CONFIRM:
                     onConfirmeHandled(data);
+                    transactionConfirm(data);
                     break;
                 case DONE:
                     onDoneHandled(data);
@@ -401,7 +402,7 @@ final class BootpayWebView extends WebView {
     }
 
     private void onConfirmeHandled(String data) {
-        if (listener != null && listener.onConfirmed(data)) transactionConfirm(data);
+        if (listener != null) listener.onConfirmed(data);
     }
 
     private void onDoneHandled(String data) {
