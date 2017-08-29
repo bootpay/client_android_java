@@ -1,5 +1,7 @@
 # client_android_java
 
+![](logo/logo_bootpay.png)
+
 build.gradle(Project):
 ```gradle
 allprojects {
