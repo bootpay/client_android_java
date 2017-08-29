@@ -4,7 +4,6 @@
 
 
 ![](capture/sample_bootpay00.jpeg)
-![](capture/sample_bootpay01.jpeg)
 
 build.gradle(Project):
 ```gradle
