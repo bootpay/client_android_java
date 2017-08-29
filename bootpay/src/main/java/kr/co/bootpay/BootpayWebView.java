@@ -109,7 +109,6 @@ final class BootpayWebView extends WebView {
                 @Override
                 public void onPageFinished(WebView view, String url) {
                     super.onPageFinished(view, url);
-                    Log.d("webview", "onPageFinished");
                     if (!isLoaded) {
                         isLoaded = true;
                         setDevice();
@@ -319,7 +318,6 @@ final class BootpayWebView extends WebView {
     }
 
     private void load(String script) {
-        Log.d("load", script);
         loadUrl(String.format(locale, "javascript:(function(){%s})()", script));
     }
 
