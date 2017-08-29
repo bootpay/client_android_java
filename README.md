@@ -63,7 +63,11 @@ BootpayDialog.init(getFragmentManager())
         .show();
 ```
 
-람다 사용: build.gradle(Module)
+
+Java8 - Lambda 지원
+------------------
+
+build.gradle(Module)
 ```gradle
 android {
     ...
@@ -81,7 +85,7 @@ android {
 }
 ```
 
-람다 사용: 샘플 코드
+샘플 코드
 ```java
 BootpayDialog.init(getFragmentManager())
         .setApplicationId("593f8febe13f332431a8ddae")
