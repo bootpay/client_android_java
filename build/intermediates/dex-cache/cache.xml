@@ -56,6 +56,15 @@
         <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_94cac9712bd71f7e51ec963883db553abd20401e/classes.dex" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_317dd545d23b9897f8127d584bb4c36541892729/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/jeonseung-il/.android/build-cache/a06e0afeab364f031d3f6cc46bd6a84cd67d3b4d/output/jars/classes.jar"
         jumboMode="false"
@@ -153,6 +162,15 @@
         revision="26.0.0"
         sha1="36304c0ddb7547b91abebf40a1eb17ab59c495e4">
         <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/pre-dexed/debug/classes_3a1d1e7880a4d3c101fb0aa431cf2231b8201927.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="99b1f4c1f1e19a3fe072a13a728ef6056580b2fc">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_24a7dbf45daccaa80232085970ff52cfe16aec71/classes.dex" />
     </item>
     <item
         is-multidex="false"
