@@ -1,7 +1,7 @@
 # client_android_java
 
 build.gradle(Project):
-```
+```gradle
 allprojects {
     repositories {
         jcenter()
@@ -11,20 +11,20 @@ allprojects {
 ```
 
 build.gradle(Modlue):
-```
+```gradle
 dependencies {
     compile 'com.github.bootpay:client_android_java:1.0.2'
 }
 ```
 
 manifests.xml
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
 
 샘플 코드
-```
+```java
 BootpayDialog.init(getFragmentManager())
         .setApplicationId("593f8febe13f332431a8ddae")
         .setPG(PG.DANAL)
@@ -64,7 +64,7 @@ BootpayDialog.init(getFragmentManager())
 ```
 
 람다 사용: build.gradle(Module)
-```
+```gradle
 android {
     ...
     defaultConfig {
@@ -82,7 +82,7 @@ android {
 ```
 
 람다 사용: 샘플 코드
-```
+```java
 BootpayDialog.init(getFragmentManager())
         .setApplicationId("593f8febe13f332431a8ddae")
         .setPG(PG.DANAL)
