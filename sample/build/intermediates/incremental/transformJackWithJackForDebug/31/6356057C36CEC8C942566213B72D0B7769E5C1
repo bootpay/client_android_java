@@ -1,5 +1,5 @@
 #Library properties
-#Mon Aug 28 12:41:14 KST 2017
+#Tue Aug 29 10:07:19 KST 2017
 lib.version.major=3
 jayce.version.minor=4
 config.jack.optimization.expression-simplifier=true
@@ -70,8 +70,8 @@ config.jack.dex.optimizebranches=true
 config.jack.dex.debug.vars=true
 config.jack.annotation-processor.manual=false
 config.jack.dex.forcejumbo=true
-config.jack.annotation.parameter.class-retention=true
 config.jack.optimization.inner-class.accessors=false
+config.jack.annotation.parameter.class-retention=true
 config.jack.obfuscation.flattenpackage=false
 jayce.version.major=4
 config.jack.shrob.obfuscate=false

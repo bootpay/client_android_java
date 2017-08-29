@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="smartwork.co.kr.bootpay.test" >
+    package="kr.co.bootpay.test" >
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -10,8 +10,8 @@
         android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for smartwork.co.kr.bootpay.test"
-        android:targetPackage="smartwork.co.kr.bootpay.test" />
+        android:label="Tests for kr.co.bootpay.test"
+        android:targetPackage="kr.co.bootpay.test" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 

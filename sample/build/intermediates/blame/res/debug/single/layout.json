@@ -12,12 +12,12 @@
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
-        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/layout/abc_dialog_title_material.xml"
-    },
-    {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/layout/abc_dialog_title_material.xml"
     },
     {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/res/merged/debug/layout/activity_payment.xml",

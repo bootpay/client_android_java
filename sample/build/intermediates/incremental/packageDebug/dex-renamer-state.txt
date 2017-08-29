@@ -1,4 +1,7 @@
-#Mon Aug 28 12:00:13 KST 2017
-base.0=/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/jack/debug/folders/1000/1f/main
-renamed.0=classes.dex
-file.0=/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/jack/debug/folders/1000/1f/main/classes.dex
+#Tue Aug 29 10:43:06 KST 2017
+base.0=/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_94cac9712bd71f7e51ec963883db553abd20401e
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_784dad26f53080a2575ceb2879e375ff4a722672/classes.dex
+base.1=/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_784dad26f53080a2575ceb2879e375ff4a722672
+file.0=/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_94cac9712bd71f7e51ec963883db553abd20401e/classes.dex

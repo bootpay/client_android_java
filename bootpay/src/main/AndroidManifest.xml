@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="smartwork.co.kr.bootpay">
+          package="kr.co.bootpay">
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application android:allowBackup="true"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="9cc565f23baf01d91d7cc956695595f599ac7ef7">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_94cac9712bd71f7e51ec963883db553abd20401e/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/pre-dexed/debug/gson-2.8.0_4e54fdd6cb40396e4716fe1b459a3e83190992f5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_784dad26f53080a2575ceb2879e375ff4a722672/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="36304c0ddb7547b91abebf40a1eb17ab59c495e4">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/pre-dexed/debug/classes_3a1d1e7880a4d3c101fb0aa431cf2231b8201927.jar" />
+    </item>
+
+</items>
