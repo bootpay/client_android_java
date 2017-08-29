@@ -1,6 +1,7 @@
 package kr.co.bootpay.model;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -113,6 +114,7 @@ public final class Request {
         this.feedback_url = feedback_url;
     }
 
+    @Nullable
     public final String getParams() {
         return params;
     }

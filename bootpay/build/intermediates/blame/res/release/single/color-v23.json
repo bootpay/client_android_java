@@ -1,23 +1,59 @@
 [
     {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_btn_colored_text_material.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_btn_checkable.xml"
     },
     {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_btn_checkable.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_btn_checkable.xml"
     },
     {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_default.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_default.xml"
     },
     {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_btn_colored_borderless_text_material.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
     },
     {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_edittext.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_btn_colored_text_material.xml"
     },
     {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_seek_thumb.xml",
@@ -26,6 +62,10 @@
     {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_switch_track.xml",
         "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/res/color-v23/abc_tint_seek_thumb.xml"
     },
     {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/bootpay/build/intermediates/res/merged/release/color-v23/abc_tint_default.xml",

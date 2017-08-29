@@ -74,18 +74,6 @@ public final class PaymentDialog extends DialogFragment {
         super.onConfigurationChanged(newConfig);
         bootpay.setData(result);
     }
-//
-//    @Override
-//    public void onCancel(DialogInterface dialog) {
-//        super.onCancel(dialog);
-//        result = null;
-//    }
-//
-//    @Override
-//    public void onDismiss(DialogInterface dialog) {
-//        super.onDismiss(dialog);
-//        result = null;
-//    }
 
     private void transactionConfirm(String data) {
         bootpay.transactionConfirm(data);

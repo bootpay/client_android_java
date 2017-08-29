@@ -2,6 +2,51 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_2ec63cb80c639cb3ca00277c87fece6e131f20d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a068099deec668f55aebcd4e27c7a46234f801a1">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_a3f2d3b059f048f4115e6d94642f6aeba88b66f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/f340917cb44ea8056a37bcdb3ecc5655e498b121/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_1e20efa80cfd99e88d36f4e1136b67ae3e8df541.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_4e7b722ab52b2589ec8c66e52dbb201f79432bbe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/a6ef12f9bd7fac8f2e757857a226a91d3e015cf0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_2babcb7fa76bc961c55fcede7cb307d347b7cac7.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
@@ -12,12 +57,84 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/a06e0afeab364f031d3f6cc46bd6a84cd67d3b4d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_46baf1d337b767e9f04a039d0a3bae8bfba63eac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/33b30c4223453b26fc5f6cbc27e9be96728f1e2c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_dcc90e418fdd7cd914e6195cbde1ec047ec2bfef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/c52f3b6c900c4400b28571e2f71b136cdc5d07c3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_ec66a2fa47e70bff79807d5683970cc05d59896a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/44111b0f1084952cc40d7ae5919092d6f2968a3c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_2d616dc67ca6e7c69245b2c6d0a053f5cec8d077.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_1acdf11e6f4ff73cb96aea2322197ef240da101b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
         sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
         <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/pre-dexed/debug/gson-2.8.0_4e54fdd6cb40396e4716fe1b459a3e83190992f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/7ae488e7a0663d4be7283ff1abf58ee4e7e09ab9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_c89aec16a942b4898fc7848e33235b67768c3b5e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/ad770bd177d20108b228b333c529785f7c590b23/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_52f0bce6b1fbad6c426f99a2205473d57b8a7c93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.android/build-cache/3c046859b90989f742b861cf3f56889a981ed30c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_0637cfa7d2be340eca19420305fdd697564075bd.jar" />
     </item>
     <item
         is-multidex="true"
@@ -36,6 +153,15 @@
         revision="26.0.0"
         sha1="36304c0ddb7547b91abebf40a1eb17ab59c495e4">
         <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/pre-dexed/debug/classes_3a1d1e7880a4d3c101fb0aa431cf2231b8201927.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/gson-2.8.0_4e54fdd6cb40396e4716fe1b459a3e83190992f5.jar" />
     </item>
 
 </items>

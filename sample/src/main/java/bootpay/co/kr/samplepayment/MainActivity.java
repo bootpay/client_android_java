@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPrice(1000)
                         .addItem("마우스", 1, "123", 100)
                         .addItem("키보드", 1, "122", 200)
-                        .setParams(new Test("test", 100, 10000))
+                        .setParams(new Test("test", 100, 100))
                         .onConfirm(new ConfirmListener() {
                             @Override
                             public void onConfirmed(@Nullable String message) {
