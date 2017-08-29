@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher_round.png",
+        "source": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
         "merged": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
         "source": "/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },

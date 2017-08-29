@@ -252,7 +252,8 @@ final class BootpayWebView extends WebView {
     }
 
     private String method() {
-        return String.format(locale, "method:'%s'", request.getMethod());
+        if (isNullOrEmpty(request.getParams())) return "";
+        else return String.format(locale, "method:'%s'", request.getMethod());
     }
 
     private String test_mode() {
@@ -260,7 +261,12 @@ final class BootpayWebView extends WebView {
     }
 
     private String params() {
-        return String.format(locale, "params:JSON.parse('%s')", request.getParams());
+        if (isNullOrEmpty(request.getParams())) return "";
+        else return String.format(locale, "params:JSON.parse('%s')", request.getParams());
+    }
+
+    private boolean isNullOrEmpty(String value) {
+        return value == null || value.isEmpty();
     }
 
     public void transactionConfirm(String data) {

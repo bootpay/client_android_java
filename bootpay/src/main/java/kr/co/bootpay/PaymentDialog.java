@@ -125,6 +125,27 @@ public final class PaymentDialog extends DialogFragment {
             return this;
         }
 
+        public Builder setPG(@NonNull PG pg) {
+            switch (pg) {
+                case BOOTPAY:
+                    result.setPg("bootpay");
+                    break;
+                case PAYAPP:
+                    result.setPg("payapp");
+                    break;
+                case DANAL:
+                    result.setPg("danal");
+                    break;
+                case KCP:
+                    result.setPg("kcp");
+                    break;
+                case INICIS:
+                    result.setPg("inicis");
+                    break;
+            }
+            return this;
+        }
+
         public Builder setName(@NonNull String name) {
             result.setName(name);
             return this;
@@ -160,12 +181,36 @@ public final class PaymentDialog extends DialogFragment {
             return this;
         }
 
-        Builder setModel(@NonNull Request request) {
+        public Builder setModel(@NonNull Request request) {
             result = request;
             return this;
         }
 
-        Builder setEventListener(@Nullable EventListener listener) {
+        public Builder setMethod(@NonNull Method method) {
+            switch (method) {
+                case CARD:
+                    result.setMethod("card");
+                    break;
+                case CARD_SIMPLE:
+                    result.setMethod("card_simple");
+                    break;
+                case BANK:
+                    result.setMethod("bank");
+                    break;
+                case VBANK:
+                    result.setMethod("vbank");
+                    break;
+                case PHONE:
+                    result.setMethod("phone");
+                    break;
+                case SELECT:
+                    result.setMethod("");
+                    break;
+            }
+            return this;
+        }
+
+        public Builder setEventListener(@Nullable EventListener listener) {
             this.listener = listener;
             return this;
         }
@@ -175,12 +220,12 @@ public final class PaymentDialog extends DialogFragment {
             return this;
         }
 
-        Builder setParams(String params) {
+        public Builder setParams(String params) {
             result.setParams(params);
             return this;
         }
 
-        Builder setParams(JSONObject params) {
+        public Builder setParams(JSONObject params) {
             result.setParams(params);
             return this;
         }
