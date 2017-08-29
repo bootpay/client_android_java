@@ -1,6 +1,6 @@
 # client_android_java
 
-![](logo/logo_bootpay.png)
+<center>![](logo/logo_bootpay.png)</center>
 
 build.gradle(Project):
 ```gradle
