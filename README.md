@@ -128,21 +128,21 @@ dependencies {
 
 ## 샘플 코드
 ```kotlin
-        BootpayDialog.init(fragmentManager)
-                .setApplicationId("593f8febe13f332431a8ddae")
-                .setPG(PG.DANAL)
-                .setMethod(Method.SELECT)
-                .setName("맥북프로임다")
-                .setOrderId(System.currentTimeMillis().toString())
-                .setPrice(1000)
-                .addItem("마우스", 1, "123", 100)
-                .addItem("키보드", 1, "122", 200)
-                .setParams(Test("test", 10, 10))
-                .onCancel { Log.d("cancel", it) }
-                .onConfirm { Log.d("confirm", it) }
-                .onDone { Log.d("done", it) }
-                .onError { Log.d("error", it) }
-                .show()
+BootpayDialog.init(fragmentManager)
+        .setApplicationId("593f8febe13f332431a8ddae")
+        .setPG(PG.DANAL)
+        .setMethod(Method.SELECT)
+        .setName("맥북프로임다")
+        .setOrderId(System.currentTimeMillis().toString())
+        .setPrice(1000)
+        .addItem("마우스", 1, "123", 100)
+        .addItem("키보드", 1, "122", 200)
+        .setParams(Test("test", 10, 10))
+        .onCancel { Log.d("cancel", it) }
+        .onConfirm { Log.d("confirm", it) }
+        .onDone { Log.d("done", it) }
+        .onError { Log.d("error", it) }
+        .show()
 ```
 
 <hr/>
