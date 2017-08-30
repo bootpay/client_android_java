@@ -1,7 +1,5 @@
-#1 change package name
-
-#2 under v19 is called redundant function of onLoadFinish
-
-#3 parse function name of intent by regex
-
-#4 version handling of html by tag
+# 1.0.0
+* change package name
+* under v19 is called redundant function of onLoadFinish
+* parse function name of intent by regex
+* version handling of html by tag
