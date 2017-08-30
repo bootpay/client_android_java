@@ -1,3 +1,6 @@
+# 1.0.2
+* request without params option
+
 # 1.0.0
 * change package name
 * under v19 is called redundant function of onLoadFinish
