@@ -1,11 +1,8 @@
-# client_android_java
-
 ![](logo/logo_bootpay.png)
-
 
 ![](capture/sample_bootpay00.jpeg)
 
-build.gradle(Project):
+## build.gradle (Project):
 ```gradle
 allprojects {
     repositories {
@@ -15,7 +12,7 @@ allprojects {
 }
 ```
 
-build.gradle(Modlue):
+## build.gradle (Modlue):
 ```gradle
 dependencies {
     compile 'com.github.bootpay:client_android_java:1.0.2'
@@ -28,7 +25,7 @@ manifests.xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
 
-샘플 코드
+## 샘플 코드
 ```java
 BootpayDialog.init(getFragmentManager())
         .setApplicationId("593f8febe13f332431a8ddae")
@@ -69,10 +66,9 @@ BootpayDialog.init(getFragmentManager())
 ```
 
 
-Java8 - Lambda 지원
-------------------
+# Java8 - Lambda 지원
 
-build.gradle(Module)
+## build.gradle (Module)
 ```gradle
 android {
     ...
@@ -90,7 +86,7 @@ android {
 }
 ```
 
-샘플 코드
+## 샘플 코드
 ```java
 BootpayDialog.init(getFragmentManager())
         .setApplicationId("593f8febe13f332431a8ddae")
