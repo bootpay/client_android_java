@@ -4,7 +4,7 @@
 
 ![](capture/sample_bootpay00.jpeg)
 
-# Java 
+# Java 지원
 ## build.gradle (Project):
 ```gradle
 allprojects {
