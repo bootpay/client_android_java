@@ -108,7 +108,7 @@ BootpayDialog.init(getFragmentManager())
         .show();
 ```
 
-# [Kotlin](http://kotlinlang.org/) 지원
+# [Kotlin](http://kotlinlang.org/) 설정
 ## build.gradle (Project)
 ```gradle
 buildscript {
