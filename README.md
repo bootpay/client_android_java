@@ -31,7 +31,7 @@ dependencies {
 ## 샘플 코드
 ```java
 BootpayDialog.init(getFragmentManager())
-        .setApplicationId("593f8febe13f332431a8ddae")
+        .setApplicationId("59a7e647396fa64fcad4a8c2")
         .setPG(PG.DANAL)
         .setMethod(Method.CARD)
         .setName("맥북프로임다")
