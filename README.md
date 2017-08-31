@@ -39,7 +39,6 @@ BootpayDialog.init(getFragmentManager())
         .setPrice(1000)
         .addItem("마우스", 1, "123", 100)
         .addItem("키보드", 1, "122", 200)
-        .setParams(new Test("test", 10, 10))
         .onCancel(new CancelListener() {
             @Override
             public void onCancel(@Nullable String s) {
@@ -100,7 +99,6 @@ BootpayDialog.init(getFragmentManager())
         .setPrice(1000)
         .addItem("마우스", 1, "123", 100)
         .addItem("키보드", 1, "122", 200)
-        .setParams(new Test("test", 10, 10))
         .onCancel(s -> Log.d("cancel", s))
         .onConfirm(s -> Log.d("confirm", s))
         .onDone(s -> Log.d("done", s))
@@ -138,7 +136,6 @@ BootpayDialog.init(fragmentManager)
         .setPrice(1000)
         .addItem("마우스", 1, "123", 100)
         .addItem("키보드", 1, "122", 200)
-        .setParams(Test("test", 10, 10))
         .onCancel { Log.d("cancel", it) }
         .onConfirm { Log.d("confirm", it) }
         .onDone { Log.d("done", it) }
