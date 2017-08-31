@@ -3,10 +3,10 @@
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="24"
     build-mode="FULL"
-    density="xxxhdpi"
+    density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1503999601040"
+    timestamp="1504175328461"
     token="-9210422821051348979"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -23,6 +23,9 @@
         name="verifier"
         duration="0" />
 
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/sample-debug.apk"
+        type="SPLIT_MAIN" />
     <artifact
         location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
@@ -89,14 +92,14 @@
     <artifact
         location="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/split-apk/debug/slices/slice_1.apk"
         type="SPLIT" />
-    <artifact
-        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/sample-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1503999601040"
+        timestamp="1504175328461"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/sample-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
@@ -163,9 +166,6 @@
         <artifact
             location="/Users/jeonseung-il/Dropbox/AndroidProjects/SamplePayment/sample/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/sample-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

@@ -16,7 +16,7 @@
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="a068099deec668f55aebcd4e27c7a46234f801a1">
+        sha1="360565f2e57fb48f6366e1fcf4d3071ee6bb1489">
         <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_a3f2d3b059f048f4115e6d94642f6aeba88b66f6.jar" />
     </item>
     <item
@@ -169,7 +169,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="99b1f4c1f1e19a3fe072a13a728ef6056580b2fc">
+        sha1="b7f72c66d609cf5ae59a6f8b0c081859374b996d">
         <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_24a7dbf45daccaa80232085970ff52cfe16aec71/classes.dex" />
     </item>
     <item

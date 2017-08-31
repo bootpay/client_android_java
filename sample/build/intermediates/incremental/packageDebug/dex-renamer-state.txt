@@ -1,4 +1,4 @@
-#Tue Aug 29 18:00:28 KST 2017
+#Thu Aug 31 19:28:50 KST 2017
 base.0=/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_317dd545d23b9897f8127d584bb4c36541892729
 renamed.1=classes.dex
 renamed.0=classes2.dex

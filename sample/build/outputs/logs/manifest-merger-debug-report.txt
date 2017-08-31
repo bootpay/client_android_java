@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-28:12
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-26:12
 	package
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:3:11-48
 		INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
@@ -27,7 +27,7 @@ ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/A
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:7:22-78
 application
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:9:5-26:19
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:9:5-24:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jeonseung-il/.android/build-cache/33b30c4223453b26fc5f6cbc27e9be96728f1e2c/output/AndroidManifest.xml:9:5-20
 MERGED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:13:5-17:19
 MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/AndroidManifest.xml:29:5-20
@@ -52,11 +52,11 @@ MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.and
 	android:theme
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:15:9-40
 activity#bootpay.co.kr.samplepayment.MainActivity
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:16:9-25:20
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:16:9-23:20
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:16:19-47
-intent-filter#android.intent.action.MAIN+android.intent.category.BROWSABLE+android.intent.category.LAUNCHER
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:17:13-24:29
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:17:13-22:29
 action#android.intent.action.MAIN
 ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:18:17-68
 	android:name
@@ -65,14 +65,6 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:20:17-76
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:20:27-74
-category#android.intent.category.BROWSABLE
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:21:17-77
-	android:name
-		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:21:27-75
-data
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:23:17-49
-	android:scheme
-		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:23:23-47
 uses-sdk
 INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jeonseung-il/.android/build-cache/33b30c4223453b26fc5f6cbc27e9be96728f1e2c/output/AndroidManifest.xml:5:5-7:41

@@ -28,9 +28,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="bootpay" />
+                <!-- <data android:scheme="bootpay"/> -->
             </intent-filter>
         </activity>
     </application>
