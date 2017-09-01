@@ -109,26 +109,28 @@ final class BootpayWebView extends WebView {
                 @Override
                 public void onPageFinished(WebView view, String url) {
                     super.onPageFinished(view, url);
-                    if (!isLoaded) {
-                        isLoaded = true;
-                        setDevice();
-                        loadParams(
-                                request(
-                                        price(),
-                                        application_id(),
-                                        name(),
-                                        pg(),
-                                        method(),
-                                        items(),
-                                        test_mode(),
-                                        params(),
-                                        order_id()
-                                ),
-                                error(),
-                                cancel(),
-                                confirm(),
-                                done()
-                        );
+                    synchronized (BootpayWebView.class) {
+                        if (!isLoaded) {
+                            isLoaded = true;
+                            setDevice();
+                            loadParams(
+                                    request(
+                                            price(),
+                                            application_id(),
+                                            name(),
+                                            pg(),
+                                            method(),
+                                            items(),
+                                            test_mode(),
+                                            params(),
+                                            order_id()
+                                    ),
+                                    error(),
+                                    cancel(),
+                                    confirm(),
+                                    done()
+                            );
+                        }
                     }
                 }
 
@@ -252,8 +254,7 @@ final class BootpayWebView extends WebView {
     }
 
     private String method() {
-        if (isNullOrEmpty(request.getParams())) return "method:''";
-        else return String.format(locale, "method:'%s'", request.getMethod());
+        return String.format(locale, "method:'%s'", request.getMethod());
     }
 
     private String test_mode() {
