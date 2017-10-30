@@ -6,11 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import kr.co.bootpay.BootpayDialog;
+import kr.co.bootpay.Analytics;
+import kr.co.bootpay.Bootpay;
 import kr.co.bootpay.CancelListener;
 import kr.co.bootpay.ConfirmListener;
 import kr.co.bootpay.DoneListener;
 import kr.co.bootpay.ErrorListener;
+import kr.co.bootpay.enums.Method;
+import kr.co.bootpay.enums.PG;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,19 +22,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Analytics.init(this, "59a7e647396fa64fcad4a8c2");
+
+//        Analytics.login("legab12", "email", "username", "something", "", "", "");
+
+//        Analytics.start("테스트에요".toLowerCase());
+
         findViewById(R.id.main_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BootpayDialog.init(getFragmentManager())
-                        .setApplicationId("593f8febe13f332431a8ddae")
-                        .setPG("danal")
-                        .setMethod("card")
+                Bootpay.init(getFragmentManager())
+                        .setApplicationId("59a7e647396fa64fcad4a8c2")
+                        .setPG(PG.KCP)
+                        .setMethod(Method.CARD)
                         .setName("맥북프로임다")
                         .setOrderId(String.valueOf(System.currentTimeMillis()))
                         .setPrice(1000)
                         .addItem("마우스", 1, "123", 100)
                         .addItem("키보드", 1, "122", 200)
-                        .setParams(new Test("test", 100, 100))
                         .onConfirm(new ConfirmListener() {
                             @Override
                             public void onConfirmed(@Nullable String message) {
@@ -60,5 +68,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        Analytics.destory();
+//    }
 }
 

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-26:12
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:3:11-48
 		INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
@@ -15,6 +15,7 @@ ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/A
 		INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:5:5-78
+MERGED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:12:5-79
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.INTERNET
@@ -27,9 +28,9 @@ ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/A
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:7:22-78
 application
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:9:5-24:19
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:9:5-23:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jeonseung-il/.android/build-cache/33b30c4223453b26fc5f6cbc27e9be96728f1e2c/output/AndroidManifest.xml:9:5-20
-MERGED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:13:5-17:19
+MERGED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:16:5-20:19
 MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] /Users/jeonseung-il/.android/build-cache/a6ef12f9bd7fac8f2e757857a226a91d3e015cf0/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] /Users/jeonseung-il/.android/build-cache/a06e0afeab364f031d3f6cc46bd6a84cd67d3b4d/output/AndroidManifest.xml:29:5-20
@@ -39,6 +40,8 @@ MERGED from [com.android.support:support-core-utils:25.3.1] /Users/jeonseung-il/
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/ad770bd177d20108b228b333c529785f7c590b23/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/7ae488e7a0663d4be7283ff1abf58ee4e7e09ab9/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.android/build-cache/3c046859b90989f742b861cf3f56889a981ed30c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.scottyab:secure-preferences-lib:0.1.4] /Users/jeonseung-il/.android/build-cache/f8db4e25e27fc70078cdbaa20109d215e61c2673/output/AndroidManifest.xml:11:5-12:19
+MERGED from [com.scottyab:aes-crypto:0.0.4] /Users/jeonseung-il/.android/build-cache/033744023e48b4f11ea808c2fbb0aa59f287af56/output/AndroidManifest.xml:10:5-20
 	android:label
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:12:9-41
 	android:supportsRtl
@@ -52,11 +55,11 @@ MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.and
 	android:theme
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:15:9-40
 activity#bootpay.co.kr.samplepayment.MainActivity
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:16:9-23:20
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:16:9-22:20
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:16:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:17:13-22:29
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
 ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:18:17-68
 	android:name
@@ -78,6 +81,8 @@ MERGED from [com.android.support:support-core-utils:25.3.1] /Users/jeonseung-il/
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/ad770bd177d20108b228b333c529785f7c590b23/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/7ae488e7a0663d4be7283ff1abf58ee4e7e09ab9/output/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.android/build-cache/3c046859b90989f742b861cf3f56889a981ed30c/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.scottyab:secure-preferences-lib:0.1.4] /Users/jeonseung-il/.android/build-cache/f8db4e25e27fc70078cdbaa20109d215e61c2673/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.scottyab:aes-crypto:0.0.4] /Users/jeonseung-il/.android/build-cache/033744023e48b4f11ea808c2fbb0aa59f287af56/output/AndroidManifest.xml:6:5-8:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -86,6 +91,14 @@ MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.and
 	android:minSdkVersion
 		INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
 		INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:13:22-72
+uses-permission#com.android.vending.BILLING
+ADDED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:14:5-67
+	android:name
+		ADDED from [Bootpay:bootpay:unspecified] /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/AndroidManifest.xml:14:22-64
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-v4:25.3.1] /Users/jeonseung-il/.android/build-cache/a6ef12f9bd7fac8f2e757857a226a91d3e015cf0/output/AndroidManifest.xml:25:5-27:34
