@@ -3,7 +3,6 @@ package kr.co.bootpay
 import android.app.DialogFragment
 import android.app.FragmentManager
 import android.content.DialogInterface
-import android.content.res.Configuration
 import android.os.Bundle
 import android.support.annotation.IntRange
 import android.view.LayoutInflater
@@ -13,17 +12,12 @@ import kr.co.bootpay.enums.Area
 
 import org.json.JSONObject
 
-import java.lang.ref.WeakReference
 import kr.co.bootpay.enums.Method
 import kr.co.bootpay.enums.PG
 import kr.co.bootpay.model.Item
 import kr.co.bootpay.model.Request
 import kr.co.bootpay.model.Trace
 import kr.co.bootpay.model.UserData
-
-//import kr.co.bootpay.model.Trace
-//import kr.co.bootpay.model.UserData
-
 
 class PaymentDialog
 /** @see Builder */
@@ -221,107 +215,107 @@ constructor()// not allowed
             return this
         }
 
-        fun setPageType(pageType: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setPageType(pageType)
-            return this
-        }
-
-        fun setMainCategory(category: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setMainCategory(category)
-            return this
-        }
-
-        fun setMiddleCategory(category: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setMiddleCategory(category)
-            return this
-        }
-
-        fun setSubCategory(category: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setSubCategory(category)
-            return this
-        }
-
-        fun setItemImage(imageUrl: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setItemImage(imageUrl)
-            return this
-        }
-
-        fun setItemName(itemName: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setItemName(itemName)
-            return this
-        }
-
-        fun setUniqueKey(uniqueKey: String): Builder {
-            if (trace == null) trace = Trace()
-            trace!!.setItemUnique(uniqueKey)
-            return this
-        }
-
-        fun setUserID(userID: String): Builder {
-            if (user == null) user = UserData()
-            user!!.setUserID(userID)
-            return this
-        }
-
-        fun setUserName(userName: String): Builder {
-            if (user == null) user = UserData()
-            user!!.setUserName(userName)
-            return this
-        }
-
-        fun setUserBirth(userBirth: Date): Builder {
-            if (user == null) user = UserData()
-            user!!.setUserBirth(String.format(Locale.getDefault(), "%d-%d-%d", userBirth.year, userBirth.month + 1, userBirth.day))
-            return this
-        }
-
-        fun setUserBirth(@IntRange(from = 1900, to = 2100) year: Int, @IntRange(from = 1, to = 12) month: Int, @IntRange(from = 1, to = 31) day: Int): Builder {
-            if (user == null) user = UserData()
-            user!!.setUserBirth(String.format(Locale.getDefault(), "%d-%d-%d", year, month, day))
-            return this
-        }
-
-        fun setUserGender(userGender: Gender): Builder {
-            if (user == null) user = UserData()
-            user!!.setUserGender(if (userGender === Gender.MALE) 1 else 0)
-            return this
-        }
-
-        fun setUserArea(userArea: String): Builder {
-            if (user == null) user = UserData()
-            user!!.setUserArea(userArea)
-            return this
-        }
-
-        fun setUserArea(userArea: Area): Builder {
-            if (user == null) user = UserData()
-            user?.setUserArea(when (userArea) {
-                Area.SEOUL     -> "서울"
-                Area.INCHEON   -> "인천"
-                Area.DAEKU     -> "대구"
-                Area.DEAJEON   -> "대전"
-                Area.GWANGJU   -> "광주"
-                Area.BUSAN     -> "부산"
-                Area.ULSAN     -> "울산"
-                Area.GYEONGGI  -> "경기"
-                Area.GANGWON   -> "강원"
-                Area.CHUNGBUK  -> "충북"
-                Area.CHUNGNAM  -> "충남"
-                Area.JEONBUK   -> "전북"
-                Area.JEONNAM   -> "전남"
-                Area.GYEONGBUK -> "경북"
-                Area.GYEONGNAM -> "경남"
-                Area.JEJU      -> "제주"
-                Area.SEJONG    -> "세종"
-            })
-            return this
-        }
+//        fun setPageType(pageType: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setPageType(pageType)
+//            return this
+//        }
+//
+//        fun setMainCategory(category: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setMainCategory(category)
+//            return this
+//        }
+//
+//        fun setMiddleCategory(category: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setMiddleCategory(category)
+//            return this
+//        }
+//
+//        fun setSubCategory(category: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setSubCategory(category)
+//            return this
+//        }
+//
+//        fun setItemImage(imageUrl: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setItemImage(imageUrl)
+//            return this
+//        }
+//
+//        fun setItemName(itemName: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setItemName(itemName)
+//            return this
+//        }
+//
+//        fun setUniqueKey(uniqueKey: String): Builder {
+//            if (trace == null) trace = Trace()
+//            trace!!.setItemUnique(uniqueKey)
+//            return this
+//        }
+//
+//        fun setUserID(userID: String): Builder {
+//            if (user == null) user = UserData()
+//            user!!.setUserID(userID)
+//            return this
+//        }
+//
+//        fun setUserName(userName: String): Builder {
+//            if (user == null) user = UserData()
+//            user!!.setUserName(userName)
+//            return this
+//        }
+//
+//        fun setUserBirth(userBirth: Date): Builder {
+//            if (user == null) user = UserData()
+//            user!!.setUserBirth(String.format(Locale.getDefault(), "%d-%d-%d", userBirth.year, userBirth.month + 1, userBirth.day))
+//            return this
+//        }
+//
+//        fun setUserBirth(@IntRange(from = 1900, to = 2100) year: Int, @IntRange(from = 1, to = 12) month: Int, @IntRange(from = 1, to = 31) day: Int): Builder {
+//            if (user == null) user = UserData()
+//            user!!.setUserBirth(String.format(Locale.getDefault(), "%d-%d-%d", year, month, day))
+//            return this
+//        }
+//
+//        fun setUserGender(userGender: Gender): Builder {
+//            if (user == null) user = UserData()
+//            user!!.setUserGender(if (userGender === Gender.MALE) 1 else 0)
+//            return this
+//        }
+//
+//        fun setUserArea(userArea: String): Builder {
+//            if (user == null) user = UserData()
+//            user!!.setUserArea(userArea)
+//            return this
+//        }
+//
+//        fun setUserArea(userArea: Area): Builder {
+//            if (user == null) user = UserData()
+//            user?.setUserArea(when (userArea) {
+//                Area.SEOUL     -> "서울"
+//                Area.INCHEON   -> "인천"
+//                Area.DAEKU     -> "대구"
+//                Area.DEAJEON   -> "대전"
+//                Area.GWANGJU   -> "광주"
+//                Area.BUSAN     -> "부산"
+//                Area.ULSAN     -> "울산"
+//                Area.GYEONGGI  -> "경기"
+//                Area.GANGWON   -> "강원"
+//                Area.CHUNGBUK  -> "충북"
+//                Area.CHUNGNAM  -> "충남"
+//                Area.JEONBUK   -> "전북"
+//                Area.JEONNAM   -> "전남"
+//                Area.GYEONGBUK -> "경북"
+//                Area.GYEONGNAM -> "경남"
+//                Area.JEJU      -> "제주"
+//                Area.SEJONG    -> "세종"
+//            })
+//            return this
+//        }
 
         /**
          * Must have value:

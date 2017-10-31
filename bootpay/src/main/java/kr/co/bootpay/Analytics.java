@@ -15,7 +15,7 @@ public class Analytics {
 
     public static void init(@NonNull Context context, @NonNull String applicationID) {
         if (applicationID.isEmpty()) throw new RuntimeException("Application ID is empty.");
-        SecurePref.INSTANCE.init(context);
+        SecurePref.init(context);
         presenter = new AnalyticsPresenter(context);
         UserInfo.INSTANCE.setBootpay_application_id(applicationID);
     }

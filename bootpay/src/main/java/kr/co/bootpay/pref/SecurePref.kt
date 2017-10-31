@@ -6,6 +6,7 @@ object SecurePref {
     internal lateinit var context: Context
         private set
 
+    @JvmStatic
     fun init(context: Context) {
         SecurePref.context = context.applicationContext
     }

@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Analytics.init(this, "59a7e647396fa64fcad4a8c2");
+        Analytics.init(this, "59a7e647396fa64fcad4a8c2");
 
-//        Analytics.login("legab12", "email", "username", "something", "", "", "");
+        Analytics.login("legab12", "email", "username", "something", "", "", "");
 
-//        Analytics.start("테스트에요".toLowerCase());
+        Analytics.start("테스트에요".toLowerCase());
 
         findViewById(R.id.main_button).setOnClickListener(new View.OnClickListener() {
             @Override
