@@ -6,13 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import kr.co.bootpay.Analytics;
+import kr.co.bootpay.BootpayAnalytics;
 import kr.co.bootpay.Bootpay;
 import kr.co.bootpay.CancelListener;
 import kr.co.bootpay.ConfirmListener;
 import kr.co.bootpay.DoneListener;
 import kr.co.bootpay.ErrorListener;
-import kr.co.bootpay.enums.Gender;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 
@@ -23,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Analytics.init(this, "59a7e647396fa64fcad4a8c2");
-        Analytics.login("legab12", "email", "username", "0", "", "", "");
+        BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
+        BootpayAnalytics.login("legab12", "email", "username", "0", "861014", "01012345678", "충청");
 
-        Analytics.start("테스트에요".toLowerCase());
+        BootpayAnalytics.start("item_list", "아이템");
 
 
     }
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //    @Override
 //    protected void onDestroy() {
 //        super.onDestroy();
-//        Analytics.destory();
+//        BootpayAnalytics.destory();
 //    }
 }
 

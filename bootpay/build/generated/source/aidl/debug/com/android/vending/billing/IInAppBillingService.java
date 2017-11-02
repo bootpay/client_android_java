@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/aidl/com/android/vending/billing/IInAppBillingService.aidl
+ * Original file: /Users/ehowlsla/AndroidStudioProjects/client_android_java/bootpay/src/main/aidl/com/android/vending/billing/IInAppBillingService.aidl
  */
 package com.android.vending.billing;
 /**

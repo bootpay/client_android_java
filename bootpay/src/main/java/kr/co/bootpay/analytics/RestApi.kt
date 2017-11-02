@@ -24,8 +24,8 @@ internal interface RestApi {
     fun call(
             @Field("application_id") applicationId: String,
             @Field("uuid") uuid: String,
-            @Field("page_type") pageType: String,
             @Field("url") pageId: String,
+            @Field("page_type") pageType: String,
             @Field("img") imageUrl: String,
             @Field("sk") sk: String,
             @Field("user_id") userId: String

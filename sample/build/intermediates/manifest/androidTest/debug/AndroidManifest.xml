@@ -13,7 +13,7 @@
         android:label="Tests for bootpay.co.kr.samplepayment"
         android:targetPackage="bootpay.co.kr.samplepayment" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

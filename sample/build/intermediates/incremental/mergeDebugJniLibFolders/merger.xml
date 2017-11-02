@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/ehowlsla/AndroidStudioProjects/client_android_java/sample/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/ehowlsla/AndroidStudioProjects/client_android_java/sample/src/debug/jniLibs"/></dataSet></merger>

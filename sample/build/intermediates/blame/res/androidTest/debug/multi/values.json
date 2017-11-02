@@ -1,5 +1,29 @@
 [
     {
+        "outputFile": "/Users/ehowlsla/AndroidStudioProjects/client_android_java/sample/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "/Users/ehowlsla/.gradle/caches/transforms-1/files-1.1/rules-0.5.aar/f8990af131ee43b2252acc88c4743d74/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {
