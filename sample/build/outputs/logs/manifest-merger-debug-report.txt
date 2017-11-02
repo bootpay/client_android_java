@@ -40,8 +40,7 @@ MERGED from [com.android.support:support-core-utils:25.3.1] /Users/jeonseung-il/
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/ad770bd177d20108b228b333c529785f7c590b23/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/7ae488e7a0663d4be7283ff1abf58ee4e7e09ab9/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.android/build-cache/3c046859b90989f742b861cf3f56889a981ed30c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.scottyab:secure-preferences-lib:0.1.4] /Users/jeonseung-il/.android/build-cache/f8db4e25e27fc70078cdbaa20109d215e61c2673/output/AndroidManifest.xml:11:5-12:19
-MERGED from [com.scottyab:aes-crypto:0.0.4] /Users/jeonseung-il/.android/build-cache/033744023e48b4f11ea808c2fbb0aa59f287af56/output/AndroidManifest.xml:10:5-20
+MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.android/build-cache/f6cd18f3fb6af12b78eed8150025e30a738749e4/output/AndroidManifest.xml:11:5-20
 	android:label
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:12:9-41
 	android:supportsRtl
@@ -81,8 +80,7 @@ MERGED from [com.android.support:support-core-utils:25.3.1] /Users/jeonseung-il/
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/ad770bd177d20108b228b333c529785f7c590b23/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/jeonseung-il/.android/build-cache/7ae488e7a0663d4be7283ff1abf58ee4e7e09ab9/output/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.android/build-cache/3c046859b90989f742b861cf3f56889a981ed30c/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.scottyab:secure-preferences-lib:0.1.4] /Users/jeonseung-il/.android/build-cache/f8db4e25e27fc70078cdbaa20109d215e61c2673/output/AndroidManifest.xml:7:5-9:41
-MERGED from [com.scottyab:aes-crypto:0.0.4] /Users/jeonseung-il/.android/build-cache/033744023e48b4f11ea808c2fbb0aa59f287af56/output/AndroidManifest.xml:6:5-8:41
+MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.android/build-cache/f6cd18f3fb6af12b78eed8150025e30a738749e4/output/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/jeonseung-il/.android/build-cache/0db4ac951d1f0bb9626bdc8b1b712d3124138873/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

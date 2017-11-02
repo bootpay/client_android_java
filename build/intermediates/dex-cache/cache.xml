@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/.android/build-cache/f6cd18f3fb6af12b78eed8150025e30a738749e4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f8e07ef3c6f583385093854c2fe79e1a319a9de7">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10/classes_588d91aa1188560b4855ce58132ec075de186d37/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="13d5488df23066c99f9afd70ab7fd7cf87dc06cd">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/classes_a3f2d3b059f048f4115e6d94642f6aeba88b66f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.50/2bbd56ca7884b4f70db0f1d655d32ee6f205eaa5/kotlin-stdlib-1.1.50.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2bbd56ca7884b4f70db0f1d655d32ee6f205eaa5">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/kotlin-stdlib-1.1.50_28539024428dc0ecf015bf0d0bd0b617cc4b0d7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/org/jetbrains/annotations/13.0/annotations-13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/annotations-13.0_21edf52381516d443969d7882e7626f8935be4b4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_317dd545d23b9897f8127d584bb4c36541892729/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.9.0/1b6c10b5120995a7542c1a31b7828fb8593c8ba/okhttp-3.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="01b6c10b5120995a7542c1a31b7828fb8593c8ba">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/okhttp-3.9.0_a82df957ea1600b3827a61223efc1de10c38f527.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.3.0/af000bec2036a2a9d07197c4b03b8966bfc60b03/rxjava-1.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="af000bec2036a2a9d07197c4b03b8966bfc60b03">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/rxjava-1.3.0_59a18bdc3a25c41be41058110a42134baa56c48b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e629c813713fdf87424fedd671afd6f203466f17">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_24a7dbf45daccaa80232085970ff52cfe16aec71/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jeonseung-il/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.50/782cda128253a8a1843d26b00d86e7c44fbc6246/kotlin-stdlib-jre7-1.1.50.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="782cda128253a8a1843d26b00d86e7c44fbc6246">
+        <dex dex="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/pre-dexed/debug/kotlin-stdlib-jre7-1.1.50_9b0c4464f359f775f2df7eb06d5fbf06bc54b2a0.jar" />
+    </item>
+
+</items>

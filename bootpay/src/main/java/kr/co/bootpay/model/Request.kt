@@ -7,7 +7,6 @@ import org.json.JSONObject
 import java.util.*
 
 class Request {
-    var isTest_mode = true
     var price = 0
     var application_id = ""
     var name = ""

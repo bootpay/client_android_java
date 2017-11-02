@@ -1,5 +1,6 @@
 package kr.co.bootpay
 
+//import kr.co.bootpay.model.Trace
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
@@ -15,12 +16,12 @@ import android.os.Looper
 import android.os.Message
 import android.provider.Settings
 import android.util.AttributeSet
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
 import kr.co.bootpay.model.Request
-//import kr.co.bootpay.model.Trace
-import kr.co.bootpay.model.UserData
+import kr.co.bootpay.pref.UserInfo
 import java.net.URISyntaxException
 
 internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : WebView(context, attrs, defStyleAttr) {
@@ -90,6 +91,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                         registerAppId()
 
                         setDevice()
+                        setAnalyticsData(UserInfo.bootpay_uuid, UserInfo.bootpay_sk, UserInfo.bootpay_last_time, System.currentTimeMillis() - UserInfo.bootpay_last_time)
 
 //                        startLoginSession(
 //                                user_id(),
@@ -118,7 +120,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                                         pg(),
                                         method(),
                                         items(),
-                                        test_mode(),
                                         params(),
                                         order_id()
                                 ),
@@ -195,6 +196,10 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         return true
     }
 
+    private fun setAnalyticsData(uuid: String, sk: String, sk_time: Long, time: Long) {
+        load("window.BootPay.setAnalyticsData({uuid:'$uuid',sk:'$sk',sk_time:'$sk_time',time:'$time'});")
+    }
+
     private fun setDevice() {
         load("window.BootPay.setDevice('ANDROID');")
     }
@@ -226,8 +231,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     private fun pg() = request?.pg?.let { "pg:'$it'" } ?: ""
 
     private fun method() = request?.method?.let { "method:'$it'" } ?: ""
-
-    private fun test_mode() = request?.isTest_mode?.let { "test_mode:$it" } ?: ""
 
     private fun params(): String {
         return if (request?.params.isNullOrEmpty())
@@ -292,8 +295,8 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //        return if (trace != null && !isNullOrEmpty(trace!!.itemUnique)) String.format(locale, "'unique':'%s'", trace!!.itemUnique) else ""
 //    }
 
-    fun transactionConfirm(data: String) {
-        load("BootPay.transactionConfirm(JSON.parse('$data'));")
+    fun transactionConfirm(data: String?) {
+        load("BootPay.transactionConfirm(JSON.parse('$${data ?: ""}'));")
     }
 
     private fun items() = "items:${

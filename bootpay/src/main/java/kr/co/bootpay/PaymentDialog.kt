@@ -8,7 +8,6 @@ import android.support.annotation.IntRange
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kr.co.bootpay.enums.Area
 
 import org.json.JSONObject
 
@@ -16,8 +15,8 @@ import kr.co.bootpay.enums.Method
 import kr.co.bootpay.enums.PG
 import kr.co.bootpay.model.Item
 import kr.co.bootpay.model.Request
-import kr.co.bootpay.model.Trace
-import kr.co.bootpay.model.UserData
+import kr.co.bootpay.pref.UserInfo
+import java.util.*
 
 class PaymentDialog
 /** @see Builder */
@@ -34,7 +33,7 @@ constructor()// not allowed
         setStyle(DialogFragment.STYLE_NO_FRAME, android.R.style.Theme_Holo_Light)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         bootpay = BootpayWebView(inflater.context)
         afterViewInit()
         return bootpay
@@ -47,8 +46,6 @@ constructor()// not allowed
 
     private fun afterViewInit() {
         bootpay?.setData(result)
-//                ?.setTrace(trace)
-//                ?.setUserInfo(user)
                 ?.setDialog(dialog)
                 ?.setOnResponseListener(listener)
     }
@@ -58,7 +55,12 @@ constructor()// not allowed
         return this
     }
 
-//    private fun setTrace(trace: Trace?): PaymentDialog {
+    override fun onDestroyView() {
+        UserInfo.update()
+        super.onDestroyView()
+    }
+
+    //    private fun setTrace(trace: Trace?): PaymentDialog {
 //        PaymentDialog.trace = trace
 //        return this
 //    }
@@ -73,15 +75,15 @@ constructor()// not allowed
 //        bootpay?.setData(result)
 //    }
 //
-    private fun transactionConfirm(data: String) {
+    private fun transactionConfirm(data: String?) {
         bootpay?.transactionConfirm(data)
     }
 
     class Builder {
         private var fm: FragmentManager? = null
         private var result: Request = Request()
-        private var trace: Trace? = null
-        private var user: UserData? = null
+        //        private var trace: Trace? = null
+//        private var user: UserData? = null
         private var listener: EventListener? = null
         private var error: ErrorListener? = null
         private var done: DoneListener? = null
@@ -370,6 +372,7 @@ constructor()// not allowed
                 override fun cancel() {
                     dialog?.bootpay?.destroy()
                     dialog = null
+                    UserInfo.finish()
                     Bootpay.finish()
 
                 }
@@ -377,17 +380,19 @@ constructor()// not allowed
                 override fun dismiss() {
                     dialog?.bootpay?.destroy()
                     dialog = null
+                    UserInfo.finish()
                     Bootpay.finish()
                 }
             })
-            if (fm?.isDestroyed == false) dialog?.show(fm, "dialog")
+            UserInfo.update()
+            if (fm?.isDestroyed == false) dialog?.show(fm, "bootpay")
         }
 
-        fun transactionConfirm(data: String) {
+        fun transactionConfirm(data: String?) {
             dialog?.transactionConfirm(data)
         }
 
-        private fun error(message: String): Boolean {
+        private fun error(message: String?) {
             throw RuntimeException(message)
         }
     }
