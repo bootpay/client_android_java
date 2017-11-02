@@ -1,4 +1,0 @@
-#Thu Nov 02 15:54:15 KST 2017
-base.0=/Users/ehowlsla/AndroidStudioProjects/client_android_java/sample/build/intermediates/transforms/dexMerger/debug/6
-renamed.0=classes.dex
-file.0=/Users/ehowlsla/AndroidStudioProjects/client_android_java/sample/build/intermediates/transforms/dexMerger/debug/6/classes.dex
