@@ -36,19 +36,22 @@ internal class BootpayAnalyticsPresenter(context: Context) {
                 }, { it.printStackTrace() })
     }
 
-    fun call(url: String, page: String, imageUrl: String = "") {
+    fun call(url: String, page_type: String, imageUrl: String = "", itemUnique: String, itemName: String) {
         rest.api.call(
                 UserInfo.bootpay_application_id,
                 UserInfo.bootpay_uuid,
                 url,
-                page,
+                page_type,
                 imageUrl,
+                itemUnique,
+                itemName,
                 UserInfo.bootpay_sk,
-                UserInfo.bootpay_user_id)
+                UserInfo.bootpay_user_id,
+                "")
                 .retry(3)
                 .subscribeOn(executor)
                 .subscribe({
-                    Log.d("BootpayAnalytics", page)
+                    Log.d("BootpayAnalytics", url)
                 }, { it.printStackTrace() })
     }
 }

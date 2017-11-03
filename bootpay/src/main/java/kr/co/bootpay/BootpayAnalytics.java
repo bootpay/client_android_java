@@ -35,12 +35,17 @@ public class BootpayAnalytics {
     }
 
 
-    public static void start(@NonNull String url, @NonNull String page_type) {
-        start(url, page_type, "");
-    }
+//    public static void start(@NonNull String url, @NonNull String page_type) {
+//        start(url, page_type, "");
+//    }
 
-    public static void start(@NonNull String url, @NonNull String page_type, @NonNull String imageUrl) {
-        presenter.call(url, page_type, imageUrl);
+    public static void start(@NonNull String url,
+                             @NonNull String page_type,
+                             @NonNull String imageUrl,
+                             @NonNull String itemUnique,
+                             @NonNull String itemName
+    ) {
+        presenter.call(url, page_type, imageUrl, itemUnique, itemName);
     }
 }
 
