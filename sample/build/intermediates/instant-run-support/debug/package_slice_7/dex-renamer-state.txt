@@ -1,0 +1,4 @@
+#Mon Nov 06 10:13:53 KST 2017
+base.0=/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dexMerger/debug/8
+renamed.0=classes.dex
+file.0=/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dexMerger/debug/8/classes.dex
