@@ -17,6 +17,8 @@ import kr.co.bootpay.enums.PG;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int stuck = 10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
                     public void onConfirmed(@Nullable String message) {
+                        if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
                         Log.d("confirm", message);
                     }
                 })

@@ -63,7 +63,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                 CANCEL  -> onCancelHandled(data)
                 CONFIRM -> {
                     onConfirmeHandled(data)
-                    transactionConfirm(data)
+//                    transactionConfirm(data)
                 }
                 DONE    -> onDoneHandled(data)
             }
