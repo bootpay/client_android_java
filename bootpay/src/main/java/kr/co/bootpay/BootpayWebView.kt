@@ -296,7 +296,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //    }
 
     fun transactionConfirm(data: String?) {
-        load("window.BootPay.transactionConfirm(JSON.parse('$${data ?: ""}'));")
+        load("window.BootPay.transactionConfirm(JSON.parse('${data ?: ""}'));")
     }
 
     private fun items() = "items:${
