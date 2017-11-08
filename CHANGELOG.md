@@ -1,3 +1,9 @@
+# 1.0.5
+* add functions for trace anlaytics
+
+# 1.0.4
+* release first version of library
+
 # 1.0.2
 * request without params option
 
