@@ -1,5 +1,3 @@
-# Bootpay
-
 ![](logo/logo_bootpay.png)
 
 ![](capture/sample_bootpay00.jpeg)
