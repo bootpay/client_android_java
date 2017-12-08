@@ -20,7 +20,7 @@ allprojects {
 ## build.gradle (Modlue):
 ```gradle
 dependencies {
-    compile 'com.github.bootpay:client_android_java:1.0.4'
+    compile 'com.github.bootpay:client_android_java:1.0.5'
 }
 ```
 
