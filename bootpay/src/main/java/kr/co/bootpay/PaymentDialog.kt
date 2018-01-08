@@ -140,6 +140,11 @@ constructor()// not allowed
             return this
         }
 
+        fun isShowAgree(show: Boolean): Builder {
+            result.isShowAgree = show
+            return this
+        }
+
         fun addItems(items: Collection<Item>?): Builder {
             if (items != null) for (i in items) addItem(i)
             return this
@@ -214,6 +219,26 @@ constructor()// not allowed
 
         fun onError(listener: ErrorListener): Builder {
             error = listener
+            return this
+        }
+
+        fun setUserEmail(email: String): Builder {
+            result.userEmail = email
+            return this
+        }
+
+        fun setUserName(name: String): Builder {
+            result.userName = name
+            return this
+        }
+
+        fun setUserAddr(address: String): Builder {
+            result.userAddr = address
+            return this
+        }
+
+        fun setUserPhone(number: String): Builder {
+            result.userPhone = number
             return this
         }
 

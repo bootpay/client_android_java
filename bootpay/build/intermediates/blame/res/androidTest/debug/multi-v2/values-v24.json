@@ -4,7 +4,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/64b985ac6b703025f691f440dbf8f609/res/values-v24/values-v24.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

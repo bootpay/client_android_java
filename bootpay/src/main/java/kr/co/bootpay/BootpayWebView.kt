@@ -16,7 +16,6 @@ import android.os.Looper
 import android.os.Message
 import android.provider.Settings
 import android.util.AttributeSet
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
@@ -27,7 +26,7 @@ import java.net.URISyntaxException
 internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : WebView(context, attrs, defStyleAttr) {
 
     companion object {
-        private val BOOTPAY = "https://inapp.bootpay.co.kr/1.0.0/production.html"
+        private val BOOTPAY = "https://inapp.bootpay.co.kr/1.1.1/production.html"
 
         private val ERROR = -2
 
@@ -115,11 +114,18 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                         loadParams(
                                 request(
                                         price(),
-                                        application_id(),
+                                        applicationId(),
                                         name(),
                                         pg(),
+                                        agree(),
                                         method(),
                                         items(),
+                                        userInfo(
+                                                userName(),
+                                                userEmail(),
+                                                userAddr(),
+                                                userPhone()
+                                        ),
                                         params(),
                                         order_id()
                                 ),
@@ -209,10 +215,17 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         return true
     }
 
-    private fun request(vararg query: String) = "BootPay.request({${query
-            .filterNot { it.isEmpty() }
-            .joinToString(",")
-    }})"
+    private fun request(vararg query: String) = "BootPay.request({${query.filter(String::isNotEmpty).joinToString()}})"
+
+    private fun userInfo(vararg info: String) = "user_info: {${info.filter(String::isNotEmpty).joinToString()}}"
+
+    private fun userName() = request?.userName?.takeIf(String::isNotEmpty)?.let { "username: '$it'" } ?: ""
+
+    private fun userEmail() = request?.userEmail?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
+
+    private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
+
+    private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
 
     private fun error() = ".error(function(data){Android.error(JSON.stringify(data));})"
 
@@ -224,11 +237,13 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun price() = request?.price?.let { "price:$it" } ?: ""
 
-    private fun application_id() = request?.application_id?.let { "application_id:'$it'" } ?: ""
+    private fun applicationId() = request?.application_id?.let { "application_id:'$it'" } ?: ""
 
     private fun name() = request?.name?.let { "name:'$it'" } ?: ""
 
     private fun pg() = request?.pg?.let { "pg:'$it'" } ?: ""
+
+    private fun agree() = "show_agree_window: ${if (request?.isShowAgree == true) 1 else 0}"
 
     private fun method() = request?.method?.let { "method:'$it'" } ?: ""
 

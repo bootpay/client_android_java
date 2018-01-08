@@ -18,6 +18,11 @@ class Request {
     var unit = ""
     var feedback_url = ""
     var params: String? = ""
+    var isShowAgree: Boolean = false
+    var userName: String? = null
+    var userEmail: String? = null
+    var userAddr: String? = null
+    var userPhone: String? = null
 
     fun setOrder_id(order_id: String) {
         this.orderId = order_id
