@@ -2,87 +2,104 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="24"
-    build-mode="COLD"
+    build-mode="FULL"
     density="xxxhdpi"
     format="10"
-    ir-eligibility="METHOD_ADDED"
-    plugin-version="3.0.0"
-    timestamp="1509944882813"
+    plugin-version="3.0.1"
+    timestamp="1515570388417"
     token="-4393361247041817658"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="136" />
+        duration="198" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="100" />
+        duration="154" />
     <task
         name="verifier"
-        duration="7" />
+        duration="254" />
 
     <artifact
-        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
         location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/debug/sample-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1509943985666"
+        timestamp="1515570388417"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
             location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
             location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/debug/sample-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="METHOD_ADDED"
-        timestamp="1509944882813"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/outputs/apk/debug/sample-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

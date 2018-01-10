@@ -4,7 +4,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ko_values-ko.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ko/values-ko.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ko/values-ko.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -19,7 +19,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v17_values-v17.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v17/values-v17.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -32,40 +32,10 @@
             ]
         },
         {
-            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-th_values-th.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-th/values-th.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,160,268,391,489,597,686,788,898,975,1053,1134,1242,1346,1444,1552,1657,1758,1874,1969,2050",
-                        "endColumns": "104,107,122,97,107,88,101,109,76,77,80,107,103,97,107,104,100,115,94,80,100",
-                        "endOffsets": "155,263,386,484,592,681,783,893,970,1048,1129,1237,1341,1439,1547,1652,1753,1869,1964,2045,2146"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ru_values-ru.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ru/values-ru.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,170,278,401,503,615,701,806,926,1005,1083,1163,1269,1377,1475,1584,1690,1798,1934,2034,2115",
-                        "endColumns": "114,107,122,101,111,85,104,119,78,77,79,105,107,97,108,105,107,135,99,80,100",
-                        "endOffsets": "165,273,396,498,610,696,801,921,1000,1078,1158,1264,1372,1470,1579,1685,1793,1929,2029,2110,2211"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v13_values-v13.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v13/values-v13.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v13/values-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -77,10 +47,40 @@
             ]
         },
         {
+            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ru_values-ru.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ru/values-ru.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,170,278,401,503,615,701,806,926,1005,1083,1163,1269,1377,1475,1584,1690,1798,1934,2034,2115",
+                        "endColumns": "114,107,122,101,111,85,104,119,78,77,79,105,107,97,108,105,107,135,99,80,100",
+                        "endOffsets": "165,273,396,498,610,696,801,921,1000,1078,1158,1264,1372,1470,1579,1685,1793,1929,2029,2110,2211"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-th_values-th.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-th/values-th.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,160,268,391,489,597,686,788,898,975,1053,1134,1242,1346,1444,1552,1657,1758,1874,1969,2050",
+                        "endColumns": "104,107,122,97,107,88,101,109,76,77,80,107,103,97,107,104,100,115,94,80,100",
+                        "endOffsets": "155,263,386,484,592,681,783,893,970,1048,1129,1237,1341,1439,1547,1652,1753,1869,1964,2045,2146"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-fr_values-fr.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-fr/values-fr.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-fr/values-fr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -95,7 +95,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-lt_values-lt.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-lt/values-lt.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-lt/values-lt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -110,7 +110,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ka-rGE_values-ka-rGE.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ka-rGE/values-ka-rGE.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ka-rGE/values-ka-rGE.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -125,7 +125,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-mk-rMK_values-mk-rMK.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-mk-rMK/values-mk-rMK.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-mk-rMK/values-mk-rMK.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -140,7 +140,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-h720dp-v13_values-h720dp-v13.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -155,7 +155,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-bn-rBD_values-bn-rBD.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-bn-rBD/values-bn-rBD.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-bn-rBD/values-bn-rBD.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -170,7 +170,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-in_values-in.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-in/values-in.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-in/values-in.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -185,7 +185,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-large-v4_values-large-v4.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-large-v4/values-large-v4.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -197,25 +197,10 @@
             ]
         },
         {
-            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-vi_values-vi.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-vi/values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,169,277,400,508,617,701,804,923,1000,1077,1161,1265,1374,1475,1580,1694,1799,1919,2018,2102",
-                        "endColumns": "113,107,122,107,108,83,102,118,76,76,83,103,108,100,104,113,104,119,98,83,100",
-                        "endOffsets": "164,272,395,503,612,696,799,918,995,1072,1156,1260,1369,1470,1575,1689,1794,1914,2013,2097,2198"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-pt_values-pt.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-pt/values-pt.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-pt/values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -227,10 +212,25 @@
             ]
         },
         {
+            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-vi_values-vi.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,169,277,400,508,617,701,804,923,1000,1077,1161,1265,1374,1475,1580,1694,1799,1919,2018,2102",
+                        "endColumns": "113,107,122,107,108,83,102,118,76,76,83,103,108,100,104,113,104,119,98,83,100",
+                        "endOffsets": "164,272,395,503,612,696,799,918,995,1072,1156,1260,1369,1470,1575,1689,1794,1914,2013,2097,2198"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-hi_values-hi.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-hi/values-hi.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-hi/values-hi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -245,7 +245,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-am_values-am.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-am/values-am.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-am/values-am.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -260,7 +260,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-uz-rUZ_values-uz-rUZ.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-uz-rUZ/values-uz-rUZ.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-uz-rUZ/values-uz-rUZ.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -275,7 +275,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-si-rLK_values-si-rLK.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-si-rLK/values-si-rLK.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-si-rLK/values-si-rLK.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -290,7 +290,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-mr-rIN_values-mr-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-mr-rIN/values-mr-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-mr-rIN/values-mr-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -305,7 +305,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-fi_values-fi.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-fi/values-fi.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-fi/values-fi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -320,7 +320,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-hdpi-v4_values-hdpi-v4.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -336,7 +336,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v16_values-v16.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v16/values-v16.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -351,7 +351,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-zh-rCN_values-zh-rCN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-zh-rCN/values-zh-rCN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-zh-rCN/values-zh-rCN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -366,7 +366,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-pt-rBR_values-pt-rBR.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-pt-rBR/values-pt-rBR.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -381,7 +381,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-pa-rIN_values-pa-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-pa-rIN/values-pa-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-pa-rIN/values-pa-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -396,7 +396,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-da_values-da.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-da/values-da.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-da/values-da.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -411,7 +411,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-bs-rBA_values-bs-rBA.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-bs-rBA/values-bs-rBA.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-bs-rBA/values-bs-rBA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -426,7 +426,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v14_values-v14.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v14/values-v14.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v14/values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15,21,22,23,24,25,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -442,7 +442,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-en-rGB_values-en-rGB.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-en-rGB/values-en-rGB.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-en-rGB/values-en-rGB.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -457,7 +457,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-nl_values-nl.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-nl/values-nl.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-nl/values-nl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -472,7 +472,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-is-rIS_values-is-rIS.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-is-rIS/values-is-rIS.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-is-rIS/values-is-rIS.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -484,10 +484,25 @@
             ]
         },
         {
+            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v18_values-v18.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/85d71706718f2cb6c8e112ac4165b533/res/values/values.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f965adeba73102dd308d45785dafb733/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,7,8,11,14,15,18,21,22,23,24,28,29,30,31,36,37,38,41,44,45,48,51,54,57,58,61,64,65,70,71,75,76,77,78,79,80,81,82,83,84,85",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -523,7 +538,7 @@
                     }
                 },
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values/values.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,359,360,364,368,373,379,386,390,394,399,403,407,411,415,419,423,427,431,435,439,443,447,452,456,459,463,467,471,475,479,483,487,491,495,499,503,504,505,506,509,512,515,518,522,523,524,525,526,529,531,533,535,540,541,545,551,555,556,558,569,570,574,580,584,585,586,590,617,621,622,626,654,813,835,994,1016,1043,1050,1055,1077,1082,1087,1097,1106,1115,1119,1126,1134,1141,1142,1151,1154,1157,1161,1165,1169,1172,1173,1177,1181,1191,1196,1203,1209,1210,1213,1217,1222,1224,1226,1229,1232,1234,1238,1241,1248,1251,1254,1258,1260,1264,1266,1272,1274,1278,1286,1294,1306,1312,1321,1324,1335,1338,1343,1357,1362,1404,1447,1448,1458,1467,1468,1470,1474,1477,1480,1483,1486,1490,1493,1496,1499,1503,1506,1510,1514,1515,1516,1517,1518,1519,1520,1521,1522,1523,1524,1525,1526,1527,1528,1529,1530,1531,1532,1533,1534,1538,1542,1543,1544,1545,1546,1550,1551,1555,1556,1558,1560,1561,1562,1563,1564,1565,1566,1568,1569,1571,1572,1574,1576,1577,1579,1580,1581,1582,1583,1584,1586,1587,1588,1589,1590,1591,1592,1593,1594,1595,1596,1598,1600,1602,1603,1604,1605,1606,1607,1608,1609,1610,1611,1612,1613,1614,1616,1617,1618,1619,1620,1621,1623,1627,1631,1632,1633,1634,1635,1636,1637,1638,1640,1642,1644,1646,1648,1649,1650,1651,1653,1655,1657,1658,1659,1660,1661,1662,1663,1664,1665,1666,1667,1668,1671,1672,1673,1674,1676,1678,1679,1681,1682,1684,1686,1688,1689,1690,1691,1692,1693,1694,1695,1696,1697,1698,1699,1701,1702,1703,1704,1706,1707,1708,1709,1710,1711,1712,1714,1716,1718,1720,1721,1722,1723,1724,1725,1726,1727,1728,1729,1730,1731,1732,1733",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -544,25 +559,10 @@
             ]
         },
         {
-            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v18_values-v18.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v18/values-v18.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "48",
-                        "endOffsets": "99"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-tl_values-tl.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-tl/values-tl.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-tl/values-tl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -577,7 +577,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-tr_values-tr.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-tr/values-tr.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-tr/values-tr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -592,7 +592,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-port_values-port.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-port/values-port.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -607,7 +607,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-fa_values-fa.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-fa/values-fa.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-fa/values-fa.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -622,7 +622,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-de_values-de.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-de/values-de.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-de/values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -637,7 +637,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-az-rAZ_values-az-rAZ.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-az-rAZ/values-az-rAZ.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-az-rAZ/values-az-rAZ.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -652,7 +652,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v24_values-v24.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v24/values-v24.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -667,7 +667,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-land_values-land.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-land/values-land.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -682,7 +682,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v22_values-v22.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v22/values-v22.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v22/values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
@@ -695,25 +695,10 @@
             ]
         },
         {
-            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-zh-rTW_values-zh-rTW.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-zh-rTW/values-zh-rTW.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,150,257,380,473,573,655,752,860,936,1012,1090,1186,1282,1377,1474,1569,1669,1782,1876,1954",
-                        "endColumns": "94,106,122,92,99,81,96,107,75,75,77,95,95,94,96,94,99,112,93,77,100",
-                        "endOffsets": "145,252,375,468,568,650,747,855,931,1007,1085,1181,1277,1372,1469,1564,1664,1777,1871,1949,2050"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-pt-rPT_values-pt-rPT.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-pt-rPT/values-pt-rPT.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-pt-rPT/values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -725,10 +710,25 @@
             ]
         },
         {
+            "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-zh-rTW_values-zh-rTW.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-zh-rTW/values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,257,380,473,573,655,752,860,936,1012,1090,1186,1282,1377,1474,1569,1669,1782,1876,1954",
+                        "endColumns": "94,106,122,92,99,81,96,107,75,75,77,95,95,94,96,94,99,112,93,77,100",
+                        "endOffsets": "145,252,375,468,568,650,747,855,931,1007,1085,1181,1277,1372,1469,1564,1664,1777,1871,1949,2050"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-iw_values-iw.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-iw/values-iw.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-iw/values-iw.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -743,7 +743,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ja_values-ja.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ja/values-ja.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ja/values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -758,7 +758,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-el_values-el.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-el/values-el.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-el/values-el.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -773,7 +773,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-nb_values-nb.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-nb/values-nb.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-nb/values-nb.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -788,7 +788,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v12_values-v12.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v12/values-v12.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v12/values-v12.xml",
                     "from": {
                         "startLines": "2,5,8,9",
                         "startColumns": "4,4,4,4",
@@ -804,7 +804,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-lo-rLA_values-lo-rLA.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-lo-rLA/values-lo-rLA.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-lo-rLA/values-lo-rLA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -819,7 +819,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-kk-rKZ_values-kk-rKZ.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-kk-rKZ/values-kk-rKZ.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-kk-rKZ/values-kk-rKZ.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -834,7 +834,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-pl_values-pl.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-pl/values-pl.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -849,7 +849,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ne-rNP_values-ne-rNP.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ne-rNP/values-ne-rNP.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ne-rNP/values-ne-rNP.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -864,7 +864,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-hu_values-hu.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-hu/values-hu.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-hu/values-hu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -879,7 +879,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-af_values-af.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-af/values-af.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-af/values-af.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -894,7 +894,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ta-rIN_values-ta-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ta-rIN/values-ta-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ta-rIN/values-ta-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -909,7 +909,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ky-rKG_values-ky-rKG.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ky-rKG/values-ky-rKG.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ky-rKG/values-ky-rKG.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -924,7 +924,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-en-rIN_values-en-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -939,7 +939,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-be-rBY_values-be-rBY.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-be-rBY/values-be-rBY.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-be-rBY/values-be-rBY.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -954,7 +954,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v21_values-v21.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v21/values-v21.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,23,24,25,26,28,30,31,32,33,34,36,38,40,42,44,46,47,52,54,56,57,58,60,62,63,64,65,66,67,111,114,158,161,164,166,168,170,173,175,178,179,180,183,184,185,186,187,188,191,192,194,196,198,200,204,206,207,208,209,211,215,217,219,220,221,222,223,225,226,227,237,238,239,251,263,264,265,268,271,272,275,276,279,282",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -970,7 +970,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-kn-rIN_values-kn-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-kn-rIN/values-kn-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-kn-rIN/values-kn-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -985,7 +985,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ur-rPK_values-ur-rPK.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ur-rPK/values-ur-rPK.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ur-rPK/values-ur-rPK.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1000,7 +1000,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ml-rIN_values-ml-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ml-rIN/values-ml-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ml-rIN/values-ml-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1015,7 +1015,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-uk_values-uk.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-uk/values-uk.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-uk/values-uk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1030,7 +1030,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-km-rKH_values-km-rKH.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-km-rKH/values-km-rKH.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-km-rKH/values-km-rKH.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1045,7 +1045,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-mn-rMN_values-mn-rMN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-mn-rMN/values-mn-rMN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-mn-rMN/values-mn-rMN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1060,7 +1060,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sw600dp-v13_values-sw600dp-v13.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -1075,7 +1075,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sw_values-sw.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sw/values-sw.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sw/values-sw.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1090,7 +1090,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-en-rAU_values-en-rAU.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-en-rAU/values-en-rAU.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-en-rAU/values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1105,7 +1105,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-gl-rES_values-gl-rES.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-gl-rES/values-gl-rES.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-gl-rES/values-gl-rES.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1120,7 +1120,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sk_values-sk.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sk/values-sk.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sk/values-sk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1135,7 +1135,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ms-rMY_values-ms-rMY.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ms-rMY/values-ms-rMY.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ms-rMY/values-ms-rMY.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1150,7 +1150,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-my-rMM_values-my-rMM.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-my-rMM/values-my-rMM.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-my-rMM/values-my-rMM.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1165,7 +1165,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-lv_values-lv.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-lv/values-lv.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-lv/values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1180,7 +1180,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sq-rAL_values-sq-rAL.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sq-rAL/values-sq-rAL.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sq-rAL/values-sq-rAL.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1195,7 +1195,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sr_values-sr.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sr/values-sr.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sr/values-sr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1210,7 +1210,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-night-v8/values-night-v8.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -1225,7 +1225,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ca_values-ca.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ca/values-ca.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ca/values-ca.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1240,7 +1240,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-it_values-it.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-it/values-it.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-it/values-it.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1255,7 +1255,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ar_values-ar.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ar/values-ar.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ar/values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1270,7 +1270,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-eu-rES_values-eu-rES.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-eu-rES/values-eu-rES.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-eu-rES/values-eu-rES.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1285,7 +1285,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-xlarge-v4_values-xlarge-v4.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-xlarge-v4/values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -1300,7 +1300,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-es_values-es.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-es/values-es.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-es/values-es.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1315,7 +1315,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-b+sr+Latn_values-b+sr+Latn.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-b+sr+Latn/values-b+sr+Latn.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-b+sr+Latn/values-b+sr+Latn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1330,7 +1330,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ro_values-ro.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ro/values-ro.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ro/values-ro.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1345,7 +1345,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v25_values-v25.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v25/values-v25.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v25/values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",
@@ -1361,7 +1361,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-et-rEE_values-et-rEE.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-et-rEE/values-et-rEE.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-et-rEE/values-et-rEE.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1376,7 +1376,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sl_values-sl.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sl/values-sl.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sl/values-sl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1391,7 +1391,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v23_values-v23.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v23/values-v23.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -1407,7 +1407,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-hr_values-hr.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-hr/values-hr.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-hr/values-hr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1422,7 +1422,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-ldltr-v21_values-ldltr-v21.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1437,7 +1437,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-es-rUS_values-es-rUS.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-es-rUS/values-es-rUS.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-es-rUS/values-es-rUS.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1452,7 +1452,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-zu_values-zu.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-zu/values-zu.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-zu/values-zu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1467,7 +1467,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-fr-rCA_values-fr-rCA.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-fr-rCA/values-fr-rCA.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-fr-rCA/values-fr-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1482,7 +1482,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-v11_values-v11.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-v11/values-v11.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-v11/values-v11.xml",
                     "from": {
                         "startLines": "2,8,14,20,26,32,38,39,43,47,48,52,56,57,61,66,71,76,78,80,81,82,136,191",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1498,7 +1498,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-cs_values-cs.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-cs/values-cs.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-cs/values-cs.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1513,7 +1513,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-hy-rAM_values-hy-rAM.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-hy-rAM/values-hy-rAM.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-hy-rAM/values-hy-rAM.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1528,7 +1528,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-te-rIN_values-te-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-te-rIN/values-te-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-te-rIN/values-te-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1543,7 +1543,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-gu-rIN_values-gu-rIN.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-gu-rIN/values-gu-rIN.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-gu-rIN/values-gu-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1558,7 +1558,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-zh-rHK/values-zh-rHK.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-zh-rHK/values-zh-rHK.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1573,7 +1573,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-bg_values-bg.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-bg/values-bg.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-bg/values-bg.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -1588,7 +1588,7 @@
             "outputFile": "/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/res/merged/androidTest/debug/values-sv_values-sv.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/52d81bdbf596a1d7ccac8ec2b95d94b1/res/values-sv/values-sv.xml",
+                    "source": "/Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/392207ca76f944b0f2a3d2fbd0a64e88/res/values-sv/values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
