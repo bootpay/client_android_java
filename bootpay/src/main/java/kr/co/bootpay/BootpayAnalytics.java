@@ -3,10 +3,9 @@ package kr.co.bootpay;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.chibatching.kotpref.Kotpref;
-
 import kr.co.bootpay.analytics.BootpayAnalyticsPresenter;
 import kr.co.bootpay.pref.UserInfo;
+import kr.co.bootpay.secure.SecurePreference;
 
 public class BootpayAnalytics {
 
@@ -14,7 +13,7 @@ public class BootpayAnalytics {
 
     public static void init(@NonNull Context context, @NonNull String applicationID) {
         if (applicationID.isEmpty()) throw new RuntimeException("Application ID is empty.");
-        Kotpref.INSTANCE.init(context);
+        SecurePreference.init(context);
         presenter = new BootpayAnalyticsPresenter(context);
         UserInfo.INSTANCE.setBootpay_application_id(applicationID);
     }

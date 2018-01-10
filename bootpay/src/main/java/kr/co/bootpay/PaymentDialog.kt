@@ -8,15 +8,13 @@ import android.support.annotation.IntRange
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import org.json.JSONObject
-
+import kr.co.bootpay.PaymentDialog.Builder
 import kr.co.bootpay.enums.Method
 import kr.co.bootpay.enums.PG
 import kr.co.bootpay.model.Item
 import kr.co.bootpay.model.Request
 import kr.co.bootpay.pref.UserInfo
-import java.util.*
+import org.json.JSONObject
 
 class PaymentDialog
 /** @see Builder */

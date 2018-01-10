@@ -15,7 +15,6 @@ MERGED from [com.android.support:support-media-compat:25.3.1] /Users/jeonseung-i
 MERGED from [com.android.support:support-core-utils:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/a9fdd897c1dcec68ea4505b72ad78b1e/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-ui:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/a5ed2608b9afa204412a9ef97d28bdb7/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/e826afb8227d72b7f2e9dfeb8fa60d82/AndroidManifest.xml:17:1-31:12
-MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/kotpref-2.2.0.aar/9768609ee89f2b393b8c33780b02b685/AndroidManifest.xml:2:1-13:12
 INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-25:12
 INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-25:12
 INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:2:1-25:12
@@ -73,8 +72,6 @@ MERGED from [com.android.support:support-core-ui:25.3.1] /Users/jeonseung-il/.gr
 MERGED from [com.android.support:support-core-ui:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/a5ed2608b9afa204412a9ef97d28bdb7/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/e826afb8227d72b7f2e9dfeb8fa60d82/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/e826afb8227d72b7f2e9dfeb8fa60d82/AndroidManifest.xml:29:5-20
-MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/kotpref-2.2.0.aar/9768609ee89f2b393b8c33780b02b685/AndroidManifest.xml:11:5-20
-MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/kotpref-2.2.0.aar/9768609ee89f2b393b8c33780b02b685/AndroidManifest.xml:11:5-20
 	android:supportsRtl
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml:14:9-35
 	android:label
@@ -127,8 +124,6 @@ MERGED from [com.android.support:support-core-ui:25.3.1] /Users/jeonseung-il/.gr
 MERGED from [com.android.support:support-core-ui:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/a5ed2608b9afa204412a9ef97d28bdb7/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/e826afb8227d72b7f2e9dfeb8fa60d82/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.3.1] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/e826afb8227d72b7f2e9dfeb8fa60d82/AndroidManifest.xml:21:5-23:58
-MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/kotpref-2.2.0.aar/9768609ee89f2b393b8c33780b02b685/AndroidManifest.xml:7:5-9:41
-MERGED from [com.chibatching.kotpref:kotpref:2.2.0] /Users/jeonseung-il/.gradle/caches/transforms-1/files-1.1/kotpref-2.2.0.aar/9768609ee89f2b393b8c33780b02b685/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
 INJECTED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/src/main/AndroidManifest.xml
 	tools:overrideLibrary

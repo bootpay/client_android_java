@@ -1,9 +1,9 @@
 package kr.co.bootpay.analytics
 
 import android.content.Context
+import kr.co.bootpay.analytics.cookie.CachedCookie
 import kr.co.bootpay.analytics.cookie.PersistanctCookieJar
 import kr.co.bootpay.analytics.cookie.PrefCookiePersister
-import kr.co.bootpay.analytics.cookie.CachedCookie
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
