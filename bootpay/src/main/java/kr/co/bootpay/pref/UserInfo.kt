@@ -11,7 +11,8 @@ internal object UserInfo : PrefModel() {
     var bootpay_application_id by stringPref("")
     var bootpay_user_id by stringPref("")
 
-    internal fun update() {
+    @JvmStatic
+    fun update() {
         if (bootpay_uuid.isEmpty()) bootpay_uuid = UUID.randomUUID().toString()
         if (bootpay_sk.isEmpty()) bootpay_sk = "${bootpay_uuid}_$bootpay_last_time"
         System.currentTimeMillis().let { time ->
@@ -21,7 +22,8 @@ internal object UserInfo : PrefModel() {
         }
     }
 
-    internal fun finish() {
+    @JvmStatic
+    fun finish() {
         bootpay_last_time = System.currentTimeMillis()
     }
 

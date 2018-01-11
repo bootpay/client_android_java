@@ -38,8 +38,8 @@ class Request {
         this.items.addAll(items)
     }
 
-    fun setItems(items: MutableList<Item>) {
-        this.items = items
+    fun setItems(items: Collection<Item>) {
+        this.items = items.toMutableList()
     }
 
     val paramsOfJson: JSONObject
