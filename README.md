@@ -32,7 +32,7 @@ dependencies {
 
 ## 샘플 코드
 ```java
-BootpayDialog.init(getFragmentManager())
+Bootpay.init(getFragmentManager())
         .setApplicationId("59a7e647396fa64fcad4a8c2")
         .setPG(PG.DANAL)
         .setMethod(Method.CARD)
@@ -92,7 +92,7 @@ android {
 
 ## 샘플 코드
 ```java
-BootpayDialog.init(getFragmentManager())
+Bootpay.init(getFragmentManager())
         .setApplicationId("593f8febe13f332431a8ddae")
         .setPG(PG.DANAL)
         .setMethod(Method.CARD)
@@ -129,7 +129,7 @@ dependencies {
 
 ## 샘플 코드
 ```kotlin
-BootpayDialog.init(fragmentManager)
+Bootpay.init(fragmentManager)
         .setApplicationId("593f8febe13f332431a8ddae")
         .setPG(PG.DANAL)
         .setMethod(Method.SELECT)
