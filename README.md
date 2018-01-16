@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/bootpay/client_android_java.svg)](https://jitpack.io/#bootpay/client_android_java)
 ![](logo/logo_bootpay.png)
 
 ## PG Analytics - 결제데이터 분석서비스
