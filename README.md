@@ -1,5 +1,5 @@
 [![](https://jitpack.io/v/bootpay/client_android_java.svg)](https://jitpack.io/#bootpay/client_android_java)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![](logo/logo_bootpay.png)
 
 ## PG Analytics - 결제데이터 분석서비스
