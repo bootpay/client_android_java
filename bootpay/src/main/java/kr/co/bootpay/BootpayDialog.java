@@ -261,7 +261,7 @@ public class BootpayDialog extends DialogFragment {
             if (result.getPrice() < 0)
                 error("Price is not configured.");
 
-            if (isEmpty(result.getOrderId()))
+            if (isEmpty(result.getOrder_id()))
                 error("Order id is not configured.");
 
             if (listener == null && (error == null || cancel == null || confirm == null || done == null))

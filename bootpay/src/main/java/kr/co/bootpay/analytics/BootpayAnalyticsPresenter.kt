@@ -18,14 +18,13 @@ internal class BootpayAnalyticsPresenter(context: Context) {
             gender: String = "",
             birth: String = "",
             phone: String = "",
-            area: String = ""
-    ) {
+            area: String = "") {
         rest.api.login(
                 UserInfo.bootpay_application_id,
                 id,
                 email,
                 username,
-                if (gender.trim() == "") -1 else gender.toInt(),
+                if (gender.trim().isEmpty()) -1 else gender.toInt(),
                 birth,
                 phone,
                 area)
@@ -54,4 +53,6 @@ internal class BootpayAnalyticsPresenter(context: Context) {
                     Log.d("BootpayAnalytics", url)
                 }, { it.printStackTrace() })
     }
+
+
 }

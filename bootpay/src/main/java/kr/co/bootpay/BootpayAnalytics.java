@@ -14,7 +14,8 @@ public class BootpayAnalytics {
     public static void init(@NonNull Context context, @NonNull String applicationID) {
         if (applicationID.isEmpty()) throw new RuntimeException("Application ID is empty.");
         SecurePreference.init(context);
-        presenter = new BootpayAnalyticsPresenter(context);
+        if (presenter == null)
+            presenter = new BootpayAnalyticsPresenter(context);
         UserInfo.INSTANCE.setBootpay_application_id(applicationID);
     }
 
@@ -30,21 +31,22 @@ public class BootpayAnalytics {
             @NonNull String birth,
             @NonNull String phone,
             @NonNull String area) {
-        presenter.login(id, email, userName, gender, birth, phone, area);
+        if (presenter == null) throw new IllegalStateException("Analytics is not initialized.");
+        else presenter.login(id, email, userName, gender, birth, phone, area);
     }
 
 
-//    public static void start(@NonNull String url, @NonNull String page_type) {
-//        start(url, page_type, "");
-//    }
+    public static void start(@NonNull String url) {
+        start(url, "", "", "", "");
+    }
 
     public static void start(@NonNull String url,
                              @NonNull String page_type,
                              @NonNull String imageUrl,
                              @NonNull String itemUnique,
-                             @NonNull String itemName
-    ) {
-        presenter.call(url, page_type, imageUrl, itemUnique, itemName);
+                             @NonNull String itemName) {
+        if (presenter == null) throw new IllegalStateException("Analytics is not initialized.");
+        else presenter.call(url, page_type, imageUrl, itemUnique, itemName);
     }
 }
 

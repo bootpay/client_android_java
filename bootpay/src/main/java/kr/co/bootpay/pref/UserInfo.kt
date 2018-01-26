@@ -4,12 +4,14 @@ import kr.co.bootpay.secure.model.PrefModel
 import java.util.*
 
 
-internal object UserInfo : PrefModel() {
-    var bootpay_uuid by stringPref("")
+internal object UserInfo: PrefModel() {
+    var bootpay_uuid by stringPref()
     var bootpay_last_time by longPref(System.currentTimeMillis())
-    var bootpay_sk by stringPref("")
-    var bootpay_application_id by stringPref("")
-    var bootpay_user_id by stringPref("")
+    var bootpay_sk by stringPref()
+    var bootpay_application_id by stringPref()
+    var bootpay_user_id by stringPref()
+    var bootpay_receipt_id by stringPref()
+    var developerPayload by stringPref()
 
     @JvmStatic
     fun update() {

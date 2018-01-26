@@ -47,10 +47,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private var request: Request? = null
 
-//    private var trace: Trace? = null
-
-//    private var userData: UserData? = null
-
     private var isLoaded = false
 
     private val eventHandler = object : Handler(Looper.getMainLooper()) {
@@ -60,10 +56,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
             when (msg.what) {
                 ERROR   -> onErrorHandled(data)
                 CANCEL  -> onCancelHandled(data)
-                CONFIRM -> {
-                    onConfirmeHandled(data)
-//                    transactionConfirm(data)
-                }
+                CONFIRM -> onConfirmeHandled(data)
                 DONE    -> onDoneHandled(data)
             }
         }
@@ -90,26 +83,11 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                         registerAppId()
 
                         setDevice()
-                        setAnalyticsData(UserInfo.bootpay_uuid, UserInfo.bootpay_sk, UserInfo.bootpay_last_time, System.currentTimeMillis() - UserInfo.bootpay_last_time)
-
-//                        startLoginSession(
-//                                user_id(),
-//                                user_name(),
-//                                user_email(),
-//                                user_birth(),
-//                                user_gender(),
-//                                user_area()
-//                        )
-//
-//                        startTrace(
-//                                trace_page_type(),
-//                                trace_main_category(),
-//                                trace_middle_category(),
-//                                trace_sub_category(),
-//                                trace_item_image(),
-//                                trace_item_name(),
-//                                trace_item_unique()
-//                        )
+                        setAnalyticsData(
+                                UserInfo.bootpay_uuid,
+                                UserInfo.bootpay_sk,
+                                UserInfo.bootpay_last_time,
+                                System.currentTimeMillis() - UserInfo.bootpay_last_time)
 
                         loadParams(
                                 request(
@@ -139,12 +117,12 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                     val intent = parse(url)
-                    return if (isIntentOf(url)) {
+                    return if (isIntent(url)) {
                         if (isExistInfo(intent) or isExistPackage(intent))
                             start(intent)
                         else
-                            startMarket(intent)
-                    } else if (isMarketOf(url))
+                            gotoMarket(intent)
+                    } else if (isMarket(url))
                         start(intent)
                     else
                         url.contains("https://testquickpay")
@@ -172,9 +150,9 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         return true
     }
 
-    private fun isIntentOf(url: String?) = url?.matches(Regex("^intent:?\\w*://\\S+$")) ?: false
+    private fun isIntent(url: String?) = url?.matches(Regex("^intent:?\\w*://\\S+$")) ?: false
 
-    private fun isMarketOf(url: String?) = url?.matches(Regex("^market://\\S+$")) ?: false
+    private fun isMarket(url: String?) = url?.matches(Regex("^market://\\S+$")) ?: false
 
     private fun isExistInfo(intent: Intent?): Boolean {
         return try {
@@ -210,7 +188,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         load("window.BootPay.setDevice('ANDROID');")
     }
 
-    private fun startMarket(intent: Intent?): Boolean {
+    private fun gotoMarket(intent: Intent?): Boolean {
         intent?.let { start(Intent(Intent.ACTION_VIEW).apply { data = Uri.parse("market://details?id=${it.`package`}") }) }
         return true
     }
@@ -258,109 +236,26 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         load("$(\"script[data-boot-app-id]\").attr(\"data-boot-app-id\", '${request!!.application_id}');")
     }
 
-//    private fun user_id() =
-//        return if (userData != null && !isNullOrEmpty(userData!!.userID)) String.format(locale, "'id':'%s'", userData!!.userID) else ""
-//    }
-//
-//    private fun user_name(): String {
-//        return if (userData != null && !isNullOrEmpty(userData!!.userName)) String.format(locale, "'username':'%s'", userData!!.userName) else ""
-//    }
-//
-//    private fun user_birth(): String {
-//        return if (userData != null && !isNullOrEmpty(userData!!.userBirth)) String.format(locale, "'birth':'%s'", userData!!.userBirth) else ""
-//    }
-//
-//    private fun user_email(): String {
-//        return if (userData != null && !isNullOrEmpty(userData!!.userEmail)) String.format(locale, "'email':'%s'", userData!!.userEmail) else ""
-//    }
-//
-//    private fun user_gender(): String {
-//        return if (userData != null && userData!!.userGender >= 0) String.format(locale, "'gender:'%d'", userData!!.userGender) else ""
-//    }
-//
-//    private fun user_area(): String {
-//        return if (userData != null && !isNullOrEmpty(userData!!.userArea)) String.format(locale, "'locale':'%s'", userData!!.userArea) else ""
-//    }
-//
-//    private fun trace_page_type(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.pageType)) String.format(locale, "'page_type':'%s'", trace!!.pageType) else ""
-//    }
-//
-//    private fun trace_main_category(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.mainCategory)) String.format(locale, "'cat1':'%s'", trace!!.mainCategory) else ""
-//    }
-//
-//    private fun trace_middle_category(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.middleCategory)) String.format(locale, "'cat2':'%s'", trace!!.middleCategory) else ""
-//    }
-//
-//    private fun trace_sub_category(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.subCategory)) String.format(locale, "'cat3':'%s'", trace!!.subCategory) else ""
-//    }
-//
-//    private fun trace_item_image(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.itemImage)) String.format(locale, "'item_img':'%s'", trace!!.itemName) else ""
-//    }
-//
-//    private fun trace_item_name(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.itemName)) String.format(locale, "'item_item':'%s'", trace!!.itemName) else ""
-//    }
-//
-//    private fun trace_item_unique(): String {
-//        return if (trace != null && !isNullOrEmpty(trace!!.itemUnique)) String.format(locale, "'unique':'%s'", trace!!.itemUnique) else ""
-//    }
-
     fun transactionConfirm(data: String?) {
         load("window.BootPay.transactionConfirm(JSON.parse('${data ?: ""}'));")
     }
 
     private fun items() = "items:${
     request?.
-            getItems()?.
+            items?.
             map { "{item_name:${it.name},qty:${it.quantity},unique:'${it.primaryKey}',price:${it.price}}," }?.
             dropLast(2)
     }"
 
-    private fun order_id() = request?.orderId?.let { "order_id:'$it'" } ?: ""
+    private fun order_id() = request?.order_id?.let { "order_id:'$it'" } ?: ""
 
     fun setData(request: Request?): BootpayWebView {
         this.request = request
         return this
     }
 
-//    fun setTrace(trace: Trace?): BootpayWebView {
-//        this.trace = trace
-//        return this
-//    }
-//
-//    fun setUserInfo(data: UserData?): BootpayWebView {
-//        userData = data
-//        return this
-//    }
-
     private val isNetworkConnected: Boolean
         get() = connManager.activeNetworkInfo != null
-
-//    private fun startTrace(vararg params: String) {
-//        if (trace == null) return
-//        val builder = StringBuilder()
-//        params
-//                .filter { it.isNotEmpty() }
-//                .joinToString(",")
-//                .dropLast(1)
-//        load(String.format(locale, "BootPay.startTrace({%s});", builder.toString()))
-//    }
-//
-//    private fun startLoginSession(vararg params: String) {
-//        if (userData == null) return
-//        val builder = StringBuilder()
-//        for (param in params)
-//            if (!isNullOrEmpty(param))
-//                builder.append(param).append(",")
-//        if (builder.length > 0) builder.setLength(builder.length - 1)
-//
-//        load(String.format(locale, "BootPay.startLoginSession({%s});", builder.toString()))
-//    }
 
     private fun load(script: String) {
         loadUrl("javascript:(function(){$script})()")

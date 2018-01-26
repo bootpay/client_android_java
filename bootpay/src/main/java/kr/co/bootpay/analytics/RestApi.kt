@@ -7,7 +7,7 @@ import rx.Observable
 
 internal interface RestApi {
     @FormUrlEncoded
-    @POST("login")
+    @POST("/login")
     fun login(
             @Field("application_id") applicationId: String,
             @Field("id") userId: String,
@@ -20,7 +20,7 @@ internal interface RestApi {
     ): Observable<LoginResult>
 
     @FormUrlEncoded
-    @POST("call")
+    @POST("/call")
     fun call(
             @Field("application_id") applicationId: String,
             @Field("uuid") uuid: String,
@@ -33,4 +33,5 @@ internal interface RestApi {
             @Field("user_id") userId: String,
             @Field("referer") referer: String
     ): Observable<LoginResult>
+
 }
