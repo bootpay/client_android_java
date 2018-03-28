@@ -23,33 +23,25 @@ import kr.co.bootpay.model.Request
 import kr.co.bootpay.pref.UserInfo
 import java.net.URISyntaxException
 
-internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : WebView(context, attrs, defStyleAttr) {
+internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): WebView(context, attrs, defStyleAttr) {
 
     companion object {
-        private val BOOTPAY = "https://inapp.bootpay.co.kr/1.1.1/production.html"
+        private const val BOOTPAY = "https://inapp.bootpay.co.kr/1.1.3/production.html"
 
-        private val ERROR = -2
+        private const val ERROR = -2
 
-        private val CANCEL = -1
+        private const val CANCEL = -1
 
-        private val CONFIRM = 1
+        private const val CONFIRM = 1
 
-        private val DONE = 2
+        private const val DONE = 2
     }
-
-    private val connManager: ConnectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-    private val networkErrorDialog: AlertDialog = AlertDialog.Builder(context)
-            .setMessage("인터넷 연결이 끊어져 있습니다. 인터넷 연결 상태를 확인해주세요.")
-            .setPositiveButton("설정") { _, _ -> context.startActivity(Intent(Settings.ACTION_WIFI_SETTINGS)) }
-            .setNegativeButton("확인") { dialogInterface, _ -> dialogInterface.dismiss() }
-            .create()
 
     private var request: Request? = null
 
     private var isLoaded = false
 
-    private val eventHandler = object : Handler(Looper.getMainLooper()) {
+    private val eventHandler = object: Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             val data = msg.obj.toString()
@@ -71,72 +63,69 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         isFocusableInTouchMode = true
 
         requestFocus()
-        if (isNetworkConnected) {
-            setting(context)
+        setting(context)
 
-            setWebViewClient(object : WebViewClient() {
+        setWebViewClient(object: WebViewClient() {
 
-                override fun onPageFinished(view: WebView, url: String) {
-                    super.onPageFinished(view, url)
-                    if (!isLoaded) { // recursive called under version 5.0 Lollipop OS
-                        isLoaded = true
-                        registerAppId()
+            override fun onPageFinished(view: WebView, url: String) {
+                super.onPageFinished(view, url)
+                if (!isLoaded) { // recursive called under version 5.0 Lollipop OS
+                    isLoaded = true
+                    registerAppId()
 
-                        setDevice()
-                        setAnalyticsData(
-                                UserInfo.bootpay_uuid,
-                                UserInfo.bootpay_sk,
-                                UserInfo.bootpay_last_time,
-                                System.currentTimeMillis() - UserInfo.bootpay_last_time)
+                    setDevice()
+                    setAnalyticsData(
+                            UserInfo.bootpay_uuid,
+                            UserInfo.bootpay_sk,
+                            UserInfo.bootpay_last_time,
+                            System.currentTimeMillis() - UserInfo.bootpay_last_time)
 
-                        loadParams(
-                                request(
-                                        price(),
-                                        applicationId(),
-                                        name(),
-                                        pg(),
-                                        agree(),
-                                        method(),
-                                        items(),
-                                        userInfo(
-                                                userName(),
-                                                userEmail(),
-                                                userAddr(),
-                                                userPhone()
-                                        ),
-                                        params(),
-                                        order_id()
-                                ),
-                                error(),
-                                cancel(),
-                                confirm(),
-                                done()
-                        )
-                    }
+                    loadParams(
+                            request(
+                                    price(),
+                                    applicationId(),
+                                    name(),
+                                    pg(),
+                                    agree(),
+                                    method(),
+                                    items(),
+                                    userInfo(
+                                            userName(),
+                                            userEmail(),
+                                            userAddr(),
+                                            userPhone()
+                                    ),
+                                    params(),
+                                    order_id()
+                            ),
+                            error(),
+                            cancel(),
+                            confirm(),
+                            done()
+                    )
                 }
+            }
 
-                override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                    val intent = parse(url)
-                    return if (isIntent(url)) {
-                        if (isExistInfo(intent) or isExistPackage(intent))
-                            start(intent)
-                        else
-                            gotoMarket(intent)
-                    } else if (isMarket(url))
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                val intent = parse(url)
+                return if (isIntent(url)) {
+                    if (isExistInfo(intent) or isExistPackage(intent))
                         start(intent)
                     else
-                        url.contains("https://testquickpay")
-                }
+                        gotoMarket(intent)
+                } else if (isMarket(url))
+                    start(intent)
+                else
+                    url.contains("https://testquickpay")
+            }
 
-                override fun shouldOverrideKeyEvent(view: WebView, event: KeyEvent): Boolean {
-                    if (event.keyCode == KeyEvent.KEYCODE_BACK) back()
-                    return super.shouldOverrideKeyEvent(view, event)
-                }
-            })
+            override fun shouldOverrideKeyEvent(view: WebView, event: KeyEvent): Boolean {
+                if (event.keyCode == KeyEvent.KEYCODE_BACK) back()
+                return super.shouldOverrideKeyEvent(view, event)
+            }
+        })
 
-            loadUrl(BOOTPAY)
-        } else
-            networkErrorDialog.show()
+        loadUrl(BOOTPAY)
     }
 
     fun setDialog(dialog: Dialog): BootpayWebView {
@@ -146,7 +135,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     fun back(): Boolean {
         if (canGoBack()) goBack()
-        else dialog?.dismiss()
+        else dialog?.cancel()
         return true
     }
 
@@ -197,13 +186,17 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun userInfo(vararg info: String) = "user_info: {${info.filter(String::isNotEmpty).joinToString()}}"
 
-    private fun userName() = request?.userName?.takeIf(String::isNotEmpty)?.let { "username: '$it'" } ?: ""
+    private fun userName() = request?.userName?.takeIf(String::isNotEmpty)?.let { "username: '$it'" }
+            ?: ""
 
-    private fun userEmail() = request?.userEmail?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
+    private fun userEmail() = request?.userEmail?.takeIf(String::isNotEmpty)?.let { "email: '$it'" }
+            ?: ""
 
-    private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
+    private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" }
+            ?: ""
 
-    private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
+    private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" }
+            ?: ""
 
     private fun error() = ".error(function(data){Android.error(JSON.stringify(data));})"
 
@@ -241,10 +234,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     }
 
     private fun items() = "items:${
-    request?.
-            items?.
-            map { "{item_name:${it.name},qty:${it.quantity},unique:'${it.primaryKey}',price:${it.price}}," }?.
-            dropLast(2)
+    request?.items?.map { "{item_name:${it.name},qty:${it.quantity},unique:'${it.primaryKey}',price:${it.price}}," }?.dropLast(2)
     }"
 
     private fun order_id() = request?.order_id?.let { "order_id:'$it'" } ?: ""
@@ -253,9 +243,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         this.request = request
         return this
     }
-
-    private val isNetworkConnected: Boolean
-        get() = connManager.activeNetworkInfo != null
 
     private fun load(script: String) {
         loadUrl("javascript:(function(){$script})()")
@@ -295,7 +282,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         this.listener = listener
     }
 
-    private inner class AndroidBridge : IScriptFuction {
+    private inner class AndroidBridge: IScriptFuction {
 
         @JavascriptInterface
         override fun error(data: String) {
@@ -337,7 +324,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         dialog?.dismiss()
     }
 
-    private inner class Client : WebChromeClient() {
+    private inner class Client: WebChromeClient() {
 
         override fun onCreateWindow(view: WebView, isDialog: Boolean, isUserGesture: Boolean, resultMsg: Message?): Boolean {
             val result = view.hitTestResult

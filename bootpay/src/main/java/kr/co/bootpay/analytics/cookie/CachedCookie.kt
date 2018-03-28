@@ -15,11 +15,9 @@ internal class CachedCookie : CookieCache {
         cookie.clear()
     }
 
-    override fun iterator(): Iterator<Cookie> {
-        return CachedCookieIter(cookie)
-    }
+    override fun iterator(): Iterator<Cookie> = CachedCookieIter(cookie)
 
-    fun updateCookies(cookies: MutableCollection<IdentifiableCookie>) {
+    private fun updateCookies(cookies: MutableCollection<IdentifiableCookie>) {
         cookies.removeAll(cookies)
         cookies.addAll(cookies)
     }

@@ -31,7 +31,7 @@ internal class InAppPresenter(context: Context) {
                 .subscribeOn(executor)
                 .subscribe({
                     success(application_id, it.data?.receipt_id ?: "")
-                }, { it.printStackTrace() })
+                }, Throwable::printStackTrace)
     }
 
     fun success(application_id: String, receipt_id: String) {
@@ -43,7 +43,7 @@ internal class InAppPresenter(context: Context) {
                 .subscribeOn(executor)
                 .subscribe({
                     Log.d("InApp", "Success")
-                }, { it.printStackTrace() })
+                }, Throwable::printStackTrace)
     }
 
 

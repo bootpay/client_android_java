@@ -25,14 +25,10 @@ uses-permission#android.permission.INTERNET
 ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:4:5-66
 	android:name
 		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:4:22-64
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:5:5-78
-	android:name
-		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:6:5-74
+ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:5:5-74
 	android:name
-		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:6:22-72
+		ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:5:22-72
 uses-permission#com.android.vending.BILLING
 ADDED from /Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/bootpay/src/main/AndroidManifest.xml:7:5-66
 	android:name
