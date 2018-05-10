@@ -118,6 +118,7 @@ final class BootpayWebView extends WebView {
                                         application_id(),
                                         name(),
                                         pg(),
+                                        userPhone(),
                                         method(),
                                         items(),
                                         test_mode(),
@@ -249,6 +250,10 @@ final class BootpayWebView extends WebView {
 
     private String pg() {
         return String.format(locale, "pg:'%s'", request.getPg());
+    }
+
+    private String userPhone() {
+        return String.format(locale, "phone:'%s'", request.getUserPhone());
     }
 
     private String method() {
