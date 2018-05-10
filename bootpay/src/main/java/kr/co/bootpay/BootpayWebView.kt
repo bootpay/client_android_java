@@ -93,7 +93,8 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                                     userInfo(
                                             userName(),
                                             userEmail(),
-                                            userAddr()
+                                            userAddr(),
+                                            userPhone()
                                     ),
                                     params(),
                                     order_id()
