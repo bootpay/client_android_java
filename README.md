@@ -22,7 +22,7 @@ allprojects {
 ## build.gradle (Modlue):
 ```gradle
 dependencies {
-    compile 'com.github.bootpay:client_android_java:1.1.3'
+    compile 'com.github.bootpay:client_android_java:2.0.3'
 }
 ```
 
@@ -37,6 +37,7 @@ dependencies {
 Bootpay.init(getFragmentManager())
         .setApplicationId("59a7e647396fa64fcad4a8c2")
         .setPG(PG.DANAL)
+        .setUserPhone("010-1234-5678")
         .setMethod(Method.CARD)
         .setName("맥북프로임다")
         .setOrderId(String.valueOf(System.currentTimeMillis()))

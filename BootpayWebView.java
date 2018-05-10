@@ -39,7 +39,7 @@ import kr.co.bootpay.model.Request;
 
 
 final class BootpayWebView extends WebView {
-    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.0.2/production.html";
+    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.0.3/production.html";
 
     private ConnectivityManager connManager;
 
