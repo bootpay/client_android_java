@@ -26,7 +26,7 @@ import java.net.URISyntaxException
 internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): WebView(context, attrs, defStyleAttr) {
 
     companion object {
-        private const val BOOTPAY = "https://inapp.bootpay.co.kr/1.1.3/production.html"
+        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.2/production.html"
 
         private const val ERROR = -2
 
