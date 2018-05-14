@@ -22,7 +22,7 @@ allprojects {
 ## build.gradle (Modlue):
 ```gradle
 dependencies {
-    compile 'com.github.bootpay:client_android_java:2.0.3'
+    compile 'com.github.bootpay:client_android_java:2.0.4'
 }
 ```
 
