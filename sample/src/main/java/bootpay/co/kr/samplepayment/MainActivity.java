@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 통계를 위해 꼭 필요합니다.
+        // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
+//        BootpayAnalytics.init(this, "59bfc733e13f337dbd6ca489");
 
-        // 유저 로그인 시점에 호출
+
+        // 통계 - 유저 로그인 시점에 호출
         BootpayAnalytics.login(
                 "testUser", // user 고유 id 혹은 로그인 아이디
                 "testUser@gmail.com", // user email
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick_request(View v) {
+//        통계 - 페이지 추적
         BootpayAnalytics.start(
                 "item_list", // 페이지를 구분하는 주소
                 "아이템", // 페이지 유형|카테고리|태그
@@ -46,16 +49,17 @@ public class MainActivity extends AppCompatActivity {
                 "1", // 대표 상품의 고유 키
                 "철산동핫도그"); // 대표 상품명
 
+//        결제호출
         Bootpay.init(getFragmentManager())
                 .setApplicationId("59a7e647396fa64fcad4a8c2") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.PAYAPP) // 결제할 PG 사
-                .setUserPhone("010-1234-5678")
-                .setMethod(Method.CARD) // 결제수단
+                .setPG(PG.DANAL) // 결제할 PG 사
+                .setUserPhone("010-1234-5678") // 구매자 전화번호
+                .setMethod(Method.PHONE) // 결제수단
                 .setName("맥북프로임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호
                 .setPrice(1000) // 결제할 금액
                 .addItem("마우스", 1, "123", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "122", 200) // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("키보드", 1, "122", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
                     public void onConfirmed(@Nullable String message) {

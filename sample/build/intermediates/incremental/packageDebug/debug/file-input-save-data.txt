@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Sun Feb 18 13:28:38 KST 2018
-0.baseType=DIRECTORY
-0.base=/Users/jeonseung-il/Dropbox/AndroidProjects/Bootpay/sample/build/intermediates/transforms/dexMerger/debug/18
-0.path=classes.dex
-0.set=DEX
-count=1

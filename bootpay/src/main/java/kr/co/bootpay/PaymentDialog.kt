@@ -99,6 +99,11 @@ class PaymentDialog
                 PG.DANAL   -> "danal"
                 PG.KCP     -> "kcp"
                 PG.INICIS  -> "inicis"
+                PG.LGUP  -> "lgup"
+                PG.KAKAO  -> "kakao"
+                PG.JTNET  -> "jtnet"
+                PG.NICEPAY  -> "nicepay"
+                PG.PAYCO  -> "payco"
             }
             return this
         }
@@ -109,7 +114,12 @@ class PaymentDialog
         }
 
         fun addItem(name: String, @IntRange(from = 1) quantity: Int, primaryKey: String, price: Long): Builder {
-            result.addItem(Item(name, quantity, primaryKey, price))
+            result.addItem(Item(name, quantity, primaryKey, price, "", "", ""))
+            return this
+        }
+
+        fun addItem(name: String, @IntRange(from = 1) quantity: Int, primaryKey: String, price: Long, cat1: String, cat2: String, cat3: String): Builder {
+            result.addItem(Item(name, quantity, primaryKey, price, cat1, cat2, cat3))
             return this
         }
 
@@ -155,6 +165,9 @@ class PaymentDialog
                 Method.BANK        -> "bank"
                 Method.VBANK       -> "vbank"
                 Method.PHONE       -> "phone"
+                Method.AUTH        -> "auth"
+                Method.CARD_REBILL -> "card_rebill"
+                Method.EASY        -> "easy"
                 Method.SELECT      -> ""
             }
             return this

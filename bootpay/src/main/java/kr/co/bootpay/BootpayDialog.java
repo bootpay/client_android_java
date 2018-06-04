@@ -118,6 +118,21 @@ public class BootpayDialog extends DialogFragment {
                 case INICIS:
                     result.setPg("inicis");
                     break;
+                case LGUP:
+                    result.setPg("lgup");
+                    break;
+                case KAKAO:
+                    result.setPg("kakao");
+                    break;
+                case JTNET:
+                    result.setPg("jtnet");
+                    break;
+                case NICEPAY:
+                    result.setPg("nicepay");
+                    break;
+                case PAYCO:
+                    result.setPg("payco");
+                    break;
             }
             return this;
         }
@@ -128,7 +143,12 @@ public class BootpayDialog extends DialogFragment {
         }
 
         public Builder addItem(String name, @IntRange(from = 1) int quantity, String primaryKey, int price) {
-            result.addItem(new Item(name, quantity, primaryKey, price));
+            result.addItem(new Item(name, quantity, primaryKey, price, "", "", ""));
+            return this;
+        }
+
+        public Builder addItem(String name, @IntRange(from = 1) int quantity, String primaryKey, int price, String cat1, String cat2, String cat3) {
+            result.addItem(new Item(name, quantity, primaryKey, price, cat1, cat2, cat3));
             return this;
         }
 

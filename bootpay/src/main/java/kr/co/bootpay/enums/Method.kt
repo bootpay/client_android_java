@@ -6,5 +6,8 @@ enum class Method {
     BANK,
     VBANK,
     PHONE,
+    AUTH,
+    CARD_REBILL,
+    EASY,
     SELECT
 }

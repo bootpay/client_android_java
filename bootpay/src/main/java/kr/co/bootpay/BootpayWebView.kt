@@ -8,13 +8,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
-import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import android.provider.Settings
 import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.View
@@ -26,7 +24,7 @@ import java.net.URISyntaxException
 internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): WebView(context, attrs, defStyleAttr) {
 
     companion object {
-        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.4/production.html"
+        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.5/production.html"
 
         private const val ERROR = -2
 
@@ -235,8 +233,12 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         load("window.BootPay.transactionConfirm(JSON.parse('${data ?: ""}'));")
     }
 
+//    private fun items() = "items:${
+//    request?.items?.map { "{item_name:${it.name},qty:${it.qty},unique:'${it.unique}',price:${it.price}},cat1:${it.cat1},cat2:${it.cat2},cat3:${it.cat3}," }?.dropLast(2)
+//    }"
+
     private fun items() = "items:${
-    request?.items?.map { "{item_name:${it.name},qty:${it.quantity},unique:'${it.primaryKey}',price:${it.price}}," }?.dropLast(2)
+    request?.items?.map { "{item_name:'${it.name}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
     }"
 
     private fun order_id() = request?.order_id?.let { "order_id:'$it'" } ?: ""

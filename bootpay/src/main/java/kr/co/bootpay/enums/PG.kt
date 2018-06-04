@@ -5,5 +5,10 @@ enum class PG {
     PAYAPP,
     DANAL,
     KCP,
-    INICIS
+    INICIS,
+    LGUP,
+    KAKAO,
+    JTNET,
+    NICEPAY,
+    PAYCO
 }
