@@ -85,5 +85,4 @@ Bootpay.init(getFragmentManager())
 ```
 
 <hr/>
-
-### 더 자세한 정보는 [Wiki](https://github.com/bootpay/client_android_java/wiki)를 참조해주세요. 
+ 
