@@ -11,10 +11,20 @@
 # Java 
 ## build.gradle (Project):
 ```gradle
+buildscript {
+    repositories {
+        ...
+    }
+    dependencies {
+        ...
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1' // 비공식 해결 방법, gradle build error 가 발생시에만 추가
+    }
+}
+
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -22,7 +32,8 @@ allprojects {
 ## build.gradle (Modlue):
 ```gradle
 dependencies {
-    compile 'com.github.bootpay:client_android_java:2.0.5'
+    ...
+    implementation 'com.github.bootpay:client_android_java:2.5.0'
 }
 ```
 
@@ -34,44 +45,44 @@ dependencies {
 
 ## 샘플 코드
 ```java
+//        결제호출
 Bootpay.init(getFragmentManager())
-        .setApplicationId("59a7e647396fa64fcad4a8c2")
-        .setPG(PG.DANAL)
-        .setUserPhone("010-1234-5678")
-        .setMethod(Method.CARD)
-        .setName("맥북프로임다")
-        .setOrderId(String.valueOf(System.currentTimeMillis()))
-        .setPrice(1000)
-        .addItem("마우스", 1, "123", 100)
-        .addItem("키보드", 1, "122", 200)
-        .onCancel(new CancelListener() {
+        .setApplicationId("59a7e647396fa64fcad4a8c2") // 해당 프로젝트(안드로이드)의 application id 값
+        .setPG(PG.DANAL) // 결제할 PG 사
+        .setUserPhone("010-1234-5678") // 구매자 전화번호
+        .setMethod(Method.PHONE) // 결제수단
+        .setName("맥북프로임다") // 결제할 상품명
+        .setOrderId("1234") // 결제 고유번호
+        .setPrice(1000) // 결제할 금액
+        .addItem("마우스", 1, "123", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
+        .addItem("키보드", 1, "122", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+        .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
             @Override
-            public void onCancel(@Nullable String s) {
-                Log.d("cancel", s);
+            public void onConfirmed(@Nullable String message) {
+                if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
+                Log.d("confirm", message);
             }
         })
-        .onConfirm(new ConfirmListener() {
+        .onDone(new DoneListener() { // 결제완료시 호출, 아이템 지급 등 데이터 동기화 로직을 수행합니다
             @Override
-            public void onConfirmed(@Nullable String s) {
-                Log.d("confirm", s);
+            public void onDone(@Nullable String message) {
+                Log.d("done", message);
             }
         })
-
-        .onDone(new DoneListener() {
+        .onCancel(new CancelListener() { // 결제 취소시 호출
             @Override
-            public void onDone(@Nullable String s) {
-                Log.d("done", s);
+            public void onCancel(@Nullable String message) {
+                Log.d("cancel", message);
             }
         })
-        .onError(new ErrorListener() {
+        .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
             @Override
-            public void onError(@Nullable String s) {
-                Log.d("error", s);
+            public void onError(@Nullable String message) {
+                Log.d("error", message);
             }
         })
         .show();
 ```
 
 <hr/>
-
-### 더 자세한 정보는 [Wiki](https://github.com/bootpay/client_android_java/wiki)를 참조해주세요. 
+ 
