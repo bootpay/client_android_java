@@ -2,6 +2,7 @@ package kr.co.bootpay.analytics
 
 import android.content.Context
 import android.util.Log
+import kr.co.bootpay.model.StatItem
 import kr.co.bootpay.pref.UserInfo
 import rx.Scheduler
 import rx.schedulers.Schedulers
@@ -35,21 +36,17 @@ internal class BootpayAnalyticsPresenter(context: Context) {
                 }, Throwable::printStackTrace)
     }
 
-    fun call(url: String?, page_type: String?, imageUrl: String?, itemUnique: String?, itemName: String?) {
+    fun call(items: MutableList<StatItem>) {
         rest.api.call(
                 UserInfo.bootpay_application_id,
                 UserInfo.bootpay_uuid,
-                url ?: "",
-                page_type ?: "",
-                imageUrl ?: "",
-                itemUnique ?: "",
-                itemName ?: "",
+                items,
                 UserInfo.bootpay_sk,
                 UserInfo.bootpay_user_id,
                 "")
                 .subscribeOn(executor)
                 .subscribe({
-                    Log.d("BootpayAnalytics", url)
+                    Log.d("BootpayAnalytics", "call")
                 }, Throwable::printStackTrace)
     }
 

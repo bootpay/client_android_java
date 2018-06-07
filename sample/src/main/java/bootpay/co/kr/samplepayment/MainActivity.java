@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kr.co.bootpay.BootpayAnalytics;
 import kr.co.bootpay.Bootpay;
 import kr.co.bootpay.CancelListener;
@@ -14,6 +17,7 @@ import kr.co.bootpay.DoneListener;
 import kr.co.bootpay.ErrorListener;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
+import kr.co.bootpay.model.StatItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 통계를 위해 꼭 필요합니다.
+        // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
 //        BootpayAnalytics.init(this, "59bfc733e13f337dbd6ca489");
 
@@ -42,12 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_request(View v) {
 //        통계 - 페이지 추적
-        BootpayAnalytics.start(
-                "item_list", // 페이지를 구분하는 주소
-                "아이템", // 페이지 유형|카테고리|태그
-                "", // 대표 상품 이미지 url
-                "1", // 대표 상품의 고유 키
-                "철산동핫도그"); // 대표 상품명
+        List<StatItem> items = new ArrayList<>();
+        items.add(new StatItem("마우스", "https://image.mouse.com/1234", "ITEM_CODE_MOUSE", "", "", ""));
+        items.add(new StatItem("키보드", "https://image.keyboard.com/12345", "ITEM_CODE_KEYBOARD", "패션", "여성상의", "블라우스"));
+        BootpayAnalytics.start(items);
 
 //        결제호출
         Bootpay.init(getFragmentManager())
@@ -58,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 .setName("맥북프로임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호
                 .setPrice(1000) // 결제할 금액
-                .addItem("마우스", 1, "123", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "122", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("마우스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
                     public void onConfirmed(@Nullable String message) {

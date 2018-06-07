@@ -3,8 +3,12 @@ package kr.co.bootpay;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kr.co.bootpay.analytics.BootpayAnalyticsPresenter;
 import kr.co.bootpay.enums.Gender;
+import kr.co.bootpay.model.StatItem;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.secure.SecurePreference;
 
@@ -127,17 +131,13 @@ public class BootpayAnalytics {
     }
 
 
-    public static void start(@NonNull String url) {
-        start(url, "", "", "", "");
+    public static void start() {
+        start(new ArrayList<StatItem>());
     }
 
-    public static void start(@NonNull String url,
-                             @NonNull String page_type,
-                             @NonNull String imageUrl,
-                             @NonNull String itemUnique,
-                             @NonNull String itemName) {
+    public static void start(@NonNull List<StatItem> items) {
         if (presenter == null) throw new IllegalStateException("Analytics is not initialized.");
-        else presenter.call(url, page_type, imageUrl, itemUnique, itemName);
+        else presenter.call(items);
     }
 }
 
