@@ -42,14 +42,20 @@ public class MainActivity extends AppCompatActivity {
                 "861014", // user 생년월일 앞자리
                 "01012345678", // user 휴대폰 번호
                 "충청"); //  서울|인천|대구|대전|광주|부산|울산|경기|강원|충청북도|충북|충청남도|충남|전라북도|전북|전라남도|전남|경상북도|경북|경상남도|경남|제주|세종 중 택 1
+
+        startTrace();
     }
 
-    public void onClick_request(View v) {
+    public void startTrace() {
+
 //        통계 - 페이지 추적
         List<StatItem> items = new ArrayList<>();
         items.add(new StatItem("마우스", "https://image.mouse.com/1234", "ITEM_CODE_MOUSE", "", "", ""));
         items.add(new StatItem("키보드", "https://image.keyboard.com/12345", "ITEM_CODE_KEYBOARD", "패션", "여성상의", "블라우스"));
-        BootpayAnalytics.start(items);
+        BootpayAnalytics.start("ItemListActivity", "item_list", items);
+    }
+
+    public void onClick_request(View v) {
 
 //        결제호출
         Bootpay.init(getFragmentManager())

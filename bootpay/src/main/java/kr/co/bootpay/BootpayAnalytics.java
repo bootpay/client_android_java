@@ -131,13 +131,13 @@ public class BootpayAnalytics {
     }
 
 
-    public static void start() {
-        start(new ArrayList<StatItem>());
+    public static void start(String url, String page_type) {
+        start(url, page_type, new ArrayList<StatItem>());
     }
 
-    public static void start(@NonNull List<StatItem> items) {
+    public static void start(String url, String page_type, @NonNull List<StatItem> items) {
         if (presenter == null) throw new IllegalStateException("Analytics is not initialized.");
-        else presenter.call(items);
+        else presenter.call(url, page_type, items);
     }
 }
 
