@@ -6,7 +6,6 @@
 * 기존 PG 사를 이용 중이신 사업자도 별도의 계약없이 부트페이를 통해 결제 연동과 통계를 무료로 이용하실 수 있습니다.
 * 한줄의 소스코드로 인사이트를 얻어 매출을 극대화하세요.
 
-![](capture/sample_bootpay00.jpeg)
 
 # Java 
 ## build.gradle (Project):
