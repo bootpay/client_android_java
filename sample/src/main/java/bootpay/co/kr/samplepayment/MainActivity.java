@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("error", message);
                     }
                 })
-                .onClose(new CloseListener() {
+                .onClose(new CloseListener() { //결제창이 닫힐때 실행되는 부분
                     @Override
                     public void onClose(String message) {
                         Log.d("close", "close");

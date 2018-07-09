@@ -337,12 +337,10 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun onErrorHandled(data: String) {
         listener?.onError(data)
-//        dialog?.dismiss()
     }
 
     private fun onCancelHandled(data: String) {
         listener?.onCancel(data)
-//        dialog?.dismiss()
     }
 
     private fun onReadyHandled(data: String) {
@@ -355,7 +353,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun onDoneHandled(data: String) {
         listener?.onDone(data)
-//        dialog?.dismiss()
     }
 
     private inner class Client: WebChromeClient() {
