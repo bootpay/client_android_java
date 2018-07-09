@@ -73,6 +73,8 @@ public class BootpayDialog extends DialogFragment {
         private Request result = new Request();
         private EventListener listener;
         private ErrorListener error;
+        private ReadyListener ready;
+        private CloseListener close;
         private DoneListener done;
         private CancelListener cancel;
         private ConfirmListener confirm;
@@ -241,6 +243,11 @@ public class BootpayDialog extends DialogFragment {
             return this;
         }
 
+        public Builder onReady(ReadyListener listener) {
+            ready = listener;
+            return this;
+        }
+
         public Builder onError(ErrorListener listener) {
             error = listener;
             return this;
@@ -248,6 +255,11 @@ public class BootpayDialog extends DialogFragment {
 
         public Builder onDone(DoneListener listener) {
             done = listener;
+            return this;
+        }
+
+        public Builder onClose(CloseListener listener) {
+            close = listener;
             return this;
         }
 
@@ -291,6 +303,16 @@ public class BootpayDialog extends DialogFragment {
                     .setData(result)
                     .setOnResponseListener(listener != null ? listener : new EventListener() {
                         @Override
+                        public void onClose(@org.jetbrains.annotations.Nullable String message) {
+                            close.onClose(message);
+                        }
+
+                        @Override
+                        public void onReady(@org.jetbrains.annotations.Nullable String message) {
+                            ready.onReady(message);
+                        }
+
+                        @Override
                         public void onError(@org.jetbrains.annotations.Nullable String message) {
                             error.onError(message);
                         }
@@ -301,8 +323,8 @@ public class BootpayDialog extends DialogFragment {
                         }
 
                         @Override
-                        public void onConfirmed(@org.jetbrains.annotations.Nullable String message) {
-                            confirm.onConfirmed(message);
+                        public void onConfirm(@org.jetbrains.annotations.Nullable String message) {
+                            confirm.onConfirm(message);
                         }
 
                         @Override

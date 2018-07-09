@@ -26,9 +26,13 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     companion object {
         private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.6/production.html"
 
+        private const val CLOSE = -3
+
         private const val ERROR = -2
 
         private const val CANCEL = -1
+
+        private const val READY = 0
 
         private const val CONFIRM = 1
 
@@ -44,9 +48,11 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
             super.handleMessage(msg)
             val data = msg.obj.toString()
             when (msg.what) {
+                CLOSE   -> onCloseHandled(data)
                 ERROR   -> onErrorHandled(data)
                 CANCEL  -> onCancelHandled(data)
-                CONFIRM -> onConfirmeHandled(data)
+                READY   -> onReadyHandled(data)
+                CONFIRM -> onConfirmHandled(data)
                 DONE    -> onDoneHandled(data)
             }
         }
@@ -99,7 +105,9 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                             ),
                             error(),
                             cancel(),
+                            ready(),
                             confirm(),
+                            close(),
                             done()
                     )
                 }
@@ -199,6 +207,10 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun error() = ".error(function(data){Android.error(JSON.stringify(data));})"
 
+    private fun ready() = ".ready(function(data){Android.ready(JSON.stringify(data));})"
+
+    private fun close() = ".close(function(data){Android.close('close');})"
+
     private fun confirm() = ".confirm(function(data){Android.confirm(JSON.stringify(data));})"
 
     private fun cancel() = ".cancel(function(data){Android.cancel(JSON.stringify(data));})"
@@ -287,6 +299,15 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     }
 
     private inner class AndroidBridge: IScriptFuction {
+        @JavascriptInterface
+        override fun close(data: String) {
+            eventHandler.sendMessage(Message.obtain(eventHandler, CLOSE, data))
+        }
+
+        @JavascriptInterface
+        override fun ready(data: String) {
+            eventHandler.sendMessage(Message.obtain(eventHandler, READY, data))
+        }
 
         @JavascriptInterface
         override fun error(data: String) {
@@ -309,23 +330,32 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         }
     }
 
+    private fun onCloseHandled(data: String) {
+        listener?.onClose(data)
+        dialog?.dismiss()
+    }
+
     private fun onErrorHandled(data: String) {
         listener?.onError(data)
-        dialog?.dismiss()
+//        dialog?.dismiss()
     }
 
     private fun onCancelHandled(data: String) {
         listener?.onCancel(data)
-        dialog?.dismiss()
+//        dialog?.dismiss()
     }
 
-    private fun onConfirmeHandled(data: String) {
-        listener?.onConfirmed(data)
+    private fun onReadyHandled(data: String) {
+        listener?.onReady(data)
+    }
+
+    private fun onConfirmHandled(data: String) {
+        listener?.onConfirm(data)
     }
 
     private fun onDoneHandled(data: String) {
         listener?.onDone(data)
-        dialog?.dismiss()
+//        dialog?.dismiss()
     }
 
     private inner class Client: WebChromeClient() {

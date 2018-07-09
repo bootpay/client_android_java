@@ -12,9 +12,11 @@ import java.util.List;
 import kr.co.bootpay.BootpayAnalytics;
 import kr.co.bootpay.Bootpay;
 import kr.co.bootpay.CancelListener;
+import kr.co.bootpay.CloseListener;
 import kr.co.bootpay.ConfirmListener;
 import kr.co.bootpay.DoneListener;
 import kr.co.bootpay.ErrorListener;
+import kr.co.bootpay.ReadyListener;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.model.StatItem;
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
-                    public void onConfirmed(@Nullable String message) {
+                    public void onConfirm(@Nullable String message) {
                         if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
                         Log.d("confirm", message);
                     }
@@ -79,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDone(@Nullable String message) {
                         Log.d("done", message);
+                    }
+                })
+                .onReady(new ReadyListener() { // 가상계좌 입금 계좌번호가 발급되면 호출되는 함수입니다.
+                    @Override
+                    public void onReady(@Nullable String message) {
+                        Log.d("ready", message);
                     }
                 })
                 .onCancel(new CancelListener() { // 결제 취소시 호출
@@ -91,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(@Nullable String message) {
                         Log.d("error", message);
+                    }
+                })
+                .onClose(new CloseListener() {
+                    @Override
+                    public void onClose(String message) {
+                        Log.d("close", "close");
                     }
                 })
                 .show();
