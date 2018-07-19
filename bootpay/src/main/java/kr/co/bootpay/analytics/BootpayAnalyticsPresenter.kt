@@ -27,7 +27,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
             area: String?) {
 
         val login = StatLogin(
-                "2.0.7",
+                "2.0.8",
                 UserInfo.bootpay_application_id,
                 id ?: "",
                 email ?: "",
@@ -54,7 +54,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
     fun call(url: String, page_type: String, items: MutableList<StatItem>) {
 
         val call = StatCall(
-                "2.0.7",
+                "2.0.8",
                 UserInfo.bootpay_application_id,
                 UserInfo.bootpay_uuid,
                 url,
