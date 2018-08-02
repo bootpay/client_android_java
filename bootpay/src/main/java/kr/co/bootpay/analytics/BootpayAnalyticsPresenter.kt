@@ -17,6 +17,8 @@ internal class BootpayAnalyticsPresenter(context: Context) {
     private val rest: RestService by lazy { RestService(context) }
     private val executor: Scheduler by lazy { Schedulers.from(Executors.newCachedThreadPool()) }
 
+    private val ver = "2.0.9"
+
     fun login(
             id: String?,
             email: String?,
@@ -27,7 +29,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
             area: String?) {
 
         val login = StatLogin(
-                "2.0.8",
+                ver,
                 UserInfo.bootpay_application_id,
                 id ?: "",
                 email ?: "",
@@ -54,7 +56,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
     fun call(url: String, page_type: String, items: MutableList<StatItem>) {
 
         val call = StatCall(
-                "2.0.8",
+                ver,
                 UserInfo.bootpay_application_id,
                 UserInfo.bootpay_uuid,
                 url,

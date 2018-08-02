@@ -17,6 +17,7 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
+import android.widget.Toast
 import kr.co.bootpay.model.Request
 import kr.co.bootpay.pref.UserInfo
 import java.net.URISyntaxException
@@ -24,7 +25,7 @@ import java.net.URISyntaxException
 internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): WebView(context, attrs, defStyleAttr) {
 
     companion object {
-        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.8/production.html"
+        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.9/production.html"
 
         private const val CLOSE = -3
 
@@ -99,6 +100,11 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                                             userEmail(),
                                             userAddr(),
                                             userPhone()
+                                    ),
+                                    extra(
+                                            extraExpireMonth(),
+                                            extraVBankResult(),
+                                            extraQuota()
                                     ),
                                     params(),
                                     order_id()
@@ -193,17 +199,22 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun userInfo(vararg info: String) = "user_info: {${info.filter(String::isNotEmpty).joinToString()}}"
 
-    private fun userName() = request?.userName?.takeIf(String::isNotEmpty)?.let { "username: '$it'" }
-            ?: ""
+    private fun extra(vararg etcs: String) = "extra: {${etcs.filter(String::isNotEmpty).joinToString()}}"
 
-    private fun userEmail() = request?.userEmail?.takeIf(String::isNotEmpty)?.let { "email: '$it'" }
-            ?: ""
+    private fun userName() = request?.userName?.takeIf(String::isNotEmpty)?.let { "username: '$it'" } ?: ""
 
-    private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" }
-            ?: ""
+    private fun userEmail() = request?.userEmail?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
 
-    private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" }
-            ?: ""
+    private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
+
+    private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
+
+    private fun extraExpireMonth() = request?.extraExpireMonth?.let { "expire_month: $it" } ?: ""
+
+    private fun extraVBankResult() = request?.extraVbankResult?.let { "vbank_result: $it" } ?: ""
+
+    private fun extraQuota() = request?.extraQuotas?.let { "quota: '${it.joinToString()}'" } ?: ""
+
 
     private fun error() = ".error(function(data){Android.error(JSON.stringify(data));})"
 
@@ -252,6 +263,8 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     private fun items() = "items:${
     request?.items?.map { "{item_name:'${it.name}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
     }"
+
+//    private fun quotas() = ""
 
     private fun order_id() = request?.order_id?.let { "order_id:'$it'" } ?: ""
 

@@ -24,6 +24,12 @@ class Request {
     var userAddr: String? = null
     var userPhone: String? = null
 
+    var extraExpireMonth: Int? = null
+    var extraVbankResult: Int? = null
+    var extraQuotas: IntArray? = null
+//            intArrayOf(0,2,3,4,5,6,7,8,9,10,11,12)
+
+
     fun addItem(item: Item): MutableList<Item> {
         items.add(item)
         return items

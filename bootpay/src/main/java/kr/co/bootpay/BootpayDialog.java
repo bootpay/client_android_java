@@ -179,6 +179,21 @@ public class BootpayDialog extends DialogFragment {
             return this;
         }
 
+        public Builder setExpireMonth(int expireMonth) {
+            result.setExtraExpireMonth(expireMonth);
+            return this;
+        }
+
+        public Builder setVBankResult(int vbankResult) {
+            result.setExtraVbankResult(vbankResult);
+            return this;
+        }
+
+        public Builder setQuotas(int[] quotas) {
+            result.setExtraQuotas(quotas);
+            return this;
+        }
+
         public Builder setMethod(String method) {
             result.setMethod(method);
             return this;
