@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 .setMethod(Method.CARD) // 결제수단
                 .setName("맥북프로임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호
-                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨
+                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
                 .setPrice(50000) // 결제할 금액
                 .addItem("마우스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
