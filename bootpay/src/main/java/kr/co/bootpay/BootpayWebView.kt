@@ -25,7 +25,7 @@ import java.net.URISyntaxException
 internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): WebView(context, attrs, defStyleAttr) {
 
     companion object {
-        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.9/production.html"
+        private const val BOOTPAY = "https://inapp.bootpay.co.kr/2.0.10/production.html"
 
         private const val CLOSE = -3
 
@@ -107,6 +107,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                                             extraQuota()
                                     ),
                                     params(),
+                                    "account_expire_at: '2018-08-10'",
                                     order_id()
                             ),
                             error(),
@@ -208,6 +209,9 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
 
     private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
+
+
+//    private fun accountExpireAt =
 
     private fun extraExpireMonth() = request?.extraExpireMonth?.let { "expire_month: $it" } ?: ""
 
