@@ -26,4 +26,8 @@ public class Bootpay {
     public static void confirm(String data) {
         if (builder != null) builder.transactionConfirm(data);
     }
+
+    public static void removePaymentWindow() {
+        if (builder != null) builder.removePaymentWindow();
+    }
 }

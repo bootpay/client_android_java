@@ -68,6 +68,11 @@ public class BootpayDialog extends DialogFragment {
             bootpay.transactionConfirm(data);
     }
 
+    private void removePaymentWindow() {
+        if (bootpay != null)
+            bootpay.removePaymentWindow();
+    }
+
     public static class Builder {
         private FragmentManager fragmentManager;
         private Request result = new Request();
@@ -375,6 +380,11 @@ public class BootpayDialog extends DialogFragment {
         public void transactionConfirm(String data) {
             if (dialog != null)
                 dialog.transactionConfirm(data);
+        }
+
+        public void removePaymentWindow() {
+            if (dialog != null)
+                dialog.removePaymentWindow();
         }
 
         private boolean isEmpty(String value) {

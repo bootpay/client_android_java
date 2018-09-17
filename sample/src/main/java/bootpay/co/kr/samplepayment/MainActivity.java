@@ -23,7 +23,7 @@ import kr.co.bootpay.model.StatItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int stuck = 10;
+    private int stuck = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 .setApplicationId("59a7e647396fa64fcad4a8c2") // 해당 프로젝트(안드로이드)의 application id 값
                 .setPG(PG.DANAL) // 결제할 PG 사
                 .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setMethod(Method.VBANK) // 결제수단
+                .setMethod(Method.PHONE) // 결제수단
                 .setName("맥북프로임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호
                 .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onConfirm(@Nullable String message) {
                         if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
+                        else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
                         Log.d("confirm", message);
                     }
                 })

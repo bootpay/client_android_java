@@ -260,6 +260,10 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         load("window.BootPay.transactionConfirm(JSON.parse('${data ?: ""}'));")
     }
 
+    fun removePaymentWindow() {
+        load("window.BootPay.removePaymentWindow();")
+    }
+
 //    private fun items() = "items:${
 //    request?.items?.map { "{item_name:${it.name},qty:${it.qty},unique:'${it.unique}',price:${it.price}},cat1:${it.cat1},cat2:${it.cat2},cat3:${it.cat3}," }?.dropLast(2)
 //    }"
