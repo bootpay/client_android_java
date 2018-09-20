@@ -12,6 +12,7 @@ class Request {
     var pg: String = ""
     var order_id: String = ""
     var method: String = ""
+    var account_expire_at: String = ""
     var unit: String = ""
     var feedback_url: String = ""
     var isShowAgree: Boolean = false
@@ -45,6 +46,10 @@ class Request {
 
     @Throws(JSONException::class)
     fun <T> getParamsOfObject(cls: Class<T>): T = Gson().fromJson(params, cls)
+
+    fun setAccountExpireAt(value: String) {
+        this.account_expire_at = value
+    }
 
     fun setParams(json: JSONObject) {
         this.params = json.toString()

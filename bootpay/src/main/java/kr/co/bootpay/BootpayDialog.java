@@ -228,6 +228,11 @@ public class BootpayDialog extends DialogFragment {
             return this;
         }
 
+        public Builder setAccountExpireAt(String account_expire_at) {
+            result.setAccountExpireAt(account_expire_at);
+            return this;
+        }
+
         public Builder setModel(Request request) {
             result = request;
             return this;

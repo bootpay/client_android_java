@@ -107,7 +107,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                                             extraQuota()
                                     ),
                                     params(),
-                                    "account_expire_at: '2018-08-10'",
+                                    accountExpireAt(),
                                     order_id()
                             ),
                             error(),
@@ -243,6 +243,8 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     private fun agree() = "show_agree_window: ${if (request?.isShowAgree == true) 1 else 0}"
 
     private fun method() = request?.method?.let { "method:'$it'" } ?: ""
+
+    private fun accountExpireAt() = request?.account_expire_at?.let { "account_expire_at:'$it'" } ?: ""
 
     private fun params(): String {
         return if (request?.params.isNullOrEmpty())
