@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="bootpay.co.kr.samplepayment.MainActivity">
 
     <Button
-        android:id="@+id/main_button"
+        android:id="@+id/btn_native"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:onClick="onClick_request"
-        android:text="request"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="goNativeActivity"
+        android:text="Bootpay Native 결제연동"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_webapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="goWebAppActivity"
+        android:text="Bootpay Webapp 결제연동"/>
+
+</LinearLayout>

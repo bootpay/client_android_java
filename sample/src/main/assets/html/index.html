@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta content="5b14c0ffb6d49c40cda92c4e" name="bootpay-application-id">
+    <script src="https://cdn.bootpay.co.kr/js/bootpay-2.0.10.min.js" type="application/javascript"></script>
+    <script>
+function payTest() {
+    var android_application_id = '5b14c0ffb6d49c40cda92c4e'
+
+
+    BootPay.request({
+        price: '1000',
+        application_id: android_application_id,
+        name: '블링블링 마스카라',
+        pg: 'danal',
+        method: 'phone',
+        show_agree_window: 0,
+        items: [
+                {
+                item_name: '나는 아이템',
+                qty: 1,
+                unique: '123',
+                price: 1000,
+                cat1: 'TOP',
+                cat2: '티셔츠',
+                cat3: '라운드 티',
+                }
+        ],
+        user_info: {
+            username: '사용자 이름',
+            email: '사용자 이메일',
+            addr: '사용자 주소',
+            phone: '010-1234-4567'
+        },
+        order_id: '고유order_id_1234',
+        params: {callback1: '그대로 콜백받을 변수 1', callback2: '그대로 콜백받을 변수 2', customvar1234: '변수명도 마음대로'},
+        account_expire_at: '2018-05-25',
+        extra: {
+            expire_month: '12',
+            vbank_result: 1,
+            quota: '0,2,3'
+        }
+        }).error(function (data) {
+             Android.error(JSON.stringify(data));
+        }).cancel(function (data) {
+             Android.cancel(JSON.stringify(data));
+        }).ready(function (data) {
+             Android.ready(JSON.stringify(data));
+        }).confirm(function (data) {
+             Android.confirm(JSON.stringify(data));
+       }).close(function (data) {
+             Android.close('close');
+       }).done(function (data) {
+             Android.done(JSON.stringify(data));
+    });
+}
+        </script>
+</head>
+<body>
+<button onclick='payTest()'>Webapp 연동방식으로 결제시작</button>
+<button onclick='alert(1)'>Webapp 연동방식으로 결제시작</button>
+</body>
+</html>
