@@ -24,6 +24,7 @@
 
         <activity android:name=".NativeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".WebAppActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

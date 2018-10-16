@@ -14,7 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="goNativeActivity"
-        android:text="Bootpay Native 결제연동"/>
+        android:text="Native 연동"/>
+
+    <Button
+        android:id="@+id/btn_local"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="goLocalActivity"
+        android:text="LocalHtml 연동"/>
 
     <Button
         android:id="@+id/btn_webapp"
@@ -22,6 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="goWebAppActivity"
-        android:text="Bootpay Webapp 결제연동"/>
+        android:text="WebApp 결제연동"/>
 
 </LinearLayout>

@@ -22,5 +22,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, WebAppActivity.class);
         startActivity(intent);
     }
+
+    public void goLocalActivity(View v) {
+        Intent intent = new Intent(this, LocalHtmlActivity.class);
+        startActivity(intent);
+    }
 }
 

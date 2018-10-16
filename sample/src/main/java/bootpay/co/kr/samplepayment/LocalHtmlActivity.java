@@ -3,12 +3,10 @@ package bootpay.co.kr.samplepayment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
@@ -21,12 +19,8 @@ import android.webkit.WebViewClient;
 import java.net.URISyntaxException;
 
 
-public class WebAppActivity extends Activity implements WebAppBridgeInterface {
+public class LocalHtmlActivity extends Activity implements WebAppBridgeInterface {
     WebView webview;
-    final String url = "https://test-shop.bootpay.co.kr";
-    final String android_application_id = "5b14c0ffb6d49c40cda92c4e";
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +32,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         CookieManager.getInstance().setAcceptCookie(true);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
-
-        webview.loadUrl(url);
+        webview.loadUrl("file:///android_asset/html/index.html");
     }
 
     void setDevice() {
@@ -48,14 +41,6 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
 
     void startTrace() {
         doJavascript("BootPay.startTrace();");
-    }
-
-    void registerAppId() {
-        doJavascript("BootPay.setApplicationId('" + android_application_id + "');");
-    }
-
-    void registerAppIdDemo() {
-        doJavascript("window.setApplicationId('" + android_application_id + "');");
     }
 
     void doJavascript(String script) {
@@ -91,7 +76,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
     @Override
     public void confirm(String data) {
         boolean iWantPay = true;
-        if(iWantPay == true) { // 재고가 있을 경우
+        if(iWantPay == true) {
             doJavascript("BootPay.transactionConfirm( " + data + ");");
         } else {
             doJavascript("BootPay.removePaymentWindow();");
@@ -110,16 +95,13 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         public static final String INTENT_PROTOCOL_END = ";end;";
         public static final String GOOGLE_PLAY_STORE_PREFIX = "market://details?id=";
 
-
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             if(isLoaded) return;
             isLoaded = true;
-            registerAppId();
             setDevice();
             startTrace();
-            registerAppIdDemo();
         }
 
         @Override
