@@ -105,10 +105,6 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
 
     private class BWebviewClient extends WebViewClient {
         private boolean isLoaded = false;
-        public static final String INTENT_PROTOCOL_START = "intent:";
-        public static final String INTENT_PROTOCOL_INTENT = "#Intent;";
-        public static final String INTENT_PROTOCOL_END = ";end;";
-        public static final String GOOGLE_PLAY_STORE_PREFIX = "market://details?id=";
 
 
         @Override
@@ -124,30 +120,55 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            // market 일 경우 있으면 실행하고, 없으면 다운받게
-            if (url.startsWith(GOOGLE_PLAY_STORE_PREFIX) || url.startsWith(INTENT_PROTOCOL_START)) {
-                final int endIndex = url.indexOf(INTENT_PROTOCOL_END);
-                try {
-                    Intent intent = new Intent().parseUri(url, Intent.URI_INTENT_SCHEME);
-                    final int s = url.indexOf(INTENT_PROTOCOL_INTENT) + INTENT_PROTOCOL_INTENT.length();
-
-                    PackageManager packageManager = view.getContext().getPackageManager();
-                    ResolveInfo info = packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    if (info != null) {
-                        view.getContext().startActivity(intent);
-                    } else {
-                        final String packageName = url.substring(s, endIndex < 0 ? url.length() : endIndex);
-                        view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_PLAY_STORE_PREFIX + packageName)));
-                    }
-                    return true;
-                } catch (ActivityNotFoundException e) {
-                    final int s = url.indexOf(INTENT_PROTOCOL_INTENT) + INTENT_PROTOCOL_INTENT.length();
-                    final String packageName = url.substring(s, endIndex < 0 ? url.length() : endIndex);
-                    view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_PLAY_STORE_PREFIX + packageName)));
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
+            Intent intent = parse(url);
+            if (isIntent(url)) {
+                if (isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext()))
+                    return start(intent, view.getContext());
+                else
+                    gotoMarket(intent, view.getContext());
+            } else if (isMarket(url)) {
+                return start(intent, view.getContext());
             }
+            return url.contains("https://bootpaymark");
+        }
+
+        private Intent parse(String url) {
+            try {
+                return Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        private Boolean isIntent(String url) {
+            return url.matches("^intent:?\\w*://\\S+$");
+        }
+
+        private Boolean isMarket(String url) {
+            return url.matches("^market://\\S+$");
+        }
+
+        private Boolean isExistInfo(Intent intent, Context context) {
+            try {
+                return intent != null && context.getPackageManager().getPackageInfo(intent.getPackage(), PackageManager.GET_ACTIVITIES) != null;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        private Boolean isExistPackage(Intent intent, Context context) {
+            return intent != null && context.getPackageManager().getLaunchIntentForPackage(intent.getPackage()) != null;
+        }
+
+        private boolean start(Intent intent, Context context) {
+            context.startActivity(intent);
+            return true;
+        }
+
+        private boolean gotoMarket(Intent intent, Context context) {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + intent.getPackage())));
             return true;
         }
     }
