@@ -28,6 +28,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
             phone: String?,
             area: String?) {
 
+
         val login = StatLogin(
                 ver,
                 UserInfo.bootpay_application_id,
