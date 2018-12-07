@@ -277,7 +277,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //    }"
 
     private fun items() = "items:${
-    request?.items?.map { "{item_name:'${it.name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
+    request?.items?.map { "{item_name:'${it.name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1.replace("\"", "'").replace("'", "\\'")}',cat2:'${it.cat2.replace("\"", "'").replace("'", "\\'")}',cat3:'${it.cat3.replace("\"", "'").replace("'", "\\'")}'}" }
     }"
 
 //    private fun quotas() = ""
@@ -295,7 +295,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun loadParams(vararg script: String) {
 
-        Log.d("loadParams", script.joinToString(""));
         load("${script.joinToString("")};")
     }
 
