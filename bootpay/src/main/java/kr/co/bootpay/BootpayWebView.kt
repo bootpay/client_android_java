@@ -242,7 +242,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun applicationId() = request?.application_id?.let { "application_id:'$it'" } ?: ""
 
-    private fun name() = request?.name?.let { "name:'${it.replace("'", "\\'")}'" } ?: ""
+    private fun name() = request?.name?.let { "name:'${it.replace("\"", "'").replace("'", "\\'")}'" } ?: ""
 
     private fun pg() = request?.pg?.let { "pg:'$it'" } ?: ""
 
@@ -277,7 +277,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //    }"
 
     private fun items() = "items:${
-    request?.items?.map { "{item_name:'${it.name.replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
+    request?.items?.map { "{item_name:'${it.name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
     }"
 
 //    private fun quotas() = ""

@@ -63,7 +63,7 @@ public class NativeActivity extends Activity {
                 .setPG(PG.DANAL) // 결제할 PG 사
                 .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setMethod(Method.CARD) // 결제수단
-                .setName("맥북프로's 임다") // 결제할 상품명
+                .setName("맥\"북프로's 임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month
 //                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
                 .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
