@@ -62,13 +62,13 @@ public class NativeActivity extends Activity {
                 .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
                 .setPG(PG.DANAL) // 결제할 PG 사
                 .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setMethod(Method.VBANK) // 결제수단
-                .setName("맥북프로임다") // 결제할 상품명
+                .setMethod(Method.CARD) // 결제수단
+                .setName("맥북프로's 임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month
 //                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
                 .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
                 .setPrice(50000) // 결제할 금액
-                .addItem("마우스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override

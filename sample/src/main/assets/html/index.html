@@ -13,7 +13,7 @@ function payTest() {
     BootPay.request({
         price: '1000',
         application_id: android_application_id,
-        name: '블링블링 마스카라',
+        name: '블링블링\'s 마스카라',
         pg: 'danal',
         method: 'phone',
         show_agree_window: 0,
@@ -59,7 +59,6 @@ function payTest() {
         </script>
 </head>
 <body>
-<button onclick='payTest()'>Webapp 연동방식으로 결제시작</button>
-<button onclick='alert(1)'>Webapp 연동방식으로 결제시작</button>
+<button onclick='payTest()'>Local Html 결제시작</button>
 </body>
 </html>

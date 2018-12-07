@@ -14,6 +14,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.AttributeSet
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
@@ -127,7 +128,10 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                         start(intent)
                     else
                         gotoMarket(intent)
-                } else if (isMarket(url))
+                }
+                else if (isMarket(url))
+                    start(intent)
+                else if (isSpecialCase(url))
                     start(intent)
                 else
                     url.contains("https://testquickpay")
@@ -168,6 +172,8 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun isExistPackage(intent: Intent?): Boolean =
             intent != null && context.packageManager.getLaunchIntentForPackage(intent.`package`) != null
+
+    private fun isSpecialCase(url: String?) = url?.matches(Regex("^shinhan\\S+\$")) ?: false
 
     private fun parse(url: String): Intent? {
         return try {
@@ -236,7 +242,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun applicationId() = request?.application_id?.let { "application_id:'$it'" } ?: ""
 
-    private fun name() = request?.name?.let { "name:'$it'" } ?: ""
+    private fun name() = request?.name?.let { "name:'${it.replace("'", "\\'")}'" } ?: ""
 
     private fun pg() = request?.pg?.let { "pg:'$it'" } ?: ""
 
@@ -271,7 +277,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //    }"
 
     private fun items() = "items:${
-    request?.items?.map { "{item_name:'${it.name}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
+    request?.items?.map { "{item_name:'${it.name.replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1}',cat2:'${it.cat2}',cat3:'${it.cat3}'}" }
     }"
 
 //    private fun quotas() = ""
@@ -288,6 +294,8 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     }
 
     private fun loadParams(vararg script: String) {
+
+        Log.d("loadParams", script.joinToString(""));
         load("${script.joinToString("")};")
     }
 

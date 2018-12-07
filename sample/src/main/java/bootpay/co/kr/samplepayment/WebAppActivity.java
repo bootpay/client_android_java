@@ -15,6 +15,7 @@ import android.support.annotation.Nullable;
 import android.webkit.CookieManager;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -38,6 +39,9 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         CookieManager.getInstance().setAcceptCookie(true);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webview.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        }
 
         webview.loadUrl(url);
     }
@@ -128,7 +132,10 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
                     gotoMarket(intent, view.getContext());
             } else if (isMarket(url)) {
                 return start(intent, view.getContext());
+            } else if (isSpecialCase(url)) {
+                return start(intent, view.getContext());
             }
+
             return url.contains("https://bootpaymark");
         }
 
@@ -147,6 +154,10 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
 
         private Boolean isMarket(String url) {
             return url.matches("^market://\\S+$");
+        }
+
+        private Boolean isSpecialCase(String url) {
+            return url.matches("^shinhan\\S+$");
         }
 
         private Boolean isExistInfo(Intent intent, Context context) {
