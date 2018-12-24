@@ -60,7 +60,7 @@ public class NativeActivity extends Activity {
 //        결제호출
         Bootpay.init(getFragmentManager())
                 .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사
+                .setPG(PG.INICIS) // 결제할 PG 사
                 .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setMethod(Method.CARD) // 결제수단
                 .setName("맥\"북프로's 임다") // 결제할 상품명

@@ -303,9 +303,11 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
         setWebChromeClient(Client())
         addJavascriptInterface(AndroidBridge(), "Android")
         CookieManager.getInstance().setAcceptCookie(true)
+
         settings.apply {
             if (Build.VERSION.SDK_INT >= 21) {
-                mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+                mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                CookieManager.getInstance().setAcceptCookie(true)
                 CookieManager.getInstance().setAcceptThirdPartyCookies(this@BootpayWebView, true)
             }
             javaScriptEnabled = true
