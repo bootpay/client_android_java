@@ -17,7 +17,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
     private val rest: RestService by lazy { RestService(context) }
     private val executor: Scheduler by lazy { Schedulers.from(Executors.newCachedThreadPool()) }
 
-    private val ver = "2.0.127"
+    private val ver = "2.0.19"
 
     fun login(
             id: String?,
