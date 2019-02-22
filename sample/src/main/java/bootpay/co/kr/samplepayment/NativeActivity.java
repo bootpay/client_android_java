@@ -30,8 +30,9 @@ public class NativeActivity extends Activity {
         setContentView(R.layout.activity_native);
 
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
-        BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
-//        BootpayAnalytics.init(this, "59bfc733e13f337dbd6ca489");
+        BootpayAnalytics.init(this, "5b14c0ffb6d49c40cda92c4e");
+//        BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
+
 
 
         // 통계 - 유저 로그인 시점에 호출
@@ -60,9 +61,9 @@ public class NativeActivity extends Activity {
 //        결제호출
         Bootpay.init(getFragmentManager())
                 .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.INICIS) // 결제할 PG 사
+                .setPG(PG.DANAL) // 결제할 PG 사
                 .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setMethod(Method.CARD) // 결제수단
+                .setMethod(Method.PHONE) // 결제수단
                 .setName("맥\"북프로's 임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month
 //                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )

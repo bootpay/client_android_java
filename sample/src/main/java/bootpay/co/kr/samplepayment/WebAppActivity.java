@@ -156,7 +156,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         }
 
         private Boolean isSpecialCase(String url) {
-            return url.matches("^shinhan\\S+$");
+            return url.matches("^shinhan\\S+$") || url.startsWith("kftc-bankpay://");
         }
 
         private Boolean isExistInfo(Intent intent, Context context) {

@@ -184,6 +184,11 @@ public class BootpayDialog extends DialogFragment {
             return this;
         }
 
+        public Builder setUseOrderId(Integer use_order_id) {
+            result.setUse_order_id(use_order_id);
+            return this;
+        }
+
         public Builder setExpireMonth(int expireMonth) {
             result.setExtraExpireMonth(expireMonth);
             return this;

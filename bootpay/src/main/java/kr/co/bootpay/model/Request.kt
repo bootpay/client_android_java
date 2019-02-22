@@ -11,6 +11,7 @@ class Request {
     var price: Long = 0
     var pg: String = ""
     var order_id: String = ""
+    var use_order_id: Int = 0
     var method: String = ""
     var account_expire_at: String = ""
     var unit: String = ""
