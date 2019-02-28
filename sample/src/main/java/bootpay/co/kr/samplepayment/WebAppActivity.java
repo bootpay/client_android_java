@@ -24,6 +24,9 @@ import java.net.URISyntaxException;
 public class WebAppActivity extends Activity implements WebAppBridgeInterface {
     WebView webview;
     final String url = "https://test-shop.bootpay.co.kr";
+
+
+
     final String android_application_id = "5b14c0ffb6d49c40cda92c4e";
 
 
@@ -33,6 +36,8 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         setContentView(R.layout.activity_webapp);
         webview = findViewById(R.id.webview);
         webview.setWebViewClient(new BWebviewClient());
+        webview.getSettings().setUserAgentString("HINTER/Android");
+
         webview.setWebChromeClient(new BChromeClient());
         webview.addJavascriptInterface(new WebAppBridge(this), "Android");
         CookieManager.getInstance().setAcceptCookie(true);
@@ -130,11 +135,13 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
                 else
                     gotoMarket(intent, view.getContext());
             } else if (isMarket(url)) {
-                return start(intent, view.getContext());
+                if (!(isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext())))
+                    return gotoMarket(intent, view.getContext());
+                else
+                    return true;
             } else if (isSpecialCase(url)) {
                 return start(intent, view.getContext());
             }
-
             return url.contains("https://bootpaymark");
         }
 
@@ -156,7 +163,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         }
 
         private Boolean isSpecialCase(String url) {
-            return url.matches("^shinhan\\S+$") || url.startsWith("kftc-bankpay://");
+            return url.matches("^shinhan\\S+$") || url.startsWith("kftc-bankpay://") || url.startsWith("v3mobileplusweb://");
         }
 
         private Boolean isExistInfo(Intent intent, Context context) {
