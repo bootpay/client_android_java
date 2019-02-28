@@ -133,7 +133,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
                 if (isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext()))
                     return start(intent, view.getContext());
                 else
-                    gotoMarket(intent, view.getContext());
+                    return gotoMarket(intent, view.getContext());
             } else if (isMarket(url)) {
                 if (!(isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext())))
                     return gotoMarket(intent, view.getContext());
