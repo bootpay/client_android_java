@@ -36,7 +36,6 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         setContentView(R.layout.activity_webapp);
         webview = findViewById(R.id.webview);
         webview.setWebViewClient(new BWebviewClient());
-        webview.getSettings().setUserAgentString("HINTER/Android");
 
         webview.setWebChromeClient(new BChromeClient());
         webview.addJavascriptInterface(new WebAppBridge(this), "Android");
@@ -140,9 +139,20 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
                 else
                     return true;
             } else if (isSpecialCase(url)) {
-                return start(intent, view.getContext());
+                if (isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext()))
+                    return start(intent, view.getContext());
+                else
+                    return gotoMarket(intent, view.getContext());
             }
             return url.contains("https://bootpaymark");
+        }
+
+        private Boolean isSpecialCase(String url) {
+            return url.matches("^shinhan\\S+$")
+                    || url.startsWith("kftc-bankpay://")
+                    || url.startsWith("v3mobileplusweb://")
+                    || url.startsWith("hdcardappcardansimclick://")
+                    || url.startsWith("mpocket.online.ansimclick://");
         }
 
         private Intent parse(String url) {
@@ -162,9 +172,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
             return url.matches("^market://\\S+$");
         }
 
-        private Boolean isSpecialCase(String url) {
-            return url.matches("^shinhan\\S+$") || url.startsWith("kftc-bankpay://") || url.startsWith("v3mobileplusweb://");
-        }
+
 
         private Boolean isExistInfo(Intent intent, Context context) {
             try {
