@@ -42,14 +42,23 @@ public class BootpayAnalytics {
             String email,
             String userName
     ) {
-        login(id, email, userName, "");
+        login(id, email, userName, Gender.UNKNOWN);
     }
+
+//    public static void login(
+//            String id,
+//            String email,
+//            String userName,
+//            int gender
+//    ) {
+//        login(id, email, userName, gender, null);
+//    }
 
     public static void login(
             String id,
             String email,
             String userName,
-            String gender
+            int gender
     ) {
         login(id, email, userName, gender, null);
     }
@@ -58,71 +67,62 @@ public class BootpayAnalytics {
             String id,
             String email,
             String userName,
-            Gender gender
-    ) {
-        login(id, email, userName, gender, null);
-    }
-
-    public static void login(
-            String id,
-            String email,
-            String userName,
-            String gender,
+            int gender,
             String birth
     )  {
         login(id, email, userName, gender, birth, null);
     }
 
-    public static void login(
-            String id,
-            String email,
-            String userName,
-            Gender gender,
-            String birth
-    ) {
-        login(id, email, userName, gender, birth, null);
-    }
+//    public static void login(
+//            String id,
+//            String email,
+//            String userName,
+//            int gender,
+//            String birth
+//    ) {
+//        login(id, email, userName, gender, birth, null);
+//    }
 
 
     public static void login(
             String id,
             String email,
             String userName,
-            Gender gender,
+            int gender,
             String birth,
             String phone
     ) {
         login(id, email, userName, gender, birth, phone, null);
     }
 
-    public static void login(
-            String id,
-            String email,
-            String userName,
-            String gender,
-            String birth,
-            String phone
-    ) {
-        login(id, email, userName, gender, birth, phone, null);
-    }
+//    public static void login(
+//            String id,
+//            String email,
+//            String userName,
+//            int gender,
+//            String birth,
+//            String phone
+//    ) {
+//        login(id, email, userName, gender, birth, phone, null);
+//    }
+
+//    public static void login(
+//            String id,
+//            String email,
+//            String userName,
+//            int gender,
+//            String birth,
+//            String phone,
+//            String area
+//    ) {
+//        login(id, email, userName, gender, birth, phone, area);
+//    }
 
     public static void login(
             String id,
             String email,
             String userName,
-            Gender gender,
-            String birth,
-            String phone,
-            String area
-    ) {
-        login(id, email, userName, gender == Gender.MALE ? "male" : "female", birth, phone, area);
-    }
-
-    public static void login(
-            String id,
-            String email,
-            String userName,
-            String gender,
+            int gender,
             String birth,
             String phone,
             String area) {

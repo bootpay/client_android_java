@@ -3,20 +3,33 @@ package kr.co.bootpay;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 
 public class Bootpay {
-    private static BootpayDialog.Builder builder;
+    private static Context context;
+    protected  static BootpayBuilder builder;
 
-    public static BootpayDialog.Builder init(Activity activity) {
+    /******************
+     * 부트페이 앱투앱 관련 로직
+     ******************/
+    public static BootpayBuilder init(Context context) {
+        Bootpay.context = context;
+        return builder = new BootpayBuilder(context);
+    }
+
+    /******************
+     * 부트페이 일반결제 관련 로직
+     ******************/
+    public static BootpayBuilder init(Activity activity) {
         return init(activity.getFragmentManager());
     }
 
-    public static BootpayDialog.Builder init(Fragment fragment) {
+    public static BootpayBuilder init(Fragment fragment) {
         return init(fragment.getFragmentManager());
     }
 
-    public static BootpayDialog.Builder init(FragmentManager fragmentManager) {
-        return builder = new BootpayDialog.Builder(fragmentManager);
+    public static BootpayBuilder init(FragmentManager fragmentManager) {
+        return builder = new BootpayBuilder(fragmentManager);
     }
 
     public static void finish() {

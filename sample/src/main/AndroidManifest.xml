@@ -25,6 +25,8 @@
         <activity android:name=".NativeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".WebAppActivity" android:screenOrientation="portrait"/>
         <activity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".App2AppActivity" android:screenOrientation="portrait"/>
+        <activity android:name="kr.co.bootpay.BootpayActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

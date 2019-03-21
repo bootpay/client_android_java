@@ -1,14 +1,19 @@
 package kr.co.bootpay.enums
 
 enum class PG {
-    BOOTPAY,
-    PAYAPP,
-    DANAL,
     KCP,
+    DANAL,
     INICIS,
-    LGUP,
-    KAKAO,
-    JTNET,
     NICEPAY,
-    PAYCO
+    LGUP,
+    PAYAPP,
+    KAKAO,
+    PAYCO,
+    KICC,
+    EASYPAY,
+    JTNET,
+    TPAY,
+    MOBILIANS,
+    PAYLETTER,
+    BOOTPAY
 }

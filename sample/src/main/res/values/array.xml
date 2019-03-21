@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pg">
+        <item>KCP</item>
+        <item>다날</item>
+        <item>LGU+</item>
+        <item>이니시스</item>
+        <item>나이스페이</item>
+        <item>페이앱</item>
+        <item>네이버페이</item>
+        <item>카카오페이</item>
+        <item>TPAY</item>
+        <item>페이레터</item>
+        <item>KICC</item>
+    </string-array>
+
+    <string-array name="method">
+        <item>카드결제</item>
+        <item>휴대폰소액결제</item>
+        <item>가상계좌</item>
+        <item>계좌이체</item>
+        <item>카드정기결제</item>
+        <item>간편결제</item>
+        <item>주문결제</item>
+        <item>부트페이 간편결제</item>
+    </string-array>
+
+    <string-array name="ux">
+        <item>PG_DIALOG</item>
+        <item>PG_SUBSCRIPT</item>
+        <item>BOOTPAY_DIALOG</item>
+        <item>BOOTPAY_CARD_SIMPLE</item>
+        <item>BOOTPAY_SUBSCRIPT_ROCKET</item>
+        <item>BOOTPAY_SUBSCRIPT_SERVER</item>
+        <item>BOOTPAY_CHARGE_SERVER</item>
+        <item>BOOTPAY_CHARGE_LINK</item>
+        <item>BOOTPAY_CHARGE_LINK_SUBSCRIPT</item>
+        <item>BOOTPAY_RESERVE_LINK</item>
+        <item>BOOTPAY_RESERVE_SERVER</item>
+        <item>BOOTPAY_IC</item>
+        <item>BOOTPAY_SWIPE</item>
+        <item>BOOTPAY_NFC</item>
+        <item>BOOTPAY_SAMSUNGPAY</item>
+        <item>APP2APP_CARD_SIMPLE</item>
+        <item>APP2APP_NFC</item>
+        <item>APP2APP_SAMSUNGPAY</item>
+        <item>APP2APP_SUBSCRIPT</item>
+        <item>APP2APP_CASH_RECEIPT</item>
+        <item>APP2APP_OCR</item>
+        <item>NONE</item>
+    </string-array>
+</resources>

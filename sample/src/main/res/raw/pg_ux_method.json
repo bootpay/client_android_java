@@ -1,0 +1,62 @@
+{
+  "pgs": [
+    {
+      "pg": "kcp",
+      "alias": "KCP",
+      "ux": [
+        {
+          "name": "DEFAULT",
+          "methods": [
+            {
+              "method": "phone",
+              "ux": "PG_DIALOG",
+              "name": "휴대폰 소액결제"
+            },
+            {
+              "method": "card",
+              "ux": "PG_DIALOG",
+              "name": "카드결제 (ISP/앱)"
+            },
+            {
+              "method": "bank",
+              "ux": "PG_DIALOG",
+              "name": "계좌이체"
+            },
+            {
+              "method": "vbank",
+              "ux": "PG_DIALOG",
+              "name": "가상계좌"
+            }
+          ]
+        },
+        {
+          "name": "APP2APP",
+          "methods": [
+
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+//{
+//  "title": "example glossary",
+//  "GlossDiv": {
+//    "title": "S",
+//    "GlossList": {
+//      "GlossEntry": {
+//        "ID": "SGML",
+//        "SortAs": "SGML",
+//        "GlossTerm": "Standard Generalized Markup Language",
+//        "Acronym": "SGML",
+//        "Abbrev": "ISO 8879:1986",
+//        "GlossDef": {
+//          "para": "A meta-markup language, used to create markup languages such as DocBook.",
+//          "GlossSeeAlso": ["GML", "XML"]
+//        },
+//        "GlossSee": "markup"
+//      }
+//    }
+//  }
+//}

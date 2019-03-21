@@ -3,6 +3,7 @@ package kr.co.bootpay.analytics
 import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
+import kr.co.bootpay.enums.Gender
 import kr.co.bootpay.model.StatCall
 import kr.co.bootpay.model.StatItem
 import kr.co.bootpay.model.StatLogin
@@ -23,7 +24,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
             id: String?,
             email: String?,
             username: String?,
-            gender: String?,
+            gender: Int?,
             birth: String?,
             phone: String?,
             area: String?) {
@@ -35,7 +36,7 @@ internal class BootpayAnalyticsPresenter(context: Context) {
                 id ?: "",
                 email ?: "",
                 username ?: "",
-                if (gender?.trim()?.isEmpty() != false) -1 else gender.toInt(),
+                gender ?: Gender.UNKNOWN,
                 birth ?: "",
                 phone ?:"",
                 area ?: ""

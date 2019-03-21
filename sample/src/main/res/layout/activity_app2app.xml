@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bootpay.co.kr.samplepayment.PaymentActivity">
+    tools:context="bootpay.co.kr.samplepayment.MainActivity">
 
-    <smartwork.co.kr.bootpay.BootpayWebView
-        android:id="@+id/bootpay_web"
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:onClick="goOcr"
+        android:text="request"/>
 
 </RelativeLayout>

@@ -16,7 +16,7 @@ internal interface RestApi {
 //            @Field("application_id") applicationId: String,
 //            @Field("id") userId: String,
 //            @Field("email") email: String,
-//            @Field("username") userName: String,
+//            @Field("username") user_name: String,
 //            @Field("gender") gender: Int,
 //            @Field("birth") birth: String,
 //            @Field("phone") phone: String,

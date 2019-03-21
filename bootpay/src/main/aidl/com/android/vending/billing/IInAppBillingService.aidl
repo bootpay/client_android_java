@@ -29,12 +29,12 @@ import android.os.Bundle;
  *    till the purchaseItem is consumed.
  * 4. An API to consume a purchaseItem of an inapp item. All purchases of one-time
  *    in-app items are consumable and thereafter can be purchased again.
- * 5. An API to get current purchases of the user immediately. This will not contain any
+ * 5. An API to get current purchases of the bootUser immediately. This will not contain any
  *    consumed purchases.
  *
  * All calls will give a response code with the following possible values
  * RESULT_OK = 0 - success
- * RESULT_USER_CANCELED = 1 - user pressed back or canceled a dialog
+ * RESULT_USER_CANCELED = 1 - bootUser pressed back or canceled a dialog
  * RESULT_BILLING_UNAVAILABLE = 3 - this billing API version is not supported for the type requested
  * RESULT_ITEM_UNAVAILABLE = 4 - requested SKU is not available for purchaseItem
  * RESULT_DEVELOPER_ERROR = 5 - invalid arguments provided to the API
@@ -106,7 +106,7 @@ interface IInAppBillingService {
         String developerPayload);
 
     /**
-     * Returns the current SKUs owned by the user of the type and package name specified along with
+     * Returns the current SKUs owned by the bootUser of the type and package name specified along with
      * purchaseItem information and a signature of the data to be validated.
      * This will return all SKUs that have been purchased in V3 and managed items purchased using
      * V1 and V2 that have not been consumed.
@@ -127,7 +127,7 @@ interface IInAppBillingService {
      *                                      of the purchaseItem information
      *         "INAPP_CONTINUATION_TOKEN" - String containing a continuation token for the
      *                                      next set of in-app purchases. Only set if the
-     *                                      user has more owned skus than the current list.
+     *                                      bootUser has more owned skus than the current list.
      */
     Bundle getPurchases(int apiVersion, String packageName, String type, String continuationToken);
 

@@ -27,6 +27,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
 
 
 
+//    final String android_application_id = "59a4d4a1929b3f3b8b6422c8"; //dev
     final String android_application_id = "5b14c0ffb6d49c40cda92c4e";
 
 
@@ -46,6 +47,12 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
             webview.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         }
 
+        webview.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                return super.onJsAlert(view, url, message, result);
+            }
+        });
         webview.loadUrl(url);
     }
 

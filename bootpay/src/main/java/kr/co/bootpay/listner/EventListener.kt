@@ -1,6 +1,6 @@
-package kr.co.bootpay
+package kr.co.bootpay.listner
 
-interface EventListener : CancelListener, ReadyListener, ConfirmListener, ErrorListener, DoneListener, CloseListener {
+interface EventListener : CancelListener, ErrorListener, DoneListener, CloseListener,  ReadyListener, ConfirmListener {
     override fun onError(message: String?)
 
     override fun onCancel(message: String?)

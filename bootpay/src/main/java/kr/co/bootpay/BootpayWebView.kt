@@ -18,7 +18,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
-import android.widget.Toast
+import kr.co.bootpay.listner.EventListener
 import kr.co.bootpay.model.Request
 import kr.co.bootpay.pref.UserInfo
 import java.net.URISyntaxException
@@ -92,25 +92,18 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
                                     applicationId(),
                                     name(),
                                     pg(),
-                                    userPhone(),
+//                                    userPhone(),
                                     agree(),
                                     method(),
+                                    methods(),
                                     items(),
-                                    userInfo(
-                                            userName(),
-                                            userEmail(),
-                                            userAddr(),
-                                            userPhone()
-                                    ),
-                                    extra(
-                                            extraExpireMonth(),
-                                            extraVBankResult(),
-                                            extraQuota()
-                                    ),
                                     params(),
                                     accountExpireAt(),
-                                    order_id(),
-                                    use_order_id()
+                                    orderId(),
+                                    useOrderId(),
+                                    userJson(),
+                                    extraJson(),
+                                    remoteLinkJson()
                             ),
                             error(),
                             cancel(),
@@ -205,26 +198,34 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun request(vararg query: String) = "BootPay.request({${query.filter(String::isNotEmpty).joinToString()}})"
 
-    private fun userInfo(vararg info: String) = "user_info: {${info.filter(String::isNotEmpty).joinToString()}}"
-
-    private fun extra(vararg etcs: String) = "extra: {${etcs.filter(String::isNotEmpty).joinToString()}}"
-
-    private fun userName() = request?.userName?.takeIf(String::isNotEmpty)?.let { "username: '$it'" } ?: ""
-
-    private fun userEmail() = request?.userEmail?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
-
-    private fun userAddr() = request?.userAddr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
-
-    private fun userPhone() = request?.userPhone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
+//    private fun userJson(vararg info: String) = "user_info: {${info.filter(String::isNotEmpty).joinToString()}}"
+//    private fun userPhone() = request?.bootUser?.phone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
+    private fun userJson() = request?.bootUser?.let { "user_info: ${it.toJson()}" } ?: ""
+    private fun extraJson() = request?.bootExtra?.let { "bootExtra: ${it.toJson()}" } ?: ""
+    private fun remoteLinkJson() = request?.remote_link?.let { "remte_link_info: ${it.toJson()}" } ?: ""
 
 
-//    private fun accountExpireAt =
 
-    private fun extraExpireMonth() = request?.extraExpireMonth?.let { "expire_month: $it" } ?: ""
+//    private fun bootExtra(vararg etcs: String) = "bootExtra: {${etcs.filter(String::isNotEmpty).joinToString()}}"
 
-    private fun extraVBankResult() = request?.extraVbankResult?.let { "vbank_result: $it" } ?: ""
+//    private
+//    private fun userName() = request?.bootUser?.name?.takeIf(String::isNotEmpty)?.let { "username: '$it'" } ?: ""
+//
+//    private fun userEmail() = request?.bootUser?.email?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
+//
+//    private fun userAddr() = request?.user_addr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
+//
+//    private fun userPhone() = request?.user_phone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
 
-    private fun extraQuota() = request?.extraQuotas?.let { "quota: '${it.joinToString()}'" } ?: ""
+
+
+//    private fun extraStartAt() = request?.extra_start_at?.let { "start_at: '$it'" } ?: ""
+//    private fun extraEndAt() = request?.extra_end_at?.let { "end_at: '$it'" } ?: ""
+//    private fun extraExpireMonth() = request?.extra_expire_month?.let { "expire_month: $it" } ?: ""
+//    private fun extraVBankResult() = request?.extra_vbank_result?.let { "vbank_result: $it" } ?: ""
+//    private fun extraQuota() = request?.extra_quotas?.let { "quota: '${it.joinToString()}'" } ?: ""
+//    private fun extraAppScheme() = request?.extra_app_scheme?.let { "app_scheme: '${it}://${extraAppSchemeHost()}'" } ?: ""
+//    private fun extraAppSchemeHost() = request?.extra_app_scheme_host?.let { "${it}" } ?: ""
 
 
     private fun error() = ".error(function(data){Android.error(JSON.stringify(data));})"
@@ -247,9 +248,28 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun pg() = request?.pg?.let { "pg:'$it'" } ?: ""
 
-    private fun agree() = "show_agree_window: ${if (request?.isShowAgree == true) 1 else 0}"
+    private fun agree() = "show_agree_window: ${if (request?.is_show_agree == true) 1 else 0}"
 
     private fun method() = request?.method?.let { "method:'$it'" } ?: ""
+
+    private fun methods() = request?.methods?.let { "methods: ${listToString(it)}"} ?:""
+
+    private fun items() = "items:${
+    request?.items?.map { "{item_name:'${it.name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1.replace("\"", "'").replace("'", "\\'")}',cat2:'${it.cat2.replace("\"", "'").replace("'", "\\'")}',cat3:'${it.cat3.replace("\"", "'").replace("'", "\\'")}'}" }
+    }"
+
+    private fun orderId() = request?.order_id?.let { "order_id:'$it'" } ?: ""
+
+    private fun useOrderId() = request?.use_order_id?.let { "use_order_id:'$it'" } ?: "0"
+
+    private fun listToString(list: List<String>):String {
+        var buffer = ""
+        for(obj in list) {
+            if(buffer.length > 0) buffer += ","
+            buffer += "'$obj'"
+        }
+        return "[$buffer]"
+    }
 
     private fun accountExpireAt() = request?.account_expire_at?.let { "account_expire_at:'$it'" } ?: ""
 
@@ -277,15 +297,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //    request?.items?.map { "{item_name:${it.name},qty:${it.qty},unique:'${it.unique}',price:${it.price}},cat1:${it.cat1},cat2:${it.cat2},cat3:${it.cat3}," }?.dropLast(2)
 //    }"
 
-    private fun items() = "items:${
-    request?.items?.map { "{item_name:'${it.name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1.replace("\"", "'").replace("'", "\\'")}',cat2:'${it.cat2.replace("\"", "'").replace("'", "\\'")}',cat3:'${it.cat3.replace("\"", "'").replace("'", "\\'")}'}" }
-    }"
-
-//    private fun quotas() = ""
-
-    private fun order_id() = request?.order_id?.let { "order_id:'$it'" } ?: ""
-
-    private fun use_order_id() = request?.use_order_id?.let { "use_order_id:'$it'" } ?: "0"
 
     fun setData(request: Request?): BootpayWebView {
         this.request = request
@@ -297,7 +308,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     }
 
     private fun loadParams(vararg script: String) {
-
+        Log.d("script -- ", "${script.joinToString("")};")
         load("${script.joinToString("")};")
     }
 
@@ -441,6 +452,4 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
             return intent
         }
     }
-
-
 }

@@ -10,6 +10,12 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
+        <activity android:name=".BootpayActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="app2app" android:scheme="bootpay" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
