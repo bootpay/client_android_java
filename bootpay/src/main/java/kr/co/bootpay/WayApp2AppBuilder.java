@@ -259,7 +259,7 @@ public class WayApp2AppBuilder {
 //        if (listener == null && (error == null || cancel == null || done == null))
 //            error("Must to be required to handel events.");
 //
-//        Intent intent = new Intent(context, BootpayActivity.class);
+//        Intent intent = new Intent(context, BootpayInnerActivity.class);
 //        context.startActivity(intent);
 //    }
 //

@@ -12,7 +12,7 @@ import kr.co.bootpay.app2app.payapp.Payload;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
-public class BootpayActivity extends Activity {
+public class BootpayInnerActivity extends Activity {
 
     public static final int REQUEST_INTERNAL = 1000; // 원격결제
     public static final int REQUEST_NOTEPAYMENT = 1001; // 수기결제

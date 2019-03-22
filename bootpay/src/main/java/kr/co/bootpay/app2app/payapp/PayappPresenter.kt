@@ -2,13 +2,13 @@ package kr.co.bootpay.app2app.payapp
 
 import android.content.Context
 import android.util.Log
-import kr.co.bootpay.BootpayActivity
+import kr.co.bootpay.BootpayInnerActivity
 import rx.Scheduler
 import rx.schedulers.Schedulers
 import java.util.concurrent.Executors
 
-internal class PayappPresenter(activity: BootpayActivity, context: Context) {
-    private val activity: BootpayActivity by lazy { activity }
+internal class PayappPresenter(innerActivity: BootpayInnerActivity, context: Context) {
+    private val innerActivity: BootpayInnerActivity by lazy { innerActivity }
     private val rest: PayappRestService by lazy { PayappRestService(context) }
     private val executor: Scheduler by lazy { Schedulers.from(Executors.newCachedThreadPool()) }
 

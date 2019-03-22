@@ -471,7 +471,7 @@ public class BootpayBuilder {
     }
 
     private void requestApp2App() {
-        Intent intent = new Intent(context, BootpayActivity.class);
+        Intent intent = new Intent(context, BootpayInnerActivity.class);
         context.startActivity(intent);
     }
 
