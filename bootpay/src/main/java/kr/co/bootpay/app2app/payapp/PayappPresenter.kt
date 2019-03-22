@@ -7,8 +7,8 @@ import rx.Scheduler
 import rx.schedulers.Schedulers
 import java.util.concurrent.Executors
 
-internal class PayappPresenter(innerActivity: BootpayInnerActivity, context: Context) {
-    private val innerActivity: BootpayInnerActivity by lazy { innerActivity }
+internal class PayappPresenter(activity: BootpayInnerActivity, context: Context) {
+    private val activity: BootpayInnerActivity by lazy { activity }
     private val rest: PayappRestService by lazy { PayappRestService(context) }
     private val executor: Scheduler by lazy { Schedulers.from(Executors.newCachedThreadPool()) }
 

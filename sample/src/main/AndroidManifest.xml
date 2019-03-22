@@ -14,19 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <innerActivity android:name=".MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </innerActivity>
+        </activity>
 
-        <innerActivity android:name=".NativeActivity" android:screenOrientation="portrait"/>
-        <innerActivity android:name=".WebAppActivity" android:screenOrientation="portrait"/>
-        <innerActivity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
-        <innerActivity android:name=".App2AppActivity" android:screenOrientation="portrait"/>
-        <innerActivity android:name="kr.co.bootpay.BootpayInnerActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NativeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".WebAppActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".App2AppActivity" android:screenOrientation="portrait"/>
+        <activity android:name="kr.co.bootpay.BootpayInnerActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

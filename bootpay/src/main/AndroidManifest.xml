@@ -9,12 +9,12 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
-        <innerActivity android:name=".BootpayInnerActivity" android:screenOrientation="portrait">
+        <activity android:name=".BootpayInnerActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <data android:host="app2app" android:scheme="bootpay" />
             </intent-filter>
-        </innerActivity>
+        </activity>
     </application>
 
 </manifest>
