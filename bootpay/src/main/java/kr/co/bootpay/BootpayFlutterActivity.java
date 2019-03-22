@@ -1,10 +1,10 @@
 package kr.co.bootpay;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
 import kr.co.bootpay.listner.EventListener;
 
-public class BootpayFlutterActivity extends Activity implements EventListener {
+public class BootpayFlutterActivity extends AppCompatActivity implements EventListener {
 
 
     @Override
