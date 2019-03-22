@@ -308,7 +308,6 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     }
 
     private fun loadParams(vararg script: String) {
-        Log.d("script -- ", "${script.joinToString("")};")
         load("${script.joinToString("")};")
     }
 

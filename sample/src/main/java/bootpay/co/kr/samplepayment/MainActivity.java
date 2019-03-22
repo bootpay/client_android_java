@@ -219,5 +219,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, App2AppActivity.class);
         startActivity(intent);
     }
+
+    public void goFlutterActivity(View v) {
+        Intent intent = new Intent(this, FlutterActivity.class);
+        startActivity(intent);
+    }
 }
 

@@ -30,7 +30,7 @@ public class FlutterActivity extends BootpayFlutterActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_native);
+        setContentView(R.layout.activity_flutter);
 
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, "5b14c0ffb6d49c40cda92c4e");
@@ -83,5 +83,36 @@ public class FlutterActivity extends BootpayFlutterActivity {
                 .onError(this)
                 .onClose(this)
                 .request();
+    }
+
+
+    @Override
+    public void onError(String message) {
+        Log.d("bootpay  error", message);
+    }
+
+    @Override
+    public void onCancel(String message) {
+        Log.d("bootpay  cancel", message);
+    }
+
+    @Override
+    public void onClose(String message) {
+        Log.d("bootpay  close", "close");
+    }
+
+    @Override
+    public void onReady(String message) {
+        Log.d("bootpay  ready", message);
+    }
+
+    @Override
+    public void onConfirm(String message) {
+        Log.d("bootpay  confirm", message);
+    }
+
+    @Override
+    public void onDone(String message) {
+        Log.d("bootpay  done", message);
     }
 }

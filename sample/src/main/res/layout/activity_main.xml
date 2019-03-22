@@ -152,6 +152,14 @@
                     android:onClick="goLocalActivity"
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
+
+                <Button
+                    android:id="@+id/btn_flutter"
+                    android:text="Flutter"
+                    android:layout_weight="1"
+                    android:onClick="goFlutterActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
