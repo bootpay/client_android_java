@@ -202,7 +202,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 //    private fun userPhone() = request?.bootUser?.phone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
     private fun userJson() = request?.bootUser?.let { "user_info: ${it.toJson()}" } ?: ""
     private fun extraJson() = request?.bootExtra?.let { "bootExtra: ${it.toJson()}" } ?: ""
-    private fun remoteLinkJson() = request?.remote_link?.let { "remte_link_info: ${it.toJson()}" } ?: ""
+    private fun remoteLinkJson() = request?.remoteLink?.let { "remte_link_info: ${it.toJson()}" } ?: ""
 
 
 
@@ -255,7 +255,7 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
     private fun methods() = request?.methods?.let { "methods: ${listToString(it)}"} ?:""
 
     private fun items() = "items:${
-    request?.items?.map { "{item_name:'${it.name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1.replace("\"", "'").replace("'", "\\'")}',cat2:'${it.cat2.replace("\"", "'").replace("'", "\\'")}',cat3:'${it.cat3.replace("\"", "'").replace("'", "\\'")}'}" }
+    request?.items?.map { "{item_name:'${it.item_name.replace("\"", "'").replace("'", "\\'")}',qty:${it.qty},unique:'${it.unique}',price:${it.price},cat1:'${it.cat1.replace("\"", "'").replace("'", "\\'")}',cat2:'${it.cat2.replace("\"", "'").replace("'", "\\'")}',cat3:'${it.cat3.replace("\"", "'").replace("'", "\\'")}'}" }
     }"
 
     private fun orderId() = request?.order_id?.let { "order_id:'$it'" } ?: ""

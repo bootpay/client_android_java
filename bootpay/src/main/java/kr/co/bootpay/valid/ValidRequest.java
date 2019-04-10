@@ -22,6 +22,8 @@ public class ValidRequest {
 
     private static Request validPGDialog(Request request) {
         if(request.getPg().length() == 0) return request; // 통합결제창
+        if(request.getMethods() != null || request.getMethods().size() > 0) return request; // 통합결제창
+
         List<Method> methodList = PGAvailable.getDefaultMethods(request);
         if(methodList.size() == 1) request.setMethod(PGAvailable.methodToString(methodList.get(0)));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

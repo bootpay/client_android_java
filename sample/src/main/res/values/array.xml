@@ -28,6 +28,7 @@
     <string-array name="ux">
         <item>PG_DIALOG</item>
         <item>PG_SUBSCRIPT</item>
+        <item>PG_SUBSCRIPT_RESERVE</item>
         <item>BOOTPAY_DIALOG</item>
         <item>BOOTPAY_CARD_SIMPLE</item>
         <item>BOOTPAY_SUBSCRIPT_ROCKET</item>

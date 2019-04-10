@@ -27,6 +27,7 @@ import kr.co.bootpay.model.Item;
 import kr.co.bootpay.model.RemoteLink;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.BootUser;
+import kr.co.bootpay.model.SMSPayload;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.valid.PGAvailable;
 import kr.co.bootpay.valid.ValidRequest;
@@ -201,6 +202,13 @@ public class BootpayBuilder {
 //        return this;
 //    }
 
+    public BootpayBuilder setSMSPayload(SMSPayload smsPayload) {
+        request.setSmsPayload(smsPayload);
+        return this;
+    }
+
+//    public BootpayBuild
+
     public BootpayBuilder setMethod(String method) {
         request.setMethod(method);
         return this;
@@ -208,6 +216,11 @@ public class BootpayBuilder {
 
     public BootpayBuilder setMethods(List<String> methods) {
         request.setMethods(methods);
+        return this;
+    }
+
+    public BootpayBuilder setSmsUse(Integer sms_use) {
+        request.setSmsUse(sms_use);
         return this;
     }
 
@@ -366,8 +379,8 @@ public class BootpayBuilder {
         if (isEmpty(request.getOrder_id()))
             error("Order id is not configured.");
 
-        if (listener == null && (error == null || cancel == null || confirm == null || done == null))
-            error("Must to be required to handel events.");
+//        if (listener == null && (error == null || cancel == null || confirm == null || done == null))
+//            error("Must to be required to handel events.");
 
         UX ux = request.getUX();
         if(ux == null || ux == UX.NONE) { request.setUx(UX.PG_DIALOG.name()); }

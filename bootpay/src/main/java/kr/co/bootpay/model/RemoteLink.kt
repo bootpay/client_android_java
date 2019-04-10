@@ -1,5 +1,7 @@
 package kr.co.bootpay.model
 
+import com.google.gson.Gson
+
 
 class RemoteLink {
     var member: String? = null // 부트페이에서 발급한 부계정 고유 키
@@ -57,4 +59,5 @@ class RemoteLink {
             deliveryPrice(),
             pushPolicyType()
     )
+    fun toGson() = Gson().toJson(this)
 }

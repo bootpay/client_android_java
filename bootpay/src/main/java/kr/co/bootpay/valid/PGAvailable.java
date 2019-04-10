@@ -28,10 +28,10 @@ public class PGAvailable {
     }};
 
     private static Map<UX, List<PG>> uxData = new HashMap<UX, List<PG>> () {{
-        put(UX.BOOTPAY_IC, Arrays.asList(PG.EASYPAY, PG.KICC, PG.NICEPAY));
-        put(UX.BOOTPAY_SWIPE, Arrays.asList(PG.KCP));
-        put(UX.BOOTPAY_NFC, Arrays.asList(PG.PAYAPP));
-        put(UX.BOOTPAY_SAMSUNGPAY, Arrays.asList(PG.PAYAPP));
+//        put(UX.BOOTPAY_IC, Arrays.asList(PG.EASYPAY, PG.KICC, PG.NICEPAY));
+//        put(UX.BOOTPAY_SWIPE, Arrays.asList(PG.KCP));
+//        put(UX.BOOTPAY_NFC, Arrays.asList(PG.PAYAPP));
+//        put(UX.BOOTPAY_SAMSUNGPAY, Arrays.asList(PG.PAYAPP));
         put(UX.APP2APP_REMOTE, Arrays.asList(PG.PAYAPP));
         put(UX.APP2APP_CARD_SIMPLE, Arrays.asList(PG.PAYAPP));
         put(UX.APP2APP_NFC, Arrays.asList(PG.PAYAPP));
@@ -145,20 +145,25 @@ public class PGAvailable {
     }
 
     public static boolean isUXPGSubscript(UX ux) {
-        if(ux == UX.PG_SUBSCRIPT || ux == UX.BOOTPAY_SUBSCRIPT_SERVER || ux == UX.BOOTPAY_CHARGE_SERVER || ux == UX.BOOTPAY_RESERVE_SERVER) return true;
+//        if(ux == UX.PG_SUBSCRIPT || ux == UX.BOOTPAY_SUBSCRIPT_SERVER || ux == UX.BOOTPAY_CHARGE_SERVER || ux == UX.BOOTPAY_RESERVE_SERVER) return true;
+        if(ux == UX.PG_SUBSCRIPT) return true;
         return false;
     }
 
     public static boolean isUXBootpayApi(UX ux) {
 //        if(ux == UX.PG_SUBSCRIPT || ux == UX.BOOTPAY_SUBSCRIPT_SERVER || ux == UX.BOOTPAY_CHARGE_SERVER
 //                || ux == UX.BOOTPAY_CHARGE_LINK || ux == UX.BOOTPAY_RESERVE_SERVER) return true;
-        if(ux == UX.BOOTPAY_CHARGE_LINK) return true;
+//        if(ux == UX.BOOTPAY_CHARGE_LINK) return true;
+        if(ux == UX.BOOTPAY_REMOTE_LINK || ux == UX.BOOTPAY_REMOTE_ORDER || ux == UX.BOOTPAY_REMOTE_PRE) return true;
         return false;
     }
 
     public static boolean isUXApp2App(UX ux) {
-        if(ux == UX.BOOTPAY_IC || ux == UX.BOOTPAY_SWIPE || ux == UX.BOOTPAY_NFC
-                || ux == UX.BOOTPAY_SAMSUNGPAY || ux == UX.APP2APP_REMOTE || ux == UX.APP2APP_CARD_SIMPLE
+//        if(ux == UX.BOOTPAY_IC || ux == UX.BOOTPAY_SWIPE || ux == UX.BOOTPAY_NFC
+//                || ux == UX.BOOTPAY_SAMSUNGPAY || ux == UX.APP2APP_REMOTE || ux == UX.APP2APP_CARD_SIMPLE
+//                || ux == UX.APP2APP_NFC || ux == UX.APP2APP_SAMSUNGPAY || ux == UX.APP2APP_SUBSCRIPT
+//                || ux == UX.APP2APP_CASH_RECEIPT || ux == UX.APP2APP_OCR) return true;
+        if(ux == UX.APP2APP_REMOTE || ux == UX.APP2APP_CARD_SIMPLE
                 || ux == UX.APP2APP_NFC || ux == UX.APP2APP_SAMSUNGPAY || ux == UX.APP2APP_SUBSCRIPT
                 || ux == UX.APP2APP_CASH_RECEIPT || ux == UX.APP2APP_OCR) return true;
         return false;

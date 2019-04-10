@@ -161,6 +161,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:text="RetmoteLink"
+                    android:layout_weight="1"
+                    android:background="#4529e5"
+                    android:textColor="#fff"
+                    android:onClick="goRemoteLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+                <Button
+                    android:text="RemoteForm"
+                    android:layout_weight="1"
+                    android:onClick="goRemoteForm"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="#4529e5"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+                <Button
+                    android:text="RemoteForm"
+                    android:layout_weight="1"
+                    android:onClick="goRemotePre"
+                    android:background="#4529e5"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -11,7 +11,7 @@ class Request {
 
     var pg: String = ""
     var method: String = "" // PG사 결제창에서 사용할 결제수단
-    var methods: List<String>? = null // 부트페이 통합결제창에서 사용할 결제수단
+    var methods: MutableList<String>? = null // 부트페이 통합결제창에서 사용할 결제수단
 
     var name: String = "" //결제창에 표시될 상품명
     var price: Double = 0.0 //결제금액
@@ -35,41 +35,12 @@ class Request {
     var ux: String = "" // 결제상품
     var bootUser: BootUser? = null
     var bootExtra: BootExtra? = null
-    var remote_link: RemoteLink? = null
+    var remoteLink: RemoteLink? = null
+    var remote_form: RemoteOrderForm? = null
+    var remote_pre: RemoteOrderPre? = null
+    var smsPayload: SMSPayload? = null
+    var smsUse = 0
 
-
-//    var user_name: String? = null // 결제할 사용자 이름 정보
-//    var user_email: String? = null // 결제할 사용자 이메일 정보
-//    var user_addr: String? = null // 결제할 사용자 주소 정보
-//    var user_phone: String? = null // 결제할 사용자 전화번호 정보
-
-//    var extra_start_at: String? = null // 정기 결제 시작일 - 시작일을 지정하지 않으면 그 날 당일로부터 결제가 가능한 Billing key 지급
-//    var extra_end_at: String? = null // 정기결제 만료일 -  기간 없음 - 무제한
-//    var extra_expire_month: Int? = null //정기결제가 적용되는 개월 수 (정기결제 사용시)
-//    var extra_vbank_result: Int? = null //가상계좌 결과창을 볼지 말지 (가상계좌 사용시)
-//    var extra_quotas: IntArray? = null //할부허용 범위 (5만원 이상 구매시)
-//    var extra_app_scheme: String? = null //app2app 결제시 return 받을 intent scheme
-//    var extra_app_scheme_host: String? = null //app2app 결제시 return 받을 intent scheme host
-
-
-//    var delivery_price: Double = 0.0 //배송비 (결제폼 이용시)
-//    var delivery_area_price: Double = 0.0 //도서산간지역 추가배송비 (결제폼 이용시)
-//    var auto_delivery_area_price: Boolean = false //도서산간지역 추가배송비를 미리 설정된 정책에 따를지 여부 (결제폼 이용시)
-
-    //링크 결제 관련
-//    var member: String? = null // 부트페이에서 발급한 부계정 고유 키
-//    var is_receive_member: Boolean? = null // 구매자 이름 입력 허용할지 말지
-//    var seller_name: String? = null // 보여질 판매자명, 없으면 등록된 상점명이 보여짐
-//    var memo: String? = null // 판매자 메모, 없으면 보여주지 않음
-//    var imgUrl: String? = null // 상품 대표 이미지 URL, 없으면 보여주지 않음
-//    var descHtml: String? = null // 상품 설명, 없으면 보여주지 않음
-//    var delivery_area_price_jeju: Double? = null // 도서산간비용 제주
-//    var delivery_area_price_nonjeju: Double? = null // 도서산간비용 제주 외 지역
-//
-//    // 링크결제에서는 전화번호는 필수다, user_phone 으로 채워지느냐 마느냐일 뿐이다
-//    var is_addr: Boolean? = null // 구매자에게 주소를 받을지 말지
-//    var is_delivery_area: Boolean? = null // 도서산간 지역 비용 추가 할지 말지
-//    var is_memo: Boolean? = null // 구매자에게 한줄메시지 받을지 말지
 
     fun addItem(item: Item): MutableList<Item> {
         items.add(item)
@@ -99,16 +70,12 @@ class Request {
         this.params = Gson().toJson(`object`)
     }
 
-    fun setRemoteLink(value: RemoteLink) {
-        this.remote_link = value
-    }
+//    fun setRemoteLink(value: RemoteLink) {
+//        this.remote_link = value
+//    }
 
     fun getUX(): UX {
         if(this.ux == null || this.ux.length == 0) return UX.PG_DIALOG
         return UX.valueOf(this.ux)
     }
-
-//    fun getPhone(): String {
-//        return user_phone ?: ""
-//    }
 }

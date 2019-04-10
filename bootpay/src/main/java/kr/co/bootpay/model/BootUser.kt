@@ -1,5 +1,7 @@
 package kr.co.bootpay.model
 
+import com.google.gson.Gson
+
 // 결제할 사용자 정보
 class BootUser {
     private var id: String? = null //개발사가 발급한 고유 아이디
@@ -53,6 +55,8 @@ class BootUser {
     private fun email() = email?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
     private fun gender() = gender?.let { "gender: $it" } ?: ""
     private fun addr() = addr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
+
+    // javascript
     fun toJson() = user(
             id(),
             username(),
@@ -62,6 +66,9 @@ class BootUser {
             gender(),
             addr()
     )
+
+    fun toGson() = Gson().toJson(this)
+
     fun getPhone(): String {
         return phone ?: ""
     }
