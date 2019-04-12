@@ -58,7 +58,7 @@ public class FlutterActivity extends BootpayFlutterActivity {
     }
 
     public void onClick_request(View v) {
-        BootUser bootUser = new BootUser().setPhone("010-4033-4678");
+        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
 
 //        결제호출

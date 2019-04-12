@@ -19,7 +19,7 @@ class Request {
     var tax_free: Double = 0.0 //비과세금액 (결제금액 - 과세금액 = 비과세금액)
 
     var order_id: String = "" // 개발사가 발급한 고유 주문번호 (중복되지 않게 발급해야한다)
-    var use_order_id: Int = 0 // PG사 전산에서 개발사의 order_id를 key로 사용할지 여부 (기본값은 사용하지 않는다 = 부트페이가 발급한 키로 사용한다)
+    var use_order_id = false // PG사 전산에서 개발사의 order_id를 key로 사용할지 여부 (기본값은 사용하지 않는다 = 부트페이가 발급한 키로 사용한다)
     var params: String? = null // 개발사 -> 부트페이로 보낼 파라미터, 결제 후 부트페이 -> 개발사로 동일하게 리턴해줌
 
 
@@ -36,10 +36,10 @@ class Request {
     var bootUser: BootUser? = null
     var bootExtra: BootExtra? = null
     var remoteLink: RemoteLink? = null
-    var remote_form: RemoteOrderForm? = null
-    var remote_pre: RemoteOrderPre? = null
+    var remoteForm: RemoteOrderForm? = null
+    var remotePre: RemoteOrderPre? = null
     var smsPayload: SMSPayload? = null
-    var smsUse = 0
+    var smsUse = false
 
 
     fun addItem(item: Item): MutableList<Item> {

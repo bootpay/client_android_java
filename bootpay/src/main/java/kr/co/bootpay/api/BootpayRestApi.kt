@@ -28,11 +28,11 @@ internal interface BootpayRestApi {
             @Field("boot_key") boot_key: String,
             @Field("params") params: String,
             @Field("order_id") order_id: String,
-            @Field("use_order_id") use_order_id: Int,
+            @Field("use_order_id") use_order_id: Boolean,
             @Field("account_expire_at") account_expire_at: String,
             @Field("bootExtra") extra: String,
             @Field("remote_link") remote_link: String,
-            @Field("sms_use") sms_use: Int,
+            @Field("sms_use") sms_use: Boolean,
             @Field("sms_payload") sms_payload: String
     ): Observable<ResDefault>
 
@@ -57,11 +57,11 @@ internal interface BootpayRestApi {
             @Field("boot_key") boot_key: String,
             @Field("params") params: String,
             @Field("order_id") order_id: String,
-            @Field("use_order_id") use_order_id: Int,
+            @Field("use_order_id") use_order_id: Boolean,
             @Field("account_expire_at") account_expire_at: String,
             @Field("bootExtra") extra: String,
             @Field("remote_form") remote_form: String,
-            @Field("sms_use") sms_use: Int,
+            @Field("sms_use") sms_use: Boolean,
             @Field("sms_payload") sms_payload: String
     ): Observable<ResDefault>
 
@@ -86,11 +86,11 @@ internal interface BootpayRestApi {
             @Field("boot_key") boot_key: String,
             @Field("params") params: String,
             @Field("order_id") order_id: String,
-            @Field("use_order_id") use_order_id: Int,
+            @Field("use_order_id") use_order_id: Boolean,
             @Field("account_expire_at") account_expire_at: String,
             @Field("bootExtra") extra: String,
             @Field("remote_pre") remote_pre: String,
-            @Field("sms_use") sms_use: Int,
+            @Field("sms_use") sms_use: Boolean,
             @Field("sms_payload") sms_payload: String
     ): Observable<ResDefault>
 }

@@ -25,6 +25,8 @@ import kr.co.bootpay.listner.ReadyListener;
 import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.Item;
 import kr.co.bootpay.model.RemoteLink;
+import kr.co.bootpay.model.RemoteOrderForm;
+import kr.co.bootpay.model.RemoteOrderPre;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.model.SMSPayload;
@@ -167,7 +169,7 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setUseOrderId(Integer use_order_id) {
+    public BootpayBuilder setUseOrderId(boolean use_order_id) {
         request.setUse_order_id(use_order_id);
         return this;
     }
@@ -182,8 +184,18 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setRemoteLinkInfo(RemoteLink remoteLink) {
+    public BootpayBuilder setRemoteLink(RemoteLink remoteLink) {
         request.setRemoteLink(remoteLink);
+        return this;
+    }
+
+    public BootpayBuilder setRemoteForm(RemoteOrderForm remoteForm) {
+        request.setRemoteForm(remoteForm);
+        return this;
+    }
+
+    public BootpayBuilder setRemotePre(RemoteOrderPre remotePre) {
+        request.setRemotePre(remotePre);
         return this;
     }
 
@@ -219,7 +231,7 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setSmsUse(Integer sms_use) {
+    public BootpayBuilder setSmsUse(Boolean sms_use) {
         request.setSmsUse(sms_use);
         return this;
     }

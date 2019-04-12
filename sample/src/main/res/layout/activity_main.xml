@@ -168,7 +168,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:text="RetmoteLink"
+                    android:text="Retmote Link"
                     android:layout_weight="1"
                     android:background="#4529e5"
                     android:textColor="#fff"
@@ -176,7 +176,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
                 <Button
-                    android:text="RemoteForm"
+                    android:text="Remote Form"
                     android:layout_weight="1"
                     android:onClick="goRemoteForm"
                     android:layout_marginRight="5dp"
@@ -186,7 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
                 <Button
-                    android:text="RemoteForm"
+                    android:text="Remote Pre"
                     android:layout_weight="1"
                     android:onClick="goRemotePre"
                     android:background="#4529e5"

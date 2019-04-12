@@ -73,7 +73,7 @@ internal class BootpayPresenter(context: Context) {
     fun request_form(request: Request) {
         var userJson = request.bootUser?.toGson() ?: ""
         var extraJson = request.bootExtra?.toGson() ?: ""
-        var remoteFormJson = request.remote_form?.toGson() ?: ""
+        var remoteFormJson = request.remoteForm?.toGson() ?: ""
         var methods = request.methods ?: mutableListOf()
         var sms_payload = request.smsPayload?.toGson() ?: ""
 
@@ -82,7 +82,7 @@ internal class BootpayPresenter(context: Context) {
             request.methods?.let { form.setMethods(it) }
             remoteFormJson = form.toGson()
         } else {
-            request.remote_form?.let {
+            request.remoteForm?.let {
                 if(it.pg.isEmpty()) { it.pg = request.pg }
                 if(it.fm.size == 0) { request.methods?.let { methods -> it.fm = methods }}
                 if(it.ip == 0.0) { it.ip = request.price }
@@ -128,7 +128,7 @@ internal class BootpayPresenter(context: Context) {
     fun request_pre(request: Request) {
         var userJson = request.bootUser?.toGson() ?: ""
         var extraJson = request.bootExtra?.toGson() ?: ""
-        var remotePreJson = request.remote_pre?.toGson() ?: ""
+        var remotePreJson = request.remotePre?.toGson() ?: ""
         var methods = request.methods ?: mutableListOf()
         var sms_payload = request.smsPayload?.toGson() ?: ""
 
