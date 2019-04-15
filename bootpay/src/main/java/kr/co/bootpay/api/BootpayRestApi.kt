@@ -30,7 +30,7 @@ internal interface BootpayRestApi {
             @Field("order_id") order_id: String,
             @Field("use_order_id") use_order_id: Boolean,
             @Field("account_expire_at") account_expire_at: String,
-            @Field("bootExtra") extra: String,
+            @Field("boot_extra") extra: String,
             @Field("remote_link") remote_link: String,
             @Field("sms_use") sms_use: Boolean,
             @Field("sms_payload") sms_payload: String

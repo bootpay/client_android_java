@@ -9,7 +9,7 @@ class BootUser {
     private var birth: String? = null
     private var email: String? = null
     private var gender: Int? = -1
-    private var addr: String? = null
+    private var area: String? = null
     private var phone: String? = null
 
     fun setID(value: String?): BootUser {
@@ -38,7 +38,7 @@ class BootUser {
     }
 
     fun setAddr(value: String?): BootUser {
-        addr = value
+        area = value
         return this
     }
 
@@ -50,11 +50,11 @@ class BootUser {
     private fun user(vararg etcs: String) = "{${etcs.filter(String::isNotEmpty).joinToString()}}"
     private fun id() = id?.takeIf(String::isNotEmpty)?.let { "id: '$it'" } ?: ""
     private fun username() = username?.takeIf(String::isNotEmpty)?.let { "username: '$it'" } ?: ""
-    private fun birth() = addr?.takeIf(String::isNotEmpty)?.let { "birth: '$it'" } ?: ""
+    private fun birth() = area?.takeIf(String::isNotEmpty)?.let { "birth: '$it'" } ?: ""
     fun phone() = phone?.takeIf(String::isNotEmpty)?.let { "phone: '$it'" } ?: ""
     private fun email() = email?.takeIf(String::isNotEmpty)?.let { "email: '$it'" } ?: ""
     private fun gender() = gender?.let { "gender: $it" } ?: ""
-    private fun addr() = addr?.takeIf(String::isNotEmpty)?.let { "addr: '$it'" } ?: ""
+    private fun area() = area?.takeIf(String::isNotEmpty)?.let { "area: '$it'" } ?: ""
 
     // javascript
     fun toJson() = user(
@@ -64,7 +64,7 @@ class BootUser {
             phone(),
             email(),
             gender(),
-            addr()
+            area()
     )
 
     fun toGson() = Gson().toJson(this)

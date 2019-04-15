@@ -43,6 +43,8 @@ public class BPValue {
                 return "";
             case "부트페이 간편결제":
                 return "";
+            case "본인인증":
+                return "auth";
         }
         return "";
     }

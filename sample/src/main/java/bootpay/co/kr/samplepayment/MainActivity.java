@@ -33,8 +33,8 @@ import kr.co.bootpay.model.RemoteOrderPre;
 import kr.co.bootpay.model.SMSPayload;
 
 public class MainActivity extends AppCompatActivity {
-//    final String application_id = "59a4d4a1929b3f3b8b6422c8"; //dev
-    final String application_id = "5b9f51264457636ab9a07cdc"; //dev2
+    final String application_id = "59a4d4a1929b3f3b8b6422c8"; //dev
+//    final String application_id = "5b9f51264457636ab9a07cdc"; //dev2
 
 //    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
 

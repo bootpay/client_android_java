@@ -23,6 +23,7 @@
         <item>간편결제</item>
         <item>주문결제</item>
         <item>부트페이 간편결제</item>
+        <item>본인인증</item>
     </string-array>
 
     <string-array name="ux">
