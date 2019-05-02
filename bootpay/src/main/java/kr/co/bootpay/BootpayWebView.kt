@@ -171,7 +171,32 @@ internal class BootpayWebView @JvmOverloads constructor(context: Context, attrs:
 
     private fun parse(url: String): Intent? {
         return try {
-            Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+            var intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+            if(intent?.`package` == null) {
+                if(url == null) return intent
+                if (url.startsWith("shinhan-sr-ansimclick"))
+                    intent.setPackage("com.shcard.smartpay")
+                else if (url.startsWith("kftc-bankpay"))
+                    intent.setPackage("com.kftc.bankpay")
+                else if (url.startsWith("ispmobile"))
+                    intent.setPackage("kvp.jjy.MispAndroid320")
+                else if (url.startsWith("hdcardappcardansimclick"))
+                    intent.setPackage("com.hyundaicard.appcard")
+                else if (url.startsWith("kb-acp"))
+                    intent.setPackage("com.kbcard.kbkookmincard")
+                else if (url.startsWith("mpocket.online.ansimclick"))
+                    intent.setPackage("kr.co.samsungcard.mpocket")
+                else if (url.startsWith("lotteappcard"))
+                    intent.setPackage("com.lcacApp")
+                else if (url.startsWith("cloudpay"))
+                    intent.setPackage("com.hanaskcard.paycla")
+                else if (url.startsWith("nhappvardansimclick"))
+                    intent.setPackage("nh.smart.nhallonepay")
+                else if (url.startsWith("citispay"))
+                    intent.setPackage("kr.co.citibank.citimobile")
+                else if (url.startsWith("kakaotalk")) intent.setPackage("com.kakao.talk")
+            }
+            intent
         } catch (e: URISyntaxException) {
             null
         }

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
@@ -19,6 +20,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import java.net.URISyntaxException;
+
+import kr.co.bootpay.Bootpay;
 
 
 public class WebAppActivity extends Activity implements WebAppBridgeInterface {
@@ -44,7 +47,8 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webview.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+            webview.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webview, true);
         }
 
         webview.setWebChromeClient(new WebChromeClient() {
@@ -164,7 +168,22 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
 
         private Intent parse(String url) {
             try {
-                return Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                if(intent.getPackage() == null) {
+                    if (url == null) return intent;
+                    if (url.startsWith("shinhan-sr-ansimclick")) intent.setPackage("com.shcard.smartpay");
+                    else if (url.startsWith("kftc-bankpay")) intent.setPackage("com.kftc.bankpay");
+                    else if (url.startsWith("ispmobile")) intent.setPackage("kvp.jjy.MispAndroid320");
+                    else if (url.startsWith("hdcardappcardansimclick")) intent.setPackage("com.hyundaicard.appcard");
+                    else if (url.startsWith("kb-acp")) intent.setPackage("com.kbcard.kbkookmincard");
+                    else if (url.startsWith("mpocket.online.ansimclick")) intent.setPackage("kr.co.samsungcard.mpocket");
+                    else if (url.startsWith("lotteappcard")) intent.setPackage("com.lcacApp");
+                    else if (url.startsWith("cloudpay")) intent.setPackage("com.hanaskcard.paycla");
+                    else if (url.startsWith("nhappvardansimclick")) intent.setPackage("nh.smart.nhallonepay");
+                    else if (url.startsWith("citispay")) intent.setPackage("kr.co.citibank.citimobile");
+                    else if (url.startsWith("kakaotalk")) intent.setPackage("com.kakao.talk");
+                }
+                return intent;
             } catch (URISyntaxException e) {
                 e.printStackTrace();
                 return null;
@@ -191,7 +210,7 @@ public class WebAppActivity extends Activity implements WebAppBridgeInterface {
         }
 
         private Boolean isExistPackage(Intent intent, Context context) {
-            return intent != null && context.getPackageManager().getLaunchIntentForPackage(intent.getPackage()) != null;
+            return intent != null &&  intent.getPackage() != null && context.getPackageManager().getLaunchIntentForPackage(intent.getPackage()) != null;
         }
 
         private boolean start(Intent intent, Context context) {

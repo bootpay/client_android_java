@@ -17,6 +17,8 @@ internal class BootpayRestService(context: Context) {
     }
 
     internal val api: BootpayRestApi by lazy {
+//        https@ //api.play-pickle.com/account/auth/verification/phoneNumber
+
         Retrofit.Builder()
                 .baseUrl("https://api-ehowlsla.bootpay.co.kr")
                 .client(client)

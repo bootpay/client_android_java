@@ -24,6 +24,82 @@ class RemoteLink {
     var delivery_price: Double? = null // 배달 금액
     var push_policy_type: Int? = null
 
+
+    fun setMember(value: String): RemoteLink {
+        member = value
+        return this
+    }
+
+    fun setIsReceiveMember(value: Boolean): RemoteLink {
+        is_receive_member = value
+        return this
+    }
+
+    fun setSellerName(value: String): RemoteLink {
+        seller_name = value
+        return this
+    }
+
+    fun setMemo(value: String): RemoteLink {
+        memo = value
+        return this
+    }
+
+    fun setImgUrl(value: String): RemoteLink {
+        img_url = value
+        return this
+    }
+
+    fun setDescHtml(value: String): RemoteLink {
+        desc_html = value
+        return this
+    }
+
+    fun setDeliveryAreaPriceJeju(value: Double): RemoteLink {
+        delivery_area_price_jeju = value
+        return this
+    }
+
+    fun setDeliveryAreaPriceNonJeju(value: Double): RemoteLink {
+        delivery_area_price_nonjeju = value
+        return this
+    }
+
+    fun setIsAddr(value: Boolean): RemoteLink {
+        is_addr = value
+        return this
+    }
+
+    fun setIsDeliveryArea(value: Boolean): RemoteLink {
+        is_delivery_area = value
+        return this
+    }
+
+    fun setIsMemo(value: Boolean): RemoteLink {
+        is_memo = value
+        return this
+    }
+
+    fun setItemPrice(value: Double): RemoteLink {
+        item_price = value
+        return this
+    }
+
+    fun setPromotionPrice(value: Double): RemoteLink {
+        promotion_price = value
+        return this
+    }
+
+    fun setDeliveryPrice(value: Double): RemoteLink {
+        delivery_price = value
+        return this
+    }
+
+    fun setPushPolicyType(value: Int): RemoteLink {
+        push_policy_type = value
+        return this
+    }
+
     private fun remoteLink(vararg etcs: String) = "{${etcs.filter(String::isNotEmpty).joinToString()}}"
     private fun member() = member?.takeIf(String::isNotEmpty)?.let { "member: '$it'" } ?: ""
     private fun isReceiveMember() = is_receive_member?.let { "is_receive_member: '$it'" } ?: ""

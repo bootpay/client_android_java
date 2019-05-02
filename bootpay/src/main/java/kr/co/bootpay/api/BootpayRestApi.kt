@@ -7,6 +7,10 @@ import retrofit2.http.*
 import rx.Observable
 
 internal interface BootpayRestApi {
+
+
+
+
     @FormUrlEncoded
     @POST("/app/rest/remote_link")
     fun request_link(

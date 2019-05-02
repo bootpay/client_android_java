@@ -28,13 +28,16 @@ import kr.co.bootpay.listner.ErrorListener;
 import kr.co.bootpay.listner.ReadyListener;
 import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.BootUser;
+import kr.co.bootpay.model.RemoteLink;
 import kr.co.bootpay.model.RemoteOrderForm;
 import kr.co.bootpay.model.RemoteOrderPre;
 import kr.co.bootpay.model.SMSPayload;
 
 public class MainActivity extends AppCompatActivity {
-    final String application_id = "59a4d4a1929b3f3b8b6422c8"; //dev
-//    final String application_id = "5b9f51264457636ab9a07cdc"; //dev2
+//    final String application_id = "5c99d9b8b6d49c516e19099a"; //dev
+    final String application_id = "5b9f51264457636ab9a07cdc"; //dev2
+//private BootpayPresenter presenter;
+//    BootpayPresenter present;
 
 //    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
 
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goRequest(View v) {
+//        BootpayRestService
+
 //        Spinner mySpinner = (Spinner) findViewById(R.id.your_spinner);
 //        String text = mySpinner.getSelectedItem().toString();
         BootUser bootUser = new BootUser().setPhone("010-1234-5678"); // 구매자 정보
@@ -233,7 +238,11 @@ public class MainActivity extends AppCompatActivity {
     public void goRemoteLink(View v) {
         BootUser bootUser = new BootUser().setPhone("010-1234-5678");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-        SMSPayload payload = new SMSPayload().setMessage("결제링크 안내입니다\n[결제링크]").setSenderPhone("010-1234-5678").setReceieverPhones(Arrays.asList("010-1234-5678"));
+        SMSPayload payload = new SMSPayload().setMessage("결제링크 안내입니다\n[결제링크]").setSenderPhone("010-4033-4678").setReceieverPhones(Arrays.asList("010-4033-4678"));
+                //.setStartAt(System.currentTimeMillis() + 5000);
+
+//        RemoteLink remoteLink = new RemoteLink().s();
+
 
 //        결제호출
         Bootpay.init(getFragmentManager())

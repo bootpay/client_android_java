@@ -419,6 +419,11 @@ public class BootpayBuilder {
     }
 
     public void request() {
+
+        if(context == null) throw new IllegalStateException("context cannot be null from " + request.getUx());
+        if (presenter == null) presenter = new BootpayPresenter(context);
+
+
         validCheck();
         UserInfo.update();
 
@@ -429,6 +434,8 @@ public class BootpayBuilder {
         else if(PGAvailable.isUXApp2App(ux)) requestApp2App();
         else throw new IllegalStateException(ux.toString() + " is not supported!");
     }
+
+//    public
 
     private void requestDialog() {
         dialog = new BootpayDialog()
