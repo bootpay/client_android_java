@@ -119,7 +119,7 @@ public class BootpayWebView extends WebView {
                     setDevice();
                     setAnalyticsData();
 
-                    setDevelopMode();
+//                    setDevelopMode();
                     useOneStoreApi();
 
                     Log.d("bootpay", "onPageFinished");
@@ -294,7 +294,6 @@ public class BootpayWebView extends WebView {
     }
 
     private void setDevelopMode() {
-//        BootPay.setMode('development');
         load("window.BootPay.setMode('development');");
     }
 
