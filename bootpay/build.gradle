@@ -28,9 +28,11 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:26.1.0'// https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
 
-    implementation files('libs/unity.jar')
     //unity jar 패키징 시 아래 주석을 풀어 사용 (아래 한줄만)
+
 //    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+//    추가로 unity 폴더를 풀어서 해당 자리에 소스가 생기도록 해야함
+
 ////    implementation files('libs/gson-2.8.5.jar')
 ////    implementation files('libs/okio-2.2.2.jar')
 ////    implementation files('libs/retrofit-2.5.0.jar')
