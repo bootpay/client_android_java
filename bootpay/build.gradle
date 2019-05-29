@@ -25,9 +25,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
     implementation 'com.android.support:appcompat-v7:26.1.0'// https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
-//    implementation files('libs/unity.jar')
+
+    implementation files('libs/unity.jar')
+    //unity jar 패키징 시 아래 주석을 풀어 사용
+//    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 //    implementation files('libs/gson-2.8.5.jar')
 //    implementation files('libs/okio-2.2.2.jar')
 //    implementation files('libs/retrofit-2.5.0.jar')
@@ -44,17 +47,18 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31" // build for use kotlin in unity development
-//    implementation 'com.google.code.gson:gson:2.8.2'
-//    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-//    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-//    implementation 'com.squareup.retrofit2:converter-moshi:2.3.0'
-//    implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
-//    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-//    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    // jitpack 배포시 아래 주석을 풀어서 사용
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31" // build for use kotlin in unity development
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
-//    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-//    implementation 'com.pddstudio:encrypted-preferences:1.3.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+    implementation 'com.pddstudio:encrypted-preferences:1.3.0'
 
 
     implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.3.21'
