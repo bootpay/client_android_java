@@ -34,11 +34,11 @@ import kr.co.bootpay.model.SMSPayload;
 
 public class MainActivity extends AppCompatActivity {
 //    final String application_id = "5c99d9b8b6d49c516e19099a"; //dev
-    final String application_id = "5b9f51264457636ab9a07cdc"; //dev2
+//    final String application_id = "5b9f51264457636ab9a07cdc"; //dev2
 //private ApiPresenter presenter;
 //    ApiPresenter present;
 
-//    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
+    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
 
     Spinner spinner_pg;
     Spinner spinner_method;

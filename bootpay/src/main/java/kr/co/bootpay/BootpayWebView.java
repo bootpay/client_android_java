@@ -33,8 +33,8 @@ import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayWebView extends WebView {
-//    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.0.2/production.html";
-private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/production.html";
+    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.0.2/production.html";
+//private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/production.html";
 
     private Dialog dialog;
 //    private ConnectivityManager connManager;
@@ -329,7 +329,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/product
 
     private String ready() { return ".ready(function(data){Android.ready(JSON.stringify(data));})"; }
 
-    private String close() { return ".close(function(data){Android.close('close');})"; }
+    private String close() { return ".close(function(data){ Android.close('close') ;})"; }
 
     private String confirm() { return ".confirm(function(data){Android.confirm(JSON.stringify(data));})"; }
 
@@ -526,11 +526,13 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/product
             eventHandler.sendMessage(Message.obtain(eventHandler, DONE, data));
         }
 
+        @JavascriptInterface
         @Override
         public void close(String data) {
             eventHandler.sendMessage(Message.obtain(eventHandler, CLOSE, data));
         }
 
+        @JavascriptInterface
         @Override
         public void ready(String data) {
             eventHandler.sendMessage(Message.obtain(eventHandler, READY, data));
@@ -539,6 +541,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/product
 
     private void onCloseHandled(String data) {
         if (listener != null) listener.onClose(data);
+        if (dialog != null) dialog.dismiss();
     }
 
     private void onErrorHandled(String data) {
