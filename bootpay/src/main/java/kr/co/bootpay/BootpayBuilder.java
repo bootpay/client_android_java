@@ -464,32 +464,32 @@ public class BootpayBuilder {
             .setOnResponseListener(listener != null ? listener : new EventListener() {
                 @Override
                 public void onClose(String message) {
-                    close.onClose(message);
+                    if(close != null ) close.onClose(message);
                 }
 
                 @Override
                 public void onReady(String message) {
-                    ready.onReady(message);
+                    if(ready != null ) ready.onReady(message);
                 }
 
                 @Override
                 public void onError(String message) {
-                    error.onError(message);
+                    if(error != null ) error.onError(message);
                 }
 
                 @Override
                 public void onCancel(String message) {
-                    cancel.onCancel(message);
+                    if(cancel != null ) cancel.onCancel(message);
                 }
 
                 @Override
                 public void onConfirm(String message) {
-                    confirm.onConfirm(message);
+                    if(confirm != null ) confirm.onConfirm(message);
                 }
 
                 @Override
                 public void onDone(String message) {
-                    done.onDone(message);
+                    if(done != null ) done.onDone(message);
                 }
         });
 
