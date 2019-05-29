@@ -1,6 +1,5 @@
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 
 
 android {
@@ -34,7 +33,7 @@ dependencies {
 //    implementation files('libs/retrofit-2.5.0.jar')
 //    implementation files('libs/converter-gson-2.5.0.jar')
 //    implementation files('libs/converter-moshi-2.5.0.jar')
-    implementation files('libs/adapter-rxjava-2.5.0.jar')
+//    implementation files('libs/adapter-rxjava-2.5.0.jar')
 //    implementation files('libs/okhttp-3.14.2.jar')
 //    implementation files('libs/PersistentCookieJar-v1.0.1.aar')
 //    implementation files('libs/play-services-ads-identifier-16.0.0.aar')
