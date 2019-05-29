@@ -463,32 +463,32 @@ public class BootpayBuilder {
         dialog = new BootpayDialog().setRequest(request)
             .setOnResponseListener(listener != null ? listener : new EventListener() {
                 @Override
-                public void onClose(@org.jetbrains.annotations.Nullable String message) {
+                public void onClose(String message) {
                     close.onClose(message);
                 }
 
                 @Override
-                public void onReady(@org.jetbrains.annotations.Nullable String message) {
+                public void onReady(String message) {
                     ready.onReady(message);
                 }
 
                 @Override
-                public void onError(@org.jetbrains.annotations.Nullable String message) {
+                public void onError(String message) {
                     error.onError(message);
                 }
 
                 @Override
-                public void onCancel(@org.jetbrains.annotations.Nullable String message) {
+                public void onCancel(String message) {
                     cancel.onCancel(message);
                 }
 
                 @Override
-                public void onConfirm(@org.jetbrains.annotations.Nullable String message) {
+                public void onConfirm(String message) {
                     confirm.onConfirm(message);
                 }
 
                 @Override
-                public void onDone(@org.jetbrains.annotations.Nullable String message) {
+                public void onDone(String message) {
                     done.onDone(message);
                 }
         });

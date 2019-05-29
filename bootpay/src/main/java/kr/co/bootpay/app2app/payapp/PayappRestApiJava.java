@@ -1,10 +1,6 @@
-package kr.co.bootpay.app2app.payapp
+package kr.co.bootpay.app2app.payapp;
 
-import retrofit2.http.*
-//import rx.Observable
-
-internal interface PayappRestApi {
-
+public class PayappRestApiJava {
     // 페이앱 시작
 
 //    @POST("/apiLoad.html")

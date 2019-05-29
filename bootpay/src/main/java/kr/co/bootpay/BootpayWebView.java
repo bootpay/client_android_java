@@ -23,8 +23,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Locale;
@@ -501,7 +499,7 @@ public class BootpayWebView extends WebView {
         this.listener = listener;
     }
 
-    private class AndroidBridge implements IScriptFuction {
+    private class AndroidBridge implements IScriptFunction {
 
         @JavascriptInterface
         @Override
@@ -528,12 +526,12 @@ public class BootpayWebView extends WebView {
         }
 
         @Override
-        public void close(@NotNull String data) {
+        public void close(String data) {
             eventHandler.sendMessage(Message.obtain(eventHandler, CLOSE, data));
         }
 
         @Override
-        public void ready(@NotNull String data) {
+        public void ready(String data) {
             eventHandler.sendMessage(Message.obtain(eventHandler, READY, data));
         }
     }
