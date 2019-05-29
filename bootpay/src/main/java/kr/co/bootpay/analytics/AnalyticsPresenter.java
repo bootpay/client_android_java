@@ -13,6 +13,7 @@ import kr.co.bootpay.model.StatItem;
 import kr.co.bootpay.secure.BootpaySimpleAES256;
 import kr.co.bootpay.model.StatLogin;
 import kr.co.bootpay.pref.UserInfo;
+import rx.Observer;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
@@ -55,10 +56,38 @@ public class AnalyticsPresenter {
                 )
                 .retry(3)
                 .subscribeOn(thread)
-                .subscribe(res -> {
-                            if(res.getData() != null)
-                                UserInfo.getInstance(service.getContext()).setBootpayUserId(res.getData().getUserId());
-                }, Throwable::printStackTrace);
+                .subscribe(
+                        new Observer<LoginResult>() {
+                            @Override
+                            public void onCompleted() {
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                e.printStackTrace();
+
+                            }
+
+                            @Override
+                            public void onNext(LoginResult res) {
+                                if(res.getData() != null)
+                                    UserInfo.getInstance(service.getContext()).setBootpayUserId(res.getData().getUserId());
+                            }
+                        });
+
+
+//        service.getApi()
+//                .login(
+//                        aes.strEncode(json),
+//                        aes.getSessionKey()
+//                )
+//                .retry(3)
+//                .subscribeOn(thread)
+//                .subscribe(res -> {
+//                            if(res.getData() != null)
+//                                UserInfo.getInstance(service.getContext()).setBootpayUserId(res.getData().getUserId());
+//                }, Throwable::printStackTrace);
     }
 
     public void call(String url,
@@ -86,8 +115,27 @@ public class AnalyticsPresenter {
                 )
                 .retry(3)
                 .subscribeOn(thread)
-                .subscribe(res -> Log.d("BootpayAnalytics", "call"),
-                        Throwable::printStackTrace);
+                .subscribe(
+                        new Observer<LoginResult>() {
+                            @Override
+                            public void onCompleted() {
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                e.printStackTrace();
+
+                            }
+
+                            @Override
+                            public void onNext(LoginResult res) {
+                                Log.d("BootpayAnalytics", "call");
+                            }
+                        });
+
+//                .subscribe(res -> Log.d("BootpayAnalytics", "call"),
+//                        Throwable::printStackTrace);
 
     }
 
