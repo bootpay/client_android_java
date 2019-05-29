@@ -17,6 +17,7 @@ public class PGAvailable {
         put(PG.INICIS, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.NICEPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.PAYAPP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
+        put(PG.LGUP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.KAKAO, Arrays.asList(Method.EASY));
         put(PG.PAYCO, Arrays.asList(Method.EASY));
         put(PG.EASYPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
@@ -24,7 +25,7 @@ public class PGAvailable {
         put(PG.JTNET, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.TPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.MOBILIANS, Arrays.asList(Method.PHONE));
-        put(PG.PAYLETTER, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
+        put(PG.PAYLETTER, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD));
     }};
 
     private static Map<UX, List<PG>> uxData = new HashMap<UX, List<PG>> () {{
@@ -42,12 +43,12 @@ public class PGAvailable {
     }};
 
     public static List<Method> getDefaultMethods(Request request) {
-        PG pg = stringToPG(request.getPg());
+        PG pg = stringToPG(request.getPG());
         return pgData.get(pg);
     }
 
     public static List<PG> getBootpayUX(Request request) {
-        return uxData.get(request.getUx());
+        return uxData.get(request.getUX());
     }
 
     public static PG stringToPG(String pg) {

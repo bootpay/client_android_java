@@ -1,8 +1,9 @@
 package kr.co.bootpay.secure;
 
-import android.util.Base64;
-import android.util.Log;
 
+import android.util.Base64;
+
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -34,13 +35,25 @@ public class BootpaySimpleAES256 {
         return baseKey + "##" + baseIV;
     }
 
-
-    public String strEncode(String str) throws java.io.UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-//        String key = getRandomKey(32);
-//        String iv = getRandomKey(16);
-        Log.d("aes", this.key);
-        Log.d("aes", this.iv);
-        return strEncode(str, this.key, this.iv);
+    public String strEncode(String str) {
+        try {
+            return strEncode(str, this.key, this.iv);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 

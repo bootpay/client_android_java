@@ -4,14 +4,18 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.IntRange;
+
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import kr.co.bootpay.api.BootpayPresenter;
+import kr.co.bootpay.analytics.AnalyticsService;
+import kr.co.bootpay.api.ApiPresenter;
+import kr.co.bootpay.api.ApiService;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.enums.UX;
@@ -24,7 +28,6 @@ import kr.co.bootpay.listner.EventListener;
 import kr.co.bootpay.listner.ReadyListener;
 import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.Item;
-import kr.co.bootpay.model.RemoteLink;
 import kr.co.bootpay.model.RemoteOrderForm;
 import kr.co.bootpay.model.RemoteOrderPre;
 import kr.co.bootpay.model.Request;
@@ -46,7 +49,7 @@ public class BootpayBuilder {
     private CancelListener cancel;
     private ConfirmListener confirm;
     private BootpayDialog dialog;
-    private BootpayPresenter presenter;
+    private ApiPresenter presenter;
 
 
     private BootpayBuilder() {}
@@ -65,65 +68,70 @@ public class BootpayBuilder {
     }
 
     public BootpayBuilder setApplicationId(String id) {
-        request.setApplication_id(id);
+        request.setApplicationId(id);
         return this;
     }
 
-    public BootpayBuilder setPrice(@IntRange(from = 0) int price) {
+    public BootpayBuilder setPrice(int price) {
+        request.setPrice(new Double(price));
+        return this;
+    }
+
+    public BootpayBuilder setPrice(Double price) {
         request.setPrice(price);
         return this;
     }
 
     public BootpayBuilder setPG(String pg) {
-        request.setPg(pg);
+        request.setPG(pg);
         return this;
     }
 
     public BootpayBuilder setPG(PG pg) {
         switch (pg) {
             case BOOTPAY:
-                request.setPg("bootpay");
+                request.setPG("bootpay");
                 break;
             case PAYAPP:
-                request.setPg("payapp");
+                request.setPG("payapp");
                 break;
             case DANAL:
-                request.setPg("danal");
+                request.setPG("danal");
                 break;
             case KCP:
-                request.setPg("kcp");
+                request.setPG("kcp");
                 break;
             case INICIS:
-                request.setPg("inicis");
+                request.setPG("inicis");
                 break;
             case LGUP:
-                request.setPg("lgup");
+                request.setPG("lgup");
                 break;
             case KAKAO:
-                request.setPg("kakao");
+                request.setPG("kakao");
                 break;
             case EASYPAY:
-                request.setPg("easypay");
+                request.setPG("easypay");
                 break;
             case KICC:
-                request.setPg("easypay");
+                request.setPG("easypay");
                 break;
             case TPAY:
-                request.setPg("tpay");
+                request.setPG("tpay");
             case JTNET:
-                request.setPg("tpay");
+                request.setPG("tpay");
                 break;
             case MOBILIANS:
-                request.setPg("mobilians");
+                request.setPG("mobilians");
                 break;
             case PAYLETTER:
-                request.setPg("payletter");
+                request.setPG("payletter");
                 break;
             case NICEPAY:
-                request.setPg("nicepay");
+                request.setPG("nicepay");
                 break;
             case PAYCO:
-                request.setPg("payco");
+                request.setPG("payco");
                 break;
         }
         return this;
@@ -134,12 +142,23 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder addItem(String name, @IntRange(from = 1) int quantity, String primaryKey, int price) {
+    public BootpayBuilder addItem(String name, int quantity, String primaryKey, int price) {
+        request.addItem(new Item(name, quantity, primaryKey, new Double(price), "", "", ""));
+        return this;
+    }
+
+    public BootpayBuilder addItem(String name, int quantity, String primaryKey, int price, String cat1, String cat2, String cat3) {
+        request.addItem(new Item(name, quantity, primaryKey, new Double(price), cat1, cat2, cat3));
+        return this;
+    }
+
+
+    public BootpayBuilder addItem(String name, int quantity, String primaryKey, Double price) {
         request.addItem(new Item(name, quantity, primaryKey, price, "", "", ""));
         return this;
     }
 
-    public BootpayBuilder addItem(String name, @IntRange(from = 1) int quantity, String primaryKey, int price, String cat1, String cat2, String cat3) {
+    public BootpayBuilder addItem(String name, int quantity, String primaryKey, Double price, String cat1, String cat2, String cat3) {
         request.addItem(new Item(name, quantity, primaryKey, price, cat1, cat2, cat3));
         return this;
     }
@@ -149,7 +168,7 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder addItems(Collection<Item> items) {
+    public BootpayBuilder addItems(List<Item> items) {
         request.addItems(items);
         return this;
     }
@@ -159,18 +178,18 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder isShowAgree(Boolean isShow) {
-        request.set_show_agree(isShow);
+    public BootpayBuilder setIsShowAgree(Boolean isShow) {
+        request.setIsShowAgree(isShow);
         return this;
     }
 
     public BootpayBuilder setOrderId(String orderId) {
-        request.setOrder_id(orderId);
+        request.setOrderId(orderId);
         return this;
     }
 
     public BootpayBuilder setUseOrderId(boolean use_order_id) {
-        request.setUse_order_id(use_order_id);
+        request.setUseOrderId(use_order_id);
         return this;
     }
 
@@ -184,18 +203,18 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setRemoteLink(RemoteLink remoteLink) {
-        request.setRemoteLink(remoteLink);
+//    public BootpayBuilder setRemoteLink(RemoteLink remoteLink) {
+//        request.setRemoteLink(remoteLink);
+//        return this;
+//    }
+
+    public BootpayBuilder setRemoteOrderForm(RemoteOrderForm remoteForm) {
+        request.setRemoteOrderForm(remoteForm);
         return this;
     }
 
-    public BootpayBuilder setRemoteForm(RemoteOrderForm remoteForm) {
-        request.setRemoteForm(remoteForm);
-        return this;
-    }
-
-    public BootpayBuilder setRemotePre(RemoteOrderPre remotePre) {
-        request.setRemotePre(remotePre);
+    public BootpayBuilder setRemoteOrderPre(RemoteOrderPre remotePre) {
+        request.setRemoteOrderPre(remotePre);
         return this;
     }
 
@@ -231,10 +250,10 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setSmsUse(Boolean sms_use) {
-        request.setSmsUse(sms_use);
-        return this;
-    }
+//    public BootpayBuilder setSmsUse(Boolean sms_use) {
+//        request.setSmsUse(sms_use);
+//        return this;
+//    }
 
 
 
@@ -299,7 +318,8 @@ public class BootpayBuilder {
     }
 
     public BootpayBuilder setParams(Object params) {
-        request.setParams(params);
+
+        request.setParams(new Gson().toJson(params));
         return this;
     }
 
@@ -308,10 +328,10 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setParams(JSONObject params) {
-        request.setParams(params);
-        return this;
-    }
+//    public BootpayBuilder setParams(JSONObject params) {
+//        request.setParams(params);
+//        return this;
+//    }
 
     public BootpayBuilder onCancel(CancelListener listener) {
         cancel = listener;
@@ -364,7 +384,7 @@ public class BootpayBuilder {
 //    }
 
     public BootpayBuilder setUX(UX ux) {
-        request.setUx(ux.name());
+        request.setUX(ux);
         return this;
     }
 
@@ -379,7 +399,7 @@ public class BootpayBuilder {
 //    }
 
     private void validCheck() {
-        if (isEmpty(request.getApplication_id()))
+        if (isEmpty(request.getApplicationId()))
             error("Application id is not configured.");
 
 //        if (isEmpty(request.getPg()))
@@ -388,14 +408,14 @@ public class BootpayBuilder {
         if (request.getPrice() < 0)
             error("Price is not configured.");
 
-        if (isEmpty(request.getOrder_id()))
+        if (isEmpty(request.getOrderId()))
             error("Order id is not configured.");
 
 //        if (listener == null && (error == null || cancel == null || confirm == null || done == null))
 //            error("Must to be required to handel events.");
 
-        UX ux = request.getUX();
-        if(ux == null || ux == UX.NONE) { request.setUx(UX.PG_DIALOG.name()); }
+        UX ux =request.getUX();
+        if(ux == null || ux == UX.NONE) { request.setUX(UX.PG_DIALOG); }
         ux = request.getUX();
         if(ux == UX.PG_DIALOG) {
             if (fragmentManager == null && fragmentManager.isDestroyed()) { error("fragment 값은 null 이 될 수 없습니다."); }
@@ -418,18 +438,20 @@ public class BootpayBuilder {
         request();
     }
 
+
     public void request() {
-
-        if(context == null) throw new IllegalStateException("context cannot be null from " + request.getUx());
-        if (presenter == null) presenter = new BootpayPresenter(context);
-
+        if(context == null) throw new IllegalStateException("context cannot be null from " + request.getUX().toString());
 
         validCheck();
-        UserInfo.update();
+        UserInfo.getInstance(context).update();
 
         Bootpay.builder.request = ValidRequest.validUXAvailablePG(Bootpay.builder.request);
         UX ux = request.getUX();
         if(PGAvailable.isUXPGDefault(ux)) requestDialog();
+        else if(PGAvailable.isUXPGSubscript(ux)) {
+            Bootpay.builder.request.setMethod("card_rebill");
+            requestDialog();
+        }
         else if(PGAvailable.isUXBootpayApi(ux)) requestApi();
         else if(PGAvailable.isUXApp2App(ux)) requestApp2App();
         else throw new IllegalStateException(ux.toString() + " is not supported!");
@@ -438,39 +460,38 @@ public class BootpayBuilder {
 //    public
 
     private void requestDialog() {
-        dialog = new BootpayDialog()
-                .setData(request)
-                .setOnResponseListener(listener != null ? listener : new EventListener() {
-                    @Override
-                    public void onClose(@org.jetbrains.annotations.Nullable String message) {
-                        close.onClose(message);
-                    }
+        dialog = new BootpayDialog().setRequest(request)
+            .setOnResponseListener(listener != null ? listener : new EventListener() {
+                @Override
+                public void onClose(@org.jetbrains.annotations.Nullable String message) {
+                    close.onClose(message);
+                }
 
-                    @Override
-                    public void onReady(@org.jetbrains.annotations.Nullable String message) {
-                        ready.onReady(message);
-                    }
+                @Override
+                public void onReady(@org.jetbrains.annotations.Nullable String message) {
+                    ready.onReady(message);
+                }
 
-                    @Override
-                    public void onError(@org.jetbrains.annotations.Nullable String message) {
-                        error.onError(message);
-                    }
+                @Override
+                public void onError(@org.jetbrains.annotations.Nullable String message) {
+                    error.onError(message);
+                }
 
-                    @Override
-                    public void onCancel(@org.jetbrains.annotations.Nullable String message) {
-                        cancel.onCancel(message);
-                    }
+                @Override
+                public void onCancel(@org.jetbrains.annotations.Nullable String message) {
+                    cancel.onCancel(message);
+                }
 
-                    @Override
-                    public void onConfirm(@org.jetbrains.annotations.Nullable String message) {
-                        confirm.onConfirm(message);
-                    }
+                @Override
+                public void onConfirm(@org.jetbrains.annotations.Nullable String message) {
+                    confirm.onConfirm(message);
+                }
 
-                    @Override
-                    public void onDone(@org.jetbrains.annotations.Nullable String message) {
-                        done.onDone(message);
-                    }
-                });
+                @Override
+                public void onDone(@org.jetbrains.annotations.Nullable String message) {
+                    done.onDone(message);
+                }
+        });
 
         dialog.onCancel(new DialogInterface() {
             @Override
@@ -478,7 +499,7 @@ public class BootpayBuilder {
                 if (dialog != null && dialog.bootpay != null)
                     dialog.bootpay.destroy();
                 dialog = null;
-                UserInfo.finish();
+                UserInfo.getInstance(context).finish();
                 Bootpay.finish();
             }
 
@@ -487,7 +508,7 @@ public class BootpayBuilder {
                 if (dialog != null && dialog.bootpay != null)
                     dialog.bootpay.destroy();
                 dialog = null;
-                UserInfo.finish();
+                UserInfo.getInstance(context).finish();
                 Bootpay.finish();
             }
         });
@@ -497,8 +518,8 @@ public class BootpayBuilder {
     }
 
     private void requestApi() {
-        if(context == null) throw new IllegalStateException("context cannot be null from " + request.getUx());
-        if (presenter == null) presenter = new BootpayPresenter(context);
+        if(context == null) throw new IllegalStateException("context cannot be null from " + request.getUX());
+        if (presenter == null) presenter = new ApiPresenter(new ApiService(context));
         presenter.request(request);
     }
 

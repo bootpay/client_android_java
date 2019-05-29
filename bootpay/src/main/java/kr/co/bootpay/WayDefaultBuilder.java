@@ -2,7 +2,6 @@ package kr.co.bootpay;
 
 import android.app.FragmentManager;
 import android.content.DialogInterface;
-import android.support.annotation.IntRange;
 
 import org.json.JSONObject;
 

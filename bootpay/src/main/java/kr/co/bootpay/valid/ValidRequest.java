@@ -21,37 +21,41 @@ public class ValidRequest {
     }
 
     private static Request validPGDialog(Request request) {
-        if(request.getPg().length() == 0) return request; // 통합결제창
+        if(request.getPG().length() == 0) return request; // 통합결제창
         if(request.getMethods() != null && request.getMethods().size() > 0) return request; // 통합결제창
 
         List<Method> methodList = PGAvailable.getDefaultMethods(request);
+        if(methodList == null) return request;
         if(methodList.size() == 1) request.setMethod(PGAvailable.methodToString(methodList.get(0)));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             boolean contain = false;
             for(Method method : methodList) {
-                if(PGAvailable.methodToString(method).equals(request.getMethod())) {
+                String strMethod = PGAvailable.methodToString(method).toLowerCase();
+                if(strMethod.equals(request.getMethod().toLowerCase())) {
                     contain = true;
                     break;
                 }
             }
-            if(!contain) throw new IllegalStateException(request.getPg() + "'s " + request.getMethod() + " is not supported");
+            if(!contain) throw new IllegalStateException(request.getPG() + "'s " + request.getMethod() + " is not supported");
         }
         return request;
     }
 
     private static Request validPGSubscript(Request request) {
+        if("nicepay".equals(request.getPG().toLowerCase())) throw new IllegalStateException(request.getPG() + " 정기결제는 클라이언트 UI 연동방식이 아닌, REST API를 통해 진행해주셔야 합니다.");
         List<String> rebill = Arrays.asList("card_rebill", "phone_rebill");
-        if(!rebill.contains(request.getMethod())) throw new IllegalStateException(request.getMethod() + " is not supported in " + request.getUx());
+        if(!rebill.contains(request.getMethod())) throw new IllegalStateException(request.getMethod() + " is not supported in " + request.getUX());
         List<Method> methodList = PGAvailable.getDefaultMethods(request);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             boolean contain = false;
             for(Method method : methodList) {
-                if(method.name().toLowerCase() == request.getMethod()) {
+                String strMethod = PGAvailable.methodToString(method).toLowerCase();
+                if(strMethod.equals(request.getMethod().toLowerCase())) {
                     contain = true;
                     break;
                 }
             }
-            if(!contain) throw new IllegalStateException(request.getPg() + "'s " + request.getMethod() + " is not supported");
+            if(!contain) throw new IllegalStateException(request.getPG() + "'s " + request.getMethod() + " is not supported");
         }
         return request;
     }
@@ -61,12 +65,12 @@ public class ValidRequest {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             boolean contain = false;
             for(PG pg : pgList) {
-                if(pg.name().toLowerCase() == request.getPg()) {
+                if(pg.name().toLowerCase().equals(request.getPG())) {
                     contain = true;
                     break;
                 }
             }
-            if(!contain) throw new IllegalStateException(request.getUx() + "'s " + request.getPg() + " is not supported");
+            if(!contain) throw new IllegalStateException(request.getUX() + "'s " + request.getPG() + " is not supported");
         }
         return request;
     }

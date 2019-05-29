@@ -26,6 +26,10 @@ import kr.co.bootpay.model.BootUser;
 
 public class NativeActivity extends Activity {
     private int stuck = 1;
+//5b9f51264457636ab9a07cdc
+    private String application_id = "5b9f51264457636ab9a07cdc";
+//    private String application_id = "5b14c0ffb6d49c40cda92c4e";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,11 @@ public class NativeActivity extends Activity {
         setContentView(R.layout.activity_native);
 
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
-        BootpayAnalytics.init(this, "5b14c0ffb6d49c40cda92c4e");
+        BootpayAnalytics.init(this, application_id);
+//        BootpayAnalytics.init(this, "5b14c0ffb6d49c40cda92c4e");
+
+        Bootpay.useOnestoreApi(this);
+
 //        BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
 
         // 통계 - 유저 로그인 시점에 호출
@@ -63,20 +71,22 @@ public class NativeActivity extends Activity {
 
 //        결제호출
         Bootpay.init(getFragmentManager())
-                .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
+                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
                 .setPG(PG.DANAL) // 결제할 PG 사
                 .setContext(this)
                 .setBootUser(bootUser)
+//                .setD
                 .setBootExtra(bootExtra)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setMethod(Method.CARD) // 결제수단
+                .setMethod(Method.SUBSCRIPT_CARD) // 결제수단
+                .setUX(UX.PG_SUBSCRIPT)
                 .setName("맥\"북프로's 임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month
 //                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
 //                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
-                .setPrice(10000) // 결제할 금액
-                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .setPrice(0) // 결제할 금액
+                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 3000) // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 7000, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
                     public void onConfirm(@Nullable String message) {

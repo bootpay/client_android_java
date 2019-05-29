@@ -30,7 +30,7 @@ public class BootpayInnerActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        SecurePreference.context = this;
         this.context = this;
-        UserInfo.update();
+        UserInfo.getInstance(getApplicationContext()).update();
         startApp2App();
 
 
@@ -39,7 +39,7 @@ public class BootpayInnerActivity extends Activity {
     }
 
     void startApp2App() {
-        if ("payapp".equals(Bootpay.builder.request.getPg())) {
+        if ("payapp".equals(Bootpay.builder.request.getPG())) {
             startPayapp();
         }
 
