@@ -440,7 +440,9 @@ public class BootpayBuilder {
 
 
     public void request() {
-        if(context == null) throw new IllegalStateException("context cannot be null from " + request.getUX().toString());
+        if(context == null) {
+            throw new IllegalStateException("context cannot be null from " + request.getUX().toString());
+        }
 
         validCheck();
         UserInfo.getInstance(context).update();

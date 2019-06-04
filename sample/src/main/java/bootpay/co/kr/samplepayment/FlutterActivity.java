@@ -58,7 +58,8 @@ public class FlutterActivity extends BootpayFlutterActivity {
 //        결제호출
         Bootpay.init(getFragmentManager())
                 .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.INICIS) // 결제할 PG 사
+                .setPG(PG.KICC) // 결제할 PG 사
+                .setContext(this)
                 .setBootUser(bootUser)
                 .setBootExtra(bootExtra)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호

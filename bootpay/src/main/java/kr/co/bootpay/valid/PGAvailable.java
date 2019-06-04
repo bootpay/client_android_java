@@ -69,12 +69,20 @@ public class PGAvailable {
                 return PG.KAKAO;
             case "payco":
                 return PG.PAYCO;
+            case "jtnet":
+                return PG.TPAY;
             case "tpay":
                 return PG.TPAY;
+            case "easypay":
+                return PG.KICC;
+            case "kicc":
+                return PG.KICC;
             case "mobilians":
                 return PG.MOBILIANS;
             case "payletter":
                 return PG.PAYLETTER;
+            case "bootpay":
+                return PG.BOOTPAY;
             default:
                 throw new IllegalStateException(pg + " is not classified");
         }
