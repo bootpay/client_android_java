@@ -58,12 +58,12 @@ public class FlutterActivity extends BootpayFlutterActivity {
 //        결제호출
         Bootpay.init(getFragmentManager())
                 .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.KICC) // 결제할 PG 사
+                .setPG(PG.INICIS) // 결제할 PG 사
                 .setContext(this)
                 .setBootUser(bootUser)
                 .setBootExtra(bootExtra)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setMethod(Method.CARD) // 결제수단
+                .setMethod(Method.BANK) // 결제수단
                 .setName("맥\"북프로's 임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month
 //                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )

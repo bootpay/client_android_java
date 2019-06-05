@@ -20,7 +20,7 @@ import rx.schedulers.Schedulers;
 public class AnalyticsPresenter {
     AnalyticsService service;
     Scheduler thread;
-    private final String ver = "3.0.0";
+    private final String ver = "3.0.4";
 
     public AnalyticsPresenter(AnalyticsService service) {
         this.service = service;

@@ -28,7 +28,9 @@ public class NativeActivity extends Activity {
     private int stuck = 1;
 //5b9f51264457636ab9a07cdc
 //    private String application_id = "5b9f51264457636ab9a07cdc";
-    private String application_id = "5b14c0ffb6d49c40cda92c4e";
+//    private String application_id = "5b14c0ffb6d49c40cda92c4e";
+
+    private String application_id = "5ab306a4396fa616d1ba3e69";
 
 
     @Override
@@ -72,14 +74,14 @@ public class NativeActivity extends Activity {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId("5b14c0ffb6d49c40cda92c4e") // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.PAYLETTER) // 결제할 PG 사
+                .setPG(PG.INICIS) // 결제할 PG 사
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setUX(UX.PG_SUBSCRIPT)
-                .setMethod(Method.SUBSCRIPT_CARD) // 결제수단
+//                .setUX(UX.PG_SUBSCRIPT)
+                .setMethod(Method.BANK) // 결제수단
                 //.isShowAgree(true)
                 .setName("맥북프로임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호
-                .setPrice(0) // 결제할 금액
+                .setPrice(1000) // 결제할 금액
 
                 .addItem("마우스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
