@@ -580,23 +580,6 @@ public class BootpayWebView extends WebView {
                 tr.setWebView(newWindow);
                 resultMsg.sendToTarget();
             }
-//            else {
-//                WebView newWebView = new WebView(view.getContext());
-//                WebSettings webSettings = newWebView.getSettings();
-//                webSettings.setJavaScriptEnabled(true);
-//
-//                final Dialog dialog = new Dialog(view.getContext());
-//                dialog.setContentView(newWebView);
-//                dialog.show();
-//                newWebView.setWebChromeClient(new WebChromeClient() {
-//                    @Override
-//                    public void onCloseWindow(WebView window) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//                ((WebView.WebViewTransport)resultMsg.obj).setWebView(newWebView);
-//                resultMsg.sendToTarget();
-//            }
 
 
             return true;
