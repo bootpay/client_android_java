@@ -6,10 +6,10 @@ public enum Method {
     BANK,
     VBANK,
     PHONE,
-    AUTH,
+    AUTH, // 본인인증
     //    CARD_REBILL,
-    SUBSCRIPT_CARD,
-    SUBSCRIPT_PHONE,
-    EASY,
+    SUBSCRIPT_CARD, // 정기결제
+    SUBSCRIPT_PHONE, // 정기결제
+    EASY, // 간편결제
     SELECT
 }

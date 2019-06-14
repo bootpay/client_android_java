@@ -1,5 +1,6 @@
 package kr.co.bootpay;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -447,7 +448,7 @@ public class BootpayBuilder {
         validCheck();
         UserInfo.getInstance(context).update();
 
-        Bootpay.builder.request = ValidRequest.validUXAvailablePG(Bootpay.builder.request);
+        Bootpay.builder.request = ValidRequest.validUXAvailablePG(context, Bootpay.builder.request);
         UX ux = request.getUX();
         if(PGAvailable.isUXPGDefault(ux)) requestDialog();
         else if(PGAvailable.isUXPGSubscript(ux)) {
@@ -456,10 +457,23 @@ public class BootpayBuilder {
         }
         else if(PGAvailable.isUXBootpayApi(ux)) requestApi();
         else if(PGAvailable.isUXApp2App(ux)) requestApp2App();
-        else throw new IllegalStateException(ux.toString() + " is not supported!");
+        else {
+            final String msg = ux.toString() + " is not supported!";
+            new AlertDialog.Builder(context)
+                    .setTitle("Bootpay Android Dev Error")
+                    .setMessage(msg)
+                    .setCancelable(true)
+                    .setPositiveButton("종료",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(
+                                        DialogInterface dialog, int id) {
+                                    // 프로그램을 종료한다
+                                    throw new IllegalStateException(msg);
+                                }
+                            }).create().show();
+        }
     }
 
-//    public
 
     private void requestDialog() {
         dialog = new BootpayDialog().setRequest(request)

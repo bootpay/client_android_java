@@ -4,9 +4,9 @@ public enum UX {
     PG_DIALOG, // 일반 PG 결제
     PG_SUBSCRIPT, // 일반 PG사 정기결제
     PG_SUBSCRIPT_RESERVE, // 일반 PG사 정기결제지만 예약결제처럼 사용할 때 사용
-    BOOTPAY_DIALOG, // 부트페이 통합 결제창
-    BOOTPAY_ROCKET, // 부트페이 로켓결제
-    BOOTPAY_ROCKET_TEMPORARY, // 부트페이 로켓결제 - 카드수기처럼 쓸 수 있는 형태
+//    BOOTPAY_DIALOG, // 부트페이 통합 결제창
+//    BOOTPAY_ROCKET, // 부트페이 로켓결제
+//    BOOTPAY_ROCKET_TEMPORARY, // 부트페이 로켓결제 - 카드수기처럼 쓸 수 있는 형태
     BOOTPAY_REMOTE_LINK, // 결제링크 바로 생성
     BOOTPAY_REMOTE_ORDER, // 결제폼 생성
     BOOTPAY_REMOTE_PRE, // 사전예약 생성

@@ -106,10 +106,7 @@ public class BootpayWebView extends WebView {
         requestFocus();
         setting(context);
 
-
-
         setWebViewClient(new WebViewClient() {
-
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
