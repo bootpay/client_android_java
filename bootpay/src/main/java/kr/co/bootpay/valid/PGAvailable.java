@@ -18,7 +18,7 @@ public class PGAvailable {
         put(PG.NICEPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.PAYAPP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.LGUP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
-        put(PG.KAKAO, Arrays.asList(Method.EASY));
+        put(PG.KAKAO, Arrays.asList(Method.EASY, Method.SUBSCRIPT_CARD));
         put(PG.PAYCO, Arrays.asList(Method.EASY));
         put(PG.EASYPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.KICC, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
@@ -144,6 +144,8 @@ public class PGAvailable {
                 return "phone_rebill";
             case AUTH:
                 return "auth";
+            case EASY:
+                return "easy";
         }
         return "";
     }
