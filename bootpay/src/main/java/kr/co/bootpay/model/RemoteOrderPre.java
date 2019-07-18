@@ -3,14 +3,14 @@ package kr.co.bootpay.model;
 import com.google.gson.Gson;
 
 public class RemoteOrderPre {
-    private String e_p = "";
-    private Boolean is_r_n = false;
-    private Boolean is_sale = false;
-    private Long s_at = System.currentTimeMillis();
-    private Long e_at = 0l;
-    private String desc_html = "";
-    private String n = "";
-    private String cn = "";
+    private String e_p = ""; //예상 가격, 미입력시 안보여줌
+    private Boolean is_r_n = false; //구매자명 받을지 말지, is_receive_name
+    private Boolean is_sale = false; //세일기간 정할지 말지
+    private Long s_at = System.currentTimeMillis(); //예약 시작일
+    private Long e_at = 0l; //예약 종료일
+    private String desc_html = ""; //상품설명 html
+    private String n = ""; //상품명
+    private String cn = ""; //보여질 업체명
 
     public RemoteOrderPre setExpectedPrice(String value) {
         this.e_p = value;

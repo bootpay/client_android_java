@@ -52,7 +52,7 @@ public class PGAvailable {
     }
 
     public static PG stringToPG(String pg) {
-        switch (pg) {
+        switch (pg.toLowerCase()) {
             case "kcp":
                 return PG.KCP;
             case "danal":

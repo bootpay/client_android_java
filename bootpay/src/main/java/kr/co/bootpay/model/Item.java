@@ -1,13 +1,13 @@
 package kr.co.bootpay.model;
 
 public class Item {
-    private String item_name;
-    private int qty;
-    private String unique;
-    private Double price;
-    private String cat1;
-    private String cat2;
-    private String cat3;
+    private String item_name; //아이템 이름
+    private int qty; //상품 판매된 수량
+    private String unique; //상품의 고유 PK
+    private Double price; //상품 하나당 판매 가격
+    private String cat1; //카테고리 상
+    private String cat2; //카테고리 중
+    private String cat3; //카테고리 하
 
     public Item(String item_name, int qty, String unique, Double price, String cat1, String cat2, String cat3) {
         this.item_name = item_name;

@@ -1,4 +1,4 @@
-package kr.co.bootpay.listner;
+package kr.co.bootpay.listener;
 
 public interface ReadyListener {
     void onReady(String message);

@@ -9,23 +9,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 import kr.co.bootpay.Bootpay;
 import kr.co.bootpay.BootpayAnalytics;
 import kr.co.bootpay.BootpayKeyValue;
-import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.enums.UX;
-import kr.co.bootpay.listner.CancelListener;
-import kr.co.bootpay.listner.CloseListener;
-import kr.co.bootpay.listner.ConfirmListener;
-import kr.co.bootpay.listner.DoneListener;
-import kr.co.bootpay.listner.ErrorListener;
-import kr.co.bootpay.listner.ReadyListener;
+import kr.co.bootpay.listener.CancelListener;
+import kr.co.bootpay.listener.CloseListener;
+import kr.co.bootpay.listener.ConfirmListener;
+import kr.co.bootpay.listener.DoneListener;
+import kr.co.bootpay.listener.ErrorListener;
+import kr.co.bootpay.listener.ReadyListener;
 import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.model.RemoteOrderForm;
@@ -279,8 +276,8 @@ public class MainActivity extends AppCompatActivity {
 //                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
 //                .setPG(PG.DANAL) // 결제할 PG 사, 지정하지 않을 경우 통합 결제
 //                .setMethods(Arrays.asList("card", "phone")) // 사용하길 원하는 결제수단을 배열로 지정 가능
-//                .setBootUser(bootUser)
-//                .setBootExtra(bootExtra)
+//                .setBoot_user(bootUser)
+//                .setBoot_extra(bootExtra)
 //                .setUX(UX.BOOTPAY_REMOTE_ORDER)
 ////                .setUserPhone("010-1234-5678") // 구매자 전화번호
 //                .setName("맥\"북프로's 임다") // 결제할 상품명
@@ -288,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
 ////                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
 ////                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
 //                .setPrice(10000) // 결제할 금액
-//                .setSmsUse(true)
+//                .setSms_use(true)
 //                .setSMSPayload(payload)
 //                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
 //                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용

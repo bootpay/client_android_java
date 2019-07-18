@@ -8,25 +8,20 @@ import android.content.Intent;
 
 import com.google.gson.Gson;
 
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import kr.co.bootpay.analytics.AnalyticsService;
 import kr.co.bootpay.api.ApiPresenter;
 import kr.co.bootpay.api.ApiService;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.enums.UX;
-import kr.co.bootpay.listner.CancelListener;
-import kr.co.bootpay.listner.CloseListener;
-import kr.co.bootpay.listner.ConfirmListener;
-import kr.co.bootpay.listner.DoneListener;
-import kr.co.bootpay.listner.ErrorListener;
-import kr.co.bootpay.listner.EventListener;
-import kr.co.bootpay.listner.ReadyListener;
+import kr.co.bootpay.listener.CancelListener;
+import kr.co.bootpay.listener.CloseListener;
+import kr.co.bootpay.listener.ConfirmListener;
+import kr.co.bootpay.listener.DoneListener;
+import kr.co.bootpay.listener.ErrorListener;
+import kr.co.bootpay.listener.EventListener;
+import kr.co.bootpay.listener.ReadyListener;
 import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.Item;
 import kr.co.bootpay.model.RemoteOrderForm;
@@ -195,12 +190,12 @@ public class BootpayBuilder {
     }
 
     public BootpayBuilder setBootUser(BootUser bootUser) {
-        request.setBootUser(bootUser);
+        request.setBoot_user(bootUser);
         return this;
     }
 
     public BootpayBuilder setBootExtra(BootExtra bootExtra) {
-        request.setBootExtra(bootExtra);
+        request.setBoot_extra(bootExtra);
         return this;
     }
 
@@ -210,12 +205,12 @@ public class BootpayBuilder {
 //    }
 
     public BootpayBuilder setRemoteOrderForm(RemoteOrderForm remoteForm) {
-        request.setRemoteOrderForm(remoteForm);
+        request.setRemote_order_form(remoteForm);
         return this;
     }
 
     public BootpayBuilder setRemoteOrderPre(RemoteOrderPre remotePre) {
-        request.setRemoteOrderPre(remotePre);
+        request.setRemote_order_pre(remotePre);
         return this;
     }
 
@@ -235,7 +230,7 @@ public class BootpayBuilder {
 //    }
 
     public BootpayBuilder setSMSPayload(SMSPayload smsPayload) {
-        request.setSmsPayload(smsPayload);
+        request.setSms_payload(smsPayload);
         return this;
     }
 
@@ -251,8 +246,8 @@ public class BootpayBuilder {
         return this;
     }
 
-//    public BootpayBuilder setSmsUse(Boolean sms_use) {
-//        request.setSmsUse(sms_use);
+//    public BootpayBuilder setSms_use(Boolean sms_use) {
+//        request.setSms_use(sms_use);
 //        return this;
 //    }
 

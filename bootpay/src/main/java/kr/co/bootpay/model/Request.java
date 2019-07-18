@@ -27,13 +27,13 @@ public class Request {
     private List<Item> items = new ArrayList<>();
 
     private UX ux = UX.PG_DIALOG;
-    private BootUser bootUser;
-    private BootExtra bootExtra;
-    private RemoteOrderForm remoteOrderForm;
-    private RemoteOrderPre remoteOrderPre;
+    private BootUser boot_user;
+    private BootExtra boot_extra;
+    private RemoteOrderForm remote_order_form;
+    private RemoteOrderPre remote_order_pre;
 
-    private SMSPayload smsPayload;
-    private Boolean smsUse = false;
+    private SMSPayload sms_payload = new SMSPayload();
+//    private Boolean sms_use = false;
 
     public Request setApplicationId(String value) {
         this.application_id = value;
@@ -176,53 +176,53 @@ public class Request {
         this.ux = ux;
     }
 
-    public BootUser getBootUser() {
-        return bootUser;
+    public BootUser getBoot_user() {
+        return boot_user;
     }
 
-    public void setBootUser(BootUser bootUser) {
-        this.bootUser = bootUser;
+    public void setBoot_user(BootUser boot_user) {
+        this.boot_user = boot_user;
     }
 
-    public BootExtra getBootExtra() {
-        return bootExtra;
+    public BootExtra getBoot_extra() {
+        return boot_extra;
     }
 
-    public void setBootExtra(BootExtra bootExtra) {
-        this.bootExtra = bootExtra;
+    public void setBoot_extra(BootExtra boot_extra) {
+        this.boot_extra = boot_extra;
     }
 
-    public RemoteOrderForm getRemoteOrderForm() {
-        return remoteOrderForm;
+    public RemoteOrderForm getRemote_order_form() {
+        return remote_order_form;
     }
 
-    public void setRemoteOrderForm(RemoteOrderForm remoteOrderForm) {
-        this.remoteOrderForm = remoteOrderForm;
+    public void setRemote_order_form(RemoteOrderForm remote_order_form) {
+        this.remote_order_form = remote_order_form;
     }
 
-    public RemoteOrderPre getRemoteOrderPre() {
-        return remoteOrderPre;
+    public RemoteOrderPre getRemote_order_pre() {
+        return remote_order_pre;
     }
 
-    public void setRemoteOrderPre(RemoteOrderPre remoteOrderPre) {
-        this.remoteOrderPre = remoteOrderPre;
+    public void setRemote_order_pre(RemoteOrderPre remote_order_pre) {
+        this.remote_order_pre = remote_order_pre;
     }
 
-    public SMSPayload getSmsPayload() {
-        return smsPayload;
+    public SMSPayload getSms_payload() {
+        return sms_payload;
     }
 
-    public void setSmsPayload(SMSPayload smsPayload) {
-        this.smsPayload = smsPayload;
+    public void setSms_payload(SMSPayload sms_payload) {
+        this.sms_payload = sms_payload;
     }
 
-    public Boolean getSmsUse() {
-        return smsUse;
-    }
+//    public Boolean getSms_use() {
+//        return sms_use;
+//    }
 
-    public void setSmsUse(Boolean smsUse) {
-        this.smsUse = smsUse;
-    }
+//    public void setSms_use(Boolean sms_use) {
+//        this.sms_use = sms_use;
+//    }
 
     public void addItem(Item item) {
         this.items.add(item);

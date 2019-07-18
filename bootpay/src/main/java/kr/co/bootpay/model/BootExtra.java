@@ -6,15 +6,15 @@ import java.util.Locale;
 
 
 public final class BootExtra {
-    private String start_at;
-    private String end_at;
-    private Integer expire_month;
-    private boolean vbank_result;
-    private int[] quotas;
+    private String start_at; //정기 결제 시작일 - 지정하지 않을 경우 - 그 날 당일로부터 결제가 가능한 Billing key 지급, "2016-10-14"
+    private String end_at; // 정기결제 만료일 - 기간 없음 - 무제한, "2016-10-14"
+    private Integer expire_month; //정기결제가 적용되는 개월 수 (정기결제 사용시), 미지정일시 PG사 기본값에 따름
+    private boolean vbank_result; //가상계좌 결과창을 볼지(1), 말지(0)
+    private int[] quotas; //결제금액이 5만원 이상시 할부개월 허용범위를 설정할 수 있음, [0(일시불), 2개월, 3개월] 허용, 미설정시 12개월까지 허용
 
-    private String app_scheme;
-    private String app_scheme_host;
-    private String ux;
+    private String app_scheme; //app2app 결제시 return 받을 intent scheme
+    private String app_scheme_host; //app2app 결제시 return 받을 intent scheme host
+    private String ux; //다양한 결제시나리오를 지원하기 위한 용도로 사용됨
 
 
     public final String getApp_scheme() {

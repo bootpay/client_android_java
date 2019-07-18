@@ -51,13 +51,27 @@ dependencies {
     })
     // jitpack 배포시 아래 주석을 풀어서 사용
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31" // build for use kotlin in unity development
+
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.6.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.0.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
+
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+//    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
+
+//    implementation 'com.google.code.gson:gson:2.8.5'
+//    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+//    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+//    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
+//    implementation 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
+//    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+//    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
 

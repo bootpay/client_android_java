@@ -1,26 +1,5 @@
 package kr.co.bootpay;
 
-import android.app.FragmentManager;
-import android.content.DialogInterface;
-
-import org.json.JSONObject;
-
-import java.util.Collection;
-import java.util.List;
-
-import kr.co.bootpay.enums.Method;
-import kr.co.bootpay.enums.PG;
-import kr.co.bootpay.listner.CancelListener;
-import kr.co.bootpay.listner.CloseListener;
-import kr.co.bootpay.listner.ConfirmListener;
-import kr.co.bootpay.listner.DoneListener;
-import kr.co.bootpay.listner.ErrorListener;
-import kr.co.bootpay.listner.EventListener;
-import kr.co.bootpay.listner.ReadyListener;
-import kr.co.bootpay.model.Item;
-import kr.co.bootpay.model.Request;
-import kr.co.bootpay.pref.UserInfo;
-
 public class WayDefaultBuilder {
 //    private FragmentManager fragmentManager;
 //    private Request result = new Request();

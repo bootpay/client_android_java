@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import kr.co.bootpay.listner.EventListener;
+import kr.co.bootpay.listener.EventListener;
 import kr.co.bootpay.model.Request;
 
 public class BootpayDialog extends DialogFragment {

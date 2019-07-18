@@ -8,23 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import kr.co.bootpay.model.StatCall;
 import kr.co.bootpay.model.StatItem;
 import kr.co.bootpay.secure.BootpaySimpleAES256;
 import kr.co.bootpay.model.StatLogin;
 import kr.co.bootpay.pref.UserInfo;
-import rx.Observer;
-import rx.Scheduler;
-import rx.schedulers.Schedulers;
 
 public class AnalyticsPresenter {
     AnalyticsService service;
-    Scheduler thread;
+//    Scheduler thread;
     private final String ver = "3.0.4";
 
     public AnalyticsPresenter(AnalyticsService service) {
         this.service = service;
-        this.thread = Schedulers.from(Executors.newCachedThreadPool());
+//        this.thread = Schedulers.from(Executors.newCachedThreadPool());
     }
 
     public void login(String id,
@@ -55,17 +55,22 @@ public class AnalyticsPresenter {
                         aes.getSessionKey()
                 )
                 .retry(3)
-                .subscribeOn(thread)
+                .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
                 .subscribe(
                         new Observer<LoginResult>() {
                             @Override
-                            public void onCompleted() {
+                            public void onComplete() {
 
                             }
 
                             @Override
                             public void onError(Throwable e) {
                                 e.printStackTrace();
+
+                            }
+
+                            @Override
+                            public void onSubscribe(Disposable d) {
 
                             }
 
@@ -114,17 +119,22 @@ public class AnalyticsPresenter {
                         aes.getSessionKey()
                 )
                 .retry(3)
-                .subscribeOn(thread)
+                .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
                 .subscribe(
                         new Observer<LoginResult>() {
                             @Override
-                            public void onCompleted() {
+                            public void onComplete() {
 
                             }
 
                             @Override
                             public void onError(Throwable e) {
                                 e.printStackTrace();
+
+                            }
+
+                            @Override
+                            public void onSubscribe(Disposable d) {
 
                             }
 

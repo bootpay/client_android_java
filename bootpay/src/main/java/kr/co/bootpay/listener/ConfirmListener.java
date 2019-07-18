@@ -1,4 +1,4 @@
-package kr.co.bootpay.listner;
+package kr.co.bootpay.listener;
 
 public interface ConfirmListener {
     void onConfirm(String message);

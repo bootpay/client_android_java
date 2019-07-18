@@ -27,7 +27,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Locale;
 
-import kr.co.bootpay.listner.EventListener;
+import kr.co.bootpay.listener.EventListener;
 import kr.co.bootpay.model.Item;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
@@ -384,14 +384,14 @@ public class BootpayWebView extends WebView {
     private String useOrderId() { return String.format(Locale.KOREA, "use_order_id:%d", request.getUseOrderId() == true ? 1 : 0); }
 
     private String userJson() {
-        if(request.getBootUser() == null) return "";
-        return String.format(Locale.KOREA, "user_info: %s", request.getBootUser().toJson());
+        if(request.getBoot_user() == null) return "";
+        return String.format(Locale.KOREA, "user_info: %s", request.getBoot_user().toJson());
     }
 
     private String extraJson() {
-        if(request.getBootExtra() == null) return "";
-        if(request.getBootExtra().toJson().length() == 0) return "";
-        return String.format(Locale.KOREA, "bootExtra: %s", request.getBootExtra().toJson());
+        if(request.getBoot_extra() == null) return "";
+        if(request.getBoot_extra().toJson().length() == 0) return "";
+        return String.format(Locale.KOREA, "bootExtra: %s", request.getBoot_extra().toJson());
     }
 
     private String listToString(List<String> array) {
@@ -403,7 +403,9 @@ public class BootpayWebView extends WebView {
         return String.format(Locale.KOREA,"%s", builder.toString());
     }
 
-    private String accountExpireAt() { return String.format(Locale.KOREA, "account_expire_at:'%s'", request.getAccountExpireAt()); }
+    private String accountExpireAt() {
+        return String.format(Locale.KOREA, "account_expire_at:'%s'", request.getAccountExpireAt());
+    }
 
     private String params() {
         if (isNullOrEmpty(request.getParams())) return "params:''";

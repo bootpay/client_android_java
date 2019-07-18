@@ -21,11 +21,11 @@ public class Payload {
 
     public Payload(Context context, Request request) {
         updateIntentScheme(request);
-        if(request.getBootUser() != null && request.getBootUser().getPhone().length() > 0) this.phoneNumber = request.getBootUser().getPhone();
+        if(request.getBoot_user() != null && request.getBoot_user().getPhone().length() > 0) this.phoneNumber = request.getBoot_user().getPhone();
         this.goodPrice = request.getPrice();
         this.goodName = request.getName();
-        if(request.getBootExtra() != null && request.getBootExtra().getApp_scheme() != null) this.appScheme = request.getBootExtra().getApp_scheme();
-        if(request.getBootExtra() != null && request.getBootExtra().getApp_scheme_host() != null) this.appScheme = request.getBootExtra().getApp_scheme_host();
+        if(request.getBoot_extra() != null && request.getBoot_extra().getApp_scheme() != null) this.appScheme = request.getBoot_extra().getApp_scheme();
+        if(request.getBoot_extra() != null && request.getBoot_extra().getApp_scheme_host() != null) this.appScheme = request.getBoot_extra().getApp_scheme_host();
         this.packageName = context.getApplicationContext().getPackageName();
     }
 
