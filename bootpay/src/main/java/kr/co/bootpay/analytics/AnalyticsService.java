@@ -33,6 +33,7 @@ public class AnalyticsService {
                 .setLenient()
                 .create();
 
+
         api =  new Retrofit.Builder()
                 .baseUrl("https://analytics.bootpay.co.kr")
                 .client(client)
