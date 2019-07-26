@@ -20,7 +20,7 @@ import kr.co.bootpay.pref.UserInfo;
 public class AnalyticsPresenter {
     AnalyticsService service;
 //    Scheduler thread;
-    private final String ver = "3.0.4";
+    private final String ver = "3.0.5";
 
     public AnalyticsPresenter(AnalyticsService service) {
         this.service = service;

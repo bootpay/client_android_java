@@ -33,7 +33,7 @@ import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayWebView extends WebView {
-    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.0.4/production.html";
+    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.0.5/production.html";
 //private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/production.html";
 
     private Dialog dialog;
@@ -573,7 +573,11 @@ public class BootpayWebView extends WebView {
             if (isNewWindow(url)) {
                 start(view, createFrom(url));
             } else if (resultMsg != null) {
-                WebView newWindow = new WebView(view.getContext());
+                BootpayWebView newWindow = new BootpayWebView(view.getContext());
+                newWindow.setRequest(request)
+                        .setDialog(dialog)
+                        .setOnResponseListener(listener);
+
                 addView(newWindow);
                 WebView.WebViewTransport tr = (WebView.WebViewTransport) resultMsg.obj;
                 tr.setWebView(newWindow);
