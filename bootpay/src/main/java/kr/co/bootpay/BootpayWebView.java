@@ -83,7 +83,6 @@ public class BootpayWebView extends WebView {
 
     private EventListener listener;
 
-//    private Dialog dialog;
 
     public BootpayWebView(Context context) {
         this(context, null);
@@ -110,6 +109,7 @@ public class BootpayWebView extends WebView {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                if (request == null) return;
                 if (!isLoaded) {
                     isLoaded = true;
                     setDevice();
@@ -459,6 +459,7 @@ public class BootpayWebView extends WebView {
     @SuppressLint("setJavaScriptEnabled")
     private void setting(Context context) {
         setWebChromeClient(new Client());
+//        if(javascriptInterfaceObject == null) addJavascriptInterface(new AndroidBridge(), "Android");
         addJavascriptInterface(new AndroidBridge(), "Android");
         CookieManager.getInstance().setAcceptCookie(true);
         WebSettings s = getSettings();
@@ -565,6 +566,7 @@ public class BootpayWebView extends WebView {
 
     private class Client extends WebChromeClient {
 
+        @SuppressLint("JavascriptInterface")
         @Override
         public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
             WebView.HitTestResult result = view.getHitTestResult();
@@ -574,9 +576,16 @@ public class BootpayWebView extends WebView {
                 start(view, createFrom(url));
             } else if (resultMsg != null) {
                 BootpayWebView newWindow = new BootpayWebView(view.getContext());
-                newWindow.setRequest(request)
-                        .setDialog(dialog)
-                        .setOnResponseListener(listener);
+                if(request != null) {
+                    newWindow.setRequest(request)
+                            .setDialog(dialog)
+                            .setOnResponseListener(listener);
+                } else if(listener != null){
+                    newWindow.setOnResponseListener(listener);
+                }
+//                if(javascriptInterfaceObject != null)
+//                    newWindow.setJavascriptInterface(javascriptInterfaceObject, javascriptInterfaceName);
+
 
                 addView(newWindow);
                 WebView.WebViewTransport tr = (WebView.WebViewTransport) resultMsg.obj;
