@@ -203,7 +203,8 @@ public class BootpayWebView extends WebView {
             }
 
             private Boolean isIntent(String url) {
-                return url.matches("^intent:?\\w*://\\S+$");
+//                return url.matches("^intent:?\\w*://\\S+$");
+                return url.startsWith("intent:");
             }
 
             private Boolean isMarket(String url) {
