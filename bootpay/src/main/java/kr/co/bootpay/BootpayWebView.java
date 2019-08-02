@@ -572,7 +572,7 @@ public class BootpayWebView extends WebView {
             WebView.HitTestResult result = view.getHitTestResult();
             String url = result.getExtra();
 
-            if (isNewWindow(url)) {
+            if (isNewWindow(url) && isPopup(url)) {
                 start(view, createFrom(url));
             } else if (resultMsg != null) {
                 BootpayWebView newWindow = new BootpayWebView(view.getContext());
@@ -619,6 +619,10 @@ public class BootpayWebView extends WebView {
 
         private void start(View view, Intent intent) {
             view.getContext().startActivity(intent);
+        }
+
+        private boolean isPopup(String url) {
+            return url != null && !url.contains("https://app.bootpay.co.kr/assets/icon");
         }
 
         private boolean isNewWindow(String url) {
