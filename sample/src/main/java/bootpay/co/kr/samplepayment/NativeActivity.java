@@ -77,7 +77,7 @@ public class NativeActivity extends Activity {
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
                 .setPG(PG.INICIS) // 결제할 PG 사
-                .setMethod(Method.BANK)
+                .setMethod(Method.VBANK)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
