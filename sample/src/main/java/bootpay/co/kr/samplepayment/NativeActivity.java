@@ -78,13 +78,13 @@ public class NativeActivity extends Activity {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-//                .setPG(PG.KICC) // 결제할 PG 사
+                .setPG(PG.KCP) // 결제할 PG 사
 //                .setMethod(Method.CARD)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)
-//                .setMethod(Method.CARD) // 결제수단
+                .setMethod(Method.BANK) // 결제수단
                 //.isShowAgree(true)
                 .setName("bootpay kb card test") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호

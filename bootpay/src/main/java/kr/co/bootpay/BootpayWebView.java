@@ -232,7 +232,16 @@ public class BootpayWebView extends WebView {
             }
 
             private boolean gotoMarket(Intent intent, Context context) {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + intent.getPackage())));
+                final String appPackageName = intent.getPackage();
+                if(appPackageName == null) {
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, intent.getData()));
+                    return true;
+                }
+                try {
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
                 return true;
             }
 
