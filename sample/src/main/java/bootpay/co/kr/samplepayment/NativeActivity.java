@@ -28,7 +28,10 @@ public class NativeActivity extends Activity {
     private int stuck = 1;
 //5b9f51264457636ab9a07cdc
 //    private String application_id = "5b9f51264457636ab9a07cdc";
-    private String application_id = "5b8f6a4d396fa665fdc2b5e8";
+    private String application_id = "5dcd014e02f57e0021893e7f";
+
+//    private String application_id = "5dc42bf24f74b40034c5f484";
+
 
 
 
@@ -78,20 +81,20 @@ public class NativeActivity extends Activity {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.KCP) // 결제할 PG 사
-//                .setMethod(Method.CARD)
+                .setPG(PG.INICIS) // 결제할 PG 사
+                .setMethod(Method.BANK)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)
-                .setMethod(Method.BANK) // 결제수단
+//                .setMethod(Method.CARD) // 결제수단
                 //.isShowAgree(true)
                 .setName("bootpay kb card test") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호
                 .setPrice(1000) // 결제할 금액
                 .setAccountExpireAt("2019-07-16")
-                .addItem("마우스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("마우스", 1, "ITEM_CODE_MOUSE", 500) // 주문정보에 담길 상품정보, 통계를 위해 사용
+                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 500, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
                     public void onConfirm(@Nullable String message) {

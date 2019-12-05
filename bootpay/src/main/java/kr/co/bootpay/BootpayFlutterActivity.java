@@ -23,3 +23,4 @@ public class BootpayFlutterActivity extends AppCompatActivity implements EventLi
     @Override
     public void onDone(String message) {}
 }
+

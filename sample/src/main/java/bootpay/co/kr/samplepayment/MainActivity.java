@@ -35,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
 //private ApiPresenter presenter;
 //    ApiPresenter present;
 
-    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
+//    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
+    private final String application_id = "c42bf24f74b40034c5f484"; //pro
+
+
 
     Spinner spinner_pg;
     Spinner spinner_method;
