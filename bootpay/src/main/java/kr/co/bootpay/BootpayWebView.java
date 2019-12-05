@@ -33,7 +33,7 @@ import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayWebView extends WebView {
-    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.0.5/production.html";
+    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.1.0/production.html";
 //private static final String BOOTPAY = "https://inapp.bootpay.co.kr/2.1.1/production.html";
 
     private Dialog dialog;
@@ -180,6 +180,7 @@ public class BootpayWebView extends WebView {
 
             private Intent parse(String url) {
                 try {
+
                     Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
                     if(intent.getPackage() == null) {
                         if (url == null) return intent;
