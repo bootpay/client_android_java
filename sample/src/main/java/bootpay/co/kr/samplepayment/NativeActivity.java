@@ -28,7 +28,7 @@ public class NativeActivity extends Activity {
     private int stuck = 1;
 //5b9f51264457636ab9a07cdc
 //    private String application_id = "5b9f51264457636ab9a07cdc";
-    private String application_id = "5dcd014e02f57e0021893e7f";
+    private String application_id = "5b8f6a4d396fa665fdc2b5e8";
 
 //    private String application_id = "5dc42bf24f74b40034c5f484";
 
@@ -81,8 +81,8 @@ public class NativeActivity extends Activity {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.INICIS) // 결제할 PG 사
-                .setMethod(Method.BANK)
+                .setPG(PG.KAKAO) // 결제할 PG 사
+                .setMethod(Method.EASY)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호

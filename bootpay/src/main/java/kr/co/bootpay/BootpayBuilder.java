@@ -294,6 +294,9 @@ public class BootpayBuilder {
             case AUTH:
                 request.setMethod("auth");
                 break;
+            case EASY:
+                request.setMethod("easy");
+                break;
         }
         return this;
     }

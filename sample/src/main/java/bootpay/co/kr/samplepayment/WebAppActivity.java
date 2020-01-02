@@ -29,8 +29,8 @@ import kr.co.bootpay.listener.EventListener;
 public class WebAppActivity extends Activity  {
 //    WebView webview;
     BootpayWebView webview;
-//    final String url = "https://g-cdn.bootpay.co.kr/test/payment/index.html";
-    final String url = "https://test-shop.bootpay.co.kr";
+    final String url = "https://g-cdn.bootpay.co.kr/test/payment/index.html";
+//    final String url = "https://test-shop.bootpay.co.kr";
 
 //    final String android_application_id = "59a4d4a1929b3f3b8b6422c8"; //dev
 //    final String android_application_id = "5b14c0ffb6d49c40cda92c4e";
