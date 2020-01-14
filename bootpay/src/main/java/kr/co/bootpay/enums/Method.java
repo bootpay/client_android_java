@@ -13,4 +13,5 @@ public enum Method {
     EASY, // 간편결제
     SELECT,
     PAYCO, // 페이코 직접호출
+    KAKAO, // 카카오 직접호출
 }

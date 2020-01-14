@@ -33,17 +33,6 @@ dependencies {
 //    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 //    추가로 unity 폴더를 풀어서 해당 자리에 소스가 생기도록 해야함
 
-////    implementation files('libs/gson-2.8.5.jar')
-////    implementation files('libs/okio-2.2.2.jar')
-////    implementation files('libs/retrofit-2.5.0.jar')
-////    implementation files('libs/converter-gson-2.5.0.jar')
-////    implementation files('libs/converter-moshi-2.5.0.jar')
-////    implementation files('libs/adapter-rxjava-2.5.0.jar')
-////    implementation files('libs/okhttp-3.14.2.jar')
-////    implementation files('libs/PersistentCookieJar-v1.0.1.aar')
-////    implementation files('libs/play-services-ads-identifier-16.0.0.aar')
-////    implementation files('libs/play-services-basement-16.2.0.aar')
-////    implementation files('libs/rxjava-1.0.2.jar')
 
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -63,15 +52,6 @@ dependencies {
 
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
-//    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
-
-//    implementation 'com.google.code.gson:gson:2.8.5'
-//    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-//    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-//    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
-//    implementation 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
-//    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-//    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
 

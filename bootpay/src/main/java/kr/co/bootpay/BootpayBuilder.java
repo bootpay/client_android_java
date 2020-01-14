@@ -297,6 +297,12 @@ public class BootpayBuilder {
             case EASY:
                 request.setMethod("easy");
                 break;
+            case PAYCO:
+                request.setMethod("payco");
+                break;
+            case KAKAO:
+                request.setMethod("kakao");
+                break;
         }
         return this;
     }

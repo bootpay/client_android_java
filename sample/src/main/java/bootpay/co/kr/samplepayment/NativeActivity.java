@@ -81,8 +81,8 @@ public class NativeActivity extends Activity {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.KAKAO) // 결제할 PG 사
-                .setMethod(Method.EASY)
+                .setPG(PG.PAYAPP) // 결제할 PG 사
+                .setMethod(Method.KAKAO)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
