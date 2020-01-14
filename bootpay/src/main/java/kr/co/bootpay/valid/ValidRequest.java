@@ -31,20 +31,20 @@ public class ValidRequest {
         List<Method> methodList = PGAvailable.getDefaultMethods(request);
         if(methodList == null) return request;
         if(methodList.size() == 1) request.setMethod(PGAvailable.methodToString(methodList.get(0)));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            boolean contain = false;
-            for(Method method : methodList) {
-                String strMethod = PGAvailable.methodToString(method).toLowerCase();
-                if(strMethod.equals(request.getMethod().toLowerCase())) {
-                    contain = true;
-                    break;
-                }
-            }
-            if(!contain) {
-                final String string = request.getPG() + "'s " + request.getMethod() + " is not supported";
-                errorDialog(context, string);
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            boolean contain = false;
+//            for(Method method : methodList) {
+//                String strMethod = PGAvailable.methodToString(method).toLowerCase();
+//                if(strMethod.equals(request.getMethod().toLowerCase())) {
+//                    contain = true;
+//                    break;
+//                }
+//            }
+//            if(!contain) {
+//                final String string = request.getPG() + "'s " + request.getMethod() + " is not supported";
+//                errorDialog(context, string);
+//            }
+//        }
         return request;
     }
 
