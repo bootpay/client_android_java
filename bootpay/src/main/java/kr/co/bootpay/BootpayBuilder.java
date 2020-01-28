@@ -199,6 +199,11 @@ public class BootpayBuilder {
         return this;
     }
 
+    public BootpayBuilder setTaxFree(Double tax_free) {
+        request.setTaxFree(tax_free);
+        return this;
+    }
+
 //    public BootpayBuilder setRemoteLink(RemoteLink remoteLink) {
 //        request.setRemoteLink(remoteLink);
 //        return this;

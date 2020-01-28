@@ -30,6 +30,8 @@ public class WebAppActivity extends Activity  {
 //    WebView webview;
     BootpayWebView webview;
     final String url = "https://g-cdn.bootpay.co.kr/test/payment/index.html";
+
+
 //    final String url = "https://test-shop.bootpay.co.kr";
 
 //    final String android_application_id = "59a4d4a1929b3f3b8b6422c8"; //dev
