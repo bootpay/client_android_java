@@ -27,14 +27,7 @@ import kr.co.bootpay.model.BootUser;
 public class NativeActivity extends Activity {
     private int stuck = 1;
 //5b9f51264457636ab9a07cdc
-//    private String application_id = "5b9f51264457636ab9a07cdc";
     private String application_id = "5b8f6a4d396fa665fdc2b5e8";
-
-//    private String application_id = "5dc42bf24f74b40034c5f484";
-
-
-
-
 
 
     @Override

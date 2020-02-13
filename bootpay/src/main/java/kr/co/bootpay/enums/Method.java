@@ -14,4 +14,5 @@ public enum Method {
     SELECT,
     PAYCO, // 페이코 직접호출
     KAKAO, // 카카오 직접호출
+    NPAY, // 네이버페이
 }

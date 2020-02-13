@@ -38,7 +38,11 @@ public class BootpayDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         bootpay = new BootpayWebView(inflater.getContext());
+
+
+
         afterViewInit();
+//        bootpay.getSettings().setUserAgentString(userAgent + "/뭥미");
         return bootpay;
     }
 
