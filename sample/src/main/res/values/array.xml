@@ -23,6 +23,9 @@
         <item>간편결제</item>
         <item>주문결제</item>
         <item>부트페이 간편결제</item>
+        <item>카카오페이</item>
+        <item>네이버페이</item>
+        <item>페이코</item>
         <item>본인인증</item>
     </string-array>
 

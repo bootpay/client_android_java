@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
 //    ApiPresenter present;
 
 //    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
-    private final String application_id = "c42bf24f74b40034c5f484"; //pro
+//    private final String application_id = "c42bf24f74b40034c5f484"; //pro
+
+    private String application_id = "5b8f6a4d396fa665fdc2b5e8";
+    Context context;
 
 
 
@@ -51,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BootpayAnalytics.init(this, application_id);
+
+        this.context = this;
 
         spinner_pg = findViewById(R.id.spinner_pg);
         spinner_method = findViewById(R.id.spinner_method);
@@ -129,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
                     @Override
                     public void onError(@Nullable String message) {
+
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                         Log.d("error", message);
                     }
                 })
@@ -200,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
                     @Override
                     public void onError(@Nullable String message) {
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                         Log.d("error", message);
                     }
                 })

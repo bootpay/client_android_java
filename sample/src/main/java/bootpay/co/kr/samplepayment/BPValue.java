@@ -45,6 +45,12 @@ public class BPValue {
                 return "";
             case "본인인증":
                 return "auth";
+            case "카카오페이":
+                return "kakao";
+            case "네이버페이":
+                return "npay";
+            case "페이코":
+                return "payco";
         }
         return "";
     }
