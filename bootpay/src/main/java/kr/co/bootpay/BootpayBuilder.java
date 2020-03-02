@@ -59,6 +59,7 @@ public class BootpayBuilder {
     }
 
     public BootpayBuilder setContext(Context context) {
+        Bootpay.setContext(context);
         this.context = context;
         return this;
     }
@@ -308,6 +309,9 @@ public class BootpayBuilder {
             case KAKAO:
                 request.setMethod("kakao");
                 break;
+            case NPAY:
+                request.setMethod("npay");
+                break;
         }
         return this;
     }
@@ -428,7 +432,7 @@ public class BootpayBuilder {
         if(ux == null || ux == UX.NONE) { request.setUX(UX.PG_DIALOG); }
         ux = request.getUX();
         if(ux == UX.PG_DIALOG) {
-            if (fragmentManager == null && fragmentManager.isDestroyed()) { error("fragment 값은 null 이 될 수 없습니다."); }
+            if (fragmentManager == null || fragmentManager.isDestroyed()) { error("fragment 값은 null 이 될 수 없습니다."); }
 
         } else if(ux == UX.APP2APP_CARD_SIMPLE
                 || ux == UX.APP2APP_NFC

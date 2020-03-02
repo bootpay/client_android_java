@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 
 
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
@@ -17,6 +18,10 @@ import kr.co.bootpay.pref.UserInfo;
 public class Bootpay {
     private static Context context;
     protected  static BootpayBuilder builder;
+
+    public static void setContext(Context context) {
+        Bootpay.context = context;
+    }
 
 
     public static void useOnestoreApi(Context context) {
@@ -72,8 +77,8 @@ public class Bootpay {
 
             try {
 
+//                Log.d("intent", e.getMessage());
                 return AdvertisingIdClient.getAdvertisingIdInfo(context).getId();
-//                Logger.logDebug("adid : " + adId);
             } catch (IllegalStateException ex) {
                 ex.printStackTrace();
 //                Logger.logError("IllegalStateException");
@@ -109,6 +114,7 @@ public class Bootpay {
     }
 
     public static BootpayBuilder init(FragmentManager fragmentManager) {
+//        fragmentManager.c
         return builder = new BootpayBuilder(fragmentManager);
     }
 

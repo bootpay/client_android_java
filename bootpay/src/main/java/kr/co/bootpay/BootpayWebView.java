@@ -13,8 +13,10 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
@@ -22,6 +24,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import java.net.URISyntaxException;
 import java.util.List;
@@ -33,7 +37,7 @@ import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayWebView extends WebView {
-private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.0/production.html";
+private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/production.html";
 
     private Dialog dialog;
 //    private ConnectivityManager connManager;
@@ -110,6 +114,10 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.0/product
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 if (request == null) return;
+//                if ("about:blank".equals(url)) {
+//                    loadUrl(BOOTPAY);
+//                    return;
+//                }
                 if (!isLoaded) {
                     isLoaded = true;
                     setDevice();
@@ -594,11 +602,14 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.0/product
                 } else if(listener != null){
                     newWindow.setOnResponseListener(listener);
                 }
-//                if(javascriptInterfaceObject != null)
-//                    newWindow.setJavascriptInterface(javascriptInterfaceObject, javascriptInterfaceName);
 
+                addView(newWindow,
+                        new FrameLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            Gravity.NO_GRAVITY)
+                );
 
-                addView(newWindow);
                 WebView.WebViewTransport tr = (WebView.WebViewTransport) resultMsg.obj;
                 tr.setWebView(newWindow);
                 resultMsg.sendToTarget();
