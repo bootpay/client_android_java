@@ -26,7 +26,6 @@ import kr.co.bootpay.model.BootUser;
 
 public class NativeActivity extends Activity {
     private int stuck = 1;
-//5b9f51264457636ab9a07cdc
     private String application_id = "5b8f6a4d396fa665fdc2b5e8";
 
 
@@ -37,11 +36,7 @@ public class NativeActivity extends Activity {
 
         // 초기설정 - 해당 프로젝트(안드로이드)의 application id 값을 설정합니다. 결제와 통계를 위해 꼭 필요합니다.
         BootpayAnalytics.init(this, application_id);
-//        BootpayAnalytics.init(this, "5b14c0ffb6d49c40cda92c4e");
 
-//        Bootpay.useOnestoreApi(this);
-
-//        BootpayAnalytics.init(this, "59a7e647396fa64fcad4a8c2");
 
         // 통계 - 유저 로그인 시점에 호출
         BootpayAnalytics.login(
@@ -67,6 +62,7 @@ public class NativeActivity extends Activity {
     public void onClick_request(View v) {
         BootUser bootUser = new BootUser().setPhone("010-1234-5678");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+        bootExtra.setEscrow(1);
 
 //        bootExtra.setEndAt()
 //        bootExtra.setStartAt()
@@ -74,8 +70,8 @@ public class NativeActivity extends Activity {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.INICIS) // 결제할 PG 사
-                .setMethod(Method.BANK)
+                .setPG(PG.DANAL) // 결제할 PG 사
+                .setMethod(Method.CARD)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호

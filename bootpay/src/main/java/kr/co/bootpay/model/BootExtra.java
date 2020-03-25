@@ -16,6 +16,7 @@ public final class BootExtra {
     private String app_scheme_host; //app2app 결제시 return 받을 intent scheme host
     private String ux; //다양한 결제시나리오를 지원하기 위한 용도로 사용됨
     private String disp_cash_result = "Y"; // 현금영수증 보일지 말지.. 가상계좌 KCP 옵션
+    private int escrow = 0; // 에스크로 쓸지 안쓸지
 
 
     public final String getApp_scheme() {
@@ -140,6 +141,10 @@ public final class BootExtra {
         return String.format(Locale.KOREA, "disp_cash_result: '%s'", this.disp_cash_result);
     }
 
+    private String escrow() {
+        return String.format(Locale.KOREA, "escrow: %d", this.escrow);
+    }
+
     public final String toJson() {
         return extra(
                 startAt(),
@@ -149,7 +154,8 @@ public final class BootExtra {
                 quotas(),
                 ux(),
                 appScheme(),
-                dispCashResult()
+                dispCashResult(),
+                escrow()
         );
     }
 
@@ -164,5 +170,13 @@ public final class BootExtra {
 
     public void setDisp_cash_result(String disp_cash_result) {
         this.disp_cash_result = disp_cash_result;
+    }
+
+    public int getEscrow() {
+        return escrow;
+    }
+
+    public void setEscrow(int escrow) {
+        this.escrow = escrow;
     }
 }

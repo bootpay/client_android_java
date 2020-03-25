@@ -159,6 +159,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent intent = parse(url);
+
                 if (isIntent(url)) {
                     if (isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext()))
                         return start(intent, view.getContext());
@@ -188,12 +189,11 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
 
             private Intent parse(String url) {
                 try {
-
                     Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
                     if(intent.getPackage() == null) {
                         if (url == null) return intent;
                         if (url.startsWith("shinhan-sr-ansimclick")) intent.setPackage("com.shcard.smartpay");
-                        else if (url.startsWith("kftc-bankpay")) intent.setPackage("com.kftc.bankpay");
+                        else if (url.startsWith("kftc-bankpay")) intent.setPackage("com.kftc.bankpay.android");
                         else if (url.startsWith("ispmobile")) intent.setPackage("kvp.jjy.MispAndroid320");
                         else if (url.startsWith("hdcardappcardansimclick")) intent.setPackage("com.hyundaicard.appcard");
                         else if (url.startsWith("kb-acp")) intent.setPackage("com.kbcard.kbkookmincard");
@@ -266,6 +266,12 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
     }
 
     public void transactionConfirm(String data) {
+//        getContext().runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                webview.loadUrl("javascript:(function(){" + str + "})()");
+//            }
+//        });
         load("var data = JSON.parse('" + data + "'); BootPay.transactionConfirm(data);");
     }
 
@@ -410,7 +416,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
     private String extraJson() {
         if(request.getBoot_extra() == null) return "";
         if(request.getBoot_extra().toJson().length() == 0) return "";
-        return String.format(Locale.KOREA, "bootExtra: %s", request.getBoot_extra().toJson());
+        return String.format(Locale.KOREA, "extra: %s", request.getBoot_extra().toJson());
     }
 
     private String listToString(List<String> array) {
