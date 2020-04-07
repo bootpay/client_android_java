@@ -232,8 +232,10 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
 
     @Override
     public void callbackRestToken(RestTokenData acessToken) {
+        String user_id =  String.valueOf(System.currentTimeMillis()); //고유 user_id로 고객별로 유니크해야하며, 다른 고객과 절대로 중복되어서는 안됩니다
+
         BootUser user = new BootUser();
-        user.setID("user_unique_id_1234"); //고유 user_id로 고객별로 유니크해야하며, 다른 고객과 절대로 중복되어서는 안됩니다
+        user.setID(user_id);
         user.setArea("서울");
         user.setGender(1); //1: 남자, 0: 여자
         user.setEmail("test1234@gmail.com");
