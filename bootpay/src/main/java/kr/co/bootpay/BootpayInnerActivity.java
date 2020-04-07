@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import kr.co.bootpay.app2app.payapp.Payload;
+import kr.co.bootpay.app2app.payapp.IntentPayload;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
@@ -47,8 +47,8 @@ public class BootpayInnerActivity extends Activity {
 
     void startPayapp() {
         try {
-            Payload payload = new Payload(this, Bootpay.builder.request);
-            Intent intent = new Intent(Intent.ACTION_VIEW, payload.toIntentUri());
+            IntentPayload intentPayload = new IntentPayload(this, Bootpay.builder.request);
+            Intent intent = new Intent(Intent.ACTION_VIEW, intentPayload.toIntentUri());
             startActivityForResult(intent, 1);
         } catch (Exception e) {
             Log.d("intent", e.getMessage());

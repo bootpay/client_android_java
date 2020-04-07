@@ -15,5 +15,6 @@ public enum PG {
     TPAY,
     MOBILIANS,
     PAYLETTER,
+    ONESTORE,
     BOOTPAY
 }

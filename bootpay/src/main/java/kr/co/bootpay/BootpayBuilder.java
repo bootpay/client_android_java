@@ -8,6 +8,7 @@ import android.content.Intent;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.bootpay.api.ApiPresenter;
@@ -46,6 +47,7 @@ public class BootpayBuilder {
     private ConfirmListener confirm;
     private BootpayDialog dialog;
     private ApiPresenter presenter;
+//    private String
 
 
     private BootpayBuilder() {}
@@ -130,6 +132,10 @@ public class BootpayBuilder {
             case PAYCO:
                 request.setPG("payco");
                 break;
+            case ONESTORE:
+                request.setPG("onestore");
+                break;
+
         }
         return this;
     }
@@ -272,48 +278,56 @@ public class BootpayBuilder {
 //    }
 
     public BootpayBuilder setMethod(Method method) {
+        request.setMethod(getMethodString(method));
+        return this;
+    }
+
+    public BootpayBuilder setMethodList(List<Method> methods) {
+        List<String> methodList = new ArrayList<>();
+        for(Method method : methods) {
+            methodList.add(getMethodString(method));
+        }
+
+        request.setMethods(methodList);
+        return this;
+    }
+
+    private String getMethodString(Method method) {
+
         switch (method) {
             case CARD:
-                request.setMethod("card");
-                break;
+                return "card";
             case CARD_SIMPLE:
-                request.setMethod("card_simple");
-                break;
+                return "card_simple";
             case BANK:
-                request.setMethod("bank");
-                break;
+                return "bank";
             case VBANK:
-                request.setMethod("vbank");
-                break;
+                return "vbank";
             case PHONE:
-                request.setMethod("phone");
-                break;
+                return "phone";
             case SELECT:
-                request.setMethod("");
-                break;
+                return "";
             case SUBSCRIPT_CARD:
-                request.setMethod("card_rebill");
-                break;
+                return "card_rebill";
             case SUBSCRIPT_PHONE:
-                request.setMethod("phone_rebill");
-                break;
+                return "phone_rebill";
             case AUTH:
-                request.setMethod("auth");
-                break;
+                return "auth";
             case EASY:
-                request.setMethod("easy");
-                break;
+                return "easy";
             case PAYCO:
-                request.setMethod("payco");
-                break;
+                return "payco";
             case KAKAO:
-                request.setMethod("kakao");
-                break;
+                return "kakao";
             case NPAY:
-                request.setMethod("npay");
-                break;
+                return "npay";
+            case EASY_CARD:
+                return "easy_card";
+            case EASY_BANK:
+                return "easy_bank";
+
         }
-        return this;
+        return "";
     }
 
     public BootpayBuilder setAccountExpireAt(String account_expire_at) {
@@ -402,6 +416,11 @@ public class BootpayBuilder {
         return this;
     }
 
+    public BootpayBuilder setEasyPayUserToken(String userToken) {
+        request.setEasyPayUserToken(userToken);
+        return this;
+    }
+
 //    public BootpayBuilder setAppScheme(String appScheme) {
 //        request.setExtra_app_scheme(appScheme);
 //        return this;
@@ -462,6 +481,8 @@ public class BootpayBuilder {
         UserInfo.getInstance(context).update();
 
         Bootpay.builder.request = ValidRequest.validUXAvailablePG(context, Bootpay.builder.request);
+
+
         UX ux = request.getUX();
         if(PGAvailable.isUXPGDefault(ux)) requestDialog();
         else if(PGAvailable.isUXPGSubscript(ux)) {
@@ -574,4 +595,6 @@ public class BootpayBuilder {
     private void error(String message) {
         throw new RuntimeException(message);
     }
+
+
 }

@@ -22,6 +22,7 @@ public class BootpayKeyValue {
         pgHash.put("TPAY", "tpay");
         pgHash.put("페이레터", "payletter");
         pgHash.put("KICC", "easypay");
+        pgHash.put("원스토어", "onestore");
 
     }
 

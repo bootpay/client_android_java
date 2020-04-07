@@ -29,7 +29,9 @@ import kr.co.bootpay.listener.EventListener;
 public class WebAppActivity extends Activity  {
 //    WebView webview;
     BootpayWebView webview;
-    final String url = "https://g-cdn.bootpay.co.kr/test/payment/index.html";
+
+
+    final String url = "http://admin.jeegytrip.co.kr/mdvs/shop/purchase?pid=77&cpn=";
 
 
 //    final String url = "https://test-shop.bootpay.co.kr";

@@ -13,6 +13,7 @@ import android.util.Log;
 
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 
+import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.pref.UserInfo;
 
 public class Bootpay {
@@ -27,6 +28,9 @@ public class Bootpay {
     public static void useOnestoreApi(Context context) {
         useOnestoreApi(context, true);
     }
+
+
+
 
     public static void useOnestoreApi(Context context, Boolean enable) {
         if(enable == false) {

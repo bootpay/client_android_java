@@ -10,13 +10,16 @@ import com.google.gson.GsonBuilder;
 
 import io.reactivex.Observable;
 import kr.co.bootpay.analytics.LoginResult;
+import kr.co.bootpay.rest.BootpayRestImplement;
+import kr.co.bootpay.rest.model.ResEasyPayUserToken;
+import kr.co.bootpay.rest.model.ResRestToken;
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public class ApiService {
@@ -25,11 +28,14 @@ public class ApiService {
 
     public ApiService(Context context) {
         this.context = context;
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.level(HttpLoggingInterceptor.Level.BODY);
+
+//        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+//        logging.level(HttpLoggingInterceptor.Level.BODY);
+
+
         OkHttpClient client = new OkHttpClient
                 .Builder()
-                .addInterceptor(logging)
+//                .addInterceptor(logging)
                 .cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context)))
                 .build();
 
@@ -44,7 +50,6 @@ public class ApiService {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
                 .create(ApiRestApi.class);
-
     }
 
     public Context getContext() {
@@ -145,6 +150,31 @@ public class ApiService {
                 @Field("boot_extra") String extra,
                 @Field("sms_payload") String sms_payload,
                 @Field("remote_pre") String remote_pre);
+
+
+        //이 함수는 서버사이드에서 수행되길 추천합니다. rest_application_id와 private_key는 노출되어서는 안되는 값입니다.
+        @Deprecated
+        @FormUrlEncoded
+        @POST("/request/token")
+        Observable<ResRestToken> getRestToken(
+                @Field("application_id") String rest_application_id,
+                @Field("private_key") String private_key
+        );
+
+
+        //이 함수는 서버사이드에서 수행되길 추천합니다. rest_application_id와 private_key는 노출되어서는 안되는 값입니다.
+        @Deprecated
+        @FormUrlEncoded
+        @POST("/request/user/token")
+        Observable<ResEasyPayUserToken> getEasyPayUserToken(
+                @Header("Authorization") String restToken,
+                @Field("user_id") String user_id,
+                @Field("email") String email,
+                @Field("name") String name,
+                @Field("gender") int gender,
+                @Field("birth") String birth,
+                @Field("phone") String phone
+        );
 
     }
 }

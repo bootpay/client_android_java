@@ -1,8 +1,12 @@
 package kr.co.bootpay.model;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 
 import java.util.Locale;
+
+import kr.co.bootpay.Bootpay;
 
 
 public final class BootExtra {
@@ -16,6 +20,8 @@ public final class BootExtra {
     private String app_scheme_host; //app2app 결제시 return 받을 intent scheme host
     private String ux; //다양한 결제시나리오를 지원하기 위한 용도로 사용됨
     private String disp_cash_result = "Y"; // 현금영수증 보일지 말지.. 가상계좌 KCP 옵션
+
+    private BootpayOneStore onestore;
     private int escrow = 0; // 에스크로 쓸지 안쓸지
 
 
@@ -145,6 +151,12 @@ public final class BootExtra {
         return String.format(Locale.KOREA, "escrow: %d", this.escrow);
     }
 
+    private String oneStore() {
+        if(this.onestore == null) return "";
+        return String.format(Locale.KOREA, "onestore: %s", this.onestore.toJson());
+
+    }
+
     public final String toJson() {
         return extra(
                 startAt(),
@@ -155,7 +167,8 @@ public final class BootExtra {
                 ux(),
                 appScheme(),
                 dispCashResult(),
-                escrow()
+                escrow(),
+                oneStore()
         );
     }
 
@@ -178,5 +191,13 @@ public final class BootExtra {
 
     public void setEscrow(int escrow) {
         this.escrow = escrow;
+    }
+
+    public BootpayOneStore getOnestore() {
+        return onestore;
+    }
+
+    public void setOnestore(BootpayOneStore onestore) {
+        this.onestore = onestore;
     }
 }

@@ -25,7 +25,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import java.net.URISyntaxException;
 import java.util.List;
@@ -37,7 +36,7 @@ import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayWebView extends WebView {
-private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/production.html";
+private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.3/production.html";
 
     private Dialog dialog;
 //    private ConnectivityManager connManager;
@@ -124,13 +123,14 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
                     setAnalyticsData();
 
 //                    setDevelopMode();
-                    useOneStoreApi();
+//                    useOneStoreApi();
 
                     Log.d("bootpay", "onPageFinished");
 
                     loadParams(
                             request(
                                     price(),
+                                    easyPayUserToken(),
                                     applicationId(),
                                     name(),
                                     pg(),
@@ -159,6 +159,8 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent intent = parse(url);
+
+                Log.d("bootpay url", url);
 
                 if (isIntent(url)) {
                     if (isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext()))
@@ -319,15 +321,18 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
     }
 
 
-    private void useOneStoreApi() {
-        if(UserInfo.getInstance(this.getContext()).getEnableOneStore()) {
-            load(String.format(Locale.KOREA,
-                    "window.BootPay.useOnestoreApi({ad_id: '%s', sim_operation: '%s', installerPackageName: '%s'});"
-                    , UserInfo.getInstance(this.getContext()).getAdId()
-                    , UserInfo.getInstance(this.getContext()).getSimOperator()
-                    , UserInfo.getInstance(this.getContext()).getInstallPackageMarket()));
-        }
-    }
+//    private void useOneStoreApi() {
+//        if(request != null && "onestore".equals(request.getPG())) {
+
+//        }
+//        if(UserInfo.getInstance(this.getContext()).getEnableOneStore()) {
+//            load(String.format(Locale.KOREA,
+//                    "window.BootPay.useOnestoreApi({ad_id: '%s', sim_operation: '%s', installerPackageName: '%s'});"
+//                    , UserInfo.getInstance(this.getContext()).getAdId()
+//                    , UserInfo.getInstance(this.getContext()).getSimOperator()
+//                    , UserInfo.getInstance(this.getContext()).getInstallPackageMarket()));
+//        }
+//    }
 
     private boolean startMarket(Intent intent) {
         Intent market = new Intent(Intent.ACTION_VIEW);
@@ -363,6 +368,11 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
 
     private String price() {
         return "price:" + request.getPrice();
+    }
+
+    private String easyPayUserToken() {
+        return String.format(Locale.KOREA, "user_token:'%s'", request.getEasyPayUserToken());
+
     }
 
     private String applicationId() { return String.format(Locale.KOREA, "application_id:'%s'", request.getApplicationId()); }
@@ -414,8 +424,8 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
     }
 
     private String extraJson() {
-        if(request.getBoot_extra() == null) return "";
-        if(request.getBoot_extra().toJson().length() == 0) return "";
+        if(request.getBootExtra(getContext()) == null) return "";
+        if(request.getBootExtra(getContext()).toJson().length() == 0) return "";
         return String.format(Locale.KOREA, "extra: %s", request.getBoot_extra().toJson());
     }
 
@@ -477,7 +487,9 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.1/product
         for (String s : script) builder.append(s);
         builder.append(";");
         String request = builder.toString();
-        Log.d("params", request);
+
+//        Log.d("params", request);
+
         load(request);
     }
 

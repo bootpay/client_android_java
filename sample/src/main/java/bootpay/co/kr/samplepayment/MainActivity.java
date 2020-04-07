@@ -276,32 +276,6 @@ public class MainActivity extends AppCompatActivity {
     public void goRemoteForm(View v) {
         goRemoteFormV2(v);
         return;
-//
-//        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
-//        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-//        SMSPayload payload = new SMSPayload().setMessage("결제링크 안내입니다\n[결제링크]").setSenderPhone("010-1234-5678").setReceieverPhones(Arrays.asList("01040334678"));
-//
-//
-////        결제호출
-//        Bootpay.init(getFragmentManager())
-//                .setContext(this)
-//                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-//                .setPG(PG.DANAL) // 결제할 PG 사, 지정하지 않을 경우 통합 결제
-//                .setMethods(Arrays.asList("card", "phone")) // 사용하길 원하는 결제수단을 배열로 지정 가능
-//                .setBoot_user(bootUser)
-//                .setBoot_extra(bootExtra)
-//                .setUX(UX.BOOTPAY_REMOTE_ORDER)
-////                .setUserPhone("010-1234-5678") // 구매자 전화번호
-//                .setName("맥\"북프로's 임다") // 결제할 상품명
-//                .setOrderId("1234") // 결제 고유번호expire_month
-////                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
-////                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
-//                .setPrice(10000) // 결제할 금액
-//                .setSms_use(true)
-//                .setSMSPayload(payload)
-//                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-//                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
-//                .request();
     }
 
     public void goRemoteFormV2(View v) {

@@ -11,19 +11,33 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import kr.co.bootpay.analytics.LoginResult;
 import kr.co.bootpay.enums.UX;
+import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.model.Request;
+import kr.co.bootpay.rest.BootpayRestImplement;
+import kr.co.bootpay.rest.model.ResEasyPayUserToken;
+import kr.co.bootpay.rest.model.ResRestToken;
 import kr.co.bootpay.pref.UserInfo;
 //import rx.Scheduler;
 //import rx.schedulers.Schedulers;
 
 public class ApiPresenter {
     ApiService service;
-//    Scheduler scheduler;
+    BootpayRestImplement parent;
+    ResEasyPayUserToken easyPayUserToken;
+    ResRestToken restToken;
 
     public ApiPresenter(ApiService service) {
-        this.service = service;
-//        this.scheduler = Schedulers.from(Executors.newCachedThreadPool());
+        this(service, null);
     }
+
+    public ApiPresenter(ApiService service, BootpayRestImplement parent) {
+        this.service = service;
+        if(parent != null) {
+            this.parent = parent;
+        }
+    }
+
+
 
     public void request(Request request) {
         UX ux = request.getUX();
@@ -204,6 +218,92 @@ public class ApiPresenter {
                                 e.printStackTrace();
                             }
                         });
+    }
+
+    public void getRestToken(String restApplicationId, String privateKey) {
+        final ApiPresenter parentScope = this;
+
+        service.getApi().getRestToken(
+                restApplicationId,
+                privateKey
+        ).retry(3)
+        .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
+        .subscribe(
+            new Observer<ResRestToken>() {
+                @Override
+                public void onComplete() {
+                    if(parentScope.parent != null && parentScope.restToken != null) {
+                        parentScope.parent.callbackRestToken(restToken.data);
+                        parentScope.restToken = null;
+                    }
+                }
+
+                @Override
+                public void onSubscribe(Disposable d) {
+
+                }
+
+                @Override
+                public void onNext(ResRestToken res) {
+                    Log.d("res", res.toString());
+                    if(parentScope.parent != null) {
+                        parentScope.restToken = res;
+                    }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        );
+    }
+
+    public void getEasyPayUserToken(String restToken, BootUser user) {
+        final ApiPresenter parentScope = this;
+
+
+        service.getApi().getEasyPayUserToken(
+                restToken,
+                user.getId(),
+                user.getEmail(),
+                user.getUsername(),
+                user.getGender(),
+                user.getBirth(),
+                user.getPhone()
+        ).retry(3)
+        .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
+        .subscribe(
+            new Observer<ResEasyPayUserToken>() {
+                @Override
+                public void onComplete() {
+                    if(parentScope.parent != null && parentScope.easyPayUserToken != null) {
+                        parentScope.parent.callbackEasyPayUserToken(easyPayUserToken.data);
+                        parentScope.easyPayUserToken = null;
+                    }
+                }
+
+                @Override
+                public void onSubscribe(Disposable d) {
+
+                }
+
+                @Override
+                public void onNext(ResEasyPayUserToken res) {
+                    Log.d("res", res.toString());
+
+                    if(parentScope.parent != null) {
+                        parentScope.easyPayUserToken = res;
+                    }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        );
+
     }
 
     private String params(Request request) {

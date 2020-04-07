@@ -7,7 +7,7 @@ import android.util.Log;
 import kr.co.bootpay.enums.UX;
 import kr.co.bootpay.model.Request;
 
-public class Payload {
+public class IntentPayload {
     public String intentScheme = "bootpay";
     public String intentMethod = "app2app";
     public String intentMethodMode = "request";
@@ -19,7 +19,7 @@ public class Payload {
     public String packageName;
 
 
-    public Payload(Context context, Request request) {
+    public IntentPayload(Context context, Request request) {
         updateIntentScheme(request);
         if(request.getBoot_user() != null && request.getBoot_user().getPhone().length() > 0) this.phoneNumber = request.getBoot_user().getPhone();
         this.goodPrice = request.getPrice();

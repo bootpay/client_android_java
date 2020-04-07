@@ -26,6 +26,7 @@ public class PGAvailable {
         put(PG.TPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.MOBILIANS, Arrays.asList(Method.PHONE));
         put(PG.PAYLETTER, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD));
+        put(PG.ONESTORE, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.EASY_BANK, Method.EASY_CARD));
     }};
 
     private static Map<UX, List<PG>> uxData = new HashMap<UX, List<PG>> () {{
@@ -81,6 +82,8 @@ public class PGAvailable {
                 return PG.MOBILIANS;
             case "payletter":
                 return PG.PAYLETTER;
+            case "onestore":
+                return PG.ONESTORE;
             case "bootpay":
                 return PG.BOOTPAY;
             default:
@@ -120,6 +123,8 @@ public class PGAvailable {
                 return "nicepay";
             case PAYCO:
                 return "payco";
+            case ONESTORE:
+                return "onestore";
         }
         return "";
     }
@@ -148,6 +153,10 @@ public class PGAvailable {
                 return "easy";
             case NPAY:
                 return "npay";
+            case EASY_BANK:
+                return "easy_bank";
+            case EASY_CARD:
+                return "easy_card";
         }
         return "";
     }

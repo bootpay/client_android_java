@@ -1,9 +1,12 @@
 package kr.co.bootpay.model;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.bootpay.enums.UX;
+import kr.co.bootpay.pref.UserInfo;
 
 public class Request {
     private String application_id = "";
@@ -31,6 +34,7 @@ public class Request {
     private BootExtra boot_extra;
     private RemoteOrderForm remote_order_form;
     private RemoteOrderPre remote_order_pre;
+    private String easyPayUserToken;
 
     private SMSPayload sms_payload = new SMSPayload();
 //    private Boolean sms_use = false;
@@ -184,9 +188,27 @@ public class Request {
         this.boot_user = boot_user;
     }
 
+    //getBootpayExtra() 로 대체됨. 2020. 03. 31
+    @Deprecated
     public BootExtra getBoot_extra() {
         return boot_extra;
     }
+
+    public BootExtra getBootExtra(Context context) {
+        if(UserInfo.getInstance(context).getEnableOneStore()) {
+            BootpayOneStore oneStore = new BootpayOneStore();
+            oneStore.ad_id = UserInfo.getInstance(context).getAdId();
+            oneStore.sim_operator = UserInfo.getInstance(context).getSimOperator();
+            oneStore.installer_package_name = UserInfo.getInstance(context).getInstallPackageMarket();
+
+            if(boot_extra == null) { boot_extra = new BootExtra(); }
+            if(boot_extra.getOnestore() == null) { boot_extra.setOnestore(oneStore); }
+        }
+
+        return boot_extra;
+    }
+
+
 
     public void setBoot_extra(BootExtra boot_extra) {
         this.boot_extra = boot_extra;
@@ -230,5 +252,13 @@ public class Request {
 
     public void addItems(List<Item> items) {
         this.items.addAll(items);
+    }
+
+    public String getEasyPayUserToken() {
+        return easyPayUserToken;
+    }
+
+    public void setEasyPayUserToken(String easyPayUserToken) {
+        this.easyPayUserToken = easyPayUserToken;
     }
 }
