@@ -59,35 +59,35 @@ public class ApiService {
     public ApiRestApi getApi() { return api; }
 
     public interface ApiRestApi {
-        @FormUrlEncoded
-        @POST("/app/rest/remote_link")
-        Observable<LoginResult> request_link(
-                @Field("application_id") String application_id,
-                @Field("device_type") String device_type,
-                @Field("method") String method,
-                @Field("methods") String methods,
-                @Field("pg") String pg,
-
-                @Field("price") Double price,
-                @Field("tax_free") Double tax_free,
-                @Field("name") String name,
-                @Field("items") String items,
-                @Field("show_agree_window") Boolean show_agree_window,
-
-                @Field("uuid") String uuid,
-                @Field("sk") String sk,
-                @Field("time") Long time,
-                @Field("user_info") String user_info,
-                @Field("user_id") String user_id,
-
-                @Field("boot_key") String boot_key,
-                @Field("params") String params,
-                @Field("order_id") String order_id,
-                @Field("use_order_id") Boolean use_order_id,
-                @Field("account_expire_at") String account_expire_at,
-
-                @Field("boot_extra") String extra,
-                @Field("sms_payload") String sms_payload);
+//        @FormUrlEncoded
+//        @POST("/app/rest/remote_link")
+//        Observable<LoginResult> request_link(
+//                @Field("application_id") String application_id,
+//                @Field("device_type") String device_type,
+//                @Field("method") String method,
+//                @Field("methods") String methods,
+//                @Field("pg") String pg,
+//
+//                @Field("price") Double price,
+//                @Field("tax_free") Double tax_free,
+//                @Field("name") String name,
+//                @Field("items") String items,
+//                @Field("show_agree_window") Boolean show_agree_window,
+//
+//                @Field("uuid") String uuid,
+//                @Field("sk") String sk,
+//                @Field("time") Long time,
+//                @Field("user_info") String user_info,
+//                @Field("user_id") String user_id,
+//
+//                @Field("boot_key") String boot_key,
+//                @Field("params") String params,
+//                @Field("order_id") String order_id,
+//                @Field("use_order_id") Boolean use_order_id,
+//                @Field("account_expire_at") String account_expire_at,
+//
+//                @Field("boot_extra") String extra,
+//                @Field("sms_payload") String sms_payload);
 
         @FormUrlEncoded
         @POST("/app/rest/remote_form")

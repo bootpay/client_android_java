@@ -173,7 +173,6 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
                 .setPG(PG.ONESTORE) // 결제할 PG 사
                 .setEasyPayUserToken(userToken)
                 .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
-//                .setMethod(Method.EASY)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호

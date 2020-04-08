@@ -43,7 +43,7 @@ public class ApiPresenter {
         UX ux = request.getUX();
         request.getBoot_extra().setUX(ux.toString());
         if(ux == UX.BOOTPAY_REMOTE_LINK) {
-            request_link(request);
+//            request_link(request);
         } else if(ux == UX.BOOTPAY_REMOTE_ORDER) {
             request_form(request);
         } else if(ux == UX.BOOTPAY_REMOTE_PRE) {
@@ -52,58 +52,58 @@ public class ApiPresenter {
     }
 
     public void request_link(Request request) {
-        String userJson = request.getBoot_user().toGson();
-        String extraJson = request.getBoot_extra().toGson();
-        String sms_payload = request.getSms_payload().toGson();
-
-        service.getApi().request_link(
-                request.getApplicationId(),
-                "2", //Android
-                request.getMethod(),
-                new Gson().toJson(request.getMethods()),
-                request.getPG(),
-                request.getPrice(),
-                request.getTaxFree(),
-                request.getName(),
-                new Gson().toJson(request.getItems()),
-                request.getIsShowAgree(),
-                UserInfo.getInstance(service.getContext()).getBootpayUuid(),
-                UserInfo.getInstance(service.getContext()).getBootpaySk(),
-                System.currentTimeMillis(),
-                userJson,
-                UserInfo.getInstance(service.getContext()).getBootpayUserId(),
-                request.getBootKey(),
-                params(request),
-                request.getOrderId(),
-                request.getUseOrderId(),
-                request.getAccountExpireAt(),
-                extraJson,
-                sms_payload
-        ).retry(3)
-        .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
-        .subscribe(
-                new Observer<LoginResult>() {
-                    @Override
-                    public void onComplete() {
-//                        activity.requestSuccess();
-                    }
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(LoginResult res) {
-//                        Log.d("res", res.toString());
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        e.printStackTrace();
-                    }
-                });
+//        String userJson = request.getBoot_user().toGson();
+//        String extraJson = request.getBoot_extra().toGson();
+//        String sms_payload = request.getSms_payload().toGson();
+//
+//        service.getApi().request_link(
+//                request.getApplicationId(),
+//                "2", //Android
+//                request.getMethod(),
+//                new Gson().toJson(request.getMethods()),
+//                request.getPG(),
+//                request.getPrice(),
+//                request.getTaxFree(),
+//                request.getName(),
+//                new Gson().toJson(request.getItems()),
+//                request.getIsShowAgree(),
+//                UserInfo.getInstance(service.getContext()).getBootpayUuid(),
+//                UserInfo.getInstance(service.getContext()).getBootpaySk(),
+//                System.currentTimeMillis(),
+//                userJson,
+//                UserInfo.getInstance(service.getContext()).getBootpayUserId(),
+//                request.getBootKey(),
+//                params(request),
+//                request.getOrderId(),
+//                request.getUseOrderId(),
+//                request.getAccountExpireAt(),
+//                extraJson,
+//                sms_payload
+//        ).retry(3)
+//        .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
+//        .subscribe(
+//                new Observer<LoginResult>() {
+//                    @Override
+//                    public void onComplete() {
+////                        activity.requestSuccess();
+//                    }
+//
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(LoginResult res) {
+////                        Log.d("res", res.toString());
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        e.printStackTrace();
+//                    }
+//                });
 
     }
 
