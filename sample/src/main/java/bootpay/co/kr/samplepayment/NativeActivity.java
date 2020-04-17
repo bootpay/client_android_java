@@ -34,6 +34,8 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     private String application_id = "5b8f6a4d396fa665fdc2b5e8";
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,12 +83,13 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
                 .setMethod(Method.CARD)
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
+//                .setOrderId("1234")
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)
 //                .setMethod(Method.CARD) // 결제수단
                 //.isShowAgree(true)
                 .setName("bootpay kb card test") // 결제할 상품명
-                .setOrderId("1234") // 결제 고유번호
+                .setOrderId("1232352354") // 결제 고유번호
                 .setPrice(1000) // 결제할 금액
                 .setAccountExpireAt("2019-07-16")
                 .addItem("마우스", 1, "ITEM_CODE_MOUSE", 500) // 주문정보에 담길 상품정보, 통계를 위해 사용

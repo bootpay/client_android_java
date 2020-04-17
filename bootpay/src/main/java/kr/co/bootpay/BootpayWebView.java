@@ -371,6 +371,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
     }
 
     private String easyPayUserToken() {
+        if(request.getEasyPayUserToken() == null || "null".equals(request.getEasyPayUserToken())) return "";
         return String.format(Locale.KOREA, "user_token:'%s'", request.getEasyPayUserToken());
 
     }
@@ -488,7 +489,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
         builder.append(";");
         String request = builder.toString();
 
-//        Log.d("params", request);
+        Log.d("params", request);
 
         load(request);
     }
