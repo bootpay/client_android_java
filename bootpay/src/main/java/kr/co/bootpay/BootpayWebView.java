@@ -489,7 +489,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
         builder.append(";");
         String request = builder.toString();
 
-        Log.d("params", request);
+//        Log.d("params", request);
 
         load(request);
     }
