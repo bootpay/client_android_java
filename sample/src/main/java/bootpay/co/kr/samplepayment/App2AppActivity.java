@@ -41,6 +41,7 @@ public class App2AppActivity extends Activity {
                 .setPG(PG.PAYAPP) // 결제할 PG 사
                 .setBootUser(bootUser)
                 .setBootExtra(bootExtra)
+
                 .setUX(UX.APP2APP_OCR) // 결제수단
                 .setName("맥\"북프로's 임다") // 결제할 상품명
                 .setOrderId("1234") // 결제 고유번호expire_month

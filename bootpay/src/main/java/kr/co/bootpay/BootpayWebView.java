@@ -268,12 +268,6 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
     }
 
     public void transactionConfirm(String data) {
-//        getContext().runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                webview.loadUrl("javascript:(function(){" + str + "})()");
-//            }
-//        });
         load("var data = JSON.parse('" + data + "'); BootPay.transactionConfirm(data);");
     }
 
@@ -304,12 +298,13 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
     }
 
     private void setAnalyticsData() {
-        String.format(Locale.KOREA,
+        String data = String.format(Locale.KOREA,
                 "window.BootPay.setAnalyticsData({uuid:'%s',sk:'%s',sk_time:'%d',time:'%d'});"
                 , UserInfo.getInstance(this.getContext()).getBootpayUuid()
                 , UserInfo.getInstance(this.getContext()).getBootpaySk()
                 , UserInfo.getInstance(this.getContext()).getBootpayLastTime()
                 , System.currentTimeMillis() - UserInfo.getInstance(this.getContext()).getBootpayLastTime());
+        load(data);
     }
 
     private void setDevice() {
@@ -489,7 +484,6 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
         builder.append(";");
         String request = builder.toString();
 
-//        Log.d("params", request);
 
         load(request);
     }
