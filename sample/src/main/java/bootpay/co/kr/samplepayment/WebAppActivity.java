@@ -31,7 +31,7 @@ public class WebAppActivity extends Activity  {
     BootpayWebView webview;
 
 
-    final String url = "http://admin.jeegytrip.co.kr/mdvs/shop/purchase?pid=77&cpn=";
+    final String url = "http://livesaju.cafe24.com/?mod=appPay";
 
 
 //    final String url = "https://test-shop.bootpay.co.kr";

@@ -125,7 +125,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
 //                    setDevelopMode();
 //                    useOneStoreApi();
 
-                    Log.d("bootpay", "onPageFinished");
+//                    Log.d("bootpay", "onPageFinished");
 
                     loadParams(
                             request(
@@ -160,7 +160,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent intent = parse(url);
 
-                Log.d("bootpay url", url);
+//                Log.d("bootpay url", url);
 
                 if (isIntent(url)) {
                     if (isExistInfo(intent, view.getContext()) || isExistPackage(intent, view.getContext()))
@@ -484,6 +484,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
         builder.append(";");
         String request = builder.toString();
 
+//        Log.d("bootpay request -----", request);
 
         load(request);
     }
@@ -524,7 +525,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.4/product
 
     @Override
     public void postUrl(String url, byte[] postData) {
-        Log.d("Post", url);
+//        Log.d("Post", url);
         super.postUrl(url, postData);
     }
 

@@ -72,9 +72,9 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     }
 
     void goPGPay() {
-        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
+        BootUser bootUser = new BootUser().setPhone("010-1234-5678").setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-        bootExtra.setEscrow(1);
+//        bootExtra.setEscrow(1);
 
         Bootpay.init(getFragmentManager())
                 .setContext(this)

@@ -12,6 +12,7 @@ public class BootUser {
     private int gender = -1; //1:남자 0:여자
     private String area; // [서울,인천,대구,광주,부산,울산,경기,강원,충청북도,충북,충청남도,충남,전라북도,전북,전라남도,전남,경상북도,경북,경상남도,경남,제주,세종,대전] 중 택 1
     private String phone; //구매자의 전화번호 (페이앱 필수)
+    private String addr;
 
     public BootUser setID(String value) {
         this.id = value;
@@ -45,6 +46,12 @@ public class BootUser {
 
     public BootUser setPhone(String value) {
         this.phone = value;
+        return this;
+    }
+
+
+    public BootUser setAddr(String addr) {
+        this.addr = addr;
         return this;
     }
 
@@ -120,6 +127,11 @@ public class BootUser {
         return String.format(Locale.KOREA, "area: '%s'", this.area);
     }
 
+    public String addr() {
+        if(this.addr == null) return "";
+        return String.format(Locale.KOREA, "addr: '%s'", this.addr);
+    }
+
     public String toJson() {
         return user(
                 id(),
@@ -128,7 +140,8 @@ public class BootUser {
                 phone(),
                 email(),
                 gender(),
-                area()
+                area(),
+                addr()
         );
     }
 
@@ -136,4 +149,6 @@ public class BootUser {
         if(this == null) return "";
         return new Gson().toJson(this);
     }
+
+
 }
