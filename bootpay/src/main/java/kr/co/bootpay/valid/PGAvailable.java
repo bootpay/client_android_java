@@ -12,20 +12,20 @@ import kr.co.bootpay.model.Request;
 
 public class PGAvailable {
     private static Map<PG, List<Method>> pgData = new HashMap<PG, List<Method>> () {{
-        put(PG.KCP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD));
-        put(PG.DANAL, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.AUTH));
+        put(PG.KCP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL));
+        put(PG.DANAL, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL, Method.AUTH));
         put(PG.INICIS, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.NICEPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.KAKAO));
         put(PG.PAYAPP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.KAKAO, Method.NPAY));
         put(PG.LGUP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
-        put(PG.KAKAO, Arrays.asList(Method.EASY, Method.SUBSCRIPT_CARD));
+        put(PG.KAKAO, Arrays.asList(Method.EASY, Method.SUBSCRIPT_CARD, Method.CARD_REBILL));
         put(PG.PAYCO, Arrays.asList(Method.EASY));
         put(PG.EASYPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.KICC, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.JTNET, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.TPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.MOBILIANS, Arrays.asList(Method.PHONE));
-        put(PG.PAYLETTER, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD));
+        put(PG.PAYLETTER, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL));
         put(PG.ONESTORE, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.EASY_BANK, Method.EASY_CARD));
     }};
 
@@ -144,6 +144,8 @@ public class PGAvailable {
             case SELECT:
                 return "";
             case SUBSCRIPT_CARD:
+                return "card_rebill";
+            case CARD_REBILL:
                 return "card_rebill";
             case SUBSCRIPT_PHONE:
                 return "phone_rebill";

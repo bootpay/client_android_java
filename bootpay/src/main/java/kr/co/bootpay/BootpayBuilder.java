@@ -309,6 +309,8 @@ public class BootpayBuilder {
                 return "";
             case SUBSCRIPT_CARD:
                 return "card_rebill";
+            case CARD_REBILL:
+                return "card_rebill";
             case SUBSCRIPT_PHONE:
                 return "phone_rebill";
             case AUTH:
