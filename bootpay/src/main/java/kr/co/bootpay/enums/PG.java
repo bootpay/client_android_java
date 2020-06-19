@@ -16,5 +16,6 @@ public enum PG {
     MOBILIANS,
     PAYLETTER,
     ONESTORE,
-    BOOTPAY
+    WELCOME,
+    BOOTPAY,
 }

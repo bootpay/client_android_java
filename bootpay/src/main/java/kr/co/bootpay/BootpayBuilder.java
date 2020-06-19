@@ -135,6 +135,9 @@ public class BootpayBuilder {
             case ONESTORE:
                 request.setPG("onestore");
                 break;
+            case WELCOME:
+                request.setPG("welcome");
+                break;
 
         }
         return this;

@@ -26,6 +26,7 @@ public class PGAvailable {
         put(PG.TPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
         put(PG.MOBILIANS, Arrays.asList(Method.PHONE));
         put(PG.PAYLETTER, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL));
+        put(PG.WELCOME, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL));
         put(PG.ONESTORE, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.EASY_BANK, Method.EASY_CARD));
     }};
 
@@ -84,6 +85,8 @@ public class PGAvailable {
                 return PG.PAYLETTER;
             case "onestore":
                 return PG.ONESTORE;
+            case "welcome":
+                return PG.WELCOME;
             case "bootpay":
                 return PG.BOOTPAY;
             default:
@@ -125,6 +128,8 @@ public class PGAvailable {
                 return "payco";
             case ONESTORE:
                 return "onestore";
+            case WELCOME:
+                return "welcome";
         }
         return "";
     }
