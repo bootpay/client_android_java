@@ -24,8 +24,8 @@ public class IntentPayload {
         if(request.getBoot_user() != null && request.getBoot_user().getPhone().length() > 0) this.phoneNumber = request.getBoot_user().getPhone();
         this.goodPrice = request.getPrice();
         this.goodName = request.getName();
-        if(request.getBoot_extra() != null && request.getBoot_extra().getApp_scheme() != null) this.appScheme = request.getBoot_extra().getApp_scheme();
-        if(request.getBoot_extra() != null && request.getBoot_extra().getApp_scheme_host() != null) this.appScheme = request.getBoot_extra().getApp_scheme_host();
+        if(request.getBootExtra(context) != null && request.getBootExtra(context).getApp_scheme() != null) this.appScheme = request.getBootExtra(context).getApp_scheme();
+        if(request.getBootExtra(context) != null && request.getBootExtra(context).getApp_scheme_host() != null) this.appScheme = request.getBootExtra(context).getApp_scheme_host();
         this.packageName = context.getApplicationContext().getPackageName();
     }
 
