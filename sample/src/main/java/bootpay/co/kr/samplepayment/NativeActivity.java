@@ -72,15 +72,17 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     }
 
     void goPGPay() {
-        BootUser bootUser = new BootUser().setPhone("010-1234-5678").setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com");
+        BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
 //        bootExtra.setEscrow(1);
 
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.WELCOME) // 결제할 PG 사
-                .setMethod(Method.CARD)
+                .setPG(PG.DANAL) // 결제할 PG 사
+                .setMethod(Method.PHONE)
+//                .setEasyPayUserToken("wef")
+//                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
                 .setOrderId("1234")
@@ -173,9 +175,10 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.ONESTORE) // 결제할 PG 사
+                .setPG(PG.PAYAPP) // 결제할 PG 사
                 .setEasyPayUserToken(userToken)
-                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
+                .setMethod(Method.EASY_CARD)
+//                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
@@ -191,8 +194,10 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
                     public void onConfirm(@Nullable String message) {
+
                         if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
                         else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
+
                         Log.d("confirm", message);
                     }
                 })

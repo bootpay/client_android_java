@@ -276,8 +276,9 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.6/product
         return this;
     }
 
-    public String removePaymentWindow() {
-        return "window.BootPay.removePaymentWindow();)";
+    public void removePaymentWindow() {
+        load("window.BootPay.removePaymentWindow();");
+//        return "window.BootPay.removePaymentWindow();)";
     }
 
     public BootpayWebView setDialog(Dialog dialog) {
