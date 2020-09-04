@@ -23,6 +23,8 @@ public final class BootExtra {
 
     private BootpayOneStore onestore;
     private int escrow = 0; // 에스크로 쓸지 안쓸지
+    private int popup = -1; //1이면 popup, 아니면 iframe 연동
+    private int quick_popup = -1; //1: popup 호출시 버튼을 띄우지 않는다. 아닐 경우 버튼을 호출한다
 
 
     public final String getApp_scheme() {
@@ -151,6 +153,14 @@ public final class BootExtra {
         return String.format(Locale.KOREA, "escrow: %d", this.escrow);
     }
 
+    private String popup() {
+        return String.format(Locale.KOREA, "popup: %d", this.popup);
+    }
+
+    private String quick_popup() {
+        return String.format(Locale.KOREA, "quick_popup: %d", this.quick_popup);
+    }
+
     private String oneStore() {
         if(this.onestore == null) return "";
         return String.format(Locale.KOREA, "onestore: %s", this.onestore.toJson());
@@ -165,6 +175,8 @@ public final class BootExtra {
                 vbankResult(),
                 quotas(),
                 ux(),
+                popup(),
+                quick_popup(),
                 appScheme(),
                 dispCashResult(),
                 escrow(),
@@ -199,5 +211,23 @@ public final class BootExtra {
 
     public void setOnestore(BootpayOneStore onestore) {
         this.onestore = onestore;
+    }
+
+    public int getPopup() {
+        return popup;
+    }
+
+    public final BootExtra setPopup(int popup) {
+        this.popup = popup;
+        return this;
+    }
+
+    public int getQuick_popup() {
+        return quick_popup;
+    }
+
+    public final BootExtra setQuick_popup(int quick_popup) {
+        this.quick_popup = quick_popup;
+        return this;
     }
 }

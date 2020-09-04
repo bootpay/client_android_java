@@ -80,7 +80,7 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
                 .setPG(PG.DANAL) // 결제할 PG 사
-                .setMethod(Method.PHONE)
+                .setMethod(Method.CARD)
 //                .setEasyPayUserToken("wef")
 //                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)

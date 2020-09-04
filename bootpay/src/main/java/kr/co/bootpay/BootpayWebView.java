@@ -36,7 +36,7 @@ import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayWebView extends WebView {
-private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.6/production.html";
+private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.0/production.html";
 
     private Dialog dialog;
 //    private ConnectivityManager connManager;
@@ -98,6 +98,35 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.6/product
         this(context, attrs, 0);
     }
 
+    private void goBootpayRequest() {
+        loadParams(
+                request(
+                        price(),
+                        easyPayUserToken(),
+                        applicationId(),
+                        name(),
+                        pg(),
+//                                    userPhone(),
+                        agree(),
+                        method(),
+                        methods(),
+                        items(),
+                        params(),
+                        accountExpireAt(),
+                        orderId(),
+                        useOrderId(),
+                        userJson(),
+                        extraJson()
+                ),
+                error(),
+                cancel(),
+                ready(),
+                confirm(),
+                close(),
+                done()
+        );
+    }
+
     public BootpayWebView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
@@ -124,35 +153,18 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.6/product
 
 //                    setDevelopMode();
 //                    useOneStoreApi();
+//                    if(extraJson())
 
-//                    Log.d("bootpay", "onPageFinished");
+                    if(request.getBoot_extra().getQuick_popup() == 1) {
+                        setQuickPopup();
+                        goBootpayRequest();
 
-                    loadParams(
-                            request(
-                                    price(),
-                                    easyPayUserToken(),
-                                    applicationId(),
-                                    name(),
-                                    pg(),
-//                                    userPhone(),
-                                    agree(),
-                                    method(),
-                                    methods(),
-                                    items(),
-                                    params(),
-                                    accountExpireAt(),
-                                    orderId(),
-                                    useOrderId(),
-                                    userJson(),
-                                    extraJson()
-                            ),
-                            error(),
-                            cancel(),
-                            ready(),
-                            confirm(),
-                            close(),
-                            done()
-                    );
+                    } else {
+                        goBootpayRequest();
+                    }
+//                    request.getBoot_extra().
+
+//                    goBootpayRequest();
                 }
             }
 
@@ -314,6 +326,10 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.2.6/product
 
     private void setDevelopMode() {
         load("window.BootPay.setMode('development');");
+    }
+
+    private void setQuickPopup() {
+        load("window.BootPay.startQuickPopup();");
     }
 
 
