@@ -25,6 +25,12 @@ public final class BootExtra {
     private int escrow = 0; // 에스크로 쓸지 안쓸지
     private int popup = -1; //1이면 popup, 아니면 iframe 연동
     private int quick_popup = -1; //1: popup 호출시 버튼을 띄우지 않는다. 아닐 경우 버튼을 호출한다
+    private String offer_period; //결제창 제공기간에 해당하는 string 값, 지원하는 PG만 적용됨
+
+    private String theme = "purple"; // 통합 결제창 색상 지정 (purple, red, custom 지정 가능 )
+    private String custom_background = ""; // theme가 custom인 경우 배경 색 지정 가능 ( ex: #f2f2f2 )
+    private String custom_font_color = ""; // theme가 custom인 경우 폰트색 지정 가능 ( ex: #333333 )
+
 
 
     public final String getApp_scheme() {
@@ -180,6 +186,10 @@ public final class BootExtra {
                 appScheme(),
                 dispCashResult(),
                 escrow(),
+                offer_period(),
+                theme(),
+                custom_background(),
+                custom_font_color(),
                 oneStore()
         );
     }
@@ -229,5 +239,45 @@ public final class BootExtra {
     public final BootExtra setQuick_popup(int quick_popup) {
         this.quick_popup = quick_popup;
         return this;
+    }
+
+    public String offer_period() {
+        if(this.offer_period == null) return "";
+        return String.format(Locale.KOREA, "offer_period: '%s'", this.offer_period);
+    }
+
+    public final BootExtra setOffer_period(String offer_period) {
+        this.offer_period = offer_period;
+        return this;
+    }
+
+    public final BootExtra setTheme(String theme) {
+        this.theme = theme;
+        return this;
+    }
+
+    public final BootExtra setCustom_background(String custom_background) {
+        this.custom_background = custom_background;
+        return this;
+    }
+
+    public final BootExtra setCustom_font_color(String custom_font_color) {
+        this.custom_font_color = custom_font_color;
+        return this;
+    }
+
+    public String theme() {
+        if(this.theme == null) return "";
+        return String.format(Locale.KOREA, "theme: '%s'", this.theme);
+    }
+
+    public String custom_background() {
+        if(this.custom_background == null) return "";
+        return String.format(Locale.KOREA, "custom_background: '%s'", this.custom_background);
+    }
+
+    public String custom_font_color() {
+        if(this.custom_font_color == null) return "";
+        return String.format(Locale.KOREA, "custom_font_color: '%s'", this.custom_font_color);
     }
 }

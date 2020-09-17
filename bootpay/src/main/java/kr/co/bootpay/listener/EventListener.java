@@ -2,16 +2,16 @@ package kr.co.bootpay.listener;
 
 
 public interface EventListener extends CancelListener, ErrorListener, DoneListener, CloseListener,  ReadyListener, ConfirmListener {
-    void onError(String var1);
+    void onError(String data);
 
-    void onCancel(String var1);
+    void onCancel(String data);
 
-    void onClose(String var1);
+    void onClose(String data);
 
-    void onReady(String var1);
+    void onReady(String data);
 
-    void onConfirm(String var1);
+    void onConfirm(String data);
 
-    void onDone(String var1);
+    void onDone(String data);
 }
 

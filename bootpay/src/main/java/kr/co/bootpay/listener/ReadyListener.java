@@ -1,6 +1,6 @@
 package kr.co.bootpay.listener;
 
 public interface ReadyListener {
-    void onReady(String message);
+    void onReady(String data);
 }
 

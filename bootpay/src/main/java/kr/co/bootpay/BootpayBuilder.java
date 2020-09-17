@@ -518,33 +518,33 @@ public class BootpayBuilder {
         dialog = new BootpayDialog().setRequest(request)
             .setOnResponseListener(listener != null ? listener : new EventListener() {
                 @Override
-                public void onClose(String message) {
-                    if(close != null ) close.onClose(message);
+                public void onClose(String data) {
+                    if(close != null ) close.onClose(data);
                 }
 
                 @Override
-                public void onReady(String message) {
-                    if(ready != null ) ready.onReady(message);
+                public void onReady(String data) {
+                    if(ready != null ) ready.onReady(data);
                 }
 
                 @Override
-                public void onError(String message) {
-                    if(error != null ) error.onError(message);
+                public void onError(String data) {
+                    if(error != null ) error.onError(data);
                 }
 
                 @Override
-                public void onCancel(String message) {
-                    if(cancel != null ) cancel.onCancel(message);
+                public void onCancel(String data) {
+                    if(cancel != null ) cancel.onCancel(data);
                 }
 
                 @Override
-                public void onConfirm(String message) {
-                    if(confirm != null ) confirm.onConfirm(message);
+                public void onConfirm(String data) {
+                    if(confirm != null ) confirm.onConfirm(data);
                 }
 
                 @Override
-                public void onDone(String message) {
-                    if(done != null ) done.onDone(message);
+                public void onDone(String data) {
+                    if(done != null ) done.onDone(data);
                 }
         });
 

@@ -82,32 +82,32 @@ public class FlutterActivity extends BootpayFlutterActivity {
 
 
     @Override
-    public void onError(String message) {
-        Log.d("bootpay  error", message);
+    public void onError(String data) {
+        Log.d("bootpay  error", data);
     }
 
     @Override
-    public void onCancel(String message) {
-        Log.d("bootpay  cancel", message);
+    public void onCancel(String data) {
+        Log.d("bootpay  cancel", data);
     }
 
     @Override
-    public void onClose(String message) {
+    public void onClose(String data) {
         Log.d("bootpay  close", "close");
     }
 
     @Override
-    public void onReady(String message) {
-        Log.d("bootpay  ready", message);
+    public void onReady(String data) {
+        Log.d("bootpay  ready", data);
     }
 
     @Override
-    public void onConfirm(String message) {
-        Log.d("bootpay  confirm", message);
+    public void onConfirm(String data) {
+        Log.d("bootpay  confirm", data);
     }
 
     @Override
-    public void onDone(String message) {
-        Log.d("bootpay  done", message);
+    public void onDone(String data) {
+        Log.d("bootpay  done", data);
     }
 }

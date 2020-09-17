@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Payload {
+
     private String application_id = "";
     private String pg = "";
     private String method = "";

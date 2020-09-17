@@ -73,18 +73,19 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
 
     void goPGPay() {
         BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3}).setOffer_period("1년동안 제공").setTheme("red");
 //        bootExtra.setEscrow(1);
 
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사
-                .setMethod(Method.CARD)
+//                .setPG(PG.NICEPAY) // 결제할 PG 사
+//                .setMethod(Method.CARD)
 //                .setEasyPayUserToken("wef")
-//                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
+                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
+
                 .setOrderId("1234")
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)
@@ -93,46 +94,46 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
                 .setName("bootpay kb card test") // 결제할 상품명
                 .setOrderId("1232352354") // 결제 고유번호
                 .setPrice(1000) // 결제할 금액
-                .setAccountExpireAt("2019-07-16")
+//                .setAccountExpireAt("2019-07-16")
                 .addItem("마우스", 1, "ITEM_CODE_MOUSE", 500) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 500, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
-                    public void onConfirm(@Nullable String message) {
-                        if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
+                    public void onConfirm(@Nullable String data) {
+                        if (0 < stuck) Bootpay.confirm(data); // 재고가 있을 경우.
                         else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
-                        Log.d("confirm", message);
+                        Log.d("confirm", data);
                     }
                 })
                 .onDone(new DoneListener() { // 결제완료시 호출, 아이템 지급 등 데이터 동기화 로직을 수행합니다
                     @Override
-                    public void onDone(@Nullable String message) {
-                        Log.d("done", message);
+                    public void onDone(@Nullable String data) {
+                        Log.d("done", data);
                     }
                 })
                 .onReady(new ReadyListener() { // 가상계좌 입금 계좌번호가 발급되면 호출되는 함수입니다.
                     @Override
-                    public void onReady(@Nullable String message) {
-                        Log.d("ready", message);
+                    public void onReady(@Nullable String data) {
+                        Log.d("ready", data);
                     }
                 })
                 .onCancel(new CancelListener() { // 결제 취소시 호출
                     @Override
-                    public void onCancel(@Nullable String message) {
+                    public void onCancel(@Nullable String data) {
 
-                        Log.d("cancel", message);
+                        Log.d("cancel", data);
                     }
                 })
                 .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
                     @Override
-                    public void onError(@Nullable String message) {
-                        Log.d("error", message);
+                    public void onError(@Nullable String data) {
+                        Log.d("error", data);
                     }
                 })
                 .onClose(
                         new CloseListener() { //결제창이 닫힐때 실행되는 부분
                             @Override
-                            public void onClose(String message) {
+                            public void onClose(String data) {
                                 Log.d("close", "close");
                             }
                         })
@@ -193,43 +194,43 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 500, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                     @Override
-                    public void onConfirm(@Nullable String message) {
+                    public void onConfirm(@Nullable String data) {
 
-                        if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
+                        if (0 < stuck) Bootpay.confirm(data); // 재고가 있을 경우.
                         else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
 
-                        Log.d("confirm", message);
+                        Log.d("confirm", data);
                     }
                 })
                 .onDone(new DoneListener() { // 결제완료시 호출, 아이템 지급 등 데이터 동기화 로직을 수행합니다
                     @Override
-                    public void onDone(@Nullable String message) {
-                        Log.d("done", message);
+                    public void onDone(@Nullable String data) {
+                        Log.d("done", data);
                     }
                 })
                 .onReady(new ReadyListener() { // 가상계좌 입금 계좌번호가 발급되면 호출되는 함수입니다.
                     @Override
-                    public void onReady(@Nullable String message) {
-                        Log.d("ready", message);
+                    public void onReady(@Nullable String data) {
+                        Log.d("ready", data);
                     }
                 })
                 .onCancel(new CancelListener() { // 결제 취소시 호출
                     @Override
-                    public void onCancel(@Nullable String message) {
+                    public void onCancel(@Nullable String data) {
 
-                        Log.d("cancel", message);
+                        Log.d("cancel", data);
                     }
                 })
                 .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
                     @Override
-                    public void onError(@Nullable String message) {
-                        Log.d("error", message);
+                    public void onError(@Nullable String data) {
+                        Log.d("error", data);
                     }
                 })
                 .onClose(
                         new CloseListener() { //결제창이 닫힐때 실행되는 부분
                             @Override
-                            public void onClose(String message) {
+                            public void onClose(String data) {
                                 Log.d("close", "close");
                             }
                         })

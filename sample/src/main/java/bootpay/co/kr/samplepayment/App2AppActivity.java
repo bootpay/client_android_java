@@ -52,27 +52,27 @@ public class App2AppActivity extends Activity {
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .onDone(new DoneListener() { // 결제완료시 호출, 아이템 지급 등 데이터 동기화 로직을 수행합니다
                     @Override
-                    public void onDone(@Nullable String message) {
-                        Log.d("done", message);
+                    public void onDone(@Nullable String data) {
+                        Log.d("done", data);
                     }
                 })
                 .onCancel(new CancelListener() { // 결제 취소시 호출
                     @Override
-                    public void onCancel(@Nullable String message) {
+                    public void onCancel(@Nullable String data) {
 
-                        Log.d("cancel", message);
+                        Log.d("cancel", data);
                     }
                 })
                 .onError(new ErrorListener() { // 에러가 났을때 호출되는 부분
                     @Override
-                    public void onError(@Nullable String message) {
-                        Log.d("error", message);
+                    public void onError(@Nullable String data) {
+                        Log.d("error", data);
                     }
                 })
                 .onClose(
                         new CloseListener() { //결제창이 닫힐때 실행되는 부분
                             @Override
-                            public void onClose(String message) {
+                            public void onClose(String data) {
                                 Log.d("close", "close");
                             }
                         })
