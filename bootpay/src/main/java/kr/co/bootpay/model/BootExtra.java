@@ -236,7 +236,7 @@ public final class BootExtra {
         return quick_popup;
     }
 
-    public final BootExtra setQuick_popup(int quick_popup) {
+    public final BootExtra setQuickPopup(int quick_popup) {
         this.quick_popup = quick_popup;
         return this;
     }

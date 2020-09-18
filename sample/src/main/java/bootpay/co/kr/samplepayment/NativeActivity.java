@@ -73,7 +73,7 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
 
     void goPGPay() {
         BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3}).setOffer_period("1년동안 제공").setTheme("red");
+        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
 //        bootExtra.setEscrow(1);
 
         Bootpay.init(getFragmentManager())
