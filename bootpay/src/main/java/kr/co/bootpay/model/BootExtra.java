@@ -133,7 +133,7 @@ public final class BootExtra {
         StringBuilder sb = new StringBuilder();
         sb.append(quotas[0]);
         for (int i = 1; i < quotas.length; i++) sb.append(",").append(quotas[i]);
-        return String.format(Locale.KOREA, "quotas: '%s'", sb.toString());
+        return String.format(Locale.KOREA, "quota: '%s'", sb.toString());
     }
 
     private final String appScheme() {
