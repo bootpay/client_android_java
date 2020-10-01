@@ -102,6 +102,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.0/product
         loadParams(
                 request(
                         price(),
+                        taxFree(),
                         easyPayUserToken(),
                         applicationId(),
                         name(),
@@ -380,6 +381,10 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.0/product
 
     private String price() {
         return "price:" + request.getPrice();
+    }
+
+    private String taxFree() {
+        return "tax_free:" + request.getTaxFree();
     }
 
     private String easyPayUserToken() {
