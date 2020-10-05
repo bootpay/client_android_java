@@ -156,10 +156,9 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.0/product
 //                    useOneStoreApi();
 //                    if(extraJson())
 
-                    if(request.getBoot_extra().getQuick_popup() == 1) {
+                    if(request.getBoot_extra() != null && request.getBoot_extra().getQuick_popup() == 1) {
                         setQuickPopup();
                         goBootpayRequest();
-
                     } else {
                         goBootpayRequest();
                     }
