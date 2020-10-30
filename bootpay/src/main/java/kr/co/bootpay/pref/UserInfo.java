@@ -40,7 +40,12 @@ public class UserInfo {
 //    private String ad_id;
 
     public String getBootpayUuid() {
-        return instance.encryptedPreferences.getString("bootpay_uuid", "");
+        String value = instance.encryptedPreferences.getString("bootpay_uuid", "");
+        if(value.isEmpty()) {
+            value = UUID.randomUUID().toString();
+            setBootpayUuid(value);
+        }
+        return value;
     }
 
     public void setBootpayUuid(String bootpay_uuid) {
@@ -168,5 +173,29 @@ public class UserInfo {
 
     public void finish() {
         setBootpayLastTime(System.currentTimeMillis());
+    }
+
+    public void setUUID(String uuid) {
+
+    }
+
+    public String getUUID() {
+        return instance.encryptedPreferences.getString("uuid", "");
+    }
+
+    public void setBiometricSecretKey(String value) {
+        instance.encryptedPreferences.edit().putString("biometric_secret_key", value).apply();
+    }
+
+    public void setBiometricDeviceId(String value) {
+        instance.encryptedPreferences.edit().putString("biometric_device_id", value).apply();
+    }
+
+    public String getBiometricSecretKey() {
+        return instance.encryptedPreferences.getString("biometric_secret_key", "");
+    }
+
+    public String getBiometricDeviceId() {
+        return instance.encryptedPreferences.getString("biometric_device_id", "");
     }
 }

@@ -13,8 +13,6 @@ import kr.co.bootpay.model.BootUser;
 public class BootpayRest {
     private static ApiPresenter presenter;
 
-
-
     @Deprecated
     public static void getRestToken(Context context, BootpayRestImplement parent, String restApplicationId, String privateKey) {
         if (presenter == null) presenter = new ApiPresenter(new ApiService(context), parent);

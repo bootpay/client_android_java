@@ -12,6 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -27,6 +28,7 @@
         <activity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
         <activity android:name=".App2AppActivity" android:screenOrientation="portrait"/>
         <activity android:name=".FlutterActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".BioActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

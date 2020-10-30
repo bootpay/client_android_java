@@ -23,8 +23,8 @@ public final class BootExtra {
 
     private BootpayOneStore onestore;
     private int escrow = 0; // 에스크로 쓸지 안쓸지
-    private int popup = -1; //1이면 popup, 아니면 iframe 연동
-    private int quick_popup = -1; //1: popup 호출시 버튼을 띄우지 않는다. 아닐 경우 버튼을 호출한다
+    private int popup = 1; //1이면 popup, 아니면 iframe 연동
+    private int quick_popup = 1; //1: popup 호출시 버튼을 띄우지 않는다. 아닐 경우 버튼을 호출한다
     private String offer_period; //결제창 제공기간에 해당하는 string 값, 지원하는 PG만 적용됨
 
     private String theme = "purple"; // 통합 결제창 색상 지정 (purple, red, custom 지정 가능 )

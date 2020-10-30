@@ -130,10 +130,10 @@
                     android:layout_height="40dp" />
 
                 <Button
-                    android:id="@+id/btn_app2app"
-                    android:text="App2App"
+                    android:id="@+id/btn_bio"
+                    android:text="생체인식"
                     android:layout_weight="1"
-                    android:onClick="goApp2AppActivity"
+                    android:onClick="goBioActivity"
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
 
@@ -161,39 +161,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
 
-                <Button
-                    android:text="Retmote Link"
-                    android:layout_weight="1"
-                    android:background="#4529e5"
-                    android:textColor="#fff"
-                    android:onClick="goRemoteLink"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
-                <Button
-                    android:text="Remote Form"
-                    android:layout_weight="1"
-                    android:onClick="goRemoteForm"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="#4529e5"
-                    android:textColor="#fff"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
-                <Button
-                    android:text="Remote Pre"
-                    android:layout_weight="1"
-                    android:onClick="goRemotePre"
-                    android:background="#4529e5"
-                    android:textColor="#fff"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
-            </LinearLayout>
+<!--                <Button-->
+<!--                    android:text="Retmote Link"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="#4529e5"-->
+<!--                    android:textColor="#fff"-->
+<!--                    android:onClick="goRemoteLink"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp" />-->
+<!--                <Button-->
+<!--                    android:text="Remote Form"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:onClick="goRemoteForm"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:background="#4529e5"-->
+<!--                    android:textColor="#fff"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp" />-->
+<!--                <Button-->
+<!--                    android:text="Remote Pre"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:onClick="goRemotePre"-->
+<!--                    android:background="#4529e5"-->
+<!--                    android:textColor="#fff"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp" />-->
+<!--            </LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.bootpay.enums.UX;
+import kr.co.bootpay.model.bio.BioPayload;
 import kr.co.bootpay.pref.UserInfo;
 
 public class Request {
@@ -18,7 +19,7 @@ public class Request {
     private Double price = 0.0;
     private Double tax_free = 0.0;
     private String order_id = "";
-    private Boolean use_order_id = false;
+    private int use_order_id = 0;
     private String params = "";
 
 
@@ -36,7 +37,8 @@ public class Request {
     private RemoteOrderPre remote_order_pre;
     private String easyPayUserToken;
 
-    private SMSPayload sms_payload = new SMSPayload();
+//    private SMSPayload sms_payload = new SMSPayload();
+    private BioPayload bioPayload = new BioPayload();
 //    private Boolean sms_use = false;
 
     public Request setApplicationId(String value) {
@@ -111,12 +113,12 @@ public class Request {
         return this.order_id;
     }
 
-    public Request setUseOrderId(Boolean value) {
+    public Request setUseOrderId(int value) {
         this.use_order_id = value;
         return this;
     }
 
-    public Boolean getUseOrderId() {
+    public int getUseOrderId() {
         return this.use_order_id;
     }
 
@@ -230,13 +232,31 @@ public class Request {
         this.remote_order_pre = remote_order_pre;
     }
 
-    public SMSPayload getSms_payload() {
-        return sms_payload;
+    public BioPayload getBioPayload() {
+        return bioPayload;
     }
 
-    public void setSms_payload(SMSPayload sms_payload) {
-        this.sms_payload = sms_payload;
+    public void setBioPayload(BioPayload bioPayload) {
+        this.bioPayload = bioPayload;
+        if(pg.length() == 0) pg = bioPayload.pg;
+        if(price == 0.0) price = bioPayload.price;
+        if(tax_free == 0.0) tax_free = bioPayload.tax_free;
+        if(params.length() == 0) params = bioPayload.params;
+        if(name.length() == 0) name = bioPayload.name;
+        if(easyPayUserToken == null || easyPayUserToken.length() == 0) easyPayUserToken = bioPayload.easy_pay_user_token;
     }
+
+    public Payload getPayload() {
+        return new Payload(this);
+    }
+
+//    public SMSPayload getSms_payload() {
+//        return sms_payload;
+//    }
+//
+//    public void setSms_payload(SMSPayload sms_payload) {
+//        this.sms_payload = sms_payload;
+//    }
 
 //    public Boolean getSms_use() {
 //        return sms_use;

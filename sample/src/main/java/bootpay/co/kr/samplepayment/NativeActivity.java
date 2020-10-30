@@ -2,9 +2,10 @@ package bootpay.co.kr.samplepayment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,29 +73,29 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     }
 
     void goPGPay() {
-        BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+        BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com").setPhone("010-1234-2314");
+        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3}).setPopup(1).setQuickPopup(1);
 
 //        bootExtra.setEscrow(1);
 
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사
-                .setMethod(Method.CARD)
+                .setPG(PG.KCP) // 결제할 PG 사
+                .setMethod(Method.NPAY)
 //                .setEasyPayUserToken("wef")
 //                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 
+
                 .setOrderId("1234")
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)
-//                .setMethod(Method.CARD) // 결제수단
                 //.isShowAgree(true)
                 .setName("bootpay kb card test") // 결제할 상품명
                 .setOrderId("1232352354") // 결제 고유번호
-//                .setPrice(1000) // 결제할 금액
+                .setPrice(1000) // 결제할 금액
 //                .setAccountExpireAt("2019-07-16")
                 .addItem("마우스", 1, "ITEM_CODE_MOUSE", 500) // 주문정보에 담길 상품정보, 통계를 위해 사용
                 .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 500, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용

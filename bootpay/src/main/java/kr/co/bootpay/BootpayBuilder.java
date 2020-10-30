@@ -5,6 +5,10 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.gson.Gson;
 
@@ -13,6 +17,9 @@ import java.util.List;
 
 import kr.co.bootpay.api.ApiPresenter;
 import kr.co.bootpay.api.ApiService;
+import kr.co.bootpay.bio.BootpayBioDialog;
+import kr.co.bootpay.bio.activity.BootpayBioActivity;
+import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.enums.UX;
@@ -29,14 +36,16 @@ import kr.co.bootpay.model.RemoteOrderForm;
 import kr.co.bootpay.model.RemoteOrderPre;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.BootUser;
-import kr.co.bootpay.model.SMSPayload;
+import kr.co.bootpay.model.bio.BioPayload;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.valid.PGAvailable;
 import kr.co.bootpay.valid.ValidRequest;
 
 public class BootpayBuilder {
     private Context context;
-    private FragmentManager fragmentManager;
+
+    private FragmentManager fm;
+    private androidx.fragment.app.FragmentManager fmx;
     protected Request request = new Request();
     protected EventListener listener;
     private ErrorListener error;
@@ -46,6 +55,7 @@ public class BootpayBuilder {
     private CancelListener cancel;
     private ConfirmListener confirm;
     private BootpayDialog dialog;
+//    private BootpayBioDialog bioDialog;
     private ApiPresenter presenter;
 //    private String
 
@@ -57,7 +67,10 @@ public class BootpayBuilder {
     }
 
     public BootpayBuilder(FragmentManager manager) {
-        fragmentManager = manager;
+        this.fm = manager;
+    }
+    public BootpayBuilder(androidx.fragment.app.FragmentManager fmx) {
+        this.fmx = fmx;
     }
 
     public BootpayBuilder setContext(Context context) {
@@ -87,59 +100,7 @@ public class BootpayBuilder {
     }
 
     public BootpayBuilder setPG(PG pg) {
-        switch (pg) {
-            case BOOTPAY:
-                request.setPG("bootpay");
-                break;
-            case PAYAPP:
-                request.setPG("payapp");
-                break;
-            case DANAL:
-                request.setPG("danal");
-                break;
-            case KCP:
-                request.setPG("kcp");
-                break;
-            case INICIS:
-                request.setPG("inicis");
-                break;
-            case LGUP:
-                request.setPG("lgup");
-                break;
-            case KAKAO:
-                request.setPG("kakao");
-                break;
-            case EASYPAY:
-                request.setPG("easypay");
-                break;
-            case KICC:
-                request.setPG("easypay");
-                break;
-            case TPAY:
-                request.setPG("tpay");
-            case JTNET:
-                request.setPG("tpay");
-                break;
-            case MOBILIANS:
-                request.setPG("mobilians");
-                break;
-            case PAYLETTER:
-                request.setPG("payletter");
-                break;
-            case NICEPAY:
-                request.setPG("nicepay");
-                break;
-            case PAYCO:
-                request.setPG("payco");
-                break;
-            case ONESTORE:
-                request.setPG("onestore");
-                break;
-            case WELCOME:
-                request.setPG("welcome");
-                break;
-
-        }
+        request.setPG(Bootpay.getPG(pg));
         return this;
     }
 
@@ -194,7 +155,7 @@ public class BootpayBuilder {
         return this;
     }
 
-    public BootpayBuilder setUseOrderId(boolean use_order_id) {
+    public BootpayBuilder setUseOrderId(int use_order_id) {
         request.setUseOrderId(use_order_id);
         return this;
     }
@@ -244,10 +205,10 @@ public class BootpayBuilder {
 //        return this;
 //    }
 
-    public BootpayBuilder setSMSPayload(SMSPayload smsPayload) {
-        request.setSms_payload(smsPayload);
-        return this;
-    }
+//    public BootpayBuilder setSMSPayload(SMSPayload smsPayload) {
+//        request.setSms_payload(smsPayload);
+//        return this;
+//    }
 
 //    public BootpayBuild
 
@@ -361,6 +322,11 @@ public class BootpayBuilder {
         return this;
     }
 
+    public BootpayBuilder setBioPayload(BioPayload bioPayload) {
+        request.setBioPayload(bioPayload);
+        return this;
+    }
+
 //    public BootpayBuilder setParams(JSONObject params) {
 //        request.setParams(params);
 //        return this;
@@ -456,7 +422,7 @@ public class BootpayBuilder {
         if(ux == null || ux == UX.NONE) { request.setUX(UX.PG_DIALOG); }
         ux = request.getUX();
         if(ux == UX.PG_DIALOG) {
-            if (fragmentManager == null || fragmentManager.isDestroyed()) { error("fragment 값은 null 이 될 수 없습니다."); }
+            if (fm == null || fm.isDestroyed()) { error("fragment 값은 null 이 될 수 없습니다."); }
 
         } else if(ux == UX.APP2APP_CARD_SIMPLE
                 || ux == UX.APP2APP_NFC
@@ -474,6 +440,24 @@ public class BootpayBuilder {
     @Deprecated
     public void show() {
         request();
+    }
+
+    public void requestBio() {
+        if(context == null) {
+            throw new IllegalStateException("context cannot be null from " + request.getUX().toString());
+        }
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long current = System.currentTimeMillis();
+                if(current - CurrentBioRequest.getInstance().start_window_time > 1000) {
+                    CurrentBioRequest.getInstance().start_window_time = current;
+                    requestBioDialog();
+                }
+            }
+        });
+
     }
 
 
@@ -511,7 +495,97 @@ public class BootpayBuilder {
                                 }
                             }).create().show();
         }
+
+
     }
+
+    private void requestBioDialog() {
+//        bioDialog =  BootpayBioDialog();
+        if(close != null) CurrentBioRequest.getInstance().close = close;
+        if(cancel != null) CurrentBioRequest.getInstance().cancel = cancel;
+        if(ready != null) CurrentBioRequest.getInstance().ready = ready;
+        if(confirm != null) CurrentBioRequest.getInstance().confirm = confirm;
+        if(done != null) CurrentBioRequest.getInstance().done = done;
+
+        CurrentBioRequest.getInstance().request = request;
+
+        Intent intent = new Intent(context, BootpayBioActivity.class);
+//        context.pen
+        context.startActivity(intent);
+//        context.ov
+//                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+//        bioDialog = new BootpayBioDialog().setRequest(request)
+//                .setOnResponseListener(listener != null ? listener : new EventListener() {
+//            @Override
+//            public void onClose(String data) {
+//                if(close != null) close.onClose(data);
+//            }
+//
+//            @Override
+//            public void onReady(String data) {
+//                if(ready != null ) ready.onReady(data);
+//            }
+//
+//            @Override
+//            public void onError(String data) {
+//                if(error != null ) error.onError(data);
+//            }
+//
+//            @Override
+//            public void onCancel(String data) {
+//                if(cancel != null ) cancel.onCancel(data);
+//            }
+//
+//            @Override
+//            public void onConfirm(String data) {
+//                if(confirm != null ) confirm.onConfirm(data);
+//            }
+//
+//            @Override
+//            public void onDone(String data) {
+//                if(done != null ) done.onDone(data);
+//            }
+//        });
+//
+//        bioDialog.onCancel(new DialogInterface() {
+//            @Override
+//            public void cancel() {
+//                if (bioDialog != null)
+//                    bioDialog.onDestroy();
+//                bioDialog = null;
+//                UserInfo.getInstance(context).finish();
+//                Bootpay.finish();
+//            }
+//
+//            @Override
+//            public void dismiss() {
+//                if (bioDialog != null)
+//                    bioDialog.onDestroy();
+//                bioDialog = null;
+//                UserInfo.getInstance(context).finish();
+//                Bootpay.finish();
+//            }
+//        });
+////        bioDialog.getatt
+//
+//        if (bioDialog != null || fmx != null) {
+//            try {
+//                FragmentTransaction ft = fmx.beginTransaction();
+//                ft.add(bioDialog, String.valueOf(System.currentTimeMillis()));
+//                ft.commitAllowingStateLoss();
+//
+////                getFragmentManager().beginTransaction().add(mDialogFragment, "DialogFragment Tag").commitAllowingStateLoss();
+//
+//
+//
+////                bioDialog.show(fmx, "bootpay");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+    }
+
 
 
     private void requestDialog() {
@@ -568,7 +642,7 @@ public class BootpayBuilder {
             }
         });
 
-        if (dialog != null) dialog.show(fragmentManager, "bootpay");
+        if (dialog != null) dialog.show(fm, "bootpay");
 //        System.currentTimeMillis()
     }
 
@@ -586,11 +660,21 @@ public class BootpayBuilder {
     public void transactionConfirm(String data) {
         if (dialog != null)
             dialog.transactionConfirm(data);
+//        if(bioDialog != null)
+//            bioDialog.transactionConfirm(data);
     }
 
     public void removePaymentWindow() {
         if (dialog != null)
             dialog.removePaymentWindow();
+    }
+
+    public void dismiss() {
+        if(dialog != null) dialog.dismiss();
+//        if(bioDialog != null) {
+//            if(CurrentBioRequest.getInstance().type != CurrentBioRequest.REQUEST_TYPE_OTHER)
+//                bioDialog.dismiss();
+//        }
     }
 
     private boolean isEmpty(String value) {

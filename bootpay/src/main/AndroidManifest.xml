@@ -8,13 +8,10 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
-        <activity android:name=".BootpayInnerActivity" android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <data android:host="app2app" android:scheme="bootpay" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".bio.activity.BootpayBioActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" />
+        <activity android:name=".bio.activity.BootpayBioWebviewActivity" android:screenOrientation="portrait"/>
     </application>
 
-
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>

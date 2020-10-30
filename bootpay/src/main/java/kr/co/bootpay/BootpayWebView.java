@@ -403,10 +403,16 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
     private String agree() { return String.format(Locale.KOREA, "show_agree_window: %d", request.getIsShowAgree() == true ? 1 : 0); }
 
     private String method() {
-        return String.format(Locale.KOREA, "method:'%s'", request.getMethod());
+        String method = request.getMethod();
+        if(method == null || "".equals(method)) return "";
+        return String.format(Locale.KOREA, "method:'%s'", method);
     }
 
-    private String methods() { return String.format(Locale.KOREA, "methods:[%s]", listToString(request.getMethods())); }
+    private String methods() {
+        String methods = listToString(request.getMethods());
+        if(methods == null || "".equals(methods)) return "";
+        return String.format(Locale.KOREA, "methods:[%s]", methods);
+    }
 
     private String items() {
         StringBuilder builder = new StringBuilder().append("items:[");
@@ -433,7 +439,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
 
     private String orderId() { return String.format(Locale.KOREA, "order_id:'%s'", request.getOrderId()); }
 
-    private String useOrderId() { return String.format(Locale.KOREA, "use_order_id:%d", request.getUseOrderId() == true ? 1 : 0); }
+    private String useOrderId() { return String.format(Locale.KOREA, "use_order_id:%d", request.getUseOrderId()); }
 
     private String userJson() {
         if(request.getBoot_user() == null) return "";

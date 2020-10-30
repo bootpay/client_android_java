@@ -2,13 +2,14 @@ package bootpay.co.kr.samplepayment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -238,109 +239,111 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goApp2AppActivity(View v) {
-        Intent intent = new Intent(this, App2AppActivity.class);
+    public void goBioActivity(View v) {
+        Intent intent = new Intent(this, BioActivity.class);
         startActivity(intent);
     }
+
+//    public void goApp2AppActivity(View v) {
+//        Intent intent = new Intent(this, App2AppActivity.class);
+//        startActivity(intent);
+//    }
 
     public void goFlutterActivity(View v) {
         Intent intent = new Intent(this, FlutterActivity.class);
         startActivity(intent);
     }
 
-    public void goRemoteLink(View v) {
-        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-        SMSPayload payload = new SMSPayload().setMessage("결제링크 안내입니다 [결제링크]")
-                .setSenderPhone("010-4033-4678")
-                .setReceieverPhones(Arrays.asList("010-4033-4678"));
-
-//        결제호출
-        Bootpay.init(getFragmentManager())
-                .setContext(this)
-                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사
-                .setMethods(Arrays.asList("card", "phone"))
-                .setBootUser(bootUser)
-                .setBootExtra(bootExtra)
-                .setUX(UX.BOOTPAY_REMOTE_LINK)
-                .setName("맥\"북프로's 임다") // 결제할 상품명
-                .setOrderId("1234") // 결제 고유번호expire_month
-                .setPrice(10000) // 결제할 금액
-                .setSMSPayload(payload)
-                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .request();
-    }
-
-    public void goRemoteForm(View v) {
-        goRemoteFormV2(v);
-        return;
-    }
-
-    public void goRemoteFormV2(View v) {
-        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-        SMSPayload payload = new SMSPayload()
-                .setMessage("결제링크 안내입니다\n[결제링크]")
-                .setSenderPhone("010-4033-4678") // 발신자 번호
-                .setReceieverPhones(Arrays.asList("01040334678")); // 수신할 번호 배열
-
-        RemoteOrderForm form = new RemoteOrderForm()
-                .setIsReceiverName(true) //상품명을 고객으로부터 입력받을지
-                .setIsReceiverPrice(true) //상품가격을 고객으로부터 입력받을지 여부
-                .setDeliveryAreaPrice(2500) //기본배송비
-                .setIsDeliveryArea(true) //배송비 설정할지 여부
-                .setIsAddr(true); // 주소를 입력받을지
-
-
-//        결제호출
-        Bootpay.init(getFragmentManager())
-                .setContext(this)
-                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사, 지정하지 않을 경우 통합 결제
-                .setMethods(Arrays.asList("card", "phone")) // 사용하길 원하는 결제수단을 배열로 지정 가능
-                .setBootUser(bootUser)
-                .setBootExtra(bootExtra)
-                .setUX(UX.BOOTPAY_REMOTE_ORDER)
-                .setRemoteOrderForm(form)
-//                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setName("맥\"북프로's 임다") // 결제할 상품명
-                .setOrderId("1234") // 결제 고유번호expire_month
-//                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
-//                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
-                .setPrice(10000) // 결제할 금액
-                .setSMSPayload(payload)
-                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .request();
-    }
-
-    public void goRemotePre(View v) {
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
-        SMSPayload payload = new SMSPayload().setMessage("결제링크 안내입니다\n[결제링크]").setSenderPhone("010-4033-4678").setReceieverPhones(Arrays.asList("01040334678"));
-        RemoteOrderPre pre = new RemoteOrderPre().setName("사전예약 이벤트").setExpectedPrice("10만원 이하");
-
-
-//        결제호출
-        Bootpay.init(getFragmentManager())
-                .setContext(this)
-                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setBootExtra(bootExtra)
-                .setUX(UX.BOOTPAY_REMOTE_PRE)
-//                .setUserPhone("010-1234-5678") // 구매자 전화번호
-                .setName("맥\"북프로's 임다") // 결제할 상품명
-                .setOrderId("1234") // 결제 고유번호expire_month
-                .setRemoteOrderPre(pre)
-//                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
-//                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
-
-                .setPrice(10000) // 결제할 금액
-                .setSMSPayload(payload)
-                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
-                .request();
-
-    }
+//    public void goRemoteLink(View v) {
+//        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
+//        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+//        SMSPayload payload = new SMSPayload().setMessage("결제링크 안내입니다 [결제링크]")
+//                .setSenderPhone("010-4033-4678")
+//                .setReceieverPhones(Arrays.asList("010-4033-4678"));
+//
+////        결제호출
+//        Bootpay.init(getFragmentManager())
+//                .setContext(this)
+//                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
+//                .setPG(PG.DANAL) // 결제할 PG 사
+//                .setMethods(Arrays.asList("card", "phone"))
+//                .setBootUser(bootUser)
+//                .setBootExtra(bootExtra)
+//                .setUX(UX.BOOTPAY_REMOTE_LINK)
+//                .setName("맥\"북프로's 임다") // 결제할 상품명
+//                .setOrderId("1234") // 결제 고유번호expire_month
+//                .setPrice(10000) // 결제할 금액
+//                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
+//                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+//                .request();
+//    }
+//
+//    public void goRemoteForm(View v) {
+//        goRemoteFormV2(v);
+//        return;
+//    }
+//
+//    public void goRemoteFormV2(View v) {
+//        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
+//        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+//        SMSPayload payload = new SMSPayload()
+//                .setMessage("결제링크 안내입니다\n[결제링크]")
+//                .setSenderPhone("010-4033-4678") // 발신자 번호
+//                .setReceieverPhones(Arrays.asList("01040334678")); // 수신할 번호 배열
+//
+//        RemoteOrderForm form = new RemoteOrderForm()
+//                .setIsReceiverName(true) //상품명을 고객으로부터 입력받을지
+//                .setIsReceiverPrice(true) //상품가격을 고객으로부터 입력받을지 여부
+//                .setDeliveryAreaPrice(2500) //기본배송비
+//                .setIsDeliveryArea(true) //배송비 설정할지 여부
+//                .setIsAddr(true); // 주소를 입력받을지
+//
+//
+////        결제호출
+//        Bootpay.init(getFragmentManager())
+//                .setContext(this)
+//                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
+//                .setPG(PG.DANAL) // 결제할 PG 사, 지정하지 않을 경우 통합 결제
+//                .setMethods(Arrays.asList("card", "phone")) // 사용하길 원하는 결제수단을 배열로 지정 가능
+//                .setBootUser(bootUser)
+//                .setBootExtra(bootExtra)
+//                .setUX(UX.BOOTPAY_REMOTE_ORDER)
+//                .setRemoteOrderForm(form)
+////                .setUserPhone("010-1234-5678") // 구매자 전화번호
+//                .setName("맥\"북프로's 임다") // 결제할 상품명
+//                .setOrderId("1234") // 결제 고유번호expire_month
+////                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
+////                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
+//                .setPrice(10000) // 결제할 금액
+//                .setSMSPayload(payload)
+//                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
+//                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+//                .request();
+//    }
+//
+//    public void goRemotePre(View v) {
+//        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+//        RemoteOrderPre pre = new RemoteOrderPre().setName("사전예약 이벤트").setExpectedPrice("10만원 이하");
+//
+//
+////        결제호출
+//        Bootpay.init(getFragmentManager())
+//                .setContext(this)
+//                .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
+//                .setBootExtra(bootExtra)
+//                .setUX(UX.BOOTPAY_REMOTE_PRE)
+////                .setUserPhone("010-1234-5678") // 구매자 전화번호
+//                .setName("맥\"북프로's 임다") // 결제할 상품명
+//                .setOrderId("1234") // 결제 고유번호expire_month
+//                .setRemoteOrderPre(pre)
+////                .setAccountExpireAt("2018-09-22") // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
+////                .setQuotas(new int[] {0,2,3}) // 일시불, 2개월, 3개월 할부 허용, 할부는 최대 12개월까지 사용됨 (5만원 이상 구매시 할부허용 범위)
+//
+//                .setPrice(10000) // 결제할 금액
+//                .addItem("마우's 스", 1, "ITEM_CODE_MOUSE", 100) // 주문정보에 담길 상품정보, 통계를 위해 사용
+//                .addItem("키보드", 1, "ITEM_CODE_KEYBOARD", 200, "패션", "여성상의", "블라우스") // 주문정보에 담길 상품정보, 통계를 위해 사용
+//                .request();
+//
+//    }
 }
 

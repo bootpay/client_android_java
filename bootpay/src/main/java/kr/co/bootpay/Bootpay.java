@@ -13,6 +13,7 @@ import android.util.Log;
 
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 
+import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.pref.UserInfo;
 
@@ -106,6 +107,7 @@ public class Bootpay {
         return builder = new BootpayBuilder(context);
     }
 
+
     /******************
      * 부트페이 일반결제 관련 로직
      ******************/
@@ -122,6 +124,11 @@ public class Bootpay {
         return builder = new BootpayBuilder(fragmentManager);
     }
 
+    public static BootpayBuilder init(androidx.fragment.app.FragmentManager fragmentManager) {
+//        fragmentManager.c
+        return builder = new BootpayBuilder(fragmentManager);
+    }
+
     public static void finish() {
         builder = null;
     }
@@ -132,5 +139,48 @@ public class Bootpay {
 
     public static void removePaymentWindow() {
         if (builder != null) builder.removePaymentWindow();
+    }
+
+    public static void dismiss() {
+        if (builder != null) builder.dismiss();
+    }
+
+    public static String getPG(PG pg) {
+        switch (pg) {
+            case BOOTPAY:
+                return "bootpay";
+            case PAYAPP:
+                return "payapp";
+            case DANAL:
+                return "danal";
+            case KCP:
+                return "kcp";
+            case INICIS:
+                return "inicis";
+            case LGUP:
+                return "lgup";
+            case KAKAO:
+                return "kakao";
+            case EASYPAY:
+            case KICC:
+                return "easypay";
+            case TPAY:
+            case JTNET:
+                return "tpay";
+            case MOBILIANS:
+                return "mobilians";
+            case PAYLETTER:
+                return "payletter";
+            case NICEPAY:
+                return "nicepay";
+            case PAYCO:
+                return "payco";
+            case ONESTORE:
+                return "onestore";
+            case WELCOME:
+                return "welcome";
+            default:
+                return "";
+        }
     }
 }
