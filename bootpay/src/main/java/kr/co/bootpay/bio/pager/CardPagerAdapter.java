@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import java.util.ArrayList;
 
 import kr.co.bootpay.bio.BootpayBioDialog;
+import kr.co.bootpay.bio.activity.BootpayBioActivity;
 import kr.co.bootpay.model.bio.BioWallet;
 import kr.co.bootpay.model.bio.BioWalletData;
 
@@ -17,6 +18,7 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
     private BioWalletData data;
     private BootpayBioDialog bootpayBioDialog;
+    private BootpayBioActivity parent;
 
     public CardPagerAdapter(FragmentManager fm, Context context) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -42,9 +44,13 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
         this.bootpayBioDialog = bootpayBioDialog;
     }
 
+    public void setParent(BootpayBioActivity parent) {
+        this.parent = parent;
+    }
+
     @Override
     public Fragment getItem(int position) {
-        CardFragment obj = CardFragment.newInstance(bootpayBioDialog, data.user, data.wallets.card.get(position), context);
+        CardFragment obj = CardFragment.newInstance(parent, data.user, data.wallets.card.get(position), context);
         obj.updateView();
         return obj;
     }

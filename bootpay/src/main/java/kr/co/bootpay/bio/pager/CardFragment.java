@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import kr.co.bootpay.R;
 import kr.co.bootpay.bio.BootpayBioDialog;
 import kr.co.bootpay.bio.CardCode;
+import kr.co.bootpay.bio.activity.BootpayBioActivity;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.model.bio.BioDeviceUse;
 import kr.co.bootpay.model.bio.BioWallet;
@@ -32,14 +33,14 @@ public class CardFragment extends Fragment {
 
     ImageView new_card;
     TextView other;
-    BootpayBioDialog bootpayBioDialog;
+    BootpayBioActivity parent;
 
-    public static CardFragment newInstance(BootpayBioDialog bootpayBioDialog, BioDeviceUse user, BioWallet bioWallet, Context context) {
+    public static CardFragment newInstance(BootpayBioActivity parent, BioDeviceUse user, BioWallet bioWallet, Context context) {
         CardFragment fragment = new CardFragment();
         fragment.bioWallet = bioWallet;
         fragment.context = context;
         fragment.user = user;
-        fragment.bootpayBioDialog = bootpayBioDialog;
+        fragment.parent = parent;
         return fragment;
     }
 
@@ -131,20 +132,20 @@ public class CardFragment extends Fragment {
     }
 
     void goCardClick() {
-        if(bootpayBioDialog != null) bootpayBioDialog.startBioPay(user, bioWallet);
+        if(parent != null) parent.startBioPay(user, bioWallet);
     }
 
 //    void goVerify
 
     void verifyPassword () {
-        if(bootpayBioDialog != null) bootpayBioDialog.goVeiryPassword();
+        if(parent != null) parent.goVeiryPassword();
     }
 
     void goNewCard() {
-        if(bootpayBioDialog != null) bootpayBioDialog.goNewCardActivity();
+        if(parent != null) parent.goNewCardActivity();
     }
 
     void goOther() {
-        if(bootpayBioDialog != null) bootpayBioDialog.goOtherActivity();
+        if(parent != null) parent.goOtherActivity();
     }
 }

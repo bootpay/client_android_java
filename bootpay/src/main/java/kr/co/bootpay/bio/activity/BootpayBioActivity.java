@@ -40,6 +40,8 @@ import kr.co.bootpay.bio.api.BioApiPresenter;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.bio.pager.CardPagerAdapter;
 import kr.co.bootpay.bio.pager.CardViewPager;
+import kr.co.bootpay.listener.ConfirmListener;
+import kr.co.bootpay.listener.DoneListener;
 import kr.co.bootpay.listener.EventListener;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.bio.BioDeviceUse;
@@ -59,7 +61,6 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
 
     private Context context;
     private Request request;
-    private EventListener listener;
     private BioApiPresenter presenter;
 
     // data
@@ -94,6 +95,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         request = CurrentBioRequest.getInstance().request;
         if(request != null) bioPayload = request.getBioPayload();
 
+        CurrentBioRequest.getInstance().bioActivity = this;
+
         initView();
         getEasyCardWalletList();
         initBiometricAuth();
@@ -102,7 +105,14 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     }
 
     @Override
+    protected void onDestroy() {
+        CurrentBioRequest.getInstance().bioActivity = null;
+        super.onDestroy();
+    }
+
+    @Override
     public void finish() {
+        CurrentBioRequest.getInstance().bioActivity = null;
         super.finish();
         overridePendingTransition(R.anim.open, R.anim.close);
     }
@@ -115,6 +125,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         msg = findViewById(R.id.msg);
         card_pager = findViewById(R.id.card_pager);
         cardPagerAdapter = new CardPagerAdapter(getSupportFragmentManager(), this.context);
+        cardPagerAdapter.setParent(this);
 //        cardPagerAdapter.setDialog(bootpayBioDialog);
         card_pager.setAdapter(cardPagerAdapter);
         card_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -340,6 +351,18 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         });
     }
 
+    public void transactionConfirm(String data) {
+        try {
+            ResReceiptID res = new Gson().fromJson(data, ResReceiptID.class);
+
+            String uuid = UserInfo.getInstance(context).getBootpayUuid();
+            String userToken = request.getEasyPayUserToken();
+            presenter.postEasyConfirm(uuid, userToken, res.data.receipt_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void callbacktEasyBiometricRegister(ResEasyBiometric res) {
         if(res.code != 0) {
@@ -373,12 +396,14 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             return;
         }
         receiptID = res;
-        if(listener != null) listener.onConfirm(new Gson().toJson(receiptID));
+        ConfirmListener confirm = CurrentBioRequest.getInstance().confirm;
+        if(confirm != null) confirm.onConfirm(new Gson().toJson(receiptID));
     }
 
     @Override
     public void callbackEasyTransaction(String data) {
-        if(listener != null) listener.onDone(data);
+        DoneListener done = CurrentBioRequest.getInstance().done;
+        if(done != null) done.onDone(data);
     }
 
     private Executor executor;

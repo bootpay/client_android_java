@@ -57,6 +57,7 @@ public class BootpayBuilder {
     private BootpayDialog dialog;
 //    private BootpayBioDialog bioDialog;
     private ApiPresenter presenter;
+    boolean isBioIntent = false;
 //    private String
 
 
@@ -507,6 +508,7 @@ public class BootpayBuilder {
         if(confirm != null) CurrentBioRequest.getInstance().confirm = confirm;
         if(done != null) CurrentBioRequest.getInstance().done = done;
 
+        isBioIntent = true;
         CurrentBioRequest.getInstance().request = request;
 
         Intent intent = new Intent(context, BootpayBioActivity.class);
@@ -660,6 +662,15 @@ public class BootpayBuilder {
     public void transactionConfirm(String data) {
         if (dialog != null)
             dialog.transactionConfirm(data);
+        if(isBioIntent == true) {
+            if(CurrentBioRequest.getInstance().bioActivity != null)
+                CurrentBioRequest.getInstance().bioActivity.transactionConfirm(data);
+//            String method_name= getIntent.getIntExtra("method_name");
+//            Class<?> c = Class.forName("class name");
+//            Method  method = c.getDeclaredMethod (method_name, parameterTypes)
+//            method.invoke (objectToInvokeOn, params)
+        }
+
 //        if(bioDialog != null)
 //            bioDialog.transactionConfirm(data);
     }
@@ -671,6 +682,10 @@ public class BootpayBuilder {
 
     public void dismiss() {
         if(dialog != null) dialog.dismiss();
+        if(isBioIntent == true) {
+            if(CurrentBioRequest.getInstance().bioActivity != null)
+                CurrentBioRequest.getInstance().bioActivity.finish();
+        }
 //        if(bioDialog != null) {
 //            if(CurrentBioRequest.getInstance().type != CurrentBioRequest.REQUEST_TYPE_OTHER)
 //                bioDialog.dismiss();
