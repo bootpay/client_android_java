@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 import kr.co.bootpay.Bootpay;
@@ -35,6 +38,16 @@ public final class BootExtra {
 
     public final String getApp_scheme() {
         return this.app_scheme;
+    }
+
+    public List<Integer> getQuotas() {
+        if(quotas == null) return null;
+
+        List<Integer> intList = new ArrayList<Integer>(quotas.length);
+        for (int i : quotas) {
+            intList.add(i);
+        }
+        return intList;
     }
 
     public final void setApp_scheme(String value) {
@@ -82,6 +95,8 @@ public final class BootExtra {
         this.quotas = value;
         return this;
     }
+
+
  
     public final BootExtra setAppScheme(String value) {
         this.app_scheme = value;

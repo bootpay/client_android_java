@@ -27,7 +27,7 @@ public class CurrentBioRequest {
     public int type = -1;
     public String token;
 
-    public long start_window_time = System.currentTimeMillis() - 2000;
+    public long start_window_time = System.currentTimeMillis() - 3000;
 
     public static final int REQUEST_TYPE_NONE = -1;
     public static final int REQUEST_TYPE_VERIFY_PASSWORD = 1; // 생체인식 활성화용도

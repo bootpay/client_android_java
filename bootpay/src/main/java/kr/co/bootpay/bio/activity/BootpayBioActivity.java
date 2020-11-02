@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,8 +26,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.gson.Gson;
+import com.skydoves.powerspinner.PowerSpinnerView;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executor;
 
 import dev.samstevens.totp.code.CodeGenerator;
@@ -82,6 +86,9 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     BioWalletData data;
     CardViewPager card_pager;
     CardPagerAdapter cardPagerAdapter;
+    PowerSpinnerView quota_spinner;
+    LinearLayout quota_layout;
+    View quota_line;
     int currentIndex = 0;
 
     @Override
@@ -102,6 +109,28 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         initBiometricAuth();
         setNameViews();
         setPriceViews();
+        setQuotaValue();
+    }
+
+    void setQuotaValue() {
+        if(request == null) return;
+        quota_layout.setVisibility(request.getPrice() < 50000 ? View.GONE : View.VISIBLE);
+        quota_line.setVisibility(request.getPrice() < 50000 ? View.GONE : View.VISIBLE);
+        if(request.getPrice() < 50000) return;
+        List<String> array = getQuotaList();
+        if(array == null) return;
+        quota_spinner.setItems(array);
+        quota_spinner.selectItemByIndex(0);
+    }
+
+    List<String> getQuotaList() {
+        List<String> result = new ArrayList<>();
+        if(request.getBootExtra(this) == null || request.getBootExtra(this).getQuotas() == null) return  null;
+        for(Integer i : request.getBootExtra(this).getQuotas()) {
+            if(i == 0) result.add("일시불");
+            else result.add((i+1) + "개월");
+        }
+        return result;
     }
 
     @Override
@@ -124,6 +153,9 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         prices = findViewById(R.id.prices);
         msg = findViewById(R.id.msg);
         card_pager = findViewById(R.id.card_pager);
+        quota_layout = findViewById(R.id.quota_layout);
+        quota_spinner = findViewById(R.id.quota_spinner);
+        quota_line = findViewById(R.id.quota_line);
         cardPagerAdapter = new CardPagerAdapter(getSupportFragmentManager(), this.context);
         cardPagerAdapter.setParent(this);
 //        cardPagerAdapter.setDialog(bootpayBioDialog);
@@ -219,11 +251,37 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             layout.addView(right);
             prices.addView(layout);
         }
+
+        LinearLayout layout = new LinearLayout(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout.setOrientation(LinearLayout.HORIZONTAL);
+        layout.setLayoutParams(params);
+
+
+        TextView left = new TextView(context);
+        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+        left.setLayoutParams(params1);
+        left.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        left.setTypeface(left.getTypeface(), Typeface.BOLD);
+        left.setText("총 결제금액");
+        left.setTextColor(getResources().getColor(R.color.black, null));
+        layout.addView(left);
+
+        TextView right = new TextView(context);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+        right.setLayoutParams(params2);
+        right.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
+        right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        right.setTypeface(left.getTypeface(), Typeface.BOLD);
+        right.setText(getComma(request.getPrice()));
+        right.setTextColor(getResources().getColor(R.color.black, null));
+        layout.addView(right);
+        prices.addView(layout);
     }
 
     private String getComma(double value) {
         DecimalFormat myFormatter = new DecimalFormat("###,###");
-        return myFormatter.format(value);
+        return myFormatter.format(value) + "원";
     }
 
     public void setCardPager(final BioWalletData data) {

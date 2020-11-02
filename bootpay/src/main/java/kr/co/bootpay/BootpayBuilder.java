@@ -447,13 +447,14 @@ public class BootpayBuilder {
         if(context == null) {
             throw new IllegalStateException("context cannot be null from " + request.getUX().toString());
         }
+        final long current = System.currentTimeMillis();
+        CurrentBioRequest.getInstance().start_window_time = current;
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
-                long current = System.currentTimeMillis();
-                if(current - CurrentBioRequest.getInstance().start_window_time > 1000) {
-                    CurrentBioRequest.getInstance().start_window_time = current;
+
+                if(current - CurrentBioRequest.getInstance().start_window_time > 2000) {
                     requestBioDialog();
                 }
             }

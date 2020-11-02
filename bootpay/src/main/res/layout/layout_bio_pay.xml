@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -92,7 +92,6 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"/>
 
             <LinearLayout
@@ -103,6 +102,62 @@
                 android:layout_weight="4"/>
         </LinearLayout>
         <View
+            android:layout_width="match_parent"
+            android:background="@color/bg_dialog"
+            android:layout_height="0.5dp"/>
+
+        <LinearLayout
+            android:id="@+id/quota_layout"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text="카드할부"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <com.skydoves.powerspinner.PowerSpinnerView
+                android:id="@+id/quota_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@color/black80"
+                android:gravity="center"
+                android:hint="Question 1"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14sp"
+                app:spinner_arrow_tint="@color/black"
+                app:spinner_arrow_gravity="end"
+                app:spinner_arrow_padding="8dp"
+                app:spinner_divider_color="@color/black"
+                app:spinner_divider_show="true"
+                app:spinner_divider_size="0.4dp"
+                app:spinner_popup_animation="dropdown"
+                app:spinner_popup_background="@color/bg_white"
+                app:spinner_popup_elevation="14dp" />
+
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/quota_line"
             android:layout_width="match_parent"
             android:background="@color/bg_dialog"
             android:layout_height="0.5dp"/>
@@ -130,8 +185,7 @@
                 android:text="이 카드로 결제합니다"
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
