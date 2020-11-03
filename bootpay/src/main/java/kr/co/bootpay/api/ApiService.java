@@ -57,7 +57,7 @@ public class ApiService {
                 .create();
 
         api =  new Retrofit.Builder()
-                .baseUrl("https://dev-api.bootpay.co.kr")
+                .baseUrl("https://api.bootpay.co.kr")
                 .client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))

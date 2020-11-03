@@ -23,6 +23,7 @@ import kr.co.bootpay.listener.ReadyListener;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 import kr.co.bootpay.model.BootExtra;
+import kr.co.bootpay.model.Payload;
 import kr.co.bootpay.model.StatItem;
 import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.rest.BootpayRest;
@@ -74,21 +75,30 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
 
     void goPGPay() {
         BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com").setPhone("010-1234-2314");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3}).setPopup(1).setQuickPopup(1);
+        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {1,2,3}).setPopup(1).setQuickPopup(1);
+
+//        Payload payload = new Payload();
+//        payload.setOrder_id("1232352354")
+//                .setApplication_id(application_id)
+//                .setName("bootpay kb card test")
+//                .setPg(PG.DANAL)
+//                .setMethod(Method.CARD)
+//                .setPrice(1000.0);
 
 //        bootExtra.setEscrow(1);
 
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.KCP) // 결제할 PG 사
-                .setMethod(Method.NPAY)
+                .setPG(PG.DANAL) // 결제할 PG 사
+                .setMethod(Method.CARD)
 //                .setEasyPayUserToken("wef")
 //                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
 
 
+//                .setMo
                 .setOrderId("1234")
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)

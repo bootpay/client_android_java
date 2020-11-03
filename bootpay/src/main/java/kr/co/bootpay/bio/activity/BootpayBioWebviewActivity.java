@@ -22,6 +22,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
 
         CurrentBioRequest.getInstance().listener = this;
 
+
         setContentView(R.layout.layout_bio_activity);
         webView = findViewById(R.id.webview);
     }

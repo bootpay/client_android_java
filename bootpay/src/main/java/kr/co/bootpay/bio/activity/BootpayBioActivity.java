@@ -1,10 +1,14 @@
 package kr.co.bootpay.bio.activity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,9 +16,11 @@ import android.os.PersistableBundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +65,6 @@ import kr.co.bootpay.model.res.ResWalletList;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayBioRestImplement;
 
-import static android.view.View.TEXT_ALIGNMENT_TEXT_END;
 
 public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement {
 
@@ -91,6 +96,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     View quota_line;
     int currentIndex = 0;
 
+    ProgressDialog progress;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +108,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         this.presenter = new BioApiPresenter(new ApiService(this.context), this);
         request = CurrentBioRequest.getInstance().request;
         if(request != null) bioPayload = request.getBioPayload();
+        initProgressCircle();
 
         CurrentBioRequest.getInstance().bioActivity = this;
 
@@ -110,6 +118,20 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         setNameViews();
         setPriceViews();
         setQuotaValue();
+    }
+
+    void initProgressCircle() {
+        progress = new ProgressDialog(context, R.style.BootpayDialogStyle);
+
+        progress.setIndeterminate(true);
+        progress.setCancelable(false);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            Drawable drawable = new ProgressBar(this).getIndeterminateDrawable().mutate();
+            drawable.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent),
+                    PorterDuff.Mode.SRC_IN);
+            progress.setIndeterminateDrawable(drawable);
+        }
     }
 
     void setQuotaValue() {
@@ -216,7 +238,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         for(String name : bioPayload.getNames()) {
             TextView text = new TextView(context);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            text.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
+//            text.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
+            text.setGravity(Gravity.RIGHT);
             text.setLayoutParams(params);
             text.setText(name);
             text.setTextColor(getResources().getColor(R.color.black, null));
@@ -244,7 +267,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             TextView right = new TextView(context);
             LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
             right.setLayoutParams(params2);
-            right.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
+            right.setGravity(Gravity.RIGHT);
+//            right.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
             right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             right.setText(getComma(bioPrice.getPrice()));
             right.setTextColor(getResources().getColor(R.color.black, null));
@@ -270,7 +294,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         TextView right = new TextView(context);
         LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         right.setLayoutParams(params2);
-        right.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
+        right.setGravity(Gravity.RIGHT);
+//        right.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
         right.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         right.setTypeface(left.getTypeface(), Typeface.BOLD);
         right.setText(getComma(request.getPrice()));
@@ -336,7 +361,20 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             }
             otp = getOTPValue(key);
         }
+
+        showProgress("결제 요청중");
         presenter.postEasyCardRequest(uuid, userToken, otp, passwordToken, bioWallet.wallet_id, "", CurrentBioRequest.getInstance().request.getPayload());
+    }
+
+    void showProgress(final String msg) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                progress.setMessage(msg);
+                progress.show();
+            }
+        });
     }
 
     String getOTPValue(String key) {
@@ -359,6 +397,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(uuid == null || "".equals(uuid)) { Log.d("bootpay", "uuid 값이 없습니다"); return; }
         if(userToken == null || "".equals(userToken)) { Log.d("bootpay", "userToken 값이 없습니다"); return; }
 
+        showProgress("결제권한 추가중");
         presenter.postEasyBiometric(uuid, userToken, passwordToken);
     }
 
@@ -373,6 +412,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if("".equals(otp)) return;
         String uuid = UserInfo.getInstance(context).getBootpayUuid();
         String userToken = request.getEasyPayUserToken();
+
+        showProgress("결제 요청중");
         presenter.postEasyBiometricRegister(uuid, userToken, otp);
     }
 
@@ -380,10 +421,12 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
 
     @Override
     public void callbackEasyBiometric(ResEasyBiometric res) {
+        progress.dismiss();
         if(res.code != 0) {
             goPopUpError(res.message);
             return;
         }
+
         easyBiometric = res;
         server_unixtime = res.data.server_unixtime;
         saveBiometricKey();
@@ -415,6 +458,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
 
             String uuid = UserInfo.getInstance(context).getBootpayUuid();
             String userToken = request.getEasyPayUserToken();
+
+            showProgress("결제 승인중");
             presenter.postEasyConfirm(uuid, userToken, res.data.receipt_id);
         } catch (Exception e) {
             e.printStackTrace();
@@ -423,6 +468,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
 
     @Override
     public void callbacktEasyBiometricRegister(ResEasyBiometric res) {
+        progress.dismiss();
         if(res.code != 0) {
             goPopUpError(res.message);
             return;
@@ -442,13 +488,14 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         server_unixtime = res.data.user.server_unixtime;
         setCardPager(res.data);
         if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_REGISTER_CARD) {
-            goBiometricAuth();
+            goPopup("이 기기에서 결제할 수 있도록 설정합니다. (최초 1회)");
         }
     }
 
 
     @Override
     public void callbackEasyCardRequest(ResReceiptID res) {
+        progress.dismiss();
         if(res.code != 0) {
             goPopUpError(res.message);
             return;
@@ -460,6 +507,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
 
     @Override
     public void callbackEasyTransaction(String data) {
+        progress.dismiss();
         DoneListener done = CurrentBioRequest.getInstance().done;
         if(done != null) done.onDone(data);
     }
@@ -513,7 +561,13 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     }
 
     void goBiometricAuth() {
-        biometricPrompt.authenticate(promptInfo);
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                biometricPrompt.authenticate(promptInfo);
+            }
+        });
     }
 
     void goPopUpVerifyForPay() {
@@ -522,7 +576,6 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         handler.post(new Runnable() {
             @Override
             public void run() {
-
                 isBioFailPopUp = true;
                 AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogStyle);
                 builder.setMessage("지문인식에 여러 번 실패하여, 비밀번호로 결제합니다.");
@@ -575,23 +628,58 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     }
 
 
-    void goPopup(String msg) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogStyle);
-//        builder.se
-        builder.setMessage(msg);
-        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+    void goPopup(final String msg) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                CurrentBioRequest.getInstance().type = CurrentBioRequest.REQUEST_TYPE_ENABLE_DEVICE;
-                goVeiryPassword();
-            }
-        }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogStyle);
+                builder.setMessage(msg);
+                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        CurrentBioRequest.getInstance().type = CurrentBioRequest.REQUEST_TYPE_ENABLE_DEVICE;
+                        goVeiryPassword();
+                    }
+                }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 9999 && resultCode > 0) {
+            //wallet 재갱신
+            if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD) {
+                //지문인식 후
+                goRegisterBiometricRequest();
+            } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_ENABLE_DEVICE) {
+                //지문인식 후
+                goRegisterBiometricRequest();
+                //otp 등록해야함
+            } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD_FOR_PAY) {
+                //비밀번호로 결제
+                if(CurrentBioRequest.getInstance().token != null) goBioPayRequest(CurrentBioRequest.getInstance().token);
+            } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_REGISTER_CARD) {
+                //카드를 등록 했음
+                getEasyCardWalletList();
+            } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_PASSWORD_CHANGE) {
+                //카드를 등록 했음
+                getEasyCardWalletList();
+            } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_OTHER) {
+                Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(10);
+                finish();
+            }
+        }
     }
 }

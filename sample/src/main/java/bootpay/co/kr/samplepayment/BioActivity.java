@@ -49,7 +49,7 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
         webview = findViewById(R.id.webview);
         bottom = findViewById(R.id.bottom);
 
-        String url = "http://www.pippin.co.kr/shop/shopdetail.html?branduid=222486&xcode=016&mcode=001&scode=&sort=manual&cur_code=016&da_ref=Yz10UnNFVVI";
+        String url = "https://devtest219.shop.blogpay.co.kr/view/good/2Fd3D";
         loadWebViewLoad(webview, url);
     }
 
@@ -62,18 +62,18 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
         webview.loadUrl(url);
     }
 
-    //이  로직은 서버사이드에서 수행되길 추천합니다. rest_application_id와 private_key는 절대로 노출되어서는 안되는 값입니다.
+    //이 로직은 서버사이드에서 수행되길 추천합니다. rest_application_id와 private_key는 절대로 노출되어서는 안되는 값입니다.
     //안드로이드에서 사용시 언제나 디컴파일이나 메모리 해킹등으로부터 노출될 수 있으니, 서버사이드에서 수행하셔야 합니다.
     //만약 이 값이 노출될 경우, 고객이 등록한 지불수단에 대하여 다른 고객이 결제를 진행하는 대참사가 일어날 수 있는데
     //개발자의 부주의로 이런 현상이 발생할 경우, 부트페이는 책임이 없음을 밝힙니다.
     //샘플 코드를 제공하는 이유는 빠르게 결제를 테스트 하길 원하시는 개발자들을 위함입니다.
     public void goBioPay(View v) {
 
-//        String rest_application_id = "5b8f6a4d396fa665fdc2b5ea";
-//        String prviate_key = "n9jO7MxVFor3o//c9X5tdep95ZjdaiDvVB4h1B5cMHQ=";
+        String rest_application_id = "5b8f6a4d396fa665fdc2b5ea";
+        String prviate_key = "n9jO7MxVFor3o//c9X5tdep95ZjdaiDvVB4h1B5cMHQ=";
 
-        String rest_application_id = "5b9f51264457636ab9a07cde";
-        String prviate_key = "sfilSOSVakw+PZA+PRux4Iuwm7a//9CXXudCq9TMDHk=";
+//        String rest_application_id = "5b9f51264457636ab9a07cde";
+//        String prviate_key = "sfilSOSVakw+PZA+PRux4Iuwm7a//9CXXudCq9TMDHk=";
 
         BootpayRest.getRestToken(this, this, rest_application_id, prviate_key);
     }
@@ -82,7 +82,7 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
     @Override
     public void callbackRestToken(RestTokenData acessToken) {
 //        String user_id =  String.valueOf(System.currentTimeMillis()); //고유 user_id로 고객별로 유니크해야하며, 다른 고객과 절대로 중복되어서는 안됩니다
-        String user_id = "1234_1234_121443";
+        String user_id = "1234_1234_1214434115";
 
         BootUser user = new BootUser();
         user.setID(user_id);
@@ -99,14 +99,24 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
     @Override
     public void callbackEasyPayUserToken(RestEasyPayUserTokenData userToken) {
 
+        String easyUserToken = userToken.user_token;
+
         BootUser bootUser = new BootUser().setPhone("010-1234-5678");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3}).setPopup(1).setQuickPopup(1);
 //
-        String application_id = "5b9f51264457636ab9a07cdc";
+//        String application_id = "5b9f51264457636ab9a07cdc";
+        String application_id = "5b8f6a4d396fa665fdc2b5e8";
+
         BioPayload bioPayload = new BioPayload();
-        bioPayload.setPg(PG.PAYAPP).setName("bootpay test").setPrice(1000.0).setOrder_id("1235").setName("플리츠레이어 카라숏원피스")
-                .setNames(Arrays.asList("플리츠레이어 카라숏원피", "블랙 (COLOR)", "55 (SIZE)"))
-                .setPrices(Arrays.asList(new BioPrice("상품가격", 89000.0), new BioPrice("쿠폰적용", -25000.0), new BioPrice("배송비", 2500.0)));
+        bioPayload.setPg(PG.PAYAPP)
+                .setName("bootpay test")
+                .setPrice(89000.0) //최종 결제 금액
+                .setOrder_id(String.valueOf(System.currentTimeMillis())) //개발사에서 관리하는 주문번호
+                .setName("플리츠레이어 카라숏원피스")
+                .setNames(Arrays.asList("플리츠레이어 카라숏원피", "블랙 (COLOR)", "55 (SIZE)")) //결제창에 나타날 상품목록
+                .setPrices(Arrays.asList(new BioPrice("상품가격", 89000.0),  //결제창에 나타날 가격목록
+                        new BioPrice("쿠폰적용", -25000.0),
+                        new BioPrice("배송비", 2500.0)));
 //        bioPayload.setNames()
 
         int stuck = 1; // 재고는 있다고 치자
@@ -114,12 +124,10 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
         Bootpay.init(getSupportFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-//                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
-                .setOrderId(String.valueOf(System.currentTimeMillis()))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
                 .setBioPayload(bioPayload)
-                .setEasyPayUserToken(userToken.user_token)
+                .setEasyPayUserToken(easyUserToken)
 //                .seteas
                 .setAccountExpireAt("2019-07-16")
                 .addItem("마우스", 1, "ITEM_CODE_MOUSE", 500) // 주문정보에 담길 상품정보, 통계를 위해 사용

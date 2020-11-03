@@ -30,7 +30,7 @@
 
         <ImageView
             android:id="@+id/card_chip"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/card_chip"
             android:scaleType="fitStart"
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:id="@+id/bank_num"
             android:text="NICEPAY2"
             android:textSize="12sp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -48,8 +48,8 @@
             android:id="@+id/new_card"
             android:src="@drawable/plus"
             android:layout_gravity="center"
-            android:layout_width="35dp"
-            android:layout_height="35dp"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
         <TextView
             android:id="@+id/other"
             android:text="다른 결제수단"

@@ -221,7 +221,7 @@ public class BootpayBioWebView extends WebView {
                     isLoaded = true;
                     setDevice();
                     setAnalyticsData();
-                    setDevelopMode();
+//                    setDevelopMode();
 //                    useOneStoreApi();
 //                    if(extraJson())
 

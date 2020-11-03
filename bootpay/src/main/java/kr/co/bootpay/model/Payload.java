@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.bootpay.Bootpay;
+import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
 
 public class Payload {
@@ -75,6 +76,10 @@ public class Payload {
 
     public Payload setMethod(String method) {
         this.method = method;
+        return this;
+    }
+    public Payload setMethod(Method method) {
+        this.method = method.name();
         return this;
     }
 

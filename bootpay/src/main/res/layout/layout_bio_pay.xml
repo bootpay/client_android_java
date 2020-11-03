@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="16sp"
-                android:textAlignment="textEnd"
+                android:gravity="right"
                 android:textColor="@color/black"
                 android:text="취소"/>
 
@@ -120,23 +120,28 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="2"/>
 
             <TextView
                 android:text="카드할부"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
             <com.skydoves.powerspinner.PowerSpinnerView
                 android:id="@+id/quota_spinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="5"
                 android:background="@color/black80"
-                android:gravity="center"
+                android:gravity="right"
                 android:hint="Question 1"
                 android:padding="10dp"
                 android:textColor="@color/black"
@@ -164,7 +169,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:paddingTop="15dp"
-            android:paddingBottom="25dp"
+            android:paddingBottom="20dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:gravity="center"
@@ -174,7 +179,7 @@
             <kr.co.bootpay.bio.pager.CardViewPager
                 android:id="@+id/card_pager"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="190dp"
                 android:layout_gravity="center" />
 
 
@@ -185,7 +190,7 @@
                 android:text="이 카드로 결제합니다"
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="12.5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

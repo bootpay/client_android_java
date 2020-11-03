@@ -24,5 +24,8 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="BootpayDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
 
 </resources>

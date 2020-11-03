@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Locale;
 
 import kr.co.bootpay.listener.EventListener;
+import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.Item;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.pref.UserInfo;
@@ -171,6 +172,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent intent = parse(url);
+
 
 //                Log.d("bootpay url", url);
 
@@ -449,7 +451,21 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
     private String extraJson() {
         if(request.getBootExtra(getContext()) == null) return "";
         if(request.getBootExtra(getContext()).toJson().length() == 0) return "";
-        return String.format(Locale.KOREA, "extra: %s", request.getBoot_extra().toJson());
+        BootExtra extra = request.getBoot_extra();
+        if("danal".equals(request.getPG())) {
+            List<Integer> quotas = extra.getQuotas();
+            int index = quotas.indexOf(1);
+            if(index <= -1) return String.format(Locale.KOREA, "extra: %s", extra.toJson());
+            quotas.remove(index);
+
+            int[] arr = new int[quotas.size()];
+            for(int i = 0; i < quotas.size(); i++) {
+                arr[i] = quotas.get(i);
+            }
+
+            extra.setQuotas(arr);
+        }
+        return String.format(Locale.KOREA, "extra: %s", extra.toJson());
     }
 
     private String listToString(List<String> array) {

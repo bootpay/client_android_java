@@ -244,6 +244,7 @@ public class Request {
         if(params.length() == 0) params = bioPayload.params;
         if(name.length() == 0) name = bioPayload.name;
         if(easyPayUserToken == null || easyPayUserToken.length() == 0) easyPayUserToken = bioPayload.easy_pay_user_token;
+        if(order_id.length() == 0) order_id = bioPayload.order_id;
     }
 
     public Payload getPayload() {
