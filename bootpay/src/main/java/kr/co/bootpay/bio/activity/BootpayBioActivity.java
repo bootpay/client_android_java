@@ -51,6 +51,7 @@ import kr.co.bootpay.bio.api.BioApiPresenter;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.bio.pager.CardPagerAdapter;
 import kr.co.bootpay.bio.pager.CardViewPager;
+import kr.co.bootpay.listener.CancelListener;
 import kr.co.bootpay.listener.ConfirmListener;
 import kr.co.bootpay.listener.DoneListener;
 import kr.co.bootpay.listener.EventListener;
@@ -105,6 +106,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
+            CancelListener cancel = CurrentBioRequest.getInstance().cancel;
+            if(cancel != null) cancel.onCancel("사용자가 창을 닫았습니다");
             super.onBackPressed();
             return;
         }
@@ -230,24 +233,22 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CancelListener cancel = CurrentBioRequest.getInstance().cancel;
+                if(cancel != null) cancel.onCancel("사용자가 창을 닫았습니다");
                 finish();
-//                if(scope.bootpayBioDialog != null) scope.bootpayBioDialog.dismiss();
             }
         });
         findViewById(R.id.barcode).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                clearCardPager();
-
-//                if(data == null || data.wallets == null || data.wallets.card == null || data.wallets.card.size() <= currentIndex) return;
-//                if(data.wallets.card.get(currentIndex).wallet_type == -1) {
-//                    startBioPay(data.user, data.wallets.card.get(currentIndex));
-//                } else if(data.wallets.card.get(currentIndex).wallet_type == 1) {
-//                    goNewCardActivity();
-//                } else if(data.wallets.card.get(currentIndex).wallet_type == 2) {
-//                    goOtherActivity();
-//                }
+                if(data == null || data.wallets == null || data.wallets.card == null || data.wallets.card.size() <= currentIndex) return;
+                if(data.wallets.card.get(currentIndex).wallet_type == -1) {
+                    startBioPay(data.user, data.wallets.card.get(currentIndex));
+                } else if(data.wallets.card.get(currentIndex).wallet_type == 1) {
+                    goNewCardActivity();
+                } else if(data.wallets.card.get(currentIndex).wallet_type == 2) {
+                    goOtherActivity();
+                }
             }
         });
 //        getFra
