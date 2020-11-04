@@ -25,6 +25,14 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
         this.context = context;
     }
 
+    public void removeData() {
+        if(this.data == null) return;
+        if(this.data.wallets == null) return;
+        if(this.data.wallets.card == null) this.data.wallets.card = new ArrayList<>();
+        data.wallets.card.clear();
+    }
+
+
     public void setData(BioWalletData data) {
         this.data = data;
         if(this.data == null) return;

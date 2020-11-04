@@ -31,6 +31,7 @@ import kr.co.bootpay.model.BootExtra;
 import kr.co.bootpay.model.BootUser;
 import kr.co.bootpay.model.bio.BioPayload;
 import kr.co.bootpay.model.bio.BioPrice;
+import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayRest;
 import kr.co.bootpay.rest.BootpayRestImplement;
 import kr.co.bootpay.rest.model.RestEasyPayUserTokenData;
@@ -82,7 +83,7 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
     @Override
     public void callbackRestToken(RestTokenData acessToken) {
 //        String user_id =  String.valueOf(System.currentTimeMillis()); //고유 user_id로 고객별로 유니크해야하며, 다른 고객과 절대로 중복되어서는 안됩니다
-        String user_id = "1234_1234_1214434115";
+        String user_id = UserInfo.getInstance(this).getBootpayUuid(); // 실제값을 적용하실 때에는, 관리하시는 user_id를 입력해주세요.
 
         BootUser user = new BootUser();
         user.setID(user_id);

@@ -1,30 +1,62 @@
 package kr.co.bootpay.bio.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import kr.co.bootpay.R;
+import kr.co.bootpay.api.ApiService;
+import kr.co.bootpay.bio.api.BioApiPresenter;
 import kr.co.bootpay.bio.listener.BioEventListener;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.res.EventSuccessDevice;
+import kr.co.bootpay.model.res.ResReceiptID;
+import kr.co.bootpay.pref.UserInfo;
 
 public class BootpayBioWebviewActivity extends Activity implements BioEventListener {
 
+//    Context context;
+//    BioApiPresenter presenter;
+//    Request request;
     BootpayBioWebView webView;
+
+
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "'뒤로' 버튼을 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         CurrentBioRequest.getInstance().listener = this;
-
+        CurrentBioRequest.getInstance().webActivity = this;
 
         setContentView(R.layout.layout_bio_activity);
         webView = findViewById(R.id.webview);
+    }
+
+    public void transactionConfirm(String data) {
+        webView.transactionConfirm(data);
     }
 
 
@@ -55,11 +87,12 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
         } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD_FOR_PAY) {
             EventSuccessDevice res = new Gson().fromJson(data, EventSuccessDevice.class);
             CurrentBioRequest.getInstance().token = res.data.token;
-            finish();
+//            finish();
         } else if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_OTHER) {
             finish();
         }
     }
+
 
     @Override
     public void onError(String data) {

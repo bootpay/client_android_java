@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -65,6 +66,8 @@ import kr.co.bootpay.model.res.ResWalletList;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayBioRestImplement;
 
+import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
+
 
 public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement {
 
@@ -97,6 +100,23 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     int currentIndex = 0;
 
     ProgressDialog progress;
+
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "'뒤로' 버튼을 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -309,6 +329,18 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         return myFormatter.format(value) + "원";
     }
 
+    public void clearCardPager() {
+        this.data = data;
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                cardPagerAdapter.removeData();
+                cardPagerAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
     public void setCardPager(final BioWalletData data) {
         this.data = data;
         Handler handler = new Handler(Looper.getMainLooper());
@@ -319,7 +351,6 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
                 cardPagerAdapter.notifyDataSetChanged();
             }
         });
-
     }
 
     //    @Override
@@ -342,6 +373,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(uuid == null || "".equals(uuid)) { Log.d("bootpay", "uuid 값이 없습니다"); return; }
         if(userToken == null || "".equals(userToken)) { Log.d("bootpay", "userToken 값이 없습니다"); return; }
 
+        clearCardPager();
         presenter.getEasyCardWallet(uuid, userToken);
     }
 
@@ -361,6 +393,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             }
             otp = getOTPValue(key);
         }
+
+        request.getBoot_extra().getQuotas();
 
         showProgress("결제 요청중");
         presenter.postEasyCardRequest(uuid, userToken, otp, passwordToken, bioWallet.wallet_id, "", CurrentBioRequest.getInstance().request.getPayload());
@@ -565,7 +599,11 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         handler.post(new Runnable() {
             @Override
             public void run() {
-                biometricPrompt.authenticate(promptInfo);
+                if(BiometricManager.from(context).canAuthenticate() == BIOMETRIC_SUCCESS) {
+                    biometricPrompt.authenticate(promptInfo);
+                }  else {
+                    Toast.makeText(context, "생체인증 정보가 등록되지 않은 기기입니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

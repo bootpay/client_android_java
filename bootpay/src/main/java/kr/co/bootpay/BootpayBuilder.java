@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 
-import androidx.fragment.app.FragmentTransaction;
+import androidx.biometric.BiometricManager;
 
 import com.google.gson.Gson;
 
@@ -17,8 +17,8 @@ import java.util.List;
 
 import kr.co.bootpay.api.ApiPresenter;
 import kr.co.bootpay.api.ApiService;
-import kr.co.bootpay.bio.BootpayBioDialog;
 import kr.co.bootpay.bio.activity.BootpayBioActivity;
+import kr.co.bootpay.bio.activity.BootpayBioWebviewActivity;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.enums.Method;
 import kr.co.bootpay.enums.PG;
@@ -40,6 +40,8 @@ import kr.co.bootpay.model.bio.BioPayload;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.valid.PGAvailable;
 import kr.co.bootpay.valid.ValidRequest;
+
+import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
 
 public class BootpayBuilder {
     private Context context;
@@ -454,22 +456,10 @@ public class BootpayBuilder {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    requestBioDialog();
+                    requestBioActivity();
                 }
             });
         }
-//        Handler handler = new Handler(Looper.getMainLooper());
-//        handler.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                long current = System.currentTimeMillis();
-//                if(current - CurrentBioRequest.getInstance().start_window_time > 2000) {
-//                    CurrentBioRequest.getInstance().start_window_time = current;
-//                    requestBioDialog();
-//                }
-//            }
-//        });
-
     }
 
 
@@ -511,7 +501,7 @@ public class BootpayBuilder {
 
     }
 
-    private void requestBioDialog() {
+    private void requestBioActivity() {
 //        bioDialog =  BootpayBioDialog();
         if(close != null) CurrentBioRequest.getInstance().close = close;
         if(cancel != null) CurrentBioRequest.getInstance().cancel = cancel;
@@ -522,81 +512,17 @@ public class BootpayBuilder {
         isBioIntent = true;
         CurrentBioRequest.getInstance().request = request;
 
-        Intent intent = new Intent(context, BootpayBioActivity.class);
-//        context.pen
-        context.startActivity(intent);
-//        context.ov
-//                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        CurrentBioRequest.getInstance().bioActivity = null;
+        CurrentBioRequest.getInstance().webActivity = null;
 
-//        bioDialog = new BootpayBioDialog().setRequest(request)
-//                .setOnResponseListener(listener != null ? listener : new EventListener() {
-//            @Override
-//            public void onClose(String data) {
-//                if(close != null) close.onClose(data);
-//            }
-//
-//            @Override
-//            public void onReady(String data) {
-//                if(ready != null ) ready.onReady(data);
-//            }
-//
-//            @Override
-//            public void onError(String data) {
-//                if(error != null ) error.onError(data);
-//            }
-//
-//            @Override
-//            public void onCancel(String data) {
-//                if(cancel != null ) cancel.onCancel(data);
-//            }
-//
-//            @Override
-//            public void onConfirm(String data) {
-//                if(confirm != null ) confirm.onConfirm(data);
-//            }
-//
-//            @Override
-//            public void onDone(String data) {
-//                if(done != null ) done.onDone(data);
-//            }
-//        });
-//
-//        bioDialog.onCancel(new DialogInterface() {
-//            @Override
-//            public void cancel() {
-//                if (bioDialog != null)
-//                    bioDialog.onDestroy();
-//                bioDialog = null;
-//                UserInfo.getInstance(context).finish();
-//                Bootpay.finish();
-//            }
-//
-//            @Override
-//            public void dismiss() {
-//                if (bioDialog != null)
-//                    bioDialog.onDestroy();
-//                bioDialog = null;
-//                UserInfo.getInstance(context).finish();
-//                Bootpay.finish();
-//            }
-//        });
-////        bioDialog.getatt
-//
-//        if (bioDialog != null || fmx != null) {
-//            try {
-//                FragmentTransaction ft = fmx.beginTransaction();
-//                ft.add(bioDialog, String.valueOf(System.currentTimeMillis()));
-//                ft.commitAllowingStateLoss();
-//
-////                getFragmentManager().beginTransaction().add(mDialogFragment, "DialogFragment Tag").commitAllowingStateLoss();
-//
-//
-//
-////                bioDialog.show(fmx, "bootpay");
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if(BiometricManager.from(context).canAuthenticate() == BIOMETRIC_SUCCESS) {
+            Intent intent = new Intent(context, BootpayBioActivity.class);
+            context.startActivity(intent);
+        } else {
+            CurrentBioRequest.getInstance().type = CurrentBioRequest.REQUEST_TYPE_PASSWORD_PAY;
+            Intent intent = new Intent(context, BootpayBioWebviewActivity.class);
+            context.startActivity(intent);
+        }
     }
 
 
@@ -676,10 +602,8 @@ public class BootpayBuilder {
         if(isBioIntent == true) {
             if(CurrentBioRequest.getInstance().bioActivity != null)
                 CurrentBioRequest.getInstance().bioActivity.transactionConfirm(data);
-//            String method_name= getIntent.getIntExtra("method_name");
-//            Class<?> c = Class.forName("class name");
-//            Method  method = c.getDeclaredMethod (method_name, parameterTypes)
-//            method.invoke (objectToInvokeOn, params)
+            if(CurrentBioRequest.getInstance().webActivity != null)
+                CurrentBioRequest.getInstance().webActivity.transactionConfirm(data);
         }
 
 //        if(bioDialog != null)

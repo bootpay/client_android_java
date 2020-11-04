@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,6 +42,7 @@ import kr.co.bootpay.pref.UserInfo;
 import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_ENABLE_DEVICE;
 import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_OTHER;
 import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_PASSWORD_CHANGE;
+import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_PASSWORD_PAY;
 import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_REGISTER_CARD;
 import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD;
 import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD_FOR_PAY;
@@ -127,7 +129,6 @@ public class BootpayBioWebView extends WebView {
                         applicationId(),
                         name(),
                         pg(),
-//                                    userPhone(),
                         agree(),
                         method(),
                         methods(),
@@ -152,7 +153,7 @@ public class BootpayBioWebView extends WebView {
 //        var msg = "이 기기에서 Touch ID 결제를 활성화합니다"
 //        if(request_type == BootpayAuthWebView.REQUEST_TYPE_VERIFY_PASSWORD_FOR_PAY) { msg = "비밀번호 입력방식으로 결제를 진행합니다" }
 
-        String msg = "이 기기에서 Touch ID 결제를 활성화합니다";
+        String msg = "이 기기에서 생체인증 결제를 활성화합니다";
         if(CurrentBioRequest.getInstance().type == REQUEST_TYPE_VERIFY_PASSWORD_FOR_PAY) msg = "비밀번호 입력방식으로 결제를 진행합니다";
 
         loadParams(
@@ -233,7 +234,7 @@ public class BootpayBioWebView extends WebView {
                         goVerifyPasswordRequest();
                     } else if(CurrentBioRequest.getInstance().type == REQUEST_TYPE_PASSWORD_CHANGE) {
                         goChangePasswordRequest();
-                    } else if(CurrentBioRequest.getInstance().type == REQUEST_TYPE_OTHER) {
+                    } else if(CurrentBioRequest.getInstance().type == REQUEST_TYPE_OTHER || CurrentBioRequest.getInstance().type == REQUEST_TYPE_PASSWORD_PAY) {
                         if (request == null) return;
                         if(request.getBoot_extra() != null && request.getBoot_extra().getQuick_popup() == 1) {
                             setQuickPopup();
@@ -503,12 +504,14 @@ public class BootpayBioWebView extends WebView {
 
     private String method() {
         String method = request.getMethod();
+        if(CurrentBioRequest.getInstance().type == REQUEST_TYPE_PASSWORD_PAY) return String.format(Locale.KOREA, "method:'%s'", "easy_card");
         if(method == null || "".equals(method)) return "";
         return String.format(Locale.KOREA, "method:'%s'", method);
     }
 
     private String methods() {
         String methods = listToString(request.getMethods());
+        if(CurrentBioRequest.getInstance().type == REQUEST_TYPE_PASSWORD_PAY) return "";
         if(methods == null || "".equals(methods)) return "";
         return String.format(Locale.KOREA, "methods:[%s]", methods);
     }
@@ -605,7 +608,7 @@ public class BootpayBioWebView extends WebView {
         builder.append(";");
         String request = builder.toString();
 
-//        Log.d("bootpay request -----", request);
+        Log.d("bootpay request -----", request);
 
         load(request);
     }
