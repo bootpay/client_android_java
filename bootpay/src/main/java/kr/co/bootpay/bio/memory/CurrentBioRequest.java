@@ -39,6 +39,7 @@ public class CurrentBioRequest {
     public static final int REQUEST_TYPE_ENABLE_DEVICE = 5; //해당 기기 활성화
     public static final int REQUEST_TYPE_OTHER = 6; //다른 결제수단
     public static final int REQUEST_TYPE_PASSWORD_PAY = 7; //생체인증 이용 불가시 비밀번호로 간편결제
+    public static final int REQUEST_TYPE_RESULT_FAILED = -100; //생체인증 이용 불가시 비밀번호로 간편결제
 
     public static CurrentBioRequest getInstance() {
         if(instance == null) instance = new CurrentBioRequest();

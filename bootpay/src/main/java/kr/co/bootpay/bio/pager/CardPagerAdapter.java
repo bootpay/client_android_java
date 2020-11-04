@@ -5,13 +5,16 @@ import android.content.Context;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
 
 import kr.co.bootpay.bio.BootpayBioDialog;
 import kr.co.bootpay.bio.activity.BootpayBioActivity;
+import kr.co.bootpay.model.bio.BioDeviceUse;
 import kr.co.bootpay.model.bio.BioWallet;
 import kr.co.bootpay.model.bio.BioWalletData;
+import kr.co.bootpay.model.bio.BioWalletList;
 
 public class CardPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -26,11 +29,13 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     public void removeData() {
-        if(this.data == null) return;
-        if(this.data.wallets == null) return;
-        if(this.data.wallets.card == null) this.data.wallets.card = new ArrayList<>();
-        data.wallets.card.clear();
+
+        data = new BioWalletData();
+        data.wallets = new BioWalletList();
+        data.wallets.card = new ArrayList<>();
+        data.user = new BioDeviceUse();
     }
+
 
 
     public void setData(BioWalletData data) {
@@ -61,6 +66,12 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
         CardFragment obj = CardFragment.newInstance(parent, data.user, data.wallets.card.get(position), context);
         obj.updateView();
         return obj;
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        // refresh all fragments when data set changed
+        return PagerAdapter.POSITION_NONE;
     }
 
     @Override

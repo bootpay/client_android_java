@@ -237,14 +237,17 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         findViewById(R.id.barcode).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(data == null || data.wallets == null || data.wallets.card == null || data.wallets.card.size() <= currentIndex) return;
-                if(data.wallets.card.get(currentIndex).wallet_type == -1) {
-                    startBioPay(data.user, data.wallets.card.get(currentIndex));
-                } else if(data.wallets.card.get(currentIndex).wallet_type == 1) {
-                    goNewCardActivity();
-                } else if(data.wallets.card.get(currentIndex).wallet_type == 2) {
-                    goOtherActivity();
-                }
+
+                clearCardPager();
+
+//                if(data == null || data.wallets == null || data.wallets.card == null || data.wallets.card.size() <= currentIndex) return;
+//                if(data.wallets.card.get(currentIndex).wallet_type == -1) {
+//                    startBioPay(data.user, data.wallets.card.get(currentIndex));
+//                } else if(data.wallets.card.get(currentIndex).wallet_type == 1) {
+//                    goNewCardActivity();
+//                } else if(data.wallets.card.get(currentIndex).wallet_type == 2) {
+//                    goOtherActivity();
+//                }
             }
         });
 //        getFra
@@ -330,12 +333,12 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     }
 
     public void clearCardPager() {
-        this.data = data;
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
                 cardPagerAdapter.removeData();
+
                 cardPagerAdapter.notifyDataSetChanged();
             }
         });
@@ -352,6 +355,14 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             }
         });
     }
+
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//        if(this.cardPagerAdapter != null){
+//            this.cardPagerAdapter.notifyDataSetChanged();
+//        }
+//    }
 
     //    @Override
 //    protected void onStart() {
@@ -373,7 +384,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(uuid == null || "".equals(uuid)) { Log.d("bootpay", "uuid 값이 없습니다"); return; }
         if(userToken == null || "".equals(userToken)) { Log.d("bootpay", "userToken 값이 없습니다"); return; }
 
-        clearCardPager();
+//        clearCardPager();
         presenter.getEasyCardWallet(uuid, userToken);
     }
 
@@ -718,6 +729,9 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
                 vibrator.vibrate(10);
                 finish();
             }
+        } else {
+            CurrentBioRequest.getInstance().type = CurrentBioRequest.REQUEST_TYPE_RESULT_FAILED;
+            getEasyCardWalletList();
         }
     }
 }
