@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity android:name=".bio.activity.BootpayBioActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".bio.activity.BootpayBioWebviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".bio.activity.BootpayBioWebviewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:windowSoftInputMode="adjustResize"/>
     </application>
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
