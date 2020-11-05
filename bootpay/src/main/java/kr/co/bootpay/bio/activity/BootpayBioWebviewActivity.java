@@ -97,6 +97,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     @Override
     public void onError(String data) {
 //        Log.d("bootpay", data);
+        if(CurrentBioRequest.getInstance().error != null) CurrentBioRequest.getInstance().error.onError(data);
         setResult(-2);
         finish();
     }

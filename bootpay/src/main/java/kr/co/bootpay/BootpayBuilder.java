@@ -508,6 +508,7 @@ public class BootpayBuilder {
         if(ready != null) CurrentBioRequest.getInstance().ready = ready;
         if(confirm != null) CurrentBioRequest.getInstance().confirm = confirm;
         if(done != null) CurrentBioRequest.getInstance().done = done;
+        if(error != null) CurrentBioRequest.getInstance().error = error;
 
         isBioIntent = true;
         CurrentBioRequest.getInstance().request = request;
