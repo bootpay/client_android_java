@@ -502,6 +502,7 @@ public class BootpayBuilder {
     }
 
     private void requestBioActivity() {
+        CurrentBioRequest.getInstance().listener = null;
 //        bioDialog =  BootpayBioDialog();
         if(close != null) CurrentBioRequest.getInstance().close = close;
         if(cancel != null) CurrentBioRequest.getInstance().cancel = cancel;
@@ -517,6 +518,7 @@ public class BootpayBuilder {
         CurrentBioRequest.getInstance().webActivity = null;
 
         if(BiometricManager.from(context).canAuthenticate() == BIOMETRIC_SUCCESS) {
+            CurrentBioRequest.getInstance().type = CurrentBioRequest.REQUEST_TYPE_NONE;
             Intent intent = new Intent(context, BootpayBioActivity.class);
             context.startActivity(intent);
         } else {
@@ -621,6 +623,8 @@ public class BootpayBuilder {
         if(isBioIntent == true) {
             if(CurrentBioRequest.getInstance().bioActivity != null)
                 CurrentBioRequest.getInstance().bioActivity.finish();
+            if(CurrentBioRequest.getInstance().webActivity != null)
+                CurrentBioRequest.getInstance().webActivity.finish();
         }
 //        if(bioDialog != null) {
 //            if(CurrentBioRequest.getInstance().type != CurrentBioRequest.REQUEST_TYPE_OTHER)

@@ -291,7 +291,6 @@ public class ApiPresenter {
 
                 @Override
                 public void onNext(ResEasyPayUserToken res) {
-                    Log.d("res", res.toString());
 
                     if(parentScope.parent != null) {
                         parentScope.easyPayUserToken = res;

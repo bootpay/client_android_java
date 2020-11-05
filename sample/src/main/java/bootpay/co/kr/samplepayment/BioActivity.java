@@ -85,6 +85,7 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
 //        String user_id =  String.valueOf(System.currentTimeMillis()); //고유 user_id로 고객별로 유니크해야하며, 다른 고객과 절대로 중복되어서는 안됩니다
         String user_id = UserInfo.getInstance(this).getBootpayUuid(); // 실제값을 적용하실 때에는, 관리하시는 user_id를 입력해주세요.
 
+
         BootUser user = new BootUser();
         user.setID(user_id);
         user.setArea("서울");

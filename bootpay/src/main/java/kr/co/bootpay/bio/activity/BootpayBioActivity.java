@@ -444,7 +444,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(uuid == null || "".equals(uuid)) { Log.d("bootpay", "uuid 값이 없습니다"); return; }
         if(userToken == null || "".equals(userToken)) { Log.d("bootpay", "userToken 값이 없습니다"); return; }
 
-        showProgress("결제권한 추가중");
+        showProgress("권한 추가중");
         presenter.postEasyBiometric(uuid, userToken, passwordToken);
     }
 
@@ -676,6 +676,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         } else {
             //지문인식 후 api를 넘김
             this.bioWallet = bioWallet;
+            CurrentBioRequest.getInstance().type = CurrentBioRequest.REQUEST_TYPE_NONE;
             goBiometricAuth();
         }
     }
@@ -709,6 +710,9 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        CurrentBioRequest.getInstance().listener = null;
+        CurrentBioRequest.getInstance().webActivity = null;
 
         if(requestCode == 9999 && resultCode > 0) {
             //wallet 재갱신
