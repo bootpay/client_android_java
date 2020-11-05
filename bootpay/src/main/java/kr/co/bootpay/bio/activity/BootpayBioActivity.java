@@ -54,6 +54,7 @@ import kr.co.bootpay.bio.pager.CardViewPager;
 import kr.co.bootpay.listener.CancelListener;
 import kr.co.bootpay.listener.ConfirmListener;
 import kr.co.bootpay.listener.DoneListener;
+import kr.co.bootpay.listener.ErrorListener;
 import kr.co.bootpay.listener.EventListener;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.bio.BioDeviceUse;
@@ -489,6 +490,9 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
                 builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                        ErrorListener error = CurrentBioRequest.getInstance().error;
+                        if(error != null) error.onError(msg);
                         finish();
                     }
                 });
