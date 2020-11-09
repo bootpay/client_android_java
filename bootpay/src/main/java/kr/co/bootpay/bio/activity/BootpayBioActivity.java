@@ -524,6 +524,8 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
                 builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        ErrorListener error = CurrentBioRequest.getInstance().error;
+                        if(error != null) error.onError(res.message);
                         goCardDeleteWalletIDRequest();
 //                        ErrorListener error = CurrentBioRequest.getInstance().error;
 //                        if(error != null) error.onError(msg);
