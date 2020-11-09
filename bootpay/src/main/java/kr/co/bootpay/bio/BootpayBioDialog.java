@@ -44,6 +44,7 @@ import kr.co.bootpay.model.res.ResReceiptID;
 import kr.co.bootpay.model.res.ResWalletList;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayBioRestImplement;
+import kr.co.bootpay.rest.model.ResDefault;
 
 public class BootpayBioDialog extends androidx.fragment.app.DialogFragment implements BootpayBioRestImplement {
 
@@ -195,6 +196,11 @@ public class BootpayBioDialog extends androidx.fragment.app.DialogFragment imple
     @Override
     public void callbackEasyTransaction(String data) {
         if(listener != null) listener.onDone(data);
+    }
+
+    @Override
+    public void callbackDeleteWalletID(ResDefault res) {
+
     }
 
     public void transactionConfirm(String data) {

@@ -31,6 +31,7 @@ public class BioApiPresenter {
     ResWalletList walletList;
     ResReceiptID receiptID;
     ResponseBody easyConfirm;
+    ResDefault deleteWalletID;
 
     public BioApiPresenter(ApiService service, BootpayBioRestImplement callback) {
         this.service = service;
@@ -229,6 +230,44 @@ public class BioApiPresenter {
                             public void onError(Throwable e) {
                                 try {
                                     scope.parent.callbackEasyTransaction(easyConfirm.string());
+                                } catch (Exception ee) {
+                                    ee.printStackTrace();
+                                }
+                            }
+                        });
+    }
+
+    public void deleteCardWalletID(String deviceUUID, String userToken, String wallet_id) {
+        final BioApiPresenter scope = this;
+
+        service.getApi().deleteCardWalletID(deviceUUID, userToken, wallet_id)
+                .retry(1)
+                .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
+                .subscribe(
+                        new Observer<ResDefault>() {
+                            @Override
+                            public void onComplete() {
+                                try {
+                                    scope.parent.callbackDeleteWalletID(deleteWalletID);
+                                } catch (Exception ee) {
+                                    ee.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onSubscribe(Disposable d) {
+
+                            }
+
+                            @Override
+                            public void onNext(ResDefault res) {
+                                deleteWalletID = res;
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                try {
+                                    scope.parent.callbackDeleteWalletID(deleteWalletID);
                                 } catch (Exception ee) {
                                     ee.printStackTrace();
                                 }

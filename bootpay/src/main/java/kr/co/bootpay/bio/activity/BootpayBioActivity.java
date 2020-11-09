@@ -67,6 +67,7 @@ import kr.co.bootpay.model.res.ResReceiptID;
 import kr.co.bootpay.model.res.ResWalletList;
 import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayBioRestImplement;
+import kr.co.bootpay.rest.model.ResDefault;
 
 import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
 
@@ -174,7 +175,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(request.getBootExtra(this) == null || request.getBootExtra(this).getQuotas() == null) return  null;
         for(Integer i : request.getBootExtra(this).getQuotas()) {
             if(i == 0) result.add("일시불");
-            else result.add((i+1) + "개월");
+            else result.add((i) + "개월");
         }
         return result;
     }
@@ -444,8 +445,19 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(uuid == null || "".equals(uuid)) { Log.d("bootpay", "uuid 값이 없습니다"); return; }
         if(userToken == null || "".equals(userToken)) { Log.d("bootpay", "userToken 값이 없습니다"); return; }
 
-        showProgress("권한 추가중");
+        showProgress("보안 추가중");
         presenter.postEasyBiometric(uuid, userToken, passwordToken);
+    }
+
+    void goCardDeleteWalletIDRequest() {
+        String uuid = UserInfo.getInstance(context).getBootpayUuid();
+        String userToken = request.getEasyPayUserToken();
+        String wallet_id = bioWallet.wallet_id;
+        if(uuid == null || "".equals(uuid)) { Log.d("bootpay", "uuid 값이 없습니다"); return; }
+        if(userToken == null || "".equals(userToken)) { Log.d("bootpay", "userToken 값이 없습니다"); return; }
+
+        showProgress("초기화 진행중");
+        presenter.deleteCardWalletID(uuid, userToken, wallet_id);
     }
 
     void goAuthRegisterBiometricOTP() {
@@ -501,6 +513,29 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         });
     }
 
+    void goPopupCardDeleteAll(final ResReceiptID res) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogStyle);
+                builder.setTitle("에러코드: " + res.code);
+                builder.setMessage(res.message + " 등록된 결제수단을 초기화 합니다.");
+                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        goCardDeleteWalletIDRequest();
+//                        ErrorListener error = CurrentBioRequest.getInstance().error;
+//                        if(error != null) error.onError(msg);
+//                        finish();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+    }
+
     public void transactionConfirm(String data) {
         try {
             ResReceiptID res = new Gson().fromJson(data, ResReceiptID.class);
@@ -546,7 +581,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     public void callbackEasyCardRequest(ResReceiptID res) {
         progress.dismiss();
         if(res.code != 0) {
-            goPopUpError(res.message);
+            goPopupCardDeleteAll(res);
             return;
         }
         receiptID = res;
@@ -559,6 +594,16 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         progress.dismiss();
         DoneListener done = CurrentBioRequest.getInstance().done;
         if(done != null) done.onDone(data);
+    }
+
+    @Override
+    public void callbackDeleteWalletID(ResDefault res) {
+        progress.dismiss();
+        if(res.code != 0) {
+            goPopUpError(res.message);
+            return;
+        }
+        getEasyCardWalletList();
     }
 
     private Executor executor;

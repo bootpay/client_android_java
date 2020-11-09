@@ -112,7 +112,7 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
         BioPayload bioPayload = new BioPayload();
         bioPayload.setPg(PG.PAYAPP)
                 .setName("bootpay test")
-                .setPrice(89000.0) //최종 결제 금액
+                .setPrice(1000.0) //최종 결제 금액
                 .setOrder_id(String.valueOf(System.currentTimeMillis())) //개발사에서 관리하는 주문번호
                 .setName("플리츠레이어 카라숏원피스")
                 .setNames(Arrays.asList("플리츠레이어 카라숏원피", "블랙 (COLOR)", "55 (SIZE)")) //결제창에 나타날 상품목록

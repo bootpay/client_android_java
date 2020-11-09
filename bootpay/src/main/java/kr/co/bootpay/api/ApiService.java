@@ -29,11 +29,13 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public class ApiService {
     private Context context;
@@ -134,6 +136,13 @@ public class ApiService {
                 @Header("BOOTPAY-DEVICE-UUID") String deviceUUID,
                 @Header("BOOTPAY-USER-TOKEN") String userToken,
                 @Field("receipt_id") String receipt_id
+        );
+
+        @DELETE("/app/easy/card/wallet/{wallet_id}")
+        Observable<ResDefault> deleteCardWalletID(
+                @Header("BOOTPAY-DEVICE-UUID") String deviceUUID,
+                @Header("BOOTPAY-USER-TOKEN") String userToken,
+                @Path("wallet_id") String wallet_id
         );
 
     }
