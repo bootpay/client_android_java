@@ -764,6 +764,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         super.onActivityResult(requestCode, resultCode, data);
 
         CurrentBioRequest.getInstance().listener = null;
+        CurrentBioRequest.getInstance().activity = this;
 //        CurrentBioRequest.getInstance().webActivity = null;
 
         if(requestCode == 9999 && resultCode > 0) {

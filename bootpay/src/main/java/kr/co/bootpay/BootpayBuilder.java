@@ -59,7 +59,7 @@ public class BootpayBuilder {
     private BootpayDialog dialog;
 //    private BootpayBioDialog bioDialog;
     private ApiPresenter presenter;
-    boolean isBioIntent = false;
+//    boolean isBioIntent = false;
 //    private String
 
 
@@ -511,7 +511,7 @@ public class BootpayBuilder {
         if(done != null) CurrentBioRequest.getInstance().done = done;
         if(error != null) CurrentBioRequest.getInstance().error = error;
 
-        isBioIntent = true;
+//        isBioIntent = true;
         CurrentBioRequest.getInstance().request = request;
 
         CurrentBioRequest.getInstance().activity = null;
@@ -601,10 +601,14 @@ public class BootpayBuilder {
     public void transactionConfirm(String data) {
         if (dialog != null)
             dialog.transactionConfirm(data);
-        if(isBioIntent == true) {
-            if(CurrentBioRequest.getInstance().activity != null)
-                CurrentBioRequest.getInstance().activity.transactionConfirm(data);
-        }
+
+        if(CurrentBioRequest.getInstance().activity != null)
+            CurrentBioRequest.getInstance().activity.transactionConfirm(data);
+
+//        if(isBioIntent == true) {
+//            if(CurrentBioRequest.getInstance().activity != null)
+//                CurrentBioRequest.getInstance().activity.transactionConfirm(data);
+//        }
 
 //        if(bioDialog != null)
 //            bioDialog.transactionConfirm(data);
@@ -617,10 +621,14 @@ public class BootpayBuilder {
 
     public void dismiss() {
         if(dialog != null) dialog.dismiss();
-        if(isBioIntent == true) {
-            if(CurrentBioRequest.getInstance().activity != null)
-                CurrentBioRequest.getInstance().activity.activityFinish();
-        }
+
+        if(CurrentBioRequest.getInstance().activity != null)
+            CurrentBioRequest.getInstance().activity.activityFinish();
+
+//        if(isBioIntent == true) {
+//            if(CurrentBioRequest.getInstance().activity != null)
+//                CurrentBioRequest.getInstance().activity.activityFinish();
+//        }
 //        if(bioDialog != null) {
 //            if(CurrentBioRequest.getInstance().type != CurrentBioRequest.REQUEST_TYPE_OTHER)
 //                bioDialog.dismiss();
