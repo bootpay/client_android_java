@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 
 import kr.co.bootpay.R;
 import kr.co.bootpay.api.ApiService;
+import kr.co.bootpay.bio.IBioPayFunction;
 import kr.co.bootpay.bio.api.BioApiPresenter;
 import kr.co.bootpay.bio.listener.BioEventListener;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
@@ -19,7 +20,7 @@ import kr.co.bootpay.model.res.EventSuccessDevice;
 import kr.co.bootpay.model.res.ResReceiptID;
 import kr.co.bootpay.pref.UserInfo;
 
-public class BootpayBioWebviewActivity extends Activity implements BioEventListener {
+public class BootpayBioWebviewActivity extends Activity implements BioEventListener, IBioPayFunction {
 
 //    Context context;
 //    BioApiPresenter presenter;
@@ -35,7 +36,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
             return;
         }
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "'뒤로' 버튼을 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "결제를 종료하시려면 '뒤로' 버튼을 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -49,14 +50,20 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
         super.onCreate(savedInstanceState);
 
         CurrentBioRequest.getInstance().listener = this;
-        CurrentBioRequest.getInstance().webActivity = this;
+        CurrentBioRequest.getInstance().activity = this;
 
         setContentView(R.layout.layout_bio_activity);
         webView = findViewById(R.id.webview);
     }
 
+    @Override
     public void transactionConfirm(String data) {
         webView.transactionConfirm(data);
+    }
+
+    @Override
+    public void activityFinish() {
+
     }
 
 

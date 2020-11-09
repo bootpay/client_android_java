@@ -12,7 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.PersistableBundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.util.TypedValue;
@@ -46,8 +45,8 @@ import dev.samstevens.totp.code.HashingAlgorithm;
 import dev.samstevens.totp.exceptions.CodeGenerationException;
 import kr.co.bootpay.R;
 import kr.co.bootpay.api.ApiService;
-import kr.co.bootpay.bio.BootpayBioPayLayout;
 import kr.co.bootpay.bio.IBioActivityFunction;
+import kr.co.bootpay.bio.IBioPayFunction;
 import kr.co.bootpay.bio.api.BioApiPresenter;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.bio.pager.CardPagerAdapter;
@@ -56,7 +55,6 @@ import kr.co.bootpay.listener.CancelListener;
 import kr.co.bootpay.listener.ConfirmListener;
 import kr.co.bootpay.listener.DoneListener;
 import kr.co.bootpay.listener.ErrorListener;
-import kr.co.bootpay.listener.EventListener;
 import kr.co.bootpay.model.Request;
 import kr.co.bootpay.model.bio.BioDeviceUse;
 import kr.co.bootpay.model.bio.BioPayload;
@@ -73,7 +71,7 @@ import kr.co.bootpay.rest.model.ResDefault;
 import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
 
 
-public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement, IBioActivityFunction {
+public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement, IBioActivityFunction, IBioPayFunction {
 
     private Context context;
     private Request request;
@@ -115,7 +113,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             return;
         }
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "'뒤로' 버튼을 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "결제를 종료하시려면 '뒤로' 버튼을 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -136,7 +134,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         if(request != null) bioPayload = request.getBioPayload();
         initProgressCircle();
 
-        CurrentBioRequest.getInstance().bioActivity = this;
+        CurrentBioRequest.getInstance().activity = this;
 
         initView();
         getEasyCardWalletList();
@@ -183,13 +181,13 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
 
     @Override
     protected void onDestroy() {
-        CurrentBioRequest.getInstance().bioActivity = null;
+        CurrentBioRequest.getInstance().activity = null;
         super.onDestroy();
     }
 
     @Override
     public void finish() {
-        CurrentBioRequest.getInstance().bioActivity = null;
+        CurrentBioRequest.getInstance().activity = null;
         super.finish();
         overridePendingTransition(R.anim.open, R.anim.close);
     }
@@ -539,6 +537,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         });
     }
 
+    @Override
     public void transactionConfirm(String data) {
         try {
             ResReceiptID res = new Gson().fromJson(data, ResReceiptID.class);
@@ -551,6 +550,11 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void activityFinish() {
+        finish();
     }
 
     @Override
@@ -760,7 +764,7 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
         super.onActivityResult(requestCode, resultCode, data);
 
         CurrentBioRequest.getInstance().listener = null;
-        CurrentBioRequest.getInstance().webActivity = null;
+//        CurrentBioRequest.getInstance().webActivity = null;
 
         if(requestCode == 9999 && resultCode > 0) {
             //wallet 재갱신

@@ -1,5 +1,6 @@
 package kr.co.bootpay.bio.memory;
 
+import kr.co.bootpay.bio.IBioPayFunction;
 import kr.co.bootpay.bio.activity.BootpayBioActivity;
 import kr.co.bootpay.bio.activity.BootpayBioWebviewActivity;
 import kr.co.bootpay.bio.listener.BioEventListener;
@@ -23,8 +24,9 @@ public class CurrentBioRequest {
     public CancelListener cancel;
     public ConfirmListener confirm;
 
-    public BootpayBioActivity bioActivity;
-    public BootpayBioWebviewActivity webActivity;
+    public IBioPayFunction activity;
+//    public BootpayBioActivity bioActivity;
+//    public BootpayBioWebviewActivity webActivity;
 
     public int type = -1;
     public String token;
