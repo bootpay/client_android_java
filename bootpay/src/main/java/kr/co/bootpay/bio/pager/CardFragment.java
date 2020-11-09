@@ -14,10 +14,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import kr.co.bootpay.R;
-import kr.co.bootpay.bio.BootpayBioDialog;
 import kr.co.bootpay.bio.CardCode;
-import kr.co.bootpay.bio.activity.BootpayBioActivity;
-import kr.co.bootpay.bio.memory.CurrentBioRequest;
+import kr.co.bootpay.bio.IBioActivityFunction;
 import kr.co.bootpay.model.bio.BioDeviceUse;
 import kr.co.bootpay.model.bio.BioWallet;
 
@@ -33,9 +31,10 @@ public class CardFragment extends Fragment {
 
     ImageView new_card;
     TextView other;
-    BootpayBioActivity parent;
+    IBioActivityFunction parent;
+//    BootpayBioActivity parent;
 
-    public static CardFragment newInstance(BootpayBioActivity parent, BioDeviceUse user, BioWallet bioWallet, Context context) {
+    public static CardFragment newInstance(IBioActivityFunction parent, BioDeviceUse user, BioWallet bioWallet, Context context) {
         CardFragment fragment = new CardFragment();
         fragment.bioWallet = bioWallet;
         fragment.context = context;
@@ -137,9 +136,9 @@ public class CardFragment extends Fragment {
 
 //    void goVerify
 
-    void verifyPassword () {
-        if(parent != null) parent.goVeiryPassword();
-    }
+//    void verifyPassword () {
+//        if(parent != null) parent.goVeiryPassword();
+//    }
 
     void goNewCard() {
         if(parent != null) parent.goNewCardActivity();

@@ -27,7 +27,6 @@
         <activity android:name=".WebAppActivity" android:screenOrientation="portrait"/>
         <activity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
         <activity android:name=".App2AppActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".FlutterActivity" android:screenOrientation="portrait"/>
         <activity android:name=".BioActivity" android:screenOrientation="portrait"/>
     </application>
 

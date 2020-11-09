@@ -10,6 +10,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 
 import kr.co.bootpay.bio.BootpayBioDialog;
+import kr.co.bootpay.bio.IBioActivityFunction;
 import kr.co.bootpay.bio.activity.BootpayBioActivity;
 import kr.co.bootpay.model.bio.BioDeviceUse;
 import kr.co.bootpay.model.bio.BioWallet;
@@ -20,8 +21,8 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
 
     private Context context;
     private BioWalletData data;
-    private BootpayBioDialog bootpayBioDialog;
-    private BootpayBioActivity parent;
+//    private BootpayBioDialog bootpayBioDialog;
+    private IBioActivityFunction parent;
 
     public CardPagerAdapter(FragmentManager fm, Context context) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -53,11 +54,11 @@ public class CardPagerAdapter extends FragmentStatePagerAdapter {
         data.wallets.card.add(bioWallet);
     }
 
-    public void setDialog(BootpayBioDialog bootpayBioDialog) {
-        this.bootpayBioDialog = bootpayBioDialog;
-    }
+//    public void setDialog(BootpayBioDialog bootpayBioDialog) {
+//        this.bootpayBioDialog = bootpayBioDialog;
+//    }
 
-    public void setParent(BootpayBioActivity parent) {
+    public void setParent(IBioActivityFunction parent) {
         this.parent = parent;
     }
 

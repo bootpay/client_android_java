@@ -249,11 +249,6 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(intent);
 //    }
 
-    public void goFlutterActivity(View v) {
-        Intent intent = new Intent(this, FlutterActivity.class);
-        startActivity(intent);
-    }
-
 //    public void goRemoteLink(View v) {
 //        BootUser bootUser = new BootUser().setPhone("010-1234-5678");
 //        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});

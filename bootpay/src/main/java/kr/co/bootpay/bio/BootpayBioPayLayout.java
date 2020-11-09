@@ -24,6 +24,7 @@ import kr.co.bootpay.model.bio.BioPayload;
 import kr.co.bootpay.model.bio.BioPrice;
 import kr.co.bootpay.model.bio.BioWalletData;
 
+@Deprecated
 public class BootpayBioPayLayout extends LinearLayout {
     HorizontalScrollView scrollView;
     private BootpayBioDialog bootpayBioDialog;
@@ -64,7 +65,7 @@ public class BootpayBioPayLayout extends LinearLayout {
         msg = layout.findViewById(R.id.msg);
         card_pager = layout.findViewById(R.id.card_pager);
         cardPagerAdapter = new CardPagerAdapter(fm, this.context);
-        cardPagerAdapter.setDialog(bootpayBioDialog);
+//        cardPagerAdapter.setDialog(bootpayBioDialog);
         card_pager.setAdapter(cardPagerAdapter);
         card_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

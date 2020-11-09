@@ -47,6 +47,7 @@ import dev.samstevens.totp.exceptions.CodeGenerationException;
 import kr.co.bootpay.R;
 import kr.co.bootpay.api.ApiService;
 import kr.co.bootpay.bio.BootpayBioPayLayout;
+import kr.co.bootpay.bio.IBioActivityFunction;
 import kr.co.bootpay.bio.api.BioApiPresenter;
 import kr.co.bootpay.bio.memory.CurrentBioRequest;
 import kr.co.bootpay.bio.pager.CardPagerAdapter;
@@ -72,7 +73,7 @@ import kr.co.bootpay.rest.model.ResDefault;
 import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
 
 
-public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement {
+public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement, IBioActivityFunction {
 
     private Context context;
     private Request request;

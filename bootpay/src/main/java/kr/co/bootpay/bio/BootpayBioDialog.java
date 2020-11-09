@@ -46,6 +46,7 @@ import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayBioRestImplement;
 import kr.co.bootpay.rest.model.ResDefault;
 
+@Deprecated
 public class BootpayBioDialog extends androidx.fragment.app.DialogFragment implements BootpayBioRestImplement {
 
     private Context context;
