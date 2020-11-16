@@ -200,6 +200,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
                         || url.startsWith("kftc-bankpay://")
                         || url.startsWith("v3mobileplusweb://")
                         || url.startsWith("hdcardappcardansimclick://")
+                        || url.startsWith("nidlogin://")
                         || url.startsWith("mpocket.online.ansimclick://");
             }
 

@@ -90,8 +90,8 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사
-                .setMethod(Method.CARD)
+                .setPG(PG.KCP) // 결제할 PG 사
+                .setMethod(Method.NPAY)
 //                .setEasyPayUserToken("wef")
 //                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
@@ -183,6 +183,8 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     void startBootPay(String userToken) {
         BootUser bootUser = new BootUser().setPhone("010-1234-5678");
         BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0,2,3});
+        bootExtra.setPopup(0);
+        bootExtra.setQuickPopup(0);
 
 
         Bootpay.init(getFragmentManager())
