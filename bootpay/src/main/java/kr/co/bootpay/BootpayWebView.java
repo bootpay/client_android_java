@@ -455,6 +455,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
         BootExtra extra = request.getBoot_extra();
         if("danal".equals(request.getPG())) {
             List<Integer> quotas = extra.getQuotas();
+            if(quotas == null) return String.format(Locale.KOREA, "extra: %s", extra.toJson());
             int index = quotas.indexOf(1);
             if(index <= -1) return String.format(Locale.KOREA, "extra: %s", extra.toJson());
             quotas.remove(index);
