@@ -35,9 +35,6 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     private int stuck = 1;
     private String application_id = "5b8f6a4d396fa665fdc2b5e8";
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,20 +87,17 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.DANAL) // 결제할 PG 사
-                .setMethod(Method.CARD)
+                .setPG(PG.NICEPAY) // 결제할 PG 사
+                .setMethod(Method.VBANK)
 //                .setEasyPayUserToken("wef")
 //                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
                 .setBootExtra(bootExtra)
                 .setBootUser(bootUser)
-
-
-//                .setMo
                 .setOrderId("1234")
 //                .setUserPhone("010-1234-5678") // 구매자 전화번호
                 .setUX(UX.PG_DIALOG)
                 //.isShowAgree(true)
-                .setName("bootpay kb card test") // 결제할 상품명
+                .setName("bootpay npay test") // 결제할 상품명
                 .setOrderId("1232352354") // 결제 고유번호
                 .setPrice(1000) // 결제할 금액
 //                .setAccountExpireAt("2019-07-16")
