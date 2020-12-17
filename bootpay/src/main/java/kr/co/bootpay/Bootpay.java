@@ -179,6 +179,8 @@ public class Bootpay {
                 return "onestore";
             case WELCOME:
                 return "welcome";
+            case TOSS:
+                return "toss";
             default:
                 return "";
         }

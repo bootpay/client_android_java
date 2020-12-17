@@ -87,6 +87,8 @@ public class PGAvailable {
                 return PG.ONESTORE;
             case "welcome":
                 return PG.WELCOME;
+            case "toss":
+                return PG.TOSS;
             case "bootpay":
                 return PG.BOOTPAY;
             default:
@@ -130,6 +132,8 @@ public class PGAvailable {
                 return "onestore";
             case WELCOME:
                 return "welcome";
+            case TOSS:
+                return "toss";
         }
         return "";
     }

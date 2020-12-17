@@ -647,32 +647,54 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
         @SuppressLint("JavascriptInterface")
         @Override
         public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-            WebView.HitTestResult result = view.getHitTestResult();
-            String url = result.getExtra();
 
-            if (isNewWindow(url) && isPopup(url)) {
-                start(view, createFrom(url));
-            } else if (resultMsg != null) {
-                BootpayWebView newWindow = new BootpayWebView(view.getContext());
-                if(request != null) {
-                    newWindow.setRequest(request)
-                            .setDialog(dialog)
-                            .setOnResponseListener(listener);
-                } else if(listener != null){
-                    newWindow.setOnResponseListener(listener);
-                }
+            BootpayWebView newWindow = new BootpayWebView(view.getContext());
+            if(request != null) {
+                newWindow.setRequest(request)
+                        .setDialog(dialog)
+                        .setOnResponseListener(listener);
+            } else if(listener != null){
+                newWindow.setOnResponseListener(listener);
+            }
 
-                addView(newWindow,
-                        new FrameLayout.LayoutParams(
+            addView(newWindow,
+                    new FrameLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             Gravity.NO_GRAVITY)
-                );
+            );
 
-                WebView.WebViewTransport tr = (WebView.WebViewTransport) resultMsg.obj;
-                tr.setWebView(newWindow);
-                resultMsg.sendToTarget();
-            }
+            WebView.WebViewTransport tr = (WebView.WebViewTransport) resultMsg.obj;
+            tr.setWebView(newWindow);
+            resultMsg.sendToTarget();
+
+
+//            WebView.HitTestResult result = view.getHitTestResult();
+//            String url = result.getExtra();
+//
+//            if (isNewWindow(url) && isPopup(url)) {
+//                start(view, createFrom(url));
+//            } else if (resultMsg != null) {
+//                BootpayWebView newWindow = new BootpayWebView(view.getContext());
+//                if(request != null) {
+//                    newWindow.setRequest(request)
+//                            .setDialog(dialog)
+//                            .setOnResponseListener(listener);
+//                } else if(listener != null){
+//                    newWindow.setOnResponseListener(listener);
+//                }
+//
+//                addView(newWindow,
+//                        new FrameLayout.LayoutParams(
+//                            ViewGroup.LayoutParams.MATCH_PARENT,
+//                            ViewGroup.LayoutParams.MATCH_PARENT,
+//                            Gravity.NO_GRAVITY)
+//                );
+//
+//                WebView.WebViewTransport tr = (WebView.WebViewTransport) resultMsg.obj;
+//                tr.setWebView(newWindow);
+//                resultMsg.sendToTarget();
+//            }
 
 
             return true;

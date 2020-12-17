@@ -18,4 +18,5 @@ public enum PG {
     ONESTORE,
     WELCOME,
     BOOTPAY,
+    TOSS
 }
