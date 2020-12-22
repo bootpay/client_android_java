@@ -53,6 +53,8 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
 
     private Request request = null;
 
+    private Context _context;
+
 //    private Locale locale = Locale.getDefault();
 
     private boolean isLoaded = false;
@@ -89,6 +91,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
 
     public BootpayWebView(Context context) {
         this(context, null);
+        this._context = context;
     }
 
 //    public BootpayWebView(Context context, Request request) {
@@ -97,6 +100,7 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
 
     public BootpayWebView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        this._context = context;
     }
 
     private void goBootpayRequest() {
@@ -258,9 +262,19 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
             }
 
             private boolean gotoMarket(Intent intent, Context context) {
+                //context가 팝업인 웹뷰로 동작될 경우 no activity found 문제가 발생한다. 따라서 _context로 처리한다.
                 final String appPackageName = intent.getPackage();
                 if(appPackageName == null) {
-                    context.startActivity(new Intent(Intent.ACTION_VIEW, intent.getData()));
+                    Uri dataUri = intent.getData();
+
+                    try {
+                        context.startActivity(new Intent(Intent.ACTION_VIEW, intent.getData()));
+                    } catch (Exception e) {
+                        Log.d("goToMarket Error", e.getMessage());
+                        if(dataUri != null || dataUri.toString().startsWith("nidlogin://")) { //네이버 로그인일 경우 appPackageName이 비어 있이기에, 예외처리를 해주자
+                            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + "com.nhn.android.search")));
+                        }
+                    }
                     return true;
                 }
                 try {
