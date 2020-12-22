@@ -28,7 +28,7 @@ allprojects {
 }
 ```
 
-## build.gradle (Modlue):setAccountExpireAt
+## build.gradle (Modlue)
 ```gradle
 dependencies {
     ...
