@@ -28,11 +28,11 @@ allprojects {
 }
 ```
 
-## build.gradle (Modlue):setAccountExpireAt
+## build.gradle (Modlue)
 ```gradle
 dependencies {
     ...
-    implementation 'com.github.bootpay:client_android_java:2.1.1'
+    implementation 'com.github.bootpay:client_android_java:3.3.82'
 }
 ```
 
