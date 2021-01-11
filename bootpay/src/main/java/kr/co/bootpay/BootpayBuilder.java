@@ -57,6 +57,7 @@ public class BootpayBuilder {
     private CancelListener cancel;
     private ConfirmListener confirm;
     private BootpayDialog dialog;
+    private BootpayDialogX dialogX;
 //    private BootpayBioDialog bioDialog;
     private ApiPresenter presenter;
 //    boolean isBioIntent = false;
@@ -425,7 +426,7 @@ public class BootpayBuilder {
         if(ux == null || ux == UX.NONE) { request.setUX(UX.PG_DIALOG); }
         ux = request.getUX();
         if(ux == UX.PG_DIALOG) {
-            if (fm == null || fm.isDestroyed()) { error("fragment 값은 null 이 될 수 없습니다."); }
+            if ((fm == null || fm.isDestroyed()) && (fmx == null || fmx.isDestroyed())) { error("fragment 값은 null 이 될 수 없습니다."); }
 
         } else if(ux == UX.APP2APP_CARD_SIMPLE
                 || ux == UX.APP2APP_NFC
@@ -530,38 +531,43 @@ public class BootpayBuilder {
 
 
     private void requestDialog() {
+        if(this.fm != null) { requestDialogCall(); }
+        else if(this.fmx != null) { requestDialogXCall(); }
+    }
+
+    private void requestDialogCall() {
         dialog = new BootpayDialog().setRequest(request)
-            .setOnResponseListener(listener != null ? listener : new EventListener() {
-                @Override
-                public void onClose(String data) {
-                    if(close != null ) close.onClose(data);
-                }
+                .setOnResponseListener(listener != null ? listener : new EventListener() {
+                    @Override
+                    public void onClose(String data) {
+                        if(close != null ) close.onClose(data);
+                    }
 
-                @Override
-                public void onReady(String data) {
-                    if(ready != null ) ready.onReady(data);
-                }
+                    @Override
+                    public void onReady(String data) {
+                        if(ready != null ) ready.onReady(data);
+                    }
 
-                @Override
-                public void onError(String data) {
-                    if(error != null ) error.onError(data);
-                }
+                    @Override
+                    public void onError(String data) {
+                        if(error != null ) error.onError(data);
+                    }
 
-                @Override
-                public void onCancel(String data) {
-                    if(cancel != null ) cancel.onCancel(data);
-                }
+                    @Override
+                    public void onCancel(String data) {
+                        if(cancel != null ) cancel.onCancel(data);
+                    }
 
-                @Override
-                public void onConfirm(String data) {
-                    if(confirm != null ) confirm.onConfirm(data);
-                }
+                    @Override
+                    public void onConfirm(String data) {
+                        if(confirm != null ) confirm.onConfirm(data);
+                    }
 
-                @Override
-                public void onDone(String data) {
-                    if(done != null ) done.onDone(data);
-                }
-        });
+                    @Override
+                    public void onDone(String data) {
+                        if(done != null ) done.onDone(data);
+                    }
+                });
 
         dialog.onCancel(new DialogInterface() {
             @Override
@@ -583,8 +589,68 @@ public class BootpayBuilder {
             }
         });
 
-        if (dialog != null) dialog.show(fm, "bootpay");
-//        System.currentTimeMillis()
+        if (dialog != null) {
+            dialog.show(fm, "bootpay");
+        }
+    }
+
+    private void requestDialogXCall() {
+        dialogX = new BootpayDialogX().setRequest(request)
+                .setOnResponseListener(listener != null ? listener : new EventListener() {
+                    @Override
+                    public void onClose(String data) {
+                        if(close != null ) close.onClose(data);
+                    }
+
+                    @Override
+                    public void onReady(String data) {
+                        if(ready != null ) ready.onReady(data);
+                    }
+
+                    @Override
+                    public void onError(String data) {
+                        if(error != null ) error.onError(data);
+                    }
+
+                    @Override
+                    public void onCancel(String data) {
+                        if(cancel != null ) cancel.onCancel(data);
+                    }
+
+                    @Override
+                    public void onConfirm(String data) {
+                        if(confirm != null ) confirm.onConfirm(data);
+                    }
+
+                    @Override
+                    public void onDone(String data) {
+                        if(done != null ) done.onDone(data);
+                    }
+                });
+
+        dialogX.onCancel(new DialogInterface() {
+            @Override
+            public void cancel() {
+                if (dialogX != null && dialogX.bootpay != null)
+                    dialogX.bootpay.destroy();
+                dialogX = null;
+                UserInfo.getInstance(context).finish();
+                Bootpay.finish();
+            }
+
+            @Override
+            public void dismiss() {
+                if (dialogX != null && dialogX.bootpay != null)
+                    dialogX.bootpay.destroy();
+                dialogX = null;
+                UserInfo.getInstance(context).finish();
+                Bootpay.finish();
+            }
+        });
+
+        if (dialogX != null) {
+            dialogX.show(fmx, "bootpay");
+        }
     }
 
     private void requestApi() {
@@ -602,6 +668,9 @@ public class BootpayBuilder {
         if (dialog != null)
             dialog.transactionConfirm(data);
 
+        if(dialogX != null)
+            dialogX.transactionConfirm(data);
+
         if(CurrentBioRequest.getInstance().activity != null)
             CurrentBioRequest.getInstance().activity.transactionConfirm(data);
 
@@ -617,10 +686,15 @@ public class BootpayBuilder {
     public void removePaymentWindow() {
         if (dialog != null)
             dialog.removePaymentWindow();
+
+        if (dialogX != null)
+            dialogX.removePaymentWindow();
     }
 
     public void dismiss() {
         if(dialog != null) dialog.dismiss();
+
+        if(dialogX != null) dialogX.dismiss();
 
         if(CurrentBioRequest.getInstance().activity != null)
             CurrentBioRequest.getInstance().activity.activityFinish();
@@ -642,6 +716,4 @@ public class BootpayBuilder {
     private void error(String message) {
         throw new RuntimeException(message);
     }
-
-
 }

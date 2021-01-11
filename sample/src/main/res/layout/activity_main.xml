@@ -130,6 +130,14 @@
                     android:layout_height="40dp" />
 
                 <Button
+                    android:id="@+id/btn_native_x"
+                    android:text="NativeX"
+                    android:layout_weight="1"
+                    android:onClick="goNativeXActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+
+                <Button
                     android:id="@+id/btn_bio"
                     android:text="생체인식"
                     android:layout_weight="1"
@@ -137,21 +145,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
 
-                <Button
-                    android:id="@+id/btn_webapp"
-                    android:text="WebApp"
-                    android:layout_weight="1"
-
-                    android:onClick="goWebAppActivity"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
-                <Button
-                    android:id="@+id/btn_local"
-                    android:text="Local"
-                    android:layout_weight="1"
-                    android:onClick="goLocalActivity"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
 
 
             </LinearLayout>

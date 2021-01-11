@@ -239,6 +239,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goNativeXActivity(View v) {
+        Intent intent = new Intent(this, NativeXActivity.class);
+        startActivity(intent);
+    }
+
     public void goBioActivity(View v) {
         Intent intent = new Intent(this, BioActivity.class);
         startActivity(intent);
