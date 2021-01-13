@@ -4,6 +4,7 @@ public enum PG {
     KCP,
     DANAL,
     INICIS,
+    UDPAY,
     NICEPAY,
     LGUP,
     PAYAPP,

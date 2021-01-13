@@ -15,6 +15,7 @@ public class BootpayKeyValue {
         pgHash.put("다날", "danal");
         pgHash.put("LGU+", "lgup");
         pgHash.put("이니시스", "inicis");
+        pgHash.put("유디페이", "udpay");
         pgHash.put("나이스페이", "nicepay");
         pgHash.put("페이앱", "payapp");
         pgHash.put("네이버페이", "naverpay");

@@ -15,6 +15,7 @@ public class PGAvailable {
         put(PG.KCP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL));
         put(PG.DANAL, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL, Method.AUTH));
         put(PG.INICIS, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
+        put(PG.UDPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.SUBSCRIPT_CARD, Method.CARD_REBILL, Method.AUTH));
         put(PG.NICEPAY, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.KAKAO));
         put(PG.PAYAPP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK, Method.KAKAO, Method.NPAY));
         put(PG.LGUP, Arrays.asList(Method.PHONE, Method.CARD, Method.BANK, Method.VBANK));
@@ -61,6 +62,8 @@ public class PGAvailable {
                 return PG.DANAL;
             case "inicis":
                 return PG.INICIS;
+            case "udpay":
+                return PG.UDPAY;
             case "nicepay":
                 return PG.NICEPAY;
             case "lgup":
@@ -108,6 +111,8 @@ public class PGAvailable {
                 return "kcp";
             case INICIS:
                 return "inicis";
+            case UDPAY:
+                return "udpay";
             case LGUP:
                 return "lgup";
             case KAKAO:

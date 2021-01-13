@@ -157,6 +157,8 @@ public class Bootpay {
                 return "kcp";
             case INICIS:
                 return "inicis";
+            case UDPAY:
+                return "udpay";
             case LGUP:
                 return "lgup";
             case KAKAO:

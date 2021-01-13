@@ -11,6 +11,8 @@ public class BPValue {
                 return "lgup";
             case "이니시스":
                 return "inicis";
+            case "유디페이":
+                return "udpay";
             case "나이스페이":
                 return "nicepay";
             case "카카오페이":
