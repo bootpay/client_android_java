@@ -205,7 +205,9 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
                         || url.startsWith("v3mobileplusweb://")
                         || url.startsWith("hdcardappcardansimclick://")
                         || url.startsWith("nidlogin://")
-                        || url.startsWith("mpocket.online.ansimclick://");
+                        || url.startsWith("mpocket.online.ansimclick://")
+                        || url.startsWith("wooripay://")
+                        || url.startsWith("kakaotalk://");
             }
 
             private Intent parse(String url) {
@@ -271,9 +273,11 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
                         context.startActivity(new Intent(Intent.ACTION_VIEW, intent.getData()));
                     } catch (Exception e) {
                         Log.d("goToMarket Error", e.getMessage());
-                        if(dataUri != null || dataUri.toString().startsWith("nidlogin://")) { //네이버 로그인일 경우 appPackageName이 비어 있이기에, 예외처리를 해주자
-                            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + "com.nhn.android.search")));
+                        String packageName = "com.nhn.android.search"; //네이버 로그인일 경우 appPackageName이 비어 있이기에, 예외처리를 해주자
+                        if(dataUri != null && dataUri.toString().startsWith("wooripay://")) { //우리카드 패키지에서 사이트 URL로 변경
+                            packageName = "com.wooricard.wpay";
                         }
+                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
                     }
                     return true;
                 }

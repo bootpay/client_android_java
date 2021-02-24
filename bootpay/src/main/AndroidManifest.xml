@@ -14,4 +14,8 @@
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.VIBRATE"/>
-</manifest>
+
+    <!-- android 11 모든 앱 접근 권한 사용  (Google Play 가이드라인 참고 - 2021-02-19 기준 못찾았음) -->
+    <!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission" /> -->
+
+  </manifest>
