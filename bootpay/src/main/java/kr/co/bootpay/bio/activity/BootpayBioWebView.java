@@ -49,7 +49,7 @@ import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_VERIFY_PAS
 
 public class BootpayBioWebView extends WebView {
 
-    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/production.html";
+    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.2/production.html";
 //    private static final String BOOTPAY = "https://www.naver.com";
 
     private Dialog dialog;

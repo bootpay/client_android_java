@@ -33,7 +33,7 @@ import kr.co.bootpay.rest.model.RestTokenData;
 
 public class NativeActivity extends Activity implements BootpayRestImplement {
     private int stuck = 1;
-    private String application_id = "5b8f6a4d396fa665fdc2b5e8";
+    private String application_id = "59a4d326396fa607cbe75de5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,8 +162,8 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
     //샘플 코드를 제공하는 이유는 빠르게 결제를 테스트 하길 원하시는 개발자들을 위함입니다.
     @Deprecated
     void readyBootPay() {
-        String rest_application_id = "5b8f6a4d396fa665fdc2b5ea";
-        String prviate_key = "n9jO7MxVFor3o//c9X5tdep95ZjdaiDvVB4h1B5cMHQ=";
+        String rest_application_id = "59a4d32b396fa607c2e75e00";
+        String prviate_key = "t3UENPWvsUort5WG0BFVk2+yBzmlt3UDvhDH2Uwp0oA=";
 
         BootpayRest.getRestToken(this, this, rest_application_id, prviate_key);
     }

@@ -207,7 +207,8 @@ private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.1/product
                         || url.startsWith("nidlogin://")
                         || url.startsWith("mpocket.online.ansimclick://")
                         || url.startsWith("wooripay://")
-                        || url.startsWith("kakaotalk://");
+                        || url.startsWith("kakaotalk://")
+                        || url.startsWith("ispmobile://");
             }
 
             private Intent parse(String url) {

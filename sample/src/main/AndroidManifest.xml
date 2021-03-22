@@ -29,6 +29,8 @@
         <activity android:name=".LocalHtmlActivity" android:screenOrientation="portrait"/>
         <activity android:name=".App2AppActivity" android:screenOrientation="portrait"/>
         <activity android:name=".BioActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".AuthActivity" android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

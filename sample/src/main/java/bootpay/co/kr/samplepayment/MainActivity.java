@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 //    private final String application_id = "5b14c0ffb6d49c40cda92c4e"; //pro
 //    private final String application_id = "c42bf24f74b40034c5f484"; //pro
 
-    private String application_id = "5b8f6a4d396fa665fdc2b5e8";
+    private String application_id = "59a4d326396fa607cbe75de5";
     Context context;
 
 
@@ -246,6 +246,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void goBioActivity(View v) {
         Intent intent = new Intent(this, BioActivity.class);
+        startActivity(intent);
+    }
+
+    public void getAuthActivity(View v){
+        Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);
     }
 
