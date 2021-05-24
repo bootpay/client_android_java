@@ -53,12 +53,14 @@
 
             <!-- 롯데카드 -->
             <package android:name="com.lcacApp" />
+            <package android:name="com.lottemembers.android" />
 
             <!-- 농협카드 -->
             <package android:name="nh.smart.nhallonepay" />
 
             <!-- 우리카드 -->
             <package android:name="com.wooricard.wpay" />
+            <package android:name="com.wooricard.smartapp" />
 
             <!-- 씨티은행 -->
             <package android:name="kr.co.citibank.citimobile" />
