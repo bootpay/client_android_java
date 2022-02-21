@@ -32,7 +32,7 @@ allprojects {
 ```gradle
 dependencies {
     ...
-    implementation 'com.github.bootpay:client_android_java:3.4.1'
+    implementation 'com.github.bootpay:client_android_java:3.5.0'
 }
 ```
 
