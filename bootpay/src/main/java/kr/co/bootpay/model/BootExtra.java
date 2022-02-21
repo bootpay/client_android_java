@@ -34,6 +34,7 @@ public final class BootExtra {
     private String theme = "purple"; // 통합 결제창 색상 지정 (purple, red, custom 지정 가능 )
     private String custom_background = ""; // theme가 custom인 경우 배경 색 지정 가능 ( ex: #f2f2f2 )
     private String custom_font_color = ""; // theme가 custom인 경우 폰트색 지정 가능 ( ex: #333333 )
+    private int is_show_close_button = 1; // 닫기 버튼을 제공하지 않는 특정 PG사에 부트페이가 닫기 버튼을 삽입할지 말지
 
 
 
@@ -206,7 +207,8 @@ public final class BootExtra {
                 theme(),
                 custom_background(),
                 custom_font_color(),
-                oneStore()
+                oneStore(),
+                isShowCloseButton()
         );
     }
 
@@ -295,5 +297,14 @@ public final class BootExtra {
     public String custom_font_color() {
         if(this.custom_font_color == null) return "";
         return String.format(Locale.KOREA, "custom_font_color: '%s'", this.custom_font_color);
+    }
+
+    public String isShowCloseButton() {
+        return String.format(Locale.KOREA, "is_show_close_button: %d", this.is_show_close_button);
+    }
+
+    public BootExtra setIsShowCloseButton(int is_show_close_button) {
+        this.is_show_close_button = is_show_close_button;
+        return this;
     }
 }
