@@ -112,7 +112,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     @Override
     public void onCancel(String data) {
         if(CurrentBioRequest.getInstance().cancel != null) CurrentBioRequest.getInstance().cancel.onCancel(data);
-        Log.d("bootpay", data);
+//        Log.d("bootpay", data);
         setResult(-1);
         finish();
     }
@@ -120,13 +120,13 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     @Override
     public void onClose(String data) {
         if(CurrentBioRequest.getInstance().close != null) CurrentBioRequest.getInstance().close.onClose(data);
-        Log.d("bootpay", data);
+//        Log.d("bootpay", data);
     }
 
     @Override
     public void onReady(String data) {
         if(CurrentBioRequest.getInstance().ready != null) CurrentBioRequest.getInstance().ready.onReady(data);
-        Log.d("bootpay", data);
+//        Log.d("bootpay", data);
         setResult(1);
         finish();
     }
@@ -134,13 +134,14 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     @Override
     public void onConfirm(String data) {
         if(CurrentBioRequest.getInstance().confirm != null) CurrentBioRequest.getInstance().confirm.onConfirm(data);
-        Log.d("bootpay", data);
+
+//        Log.d("bootpay", data);
     }
 
     @Override
     public void onDone(String data) {
         if(CurrentBioRequest.getInstance().done != null) CurrentBioRequest.getInstance().done.onDone(data);
-        Log.d("bootpay", data);
+//        Log.d("bootpay", data);
         setResult(1);
         finish();
     }

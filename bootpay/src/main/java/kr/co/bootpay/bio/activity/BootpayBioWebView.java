@@ -674,6 +674,7 @@ public class BootpayBioWebView extends WebView {
         @Override
         public void confirm(String data) {
             eventHandler.sendMessage(Message.obtain(eventHandler, CONFIRM, data));
+            transactionConfirm(data);
         }
 
         @JavascriptInterface
