@@ -49,7 +49,7 @@ import static kr.co.bootpay.bio.memory.CurrentBioRequest.REQUEST_TYPE_VERIFY_PAS
 
 public class BootpayBioWebView extends WebView {
 
-    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.2/production.html";
+    private static final String BOOTPAY = "https://inapp.bootpay.co.kr/3.3.3/production.html";
 //    private static final String BOOTPAY = "https://www.naver.com";
 
     private Dialog dialog;
@@ -276,7 +276,11 @@ public class BootpayBioWebView extends WebView {
                         || url.startsWith("kftc-bankpay://")
                         || url.startsWith("v3mobileplusweb://")
                         || url.startsWith("hdcardappcardansimclick://")
-                        || url.startsWith("mpocket.online.ansimclick://");
+                        || url.startsWith("nidlogin://")
+                        || url.startsWith("mpocket.online.ansimclick://")
+                        || url.startsWith("wooripay://")
+                        || url.startsWith("kakaotalk://")
+                        || url.startsWith("ispmobile://");
             }
 
             private Intent parse(String url) {

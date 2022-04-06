@@ -70,8 +70,8 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
     //샘플 코드를 제공하는 이유는 빠르게 결제를 테스트 하길 원하시는 개발자들을 위함입니다.
     public void goBioPay(View v) {
 
-        String rest_application_id = "59a4d32b396fa607c2e75e00";
-        String prviate_key = "t3UENPWvsUort5WG0BFVk2+yBzmlt3UDvhDH2Uwp0oA=";
+        String rest_application_id = "5b8f6a4d396fa665fdc2b5ea";
+        String prviate_key = "rm6EYECr6aroQVG2ntW0A6LpWnkTgP4uQ3H18sDDUYw=";
 
         BootpayRest.getRestToken(this, this, rest_application_id, prviate_key);
     }
