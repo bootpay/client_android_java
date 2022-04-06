@@ -37,41 +37,43 @@ public class CardCode {
     public static int getColorText(String code) {
         switch (code) {
             case BC:
+            case SH:
+            case HD:
                 return R.color.card_bc;
             case KB:
             case HN:
             case SS:
                 return R.color.white;
-            case SH:
-                return R.color.card_sh;
-            case HD:
-                return R.color.black;
             case LT:
-                return R.color.card_lt;
+                return R.color.white;
             case CT:
                 return R.color.card_ct;
             case NH:
                 return R.color.white;
             case SH2:
-                return R.color.card_sh2;
+                return R.color.white;
             case SH3:
-                return R.color.card_sh3;
+                return R.color.white;
             case GJ:
                 return R.color.white;
+//            case JB:
+//                return R.color.card_jb;
             case JB:
-                return R.color.card_jb;
             case JJ:
             case SHCPT:
-                return R.color.card_jj;
+                return R.color.card_bc;
+//                return R.color.card_jj;
+//            case GVS:
+//                return R.color.card_gvs;
             case GVS:
-                return R.color.card_gvs;
             case GMST:
             case GDNS:
-                return R.color.card_gjcb;
+                return R.color.card_bc;
             case GAMX:
             case GJCB:
                 return R.color.white;
             case SKOK:
+                return R.color.card_bc;
             case POST:
                 return R.color.white;
             case SM:
@@ -94,38 +96,37 @@ public class CardCode {
     public static int getColorBackground(String code) {
         switch (code) {
             case BC:
-                return R.drawable.rounded_white;
+            case SH:
+            case HD:
+                return R.drawable.card_bc;
             case KB:
                 return R.drawable.card_kb;
             case HN:
                 return R.drawable.card_hn;
             case SS:
                 return R.drawable.card_ss;
-            case SH:
-            case HD:
-                return R.drawable.rounded_white;
             case LT:
-                return R.color.card_default;
+                return R.drawable.card_lt;
             case CT:
             case SH2:
             case SH3:
-                return R.drawable.rounded_white;
+                return R.drawable.card_sh2;
             case GJ:
                 return R.drawable.card_gj;
             case JB:
             case JJ:
             case SHCPT:
-                return R.drawable.rounded_white;
+                return R.color.card_bc;
             case GVS:
             case GMST:
             case GDNS:
-                return R.drawable.card_default;
+                return R.color.card_bc;
             case GAMX:
                 return R.drawable.card_gamx;
             case GJCB:
                 return R.drawable.card_gjcb;
             case SKOK:
-                return R.drawable.card_default;
+                return R.color.card_bc;
             case POST:
                 return R.drawable.card_post;
             case SM:

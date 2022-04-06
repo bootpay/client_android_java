@@ -25,8 +25,8 @@ android {
 }
 
 dependencies {
-    api 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    api 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
 //    implementation 'com.android.support:appcompat-v7:26.1.0'
 // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
 
@@ -42,11 +42,11 @@ dependencies {
     // jitpack 배포시 아래 주석을 풀어서 사용
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31" // build for use kotlin in unity development
 
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
-    implementation 'com.squareup.retrofit2:converter-moshi:2.6.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
 
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
@@ -58,9 +58,9 @@ dependencies {
 
     implementation 'dev.samstevens.totp:totp:1.7'
     implementation 'androidx.biometric:biometric:1.0.1'
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
 
-    implementation "com.github.skydoves:powerspinner:1.1.5"
+    implementation "com.github.skydoves:powerspinner:1.1.9"
 }
 
 repositories {
