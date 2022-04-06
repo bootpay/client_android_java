@@ -54,6 +54,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
 
         setContentView(R.layout.layout_bio_activity);
         webView = findViewById(R.id.webview);
+//        webview.setlis
     }
 
     @Override
@@ -132,8 +133,16 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     }
 
     @Override
-    public void onConfirm(String data) {
+    public void onConfirm(final String data) {
         if(CurrentBioRequest.getInstance().confirm != null) CurrentBioRequest.getInstance().confirm.onConfirm(data);
+
+        //auto transaction commit
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                transactionConfirm(data);
+            }
+        });
 
 //        Log.d("bootpay", data);
     }

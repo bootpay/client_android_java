@@ -612,7 +612,6 @@ public class BootpayBioWebView extends WebView {
         builder.append(";");
         String request = builder.toString();
 
-        Log.d("bootpay request -----", request);
 
         load(request);
     }
@@ -674,7 +673,6 @@ public class BootpayBioWebView extends WebView {
         @Override
         public void confirm(String data) {
             eventHandler.sendMessage(Message.obtain(eventHandler, CONFIRM, data));
-            transactionConfirm(data);
         }
 
         @JavascriptInterface

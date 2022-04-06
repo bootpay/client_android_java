@@ -107,7 +107,7 @@ public class BioActivity extends FragmentActivity implements BootpayRestImplemen
         String application_id = "5b8f6a4d396fa665fdc2b5e8";
 
         BioPayload bioPayload = new BioPayload();
-        bioPayload.setPg(PG.PAYAPP)
+        bioPayload.setPg(PG.NICEPAY)
                 .setName("bootpay test")
                 .setPrice(1000.0) //최종 결제 금액
                 .setOrder_id(String.valueOf(System.currentTimeMillis())) //개발사에서 관리하는 주문번호
