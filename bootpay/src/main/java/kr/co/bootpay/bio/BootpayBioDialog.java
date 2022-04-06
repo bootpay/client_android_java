@@ -23,7 +23,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 import dev.samstevens.totp.code.CodeGenerator;

@@ -32,11 +32,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.skydoves.powerspinner.PowerSpinnerView;
 
+import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 import dev.samstevens.totp.code.CodeGenerator;
@@ -69,6 +72,9 @@ import kr.co.bootpay.rest.BootpayBioRestImplement;
 import kr.co.bootpay.rest.model.ResDefault;
 
 import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class BootpayBioActivity extends FragmentActivity implements BootpayBioRestImplement, IBioActivityFunction, IBioPayFunction {
@@ -600,7 +606,17 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
     public void callbackEasyTransaction(String data) {
         progress.dismiss();
         DoneListener done = CurrentBioRequest.getInstance().done;
-        if(done != null) done.onDone(data);
+
+
+        try {
+            JSONObject jsonObject = new JSONObject(data);
+            if(done != null) done.onDone(jsonObject.get("data").toString());
+        } catch (JSONException e) {
+            if(done != null) done.onDone(data);
+            e.printStackTrace();
+        }
+//        Type resType = new TypeToken<Map<String, String>>(){}.getType();
+//        Map<String, String> result = new Gson().fromJson(data, resType);
     }
 
     @Override

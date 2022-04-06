@@ -1,11 +1,15 @@
 package kr.co.bootpay.bio.api;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONObject;
-
+import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Executors;
 
 import io.reactivex.Observer;
@@ -213,8 +217,13 @@ public class BioApiPresenter {
                             @Override
                             public void onComplete() {
                                 try {
-                                    JSONObject jsonObject = new JSONObject(easyConfirm.toString());
-                                    scope.parent.callbackEasyTransaction(jsonObject.getString("data"));
+//                                    easyConfirm.
+//                                    Log.d("bootpay", "data: " + easyConfirm.string());
+//                                    Type resType = new TypeToken<Map<String, String>>(){}.getType();
+//                                    Map<String, String> result = new Gson().fromJson(easyConfirm.string(), resType);
+//
+//                                    Log.d("bootpay", "result: " + result.get("data"));
+                                    scope.parent.callbackEasyTransaction(easyConfirm.string());
                                 } catch (Exception ee) {
                                     ee.printStackTrace();
                                 }
