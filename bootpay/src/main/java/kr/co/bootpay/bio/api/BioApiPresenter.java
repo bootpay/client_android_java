@@ -1,6 +1,9 @@
 package kr.co.bootpay.bio.api;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.concurrent.Executors;
@@ -210,7 +213,8 @@ public class BioApiPresenter {
                             @Override
                             public void onComplete() {
                                 try {
-                                    scope.parent.callbackEasyTransaction(easyConfirm.string());
+                                    JSONObject jsonObject = new JSONObject(easyConfirm.toString());
+                                    scope.parent.callbackEasyTransaction(jsonObject.getString("data"));
                                 } catch (Exception ee) {
                                     ee.printStackTrace();
                                 }
