@@ -2,6 +2,7 @@ package kr.co.bootpay.bio.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -70,22 +71,25 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
 
     @Override
     public void onEasyCancel(String data) {
-        Log.d("bootpay", data);
-        setResult(-1);
+//        Log.d("bootpay", data);
+//        setResult(-1);
+        setFinishData("onCancel", data);
         finish();
     }
 
     @Override
     public void onEasyError(String data) {
-        Log.d("bootpay", data);
-        setResult(-2);
+//        Log.d("bootpay", data);
+//        setResult(-2);
+        setFinishData("onError", data);
         finish();
     }
 
     @Override
     public void onEasySuccess(String data) {
-        Log.d("bootpay", data);
-        setResult(1);
+//        Log.d("bootpay", data);
+        setFinishData("onDone", data);
+//        setResult(1);
         if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_ENABLE_DEVICE || CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD) {
             EventSuccessDevice res = new Gson().fromJson(data, EventSuccessDevice.class);
             CurrentBioRequest.getInstance().token = res.data.token;
@@ -106,7 +110,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     public void onError(String data) {
 //        Log.d("bootpay", data);
         if(CurrentBioRequest.getInstance().error != null) CurrentBioRequest.getInstance().error.onError(data);
-        setResult(-2);
+        setFinishData("onError", data);
         finish();
     }
 
@@ -114,7 +118,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     public void onCancel(String data) {
         if(CurrentBioRequest.getInstance().cancel != null) CurrentBioRequest.getInstance().cancel.onCancel(data);
 //        Log.d("bootpay", data);
-        setResult(-1);
+        setFinishData("onCancel", data);
         finish();
     }
 
@@ -128,7 +132,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     public void onReady(String data) {
         if(CurrentBioRequest.getInstance().ready != null) CurrentBioRequest.getInstance().ready.onReady(data);
 //        Log.d("bootpay", data);
-        setResult(1);
+        setFinishData("onReady", data);
         finish();
     }
 
@@ -151,7 +155,15 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     public void onDone(String data) {
         if(CurrentBioRequest.getInstance().done != null) CurrentBioRequest.getInstance().done.onDone(data);
 //        Log.d("bootpay", data);
-        setResult(1);
+//        setResult(9876, data);
+        setFinishData("onDone", data);
         finish();
+    }
+
+    void setFinishData(String method, String message) {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("method", method);
+        resultIntent.putExtra("message", message);
+        setResult(9876, resultIntent);
     }
 }

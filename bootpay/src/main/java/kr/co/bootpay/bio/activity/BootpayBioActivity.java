@@ -795,4 +795,11 @@ public class BootpayBioActivity extends FragmentActivity implements BootpayBioRe
             getEasyCardWalletList();
         }
     }
+
+//    void setFinishData(String method, String message) {
+//        Intent resultIntent = new Intent();
+//        resultIntent.putExtra("method", method);
+//        resultIntent.putExtra("message", message);
+//        setResult(9876, resultIntent);
+//    }
 }
