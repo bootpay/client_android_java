@@ -88,7 +88,7 @@ public class BootpayBioWebviewActivity extends Activity implements BioEventListe
     @Override
     public void onEasySuccess(String data) {
 //        Log.d("bootpay", data);
-        setFinishData("onDone", data);
+//        setFinishData("onDone", data);
 //        setResult(1);
         if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_ENABLE_DEVICE || CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD) {
             EventSuccessDevice res = new Gson().fromJson(data, EventSuccessDevice.class);
