@@ -72,7 +72,7 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
 
     void goPGPay() {
         BootUser bootUser = new BootUser().setAddr("서울시 동작구 상도로 369").setEmail("ru10008@gamil.com").setPhone("010-1234-2314");
-        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {1,2,3}).setPopup(1).setQuickPopup(1);
+        BootExtra bootExtra = new BootExtra().setQuotas(new int[] {1,2,3}).setPopup(1);
 
 //        Payload payload = new Payload();
 //        payload.setOrder_id("1232352354")
@@ -87,7 +87,7 @@ public class NativeActivity extends Activity implements BootpayRestImplement {
         Bootpay.init(getFragmentManager())
                 .setContext(this)
                 .setApplicationId(application_id) // 해당 프로젝트(안드로이드)의 application id 값
-                .setPG(PG.PAYAPP) // 결제할 PG 사
+                .setPG(PG.NICEPAY) // 결제할 PG 사
                 .setMethod(Method.NPAY)
 //                .setEasyPayUserToken("wef")
 //                .setMethodList(Arrays.asList(Method.EASY_CARD, Method.PHONE, Method.BANK, Method.CARD, Method.VBANK))
